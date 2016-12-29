@@ -326,7 +326,7 @@ Dragdealer.prototype = {
     this.onWindowResize = bind(this.onWindowResize, this);
   },
   bindEventListeners: function() {
-    // Start dragging
+     //Start dragging
     addEventListener(this.handle, 'mousedown', this.onHandleMouseDown);
     addEventListener(this.handle, 'touchstart', this.onHandleTouchStart);
     // While dragging

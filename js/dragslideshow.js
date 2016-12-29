@@ -158,7 +158,7 @@
 					// up key
 					case 38:
 						// only if current scroll is 0:
-						if( self._getContentPage( currentSlide ).scrollTop === 0 ) {
+						if( self._getContentPage( currentSlide ).scrollTop == 0 ) {
 							self._toggleContent( currentSlide );
 						}
 						break;
@@ -195,6 +195,8 @@
 	 * show/hide content
 	 */
 	DragSlideshow.prototype._toggleContent = function( slide ) {
+		
+	
 		if( this.isAnimating ) {
 			return false;
 		}
@@ -218,6 +220,7 @@
 			this.dd.disable();
 			classie.add( this.el, 'show-content' );	
 			classie.add( page, 'show' );
+
 		}
 
 		var self = this,

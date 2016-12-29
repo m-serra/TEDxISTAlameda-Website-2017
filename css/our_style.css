@@ -61,6 +61,7 @@ body {
     font-weight:normal;
     color:#888888;
     margin:0;
+
 }
 h2{
     font-size:34px;
@@ -185,11 +186,14 @@ p{
 /* Navigation
 ---------------------------------*/
 
+
 .main-nav-outer{
     padding:0px;
-    position:relative;
     background-color: rgba( 233, 235, 238, 0.1);
     height: 4em;
+    position: fixed;
+    z-index: 1000;
+    width: 
 }
 .main-nav{
     text-align: center;
@@ -218,7 +222,7 @@ p{
     -webkit-transition:all 0.3s ease-in-out;
 }
 
-.main-nav li a:hover{ 
+.navbar li a:hover{ 
     text-decoration:none;
     color: #e62b1e;
 }
