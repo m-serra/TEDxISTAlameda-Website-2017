@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="css/dragdealer.css" /> 
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+		<link rel="stylesheet" type="text/css" href="css/necessary_bootstrap.css" >
 		<link rel="stylesheet" type="text/css" href="css/our_style.css" />
 		
   		<script src="js/modernizr.custom.js"></script>
@@ -36,7 +36,7 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav">
 			        	<!--<ul class="main-nav"> -->
-				            <li class="small-logo"><a href="#header"><img src="img_ted/TEDxISTAlameda_LOGO.png" alt="" style="max-width:200px; height=100%;"></a></li>
+				            <li class="small-logo" id='logo'><a href="#header"><img src="img_ted/TEDxISTAlameda_LOGO.png" alt="" style="max-width:200px; height=100%;"></a></li>
 				            <li><a href="#speakers">Speakers</a></li>
 				            <li><a href="#partners">Partners</a></li>
 				            <li><a href="#team">Team</a></li>
@@ -50,7 +50,7 @@
 		
 
 			<header id="header" class="codrops-header">
-
+				<h1 id='demo'> </h1>
 				<span class="message">This mobile version does not have the slideshow switch</span>
 				<button class="slider-switch">Switch view</button>
 			</header>
@@ -197,6 +197,23 @@
 				//overlayClose.addEventListener( 'click', closeOverlay );
 
 			}());
+		</script>
+
+		<script>
+			
+			var logo = document.getElementById("logo");
+		
+			logo.addEventListener("click", myFunction);
+			
+
+			function myFunction() {
+
+				document.getElementById("demo").innerHTML = "Hello World";
+
+
+			}
+
+
 		</script>
 
 		

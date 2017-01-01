@@ -343,10 +343,8 @@ Dragdealer.prototype = {
     addEventListener(window, 'resize', this.onWindowResize);
 
     var _this = this;
-    this.interval = setInterval(function() {
-      _this.animate();
-    }, 25);
-    this.animate(false, true);
+    this.interval = setInterval(function() { _this.animate(); }, 25);
+    this.animate(true, true);
   },
   unbindEventListeners: function() {
     removeEventListener(this.handle, 'mousedown', this.onHandleMouseDown);

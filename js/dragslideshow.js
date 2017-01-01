@@ -179,6 +179,8 @@
 					case 39:
 						self.dd.setStep( self.current + 2 );
 						break;
+
+					
 				}
 			}
 		} );

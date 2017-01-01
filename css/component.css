@@ -420,7 +420,7 @@ button.content-switch::before {
 
 /* Switch */
 .switch-min .img-dragger-large .slide > *:not(.img-wrap),
-.switch-max .img-dragger-small .slide > *:not(.img-wrap)  { /* fade out everything except image */
+.switch-max .img-dragger-small .slide > *:not(.img-wrap)  {  /*fade out everything except image */
 	opacity: 0;
 	-webkit-transition: none;
 	transition: none;
