@@ -16,37 +16,16 @@
 		<link rel="stylesheet" type="text/css" href="css/necessary_bootstrap.css" >
 		<link rel="stylesheet" type="text/css" href="css/our_style.css" />
 		
+		<script src="js/jquery-1.10.2.js"></script>
+  		<script src="js/jquery.simulate.js"></script>
+
   		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
 		<div class="container" style="width:100%">
 
 
-			<!--============== NAVIGATION BAR =====================-->
-			<nav class="navbar navbar-inverse navbar-fixed-top" style="z-index:1000;">
-			<!--<nav class="main-nav-outer" data-spy="" data-offset-top=""> -->
-				<div class="container-fluid">	
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        					<span class="icon-bar"></span>
-        					<span class="icon-bar"></span>	<!--NUMERO DE ANDARES DO HABURGUER-->
-        					<span class="icon-bar"></span>                      
-      					</button>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav">
-			        	<!--<ul class="main-nav"> -->
-				            <li class="small-logo" id='logo'><a href="#header"><img src="img_ted/TEDxISTAlameda_LOGO.png" alt="" style="max-width:200px; height=100%;"></a></li>
-				            <li><a href="#speakers">Speakers</a></li>
-				            <li><a href="#partners">Partners</a></li>
-				            <li><a href="#team">Team</a></li>
-				            <li><a href="#about">About</a></li>
-				            <li><a href="#contact">Contacts</a></li>
-						</ul>
-					</div>
-		        	<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-				</div>
-			</nav><!--main-nav-end-->
+			
 		
 
 			<header id="header" class="codrops-header">
@@ -66,33 +45,69 @@
 				<!--</div> -->
 			</div> 
 
+			
+
 			<div id="slideshow" class="dragslider">
 				<section class="img-dragger img-dragger-large dragdealer">
 					<div class="handle">
 						<div class="slide" data-content="content-1" id="speakers">
 							<div class="img-wrap"><img src="img_TED/FLICKR.jpg" alt="banner"/></div>
 							<h2><span></span></h2>
-							<button class="content-switch">Read more</button>
-							
+							<div class="menu">
+								<a class="" data-x="1" href="#">Speakers</a>
+								<a class="" data-x="2" href="#">Partners</a>
+								<a class="" data-x="3" href="#">Team</a>
+								<a class="" data-x="4" href="#">About</a>
+								<a class="" data-x="5" href="#">Contacts</a>
+							</div>	
+							<button class="content-switch">Read more</button>		
 						</div>
 						<div class="slide" data-content="content-2" id="partners">
 							<div class="img-wrap"><img src="img/2.jpg" alt="img2"/></div>
 							<h2>Round Table <span>King Arthur's creative team techniques</span></h2>
+							<div class="menu">
+								<a class="" data-x="1" href="#">Speakers</a>
+								<a class="" data-x="2" href="#">Partners</a>
+								<a class="" data-x="3" href="#">Team</a>
+								<a class="" data-x="4" href="#">About</a>
+								<a class="" data-x="5" href="#">Contacts</a>
+							</div>	
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-3" id="team">
 							<div class="img-wrap"><img src="img/3.jpg" alt="img3"/></div>
 							<h2>Taking Sneezes <span>Nothing is out there&mdash;let's try again</span></h2>
+							<div class="menu">
+								<a class="" data-x="1" href="#">Speakers</a>
+								<a class="" data-x="2" href="#">Partners</a>
+								<a class="" data-x="3" href="#">Team</a>
+								<a class="" data-x="4" href="#">About</a>
+								<a class="" data-x="5" href="#">Contacts</a>
+							</div>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-4" id="about">
 							<div class="img-wrap"><img src="img/4.jpg" alt="img4"/></div>
 							<h2>Heavy Talks <span>Heated conversations in the back yard</span></h2>
+							<div class="menu">
+								<a class="" data-x="1" href="#">Speakers</a>
+								<a class="" data-x="2" href="#">Partners</a>
+								<a class="" data-x="3" href="#">Team</a>
+								<a class="" data-x="4" href="#">About</a>
+								<a class="" data-x="5" href="#">Contacts</a>
+							</div>
 							<button class="content-switch">Read more</button>
 						</div>
 						<div class="slide" data-content="content-5" id="contact">
 							<div class="img-wrap"><img src="img/5.jpg" alt="img5"/></div>
 							<h2>Mountain Sun <span>Crazy nature and other weather ideas</span></h2>
+							<div class="menu">
+								<a class="" data-x="1" href="#">Speakers</a>
+								<a class="" data-x="2" href="#">Partners</a>
+								<a class="" data-x="3" href="#">Team</a>
+								<a class="" data-x="4" href="#">About</a>
+								<a class="" data-x="5" href="#">Contacts</a>
+							</div>
 							<button class="content-switch">Read more</button>
 						</div>
 						
@@ -199,22 +214,7 @@
 			}());
 		</script>
 
-		<script>
-			
-			var logo = document.getElementById("logo");
 		
-			logo.addEventListener("click", myFunction);
-			
-
-			function myFunction() {
-
-				document.getElementById("demo").innerHTML = "Hello World";
-
-
-			}
-
-
-		</script>
 
 		
 	</body>
