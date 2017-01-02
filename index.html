@@ -14,7 +14,6 @@
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		
 		<link rel="stylesheet" type="text/css" href="css/necessary_bootstrap.css" >
-		<link rel="stylesheet" type="text/css" href="css/our_style.css" />
 		
 		<script src="js/jquery-1.10.2.js"></script>
   		<script src="js/jquery.simulate.js"></script>
@@ -24,13 +23,33 @@
 	<body>
 		<div class="container" style="width:100%">
 
-
-			
+			<!--============== NAVIGATION BAR =====================-->
+			<span class=mapHolder>	
+				<nav class="navbar navbar-fixed-top myNav" id="">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse">
+	        				<span class="icon-bar"></span>
+	        				<span class="icon-bar"></span>	<!--NUMERO DE ANDARES DO HABURGUER-->
+	        				<span class="icon-bar"></span>                      
+	      				</button>
+					</div>
+					<div class="collapse navbar-collapse" id="myNavbar">
+						<ul class="nav navbar-nav">
+					        <li class="small-logo" id='logo'><a href="#header"><img src="img_TED/TEDxISTAlameda_LOGO.png" alt="" style="max-width:200px; height=100%;"></a></li>
+					        <li><a data-x="1" href="#">Speakers</a></li>
+				            <li><a data-x="2" href="#">Partners</a></li>
+				            <li><a data-x="3" href="#">Team</a></li>
+				            <li><a data-x="4" href="#">About</a></li>
+				            <li><a data-x="5" href="#">Contacts</a></li>
+						</ul>
+					</div>
+			        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+				</nav><!--main-nav-end-->
+			</span>
 		
 
 			<header id="header" class="codrops-header">
 				<h1 id='demo'> </h1>
-				<span class="message">This mobile version does not have the slideshow switch</span>
 				<button class="slider-switch">Switch view</button>
 			</header>
 
@@ -51,64 +70,29 @@
 				<section class="img-dragger img-dragger-large dragdealer">
 					<div class="handle">
 						<div class="slide" data-content="content-1" id="speakers">
-							<div class="img-wrap"><img src="img_TED/FLICKR.jpg" alt="banner"/></div>
+							<div class="img-wrap"><img src="img_TED/flickr.jpg" alt="banner"/></div>
 							<h2><span></span></h2>
-							<div class="menu">
-								<a class="" data-x="1" href="#">Speakers</a>
-								<a class="" data-x="2" href="#">Partners</a>
-								<a class="" data-x="3" href="#">Team</a>
-								<a class="" data-x="4" href="#">About</a>
-								<a class="" data-x="5" href="#">Contacts</a>
-							</div>	
-							<button class="content-switch">Read more</button>		
+							<button class="content-switch" onclick="myFunction()">Read more</button>		
 						</div>
 						<div class="slide" data-content="content-2" id="partners">
 							<div class="img-wrap"><img src="img/2.jpg" alt="img2"/></div>
 							<h2>Round Table <span>King Arthur's creative team techniques</span></h2>
-							<div class="menu">
-								<a class="" data-x="1" href="#">Speakers</a>
-								<a class="" data-x="2" href="#">Partners</a>
-								<a class="" data-x="3" href="#">Team</a>
-								<a class="" data-x="4" href="#">About</a>
-								<a class="" data-x="5" href="#">Contacts</a>
-							</div>	
-							<button class="content-switch">Read more</button>
+							<button class="content-switch" onclick="myFunction()">Read more</button>
 						</div>
 						<div class="slide" data-content="content-3" id="team">
 							<div class="img-wrap"><img src="img/3.jpg" alt="img3"/></div>
 							<h2>Taking Sneezes <span>Nothing is out there&mdash;let's try again</span></h2>
-							<div class="menu">
-								<a class="" data-x="1" href="#">Speakers</a>
-								<a class="" data-x="2" href="#">Partners</a>
-								<a class="" data-x="3" href="#">Team</a>
-								<a class="" data-x="4" href="#">About</a>
-								<a class="" data-x="5" href="#">Contacts</a>
-							</div>
-							<button class="content-switch">Read more</button>
+							<button class="content-switch" onclick="myFunction()">Read more</button>
 						</div>
 						<div class="slide" data-content="content-4" id="about">
 							<div class="img-wrap"><img src="img/4.jpg" alt="img4"/></div>
 							<h2>Heavy Talks <span>Heated conversations in the back yard</span></h2>
-							<div class="menu">
-								<a class="" data-x="1" href="#">Speakers</a>
-								<a class="" data-x="2" href="#">Partners</a>
-								<a class="" data-x="3" href="#">Team</a>
-								<a class="" data-x="4" href="#">About</a>
-								<a class="" data-x="5" href="#">Contacts</a>
-							</div>
-							<button class="content-switch">Read more</button>
+							<button class="content-switch" onclick="myFunction()">Read more</button>
 						</div>
 						<div class="slide" data-content="content-5" id="contact">
 							<div class="img-wrap"><img src="img/5.jpg" alt="img5"/></div>
 							<h2>Mountain Sun <span>Crazy nature and other weather ideas</span></h2>
-							<div class="menu">
-								<a class="" data-x="1" href="#">Speakers</a>
-								<a class="" data-x="2" href="#">Partners</a>
-								<a class="" data-x="3" href="#">Team</a>
-								<a class="" data-x="4" href="#">About</a>
-								<a class="" data-x="5" href="#">Contacts</a>
-							</div>
-							<button class="content-switch">Read more</button>
+							<button class="content-switch" onclick="myFunction()">Read more</button>
 						</div>
 						
 					</div>
@@ -212,6 +196,21 @@
 				//overlayClose.addEventListener( 'click', closeOverlay );
 
 			}());
+		</script>
+
+		<script>
+			var count= 0;
+			
+			function myFunction() {
+					if(count==0){
+    					document.getElementById("myNav").style.display = "none";
+    					count = 1;
+    				}
+    				else {
+    					document.getElementById("myNav").style.display = "block";
+    					count = 0;
+    				}
+			}
 		</script>
 
 		

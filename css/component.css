@@ -79,6 +79,12 @@ button.slider-switch {
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 	pointer-events: auto;
+
+	/*======================*/
+	top: 20px;
+	/*left: 160px;*/
+	left: 80px;
+
 }
 
 .no-js button.slider-switch {
@@ -467,17 +473,18 @@ button.content-switch::before {
 }
 
 /* ================================== */
-
-.handle .menu {
+/*
+.mapHolder .menu {
         position: fixed;
         width: 100%;
         margin: 0;
-        /*padding: 10px 15px;*/
+      
         height: 4em;
        	background-color: rgba( 233, 235, 238, 0.1);
         color: #666;
         cursor: default;
         z-index: 1000;
+        left: 0;
       }
 
 .menu a{
@@ -488,12 +495,12 @@ button.content-switch::before {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     line-height:5px;
-    margin:0px 32px; /*TODO*/
+    margin:0px 32px; 
    
 }  
 
 .menu a:hover{ 
     text-decoration:none;
     color: #e62b1e;
-}
+} */
    

@@ -265,7 +265,7 @@
 	
 		var gotoSlide = 1;
 		var slidesObject = this.dd;
-		$('#slideshow').on('click', '.menu a', function(e) {
+		$(".mapHolder .myNav li a").on('click', function(e) {
 	    e.preventDefault();
 	   	gotoSlide = $(this).attr("data-x")
 	    slidesObject.setStep(gotoSlide);
