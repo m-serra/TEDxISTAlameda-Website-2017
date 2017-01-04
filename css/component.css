@@ -258,7 +258,7 @@ button.content-switch {
 	font-family: 'Lato', sans-serif;
 	position: absolute;
 	cursor: pointer;
-	top: 100%;
+	top: 95%; /* ESTAVA A 100%*/
 	left: 50%;
 	-webkit-transform: translate3d(-50%,-200%,0);
 	transform: translate3d(-50%,-200%,0);
