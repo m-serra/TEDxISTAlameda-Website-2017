@@ -144,13 +144,11 @@ button.slider-switch:hover {
 	padding: 40px 0 0;
 }
 
-.img-dragger .slide {
-	
-
+.img-dragger .slide {	
 	display: inline-block;
 	position: relative;
 	height: 100%; 
-	background: #567076;
+	background: #567076;           /*É ISTO QUE FAZ COM QUE NO RELOAD APAREÇA UM FUNDO AZUL*/
 	font-size: 16px;
 	white-space: normal;
 	/*cursor: -webkit-grab; */
@@ -503,4 +501,3 @@ button.content-switch::before {
     text-decoration:none;
     color: #e62b1e;
 } */
-   

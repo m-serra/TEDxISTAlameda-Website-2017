@@ -125,11 +125,10 @@ summary {
 
 /*========================*/
 .navbar {
-  position: fixed;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-
+    position: fixed;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
 }
 /*========================*/
 .navbar:before,
