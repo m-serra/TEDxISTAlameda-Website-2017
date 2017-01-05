@@ -200,6 +200,7 @@ Dragdealer.prototype = {
     disabled: false,
     horizontal: true,
     vertical: false,
+    x: 0.5,
     slide: true,
     steps: 0,
     snap: false,
