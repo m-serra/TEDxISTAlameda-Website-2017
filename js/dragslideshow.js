@@ -8,6 +8,7 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
+
 ;( function( window ) {
 	
 	'use strict';
@@ -73,7 +74,7 @@
 		onToggleContent : function() { return false; },
 		onToggleContentComplete : function() { return false; }
 	}
-
+    
 	/**
 	 * init function
 	 * initialize and cache some vars
@@ -147,7 +148,8 @@
 			// reveal content
 			slide.querySelector( 'button.content-switch' ).addEventListener( 'click', function() { self._toggleContent( slide ); } );
 		} );
-
+        
+                
 		// keyboard navigation events
 		document.addEventListener( 'keydown', function( ev ) {
 			var keyCode = ev.keyCode || ev.which,
@@ -156,7 +158,7 @@
 			if( self.isContent ) {
 				switch (keyCode) {
 					// up key
-					case 38:
+					case (38 || navClick):
 						// only if current scroll is 0:
 						if( self._getContentPage( currentSlide ).scrollTop == 0 ) {
 							self._toggleContent( currentSlide );
@@ -184,6 +186,30 @@
 				}
 			}
 		} );
+        
+        /*========================================================*/
+        var buttons = document.querySelectorAll(".navbar-nav > li");
+        var  i = buttons.length;
+        var n = i.toString();
+        n='';
+        for (i=0; i < buttons.length; i++) {
+           
+            document.getElementById("demo").innerHTML = n;
+            
+            (buttons[i]).addEventListener('click', function(ev){
+                var currentSlide = self.slides[ self.current ];
+                if( self.isContent ) {
+                        // only if current scroll is 0:
+                        if( self._getContentPage( currentSlide ).scrollTop == 0 ) {
+                            self._toggleContent( currentSlide );
+                            
+                            slideMenu();
+                        }
+
+                }   
+            });
+        };
+        /*========================================================*/
 	}
 
 	/**
@@ -364,3 +390,6 @@
 
 
 } )( window );
+
+
+
