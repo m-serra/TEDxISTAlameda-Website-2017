@@ -3283,18 +3283,18 @@ function AssetLoader() {
     }
     ;
     _nav = document.querySelector(".nav");
-    n = document.querySelector(".nav__logo");
+    n = document.querySelector(".nav_logo");
     q = document.querySelector(".nav__hamburger");
     p = document.querySelector(".nav__x");
     document.querySelector("body main");
-    c = new Menu(document.querySelector(".menu"));
+    //c = new Menu(document.querySelector(".menu-options"));
     window.addEventListener("resize", b);
-    n.addEventListener("click", function(b) {
+    /*n.addEventListener("click", function(b) {
         b.preventDefault();
         c.isOpen && c.close();
         Controller.updateURL("/")
-    });
-    q.addEventListener("click", function(b) {
+    });*/
+    /*q.addEventListener("click", function(b) {
         debugger;
         c.isOpen ? (q.classList.remove("nav__hamburger--open"),
         c.close(),
@@ -3311,7 +3311,7 @@ function AssetLoader() {
                 p.style.display = "none"
             }
         }))
-    });
+    });*/
     p.addEventListener("click", function(b) {
         Controller.updateURL("/")
     });
@@ -3319,19 +3319,21 @@ function AssetLoader() {
     _nav.style.top = "-100px";
     return f
 }
+
+/* Menu (TEAM AND ABOUT) stuff - good to use in the future
 ;function Menu(b) {
     function f(c) {
-        _menuButtonList.querySelector(".menu__button--selected").classList.remove("menu__button--selected");
-        c.target.classList.add("menu__button--selected");
+        _menuButtonList.querySelector(".menu_section_button-selected").classList.remove("menu_section_button-selected");
+        c.target.classList.add("menu_section_button-selected");
         var e = c.target.getAttribute("data-section")
-          , f = b.querySelector(".menu__content--selected");
+          , f = b.querySelector(".content_selected");
         TweenLite.to(f, .2, {
             opacity: 0,
             ease: Linear.easeNone,
             onComplete: function() {
-                f.classList.remove("menu__content--selected");
-                var c = b.querySelector('.menu__content[data-section="' + e + '"]');
-                c.classList.add("menu__content--selected");
+                f.classList.remove("content_selected");
+                var c = b.querySelector('div[data-section="' + e + '"]');
+                c.classList.add("content_selected");
                 c.style.opacity = 0;
                 n();
                 TweenLite.to(c, .2, {
@@ -3343,7 +3345,7 @@ function AssetLoader() {
         })
     }
     function n() {
-        var c = b.querySelector(".menu__content--selected")
+        var c = b.querySelector(".content_selected")
           , e = (Model.viewport.height - 190 - c.clientHeight) / 2 - 20;
         20 > e && (e = 20);
         c.style.marginTop = e + "px"
@@ -3408,58 +3410,16 @@ function AssetLoader() {
     k = new Rum(b.querySelector(".menu__bg"));
     y = b.querySelector(".menu__text-container");
     _menuButtonList = b.querySelector(".menu__button-list");
-    w = _menuButtonList.querySelectorAll(".menu__button");
+    w = _menuButtonList.querySelectorAll(".menu-options");
     (function() {
         window.addEventListener("resize", p);
         for (var b = 0; b < w.length; b++)
             w[b].addEventListener("click", f)
     })();
     return c
-}
-;function Intro(b) {
-    function f(b) {
-        q.style.top = Math.floor((Model.viewport.height - q.clientHeight) / 2) + "px"
-    }
-    var n = {}, q;
-    n.animateIn = function(b) {
-        for (var c = q.querySelectorAll("span"), f = 0; f < c.length; f++) {
-            var n = new Rum(c[f]);
-            n.num = f;
-            n._y = 20;
-            n._update();
-            TweenLite.to(n, .9, {
-                delay: .7 * f + .2,
-                opacity: 1,
-                _y: 0,
-                ease: Quad.easeOut,
-                onUpdate: function() {
-                    this.target._update()
-                },
-                onComplete: function() {
-                    2 === this.target.num && b()
-                }
-            })
-        }
-    }
-    ;
-    n.fadeOut = function() {
-        TweenLite.to(q, .5, {
-            delay: 1.4,
-            opacity: 0,
-            ease: Linear.easeNone
-        })
-    }
-    ;
-    n.kill = function() {
-        b.style.display = "none";
-        window.removeEventListener("resize", f)
-    }
-    ;
-    q = b.querySelector(".intro__text-container");
-    f();
-    window.addEventListener("resize", f);
-    return n
-}
+} */
+
+
 ;function DayList() {
     function b(b) {
         var c = {};
@@ -3562,7 +3522,7 @@ function AssetLoader() {
         R.classList.remove("arrow-right--show")
     }
     var H = 100, P = {}, E, a, N = !1, F = 0, la, z = !1, K, R, oa, aa;
-    P.animateIn = function(b) {
+    /*P.animateIn = function(b) {
         TweenLite.to(la, .7, {
             delay: .7,
             opacity: 1,
@@ -3601,7 +3561,7 @@ function AssetLoader() {
         F !== b ? (a[F].deselect(),
         F = b,
         N = !0,
-        w(),
+        //w(),
         TweenLite.to(E, .7, {
             _x: Math.floor(-a[F].offsetLeft + (Model.viewport.width - Model.tileDimensions.width) / 2),
             ease: Quart.easeInOut,
@@ -3618,14 +3578,14 @@ function AssetLoader() {
         I(),
         E._x = Math.floor(-a[F].offsetLeft + (Model.viewport.width - Model.tileDimensions.width) / 2),
         E._update()))
-    }
+    }*/
     ;
-    Model.dayListMask = document.querySelector(".day-list-mask");
+    //Model.dayListMask = document.querySelector(".day-list-mask");
     E = new Rum(document.querySelector(".day-list"));
     E.style.visibility = "visible";
     H = 550 > Model.viewport.width ? 0 : 100;
     b(!1);
-    (function() {
+    /*(function() {
         var b = E.querySelectorAll(".day-list__item");
         a = [];
         for (var c = 0; c < b.length; c++) {
@@ -3633,16 +3593,17 @@ function AssetLoader() {
             e.href = 10 - c;
             a.push(e)
         }
+		debugger;
         la = new TileNumbers(p);
         Model.mainContainer.appendChild(la)
-    })();
+    })();*/
     K = Model.mainContainer.querySelector(".arrow-left");
     R = Model.mainContainer.querySelector(".arrow-right");
     K.style.top = Math.floor(Model.viewport.height / 2) + "px";
     R.style.top = Math.floor(Model.viewport.height / 2) + "px";
     K.addEventListener("click", k);
     R.addEventListener("click", c);
-    f();
+    //f();
     E._x = Model.viewport.width;
     E._update();
     (function() {
@@ -4012,15 +3973,14 @@ function AssetLoader() {
         }
     }
     ;
-    R = b.querySelector(".day-list__artists");
+    //R = b.querySelector(".day-list__artists");
     aa = b.querySelector(".day-list__bg");
     J = new Rum(b.querySelector(".day-list__title"));
     X = new Rum(b.querySelector(".day-list__cta"));
     X._y = 35;
     X._update();
     T = b.getAttribute("data-color");
-    R ? (S = R.querySelectorAll(".album"),
-    oa = b.querySelector(".day-list__header"),
+    /*R ? (S = R.querySelectorAll(".album"), oa = b.querySelector(".day-list__header"),
     L = b.getAttribute("data-layout") ? "layout-" + b.getAttribute("data-layout") : L,
     I(),
     w(),
@@ -4028,8 +3988,8 @@ function AssetLoader() {
     z.addEventListener("click", q),
     BrowserDetect.DESKTOP && (z.addEventListener("mouseenter", p),
     z.addEventListener("mouseleave", c))) : (z.isDisabled = !0,
-    aa.style.backgroundColor = "#f0f0f0");
-    return z
+    aa.style.backgroundColor = "#f0f0f0");*/
+    return z 
 }
 ;function TileNumbers(b) {
     function f(c) {
@@ -4038,11 +3998,12 @@ function AssetLoader() {
     }
     var n = document.createElement("div"), q, p;
     n.changeNumber = function(b) {
-        n.querySelector(".day-numbers__number--selected").classList.remove("day-numbers__number--selected");
+        n.querySelector(".menu-options_nb--selected").classList.remove("menu-options_nb--selected");
         p = b;
         var c = n.children[b];
+		debugger;
         setTimeout(function() {
-            c.classList.add("day-numbers__number--selected")
+            c.classList.add("menu-options_nb--selected")
         }, 150);
         TweenLite.to(q, .5, {
             backgroundColor: Model.colors[c.color],
@@ -4055,26 +4016,26 @@ function AssetLoader() {
         })
     }
     ;
-    n.classList.add("day-numbers");
+    n.classList.add("menu-options");
     (function() {
-        for (var b = document.body.querySelectorAll(".day-list .day-list__item"), k = "blue teal pink blue teal pink blue teal pink blue teal pink".split(" "), p = 0, q = 0; q < b.length; q++) {
-            var e = b[q].querySelector(".day-list__artists") ? !1 : !0
+        for (var b = document.body.querySelectorAll(".day-list .day-list__item"), k = "red red red red".split(" "), p = 0, q = 0; q < b.length; q++) {
+            var e = 0 //b[q].querySelector(".day-list__artists") ? !1 : !0
               , v = e ? document.createElement("span") : document.createElement("a");
             v.color = e ? "grey" : k[p];
-            v.classList.add("day-numbers__number");
+            v.classList.add("menu-options_nb");
             v.classList.add(v.color);
             v.num = q;
-            v.innerHTML = 10 - q;
+            v.innerHTML = 4 - q;
             n.appendChild(v);
             p++;
             p > k.length - 1 && (k = 0);
-            0 === q && v.classList.add("day-numbers__number--selected");
-            e ? v.classList.add("day-numbers__number--disabled") : (v.href = 10 - q,
+            0 === q && v.classList.add("menu-options_nb--selected");
+            e ? v.classList.add("menu-options_nb--disabled") : (v.href = 4 - q,
             v.addEventListener("click", f))
         }
     })();
     q = new Rum;
-    q.classList.add("day-numbers__line");
+    q.classList.add("menu-options__line");
     n.appendChild(q);
     window.addEventListener("resize", function(b) {
         n.children[p] && (q._x = n.children[p].offsetLeft,
@@ -4257,7 +4218,7 @@ function AssetLoader() {
         blue: "#00AFFA",
         teal: "#32E1E1",
         pink: "#FAC8FA",
-        red: "#FA4B4B",
+        red: "#E62B1E",
         grey: "#F0F0F0"
     };
     f.colorOrder = {
@@ -4369,10 +4330,11 @@ function View() {
         window.addEventListener("resize", b);
         b();
         new SocialButtons;
-        n = new DayList;
-        n.animateIn(function() {
+		debugger;
+        //n = new DayList;
+        /*n.animateIn(function() {
             f.update()
-        })
+        })*/
     })();
     return f
 }
@@ -4392,15 +4354,13 @@ function View() {
         Model.view = new View;
         setTimeout(function() {
             Model.nav.animateIn();
-            y.fadeOut()
+            //y.fadeOut()
         }, 200)
     }
     var p, c = [], k, y, w;
     BrowserDetect.DESKTOP && document.body.classList.add("desktop");
     Controller.init();
     Model.init();
-    y = new Intro(document.querySelector(".intro"));
-    y.animateIn(function() {
         w = new Date;
         p = document.querySelectorAll(".day-list__album");
         for (var e = 0; e < p.length; e++)
@@ -4408,9 +4368,10 @@ function View() {
         k = new AssetLoader;
         k.setBasePath(Model.IMAGE_PATH);
         k.load(c, n, f, b)
-    });
     window.Main = {}
 })();
+
+/* Updates stuff before load - interesting */
 window.onbeforeunload = function() {
     WindowScroll.scroll({
         y: 0,
