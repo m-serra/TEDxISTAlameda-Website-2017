@@ -916,7 +916,7 @@ body input:checked ~ div .footnote {
 }
 
 .list_cta {
-    font-family: "Adelle SansW01-Light";
+    font-family: "Helvetica";
     font-size: 16px;
     line-height: 1em;
     color: #fff;
