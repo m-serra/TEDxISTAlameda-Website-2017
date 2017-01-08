@@ -3179,7 +3179,7 @@ function AssetLoader() {
             y(b)
         }
         ;
-        f.src = w + q[p]
+        f.src = w + q[p];
     }
     var f = {}, n = [], q = [], p, c, k, y, w = "", e = !0;
     f.setBasePath = function(b) {
@@ -3773,6 +3773,7 @@ function AssetLoader() {
                 ease: Quart.easeInOut,
                 onUpdate: function() {
                     this.target._update()
+					this.target.querySelector("img").classList.remove("blur");
                 }
             });
         y();
@@ -3828,6 +3829,7 @@ function AssetLoader() {
                     ease: Quart.easeInOut,
                     onUpdate: function() {
                         this.target._update()
+						this.target.querySelector("img").classList.add("blur");
                     }
                 })
         }
@@ -4062,7 +4064,7 @@ function AssetLoader() {
         f.viewport.height = window.innerHeight
     }
     var f = {
-        IMAGE_PATH: "http://192938532.r.cdnsun.net"
+        IMAGE_PATH: ""
     };
     f.view;
     f.nav;
@@ -4078,12 +4080,12 @@ function AssetLoader() {
         height: 0
     };
     f.colors = {
-        navy: "#003264",
-        blue: "#00AFFA",
+        blue: "#00A0E4", // IST websafe BLUE
         teal: "#32E1E1",
         pink: "#FAC8FA",
-        red:  "#E62B1E",
-        grey: "#F0F0F0"
+        red:  "#FF2100", // TEDx websafe RED
+		dgrey:"#292929", // TEDx websafe GREY
+        grey: "#F0F0F0"  // Disabled color
     };
     f.colorOrder = {
         blue: "blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink".split(" "),
@@ -4232,8 +4234,9 @@ function View() {
     }
     function f() {}
     function n() {
-        for (var b = 0; b < p.length; b++)
-            p[b].src = k.getBasePath() + p[b].getAttribute("data-image");
+        for (var b = 0; b < p.length; b++) {
+			p[b].querySelector("img").src = k.getBasePath() + p[b].getAttribute("data-image");
+		}
         b = (new Date).getTime() - w.getTime();
         Model.view = new View;
 		setTimeout(function() {

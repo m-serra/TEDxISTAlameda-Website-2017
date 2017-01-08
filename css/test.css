@@ -1,9 +1,5 @@
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-/**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
+/*! horizontal.css | MIT License */
+
 html {
   font-family: Helvetica;
   /* 1 */
@@ -85,7 +81,7 @@ a:active,
 a:hover, a:focus {
   	outline: none; 
   	text-decoration: none;
-	color: #e62b1e;
+	color: #ff2100;
 }
 
 /* Text-level semantics
@@ -388,15 +384,17 @@ html, body {
 }
 
 body {
-    background-color: #fff;
+    background: #FFF;
 }
 
 html {
     overflow-y: scroll;
 }
 
+
+/* Starts here -------------------- */
 main {
-  font-family: "Helvetica", Helvetica, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-family: "Helvetica", Helvetica, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
   overflow-y: scroll; }
 
 .container {
@@ -427,6 +425,7 @@ main {
         width: 1420px;
     }
 }
+/* -------------------------------- */
 
 /* NAVIGATION BAR ----------------- */
 .nav {
@@ -652,7 +651,7 @@ body input:checked + label span:last-child {
 
 /* CONTENT TEAM & ABOUT ----------- */
 body input ~ div {
-  background: #e62b1e;
+  background: #ff2100;
   position: fixed;
   top: 0;
   left: 0;
@@ -693,7 +692,7 @@ body input ~ div > ul > li > a {
 body input:checked ~ div {
 	height: 100%;
 	/*border: 10px solid #FFF;*/
-	background-color: #e62b1e;
+	background-color: #ff2100;
     transition: height 0.5s ease-in-out 0.2s;
     -moz-transition: height 0.5s ease-in-out 0.2s;
     -webkit-transition: height 0.5s ease-in-out 0.2s;
@@ -845,7 +844,7 @@ body input:checked ~ div .footnote {
 }
 
 .menu-list_item-selected, .menu-list_item:hover {
-	color: #e62b1e; 
+	color: #ff2100; 
 	font-weight: 400;
 	text-decoration: none;
 }
@@ -859,7 +858,7 @@ body input:checked ~ div .footnote {
 /*
  *
  *
- * DON'T GO ANY FURTHER - THERE'S HOBBITS HERE */
+ * DON'T GO ANY FURTHER - THERE'RE HOBBITS HERE */
 .list {
     position: absolute;
     visibility: hidden;
@@ -871,6 +870,7 @@ body input:checked ~ div .footnote {
     height: 500px;
     position: absolute;
     z-index: 0;
+	box-shadow: 10px 10px 30px #888;
 }
 
 .list_item:nth-child(2) .list_bg, .list_item:nth-child(5) .list_bg, .list_item:nth-child(8) .list_bg {
@@ -885,7 +885,7 @@ body input:checked ~ div .footnote {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: #00affa;
+    background-color: #00a0e4;
 }
 
 .list_title {
@@ -894,7 +894,7 @@ body input:checked ~ div .footnote {
     line-height: 1em;
     color: #fff;
     position: absolute;
-    z-index: 0;
+    z-index: 3;
     top: 50%;
     margin-top: -30px;
     width: 100%;
@@ -921,7 +921,7 @@ body input:checked ~ div .footnote {
     line-height: 1em;
     color: #fff;
     position: absolute;
-    z-index: 0;
+    z-index: 3;
     top: 50%;
     margin-top: 20px;
     width: 100%;
@@ -950,17 +950,35 @@ body input:checked ~ div .footnote {
 }
 
 .list_album {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background-color: #fac8fa;
-    box-shadow: 2px 4px 3px 2px rgba(50, 50, 50, 0.15);
-    left: 50%;
-    top: 50%;
-    margin-left: -200px;
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	margin-left: -200px;
     margin-top: -200px;
-    display: none;
+	left: 50%;
+	top:50%;
+	display: none;
+	overflow: hidden;
+	box-shadow: 4px 4px 4px 2px rgba(50, 50, 50, 0.15);
+	border-color: #fff;
+	border-style: solid;
+	border-width: 10px 10px 40px 10px;
+	transform: filter 0.7s ease-in-out;
+	filter: none;
 }
+.list_album img {
+	width: 400px;
+	height: 400px;
+	object-fit: cover;
+	background-color: #fff;
+	transform: scale(1.03);
+}
+
+.list_album .blur {
+	filter: blur(4px);
+	transform: filter 0.7s ease-in-out;
+}
+
 
 .list_album:nth-child(2) {
     background-color: #003264;
@@ -1052,7 +1070,7 @@ body input:checked ~ div .footnote {
 }
 
 .album--footer .album__cta--blue {
-    background-color: #00affa;
+    background-color: #00a0e4;
 }
 
 .album--footer .album__cta:first-child {
