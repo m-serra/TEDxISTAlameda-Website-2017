@@ -4249,8 +4249,9 @@ function View() {
     Model.init();
 	w = new Date;
 	p = document.querySelectorAll(".list_album");
-	for (var e = 0; e < p.length; e++)
+	for (var e = 0; e < p.length; e++) {
 		c.push(p[e].getAttribute("data-image"));
+	}
 	k = new AssetLoader;
 	k.setBasePath(Model.IMAGE_PATH);
 	k.load(c, n, f, b)
