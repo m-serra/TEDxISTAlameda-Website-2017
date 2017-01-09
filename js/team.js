@@ -14,38 +14,38 @@ function HeadImage(a) {
     this.imageBottom = this.imageTop + b.height();
     this.setImageDirection = function() {
         b.removeClass("up upleft left downleft down downright right upright front click");
-        var d = a * 82;
-        var c = 492;
+        var d = a * 100;
+        var c = 600;
         if (mouseX >= this.imageLeft && mouseX <= this.imageRight && mouseY <= this.imageTop) {
-            c = 246;
+            c = 300;
             b.addClass("up").css("background-position", c + "px " + d + "px")
         } else {
             if (mouseX < this.imageLeft && mouseY < this.imageTop) {
-                c = 164;
+                c = 200;
                 b.addClass("upleft").css("background-position", c + "px " + d + "px")
             } else {
                 if (mouseX <= this.imageLeft && mouseY >= this.imageTop && mouseY <= this.imageBottom) {
-                    c = 410;
+                    c = 500;
                     b.addClass("left").css("background-position", c + "px " + d + "px")
                 } else {
                     if (mouseX < this.imageLeft && mouseY > this.imageBottom) {
-                        c = 656;
+                        c = 800;
                         b.addClass("downleft").css("background-position", c + "px " + d + "px")
                     } else {
                         if (mouseX >= this.imageLeft && mouseX <= this.imageRight && mouseY >= this.imageBottom) {
-                            c = 738;
+                            c = 900;
                             b.addClass("down").css("background-position", c + "px " + d + "px")
                         } else {
                             if (mouseX > this.imageRight && mouseY > this.imageBottom) {
-                                c = 574;
+                                c = 700;
                                 b.addClass("downright").css("background-position", c + "px " + d + "px")
                             } else {
                                 if (mouseX >= this.imageRight && mouseY >= this.imageTop && mouseY <= this.imageBottom) {
-                                    c = 328;
+                                    c = 400;
                                     b.addClass("right").css("background-position", c + "px " + d + "px")
                                 } else {
                                     if (mouseX > this.imageRight && mouseY < this.imageTop) {
-                                        c = 82;
+                                        c = 100;
                                         b.addClass("upright").css("background-position", c + "px " + d + "px")
                                     } else {
                                         b.addClass("front").css("background-position", c + "px " + d + "px")
@@ -65,8 +65,8 @@ function init() {
     mouseY = 0;
     $(".head-image").each(function(b, c) {
         var a = $(this).attr("data-image-num");
-        var d = a * 82;
-        $(this).addClass("front").css("background-position", "492px " + d + "px");
+        var d = a * 100;
+        $(this).addClass("front").css("background-position", "600px " + d + "px");
         window["image_" + b] = new HeadImage(a)
     })
 }
@@ -98,8 +98,8 @@ $().ready(function() {
         $(".image-holder").removeClass("selected");
         $(this).addClass("selected");
         a.removeClass("up upleft left downleft down downright right upright front click");
-        var f = c * 82;
-        a.addClass("click").css("background-position", "820px " + f + "px");
+        var f = c * 100;
+        a.addClass("click").css("background-position", "1000px " + f + "px");
         $(".head-info .dep").html(d);
         $(".head-info .name").html(b);
         $(".head-info .desc").html(e);

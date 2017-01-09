@@ -1,4 +1,6 @@
-
+/* NOTA: Recomendo que não alteres as características do "header", uma vez que pode breakar o website
+   O mesmo se aplica à classe "container", que é utilizada no website para algo diferente - mas entretanto devo mudar o nome */
+/*
 header {
     padding-top: 0;
     text-align: center;
@@ -7,7 +9,7 @@ header {
 
 header .container {
     padding-top: 0 px;
-    /*padding-bottom: 20px*/
+    /*padding-bottom: 20px
 }
 
 header img {
@@ -54,20 +56,25 @@ header .intro-text .skills {
     header .intro-text .skills {
         font-size: 1.75em
     }
-}
+}*/
 
 
 .row {
-    margin-bottom: 20px
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 90%; /* change this */
 }
 
 .image-holder {
-    height: 82px;
-    width: 82px;
+    height: 100px;
+    width: 100px;
     cursor: pointer;
-    display: inline-block;
-    margin: 5px 10px 5px 10px;
+    display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+    margin: 2% 2% 2% 2%;
 }
+
 
 .image-holder .head-image {
     -webkit-filter: grayscale(100%);
@@ -88,16 +95,16 @@ header .intro-text .skills {
 
 
 .head-container {
-    padding: 20px 50px
+    padding: 20px 50px;
 }
 
 .head-team {
     margin-bottom: 20px;
     overflow: hidden;
-    text-align: center
+    text-align: center;
 }
 
-
+/* tooltip -> Aquela cena de aparecer o nome */
 .tooltip.top .tooltip-inner {
     background-color: #f9423a;
     border-radius: initial
@@ -108,62 +115,63 @@ header .intro-text .skills {
 }
 
 .head-image {
-    background-image: url(../images/photos/JE_team.jpg);
-    display: none
+    background-image: url(../images/photos/JE_team_2.jpg);
+    display: none;
 }
 
 .head-image.click {
     display: block;
-    background-position-x: 820px
+    background-position-x: 1000px
 }
 
 .head-image.down {
     display: block;
-    background-position-x: 738px
+    background-position-x: 900px
 }
 
 .head-image.downleft {
     display: block;
-    background-position-x: 656px
+    background-position-x: 800px
 }
 
 .head-image.downright {
     display: block;
-    background-position-x: 574px
+    background-position-x: 700px
 }
 
 .head-image.front {
     display: block;
-    background-position-x: 492px
+    background-position-x: 600px
 }
 
 .head-image.left {
     display: block;
-    background-position-x: 410px
+    background-position-x: 500px
 }
 
 .head-image.right {
     display: block;
-    background-position-x: 328px
+    background-position-x: 400px
 }
 
 .head-image.up {
     display: block;
-    background-position-x: 246px
+    background-position-x: 300px
 }
 
 .head-image.upleft {
     display: block;
-    background-position-x: 164px
+    background-position-x: 200px
 }
 
 .head-image.upright {
     display: block;
-    background-position-x: 82px
+    background-position-x: 100px
 }
 
+/* Quando se fecha a info detalhada? */
 .head-info .close {
     font-size: 2em;
     margin: 10px;
-    text-shadow: none
+    text-shadow: none;
 }
