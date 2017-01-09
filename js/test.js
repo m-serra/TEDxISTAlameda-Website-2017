@@ -2,15 +2,15 @@
     var n = b.GreenSockGlobals = b.GreenSockGlobals || b;
     if (!n.TweenLite) {
         var q, p, c, k, y, w = function(d) {
-            var h = d.split(".")
-              , m = n;
-            for (d = 0; d < h.length; d++)
-                m[h[d]] = m = m[h[d]] || {};
+            var h = d.split("."),
+				m = n;
+            for (d = 0; d < h.length; d++) {
+				m[h[d]] = m = m[h[d]] || {}
+			};
             return m
         }, e = w("com.greensock"), v = function(d) {
             var h, m = [], a = d.length;
             for (h = 0; h !== a; m.push(d[h++]))
-                ;
             return m
         }, I = function() {}, H = function() {
             var d = Object.prototype.toString
@@ -3622,8 +3622,9 @@ function AssetLoader() {
         })
     }
     function w() {
-        for (var a = R.querySelectorAll(".album__designer span"), b = 0; b < a.length; b++)
-            a[b].addEventListener("click", e)
+		for (var d = 0; d < R.length; d++)
+        	for (var a = R[d].querySelectorAll(".album__designer span"), b = 0; b < a.length; b++)
+            	a[b].addEventListener("click", e)
     }
     function e(a) {
         if (a = this.getAttribute("data-artist-name").toLowerCase())
@@ -3713,7 +3714,8 @@ function AssetLoader() {
         Model.listMask.style.height = "100%";
         document.documentElement.style.backgroundColor = "";
         window.removeEventListener("scroll", n);
-        R.style.display = "";
+		for (var jj = 0; jj < R.length; jj++)
+			R[jj].style.display = "";
         oa.style.overflow = "";
         z.style.cursor = "pointer";
         z.isOpen = !1;
@@ -3736,7 +3738,8 @@ function AssetLoader() {
         })
     }
     function F() {
-        R.style.display = "block";
+		for (var jj = 0; jj < R.length; jj++)
+        	R[jj].style.display = "block";
         for (var a = Model.viewport.height + 300, b = 0; b < S.length; b++) {
             var c = S[b];
             c.style.height = 1100 <= Model.viewport.width || c.classList.contains("album--footer") ? Model.viewport.height + "px" : "auto";
@@ -3853,14 +3856,14 @@ function AssetLoader() {
         }
     }
     ;
-    R = b.querySelector(".list_artists");
+    R = b.querySelectorAll(".album");
     aa = b.querySelector(".list_bg");
     J = new CreateDiv(b.querySelector(".list_title"));
     X = new CreateDiv(b.querySelector(".list_cta"));
     X._y = 35;
     X._update();
     T = b.getAttribute("data-color");
-    R ? (S = R.querySelectorAll(".album"),
+    R ? (S = R,
     oa = b.querySelector(".list_header"),
     L = b.getAttribute("data-layout") ? "layout-" + b.getAttribute("data-layout") : L,
     I(),
@@ -3893,9 +3896,10 @@ function AssetLoader() {
     n.classList.add("menu-list");
     (function() {
         for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue teal pink blue teal pink blue teal pink blue teal pink".split(" "), p = 0, q = 0; q < b.length; q++) {
-            var e = b[q].querySelector(".list_artists") ? !1 : !0,
-				v = e ? document.createElement("span") : document.createElement("a");
-            v.color = e ? "grey" : k[p];
+            var e = 1; // b[q].querySelector(".album") ? !1 : !0,
+				v = document.createElement("a");
+				//v = e ? document.createElement("span") : document.createElement("a");
+            v.color = k[p];//e ? "grey" : k[p];
             v.classList.add("menu-list_item");
             v.classList.add(v.color);
 			v.num = q;
@@ -3904,8 +3908,10 @@ function AssetLoader() {
             p++;
             p > k.length - 1 && (k = 0);
             0 === q && v.classList.add("menu-list_item-selected");
-            e ? v.classList.add("menu-list_item-disabled") : (v.href = b[q].dataset.name,
-            v.addEventListener("click", f))
+            //e ? v.classList.add("menu-list_item-disabled") : (v.href = b[q].dataset.name,
+            //v.addEventListener("click", f))
+			v.href = b[q].dataset.name;
+            v.addEventListener("click", f);
         }
     })();
     return n
