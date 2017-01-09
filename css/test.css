@@ -704,7 +704,7 @@ body input ~ div .new_section {
 	font-weight: 200;
 	letter-spacing: 1px;
     text-align: center; 
-	margin-top: 75px;
+	margin-top: 125px;
 	padding: 0;
 	opacity: 0;
 	transition: 0.5s ease-in-out 0.6s;
@@ -762,7 +762,7 @@ body input:checked ~ div .content-list{
 	display: inline-grid;
 	width: 100%; 
 	text-align: center;
-	margin-top: 0 px;
+	margin-top: 20px;
 	opacity: 0;
 	color: #FFF;
 	transition: opacity 0.8s ease-in-out 0.1s;
@@ -903,15 +903,14 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 780px) {
     .list_title {
-        font-size: 100px;
-        margin-top: -50px;
+        font-size: 80px;
     }
 }
 
 @media all and (min-width: 1650px) and (min-height: 1070px) {
     .list_title {
         font-size: 130px;
-        margin-top: -65px;
+        margin-top: -45px;
     }
 }
 
@@ -924,7 +923,9 @@ body input:checked ~ div .footnote {
     z-index: 3;
     top: 50%;
     margin-top: 20px;
-    width: 100%;
+	margin-right: 10%;
+	margin-left: 10%;
+    width: 80%;
     text-align: center;
     opacity: 0;
 }
