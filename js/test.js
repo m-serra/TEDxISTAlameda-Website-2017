@@ -3116,35 +3116,35 @@ BrowserDetect.init();
     })();
     b.WindowScroll = n
 })(window);
-function Rum(b) {
+function CreateDiv(b) {
     b = b || document.createElement("div");
     b._x = 0;
     b._y = 0;
     b._rotation = 0;
-    b._update = Rum.update;
+    b._update = CreateDiv.update;
     return b
 }
-Rum.prefix = "";
-Rum.jsTransform = "";
-Rum.update = function() {
+CreateDiv.prefix = "";
+CreateDiv.jsTransform = "";
+CreateDiv.update = function() {
     var b = "";
     if (0 != this._x || 0 != this._y)
         b = BrowserDetect.TRANSLATE3D_SUPPORT ? b + ("translate3d(" + this._x + "px, " + this._y + "px, 0) ") : b + ("translate(" + this._x + "px, " + this._y + "px) ");
     0 != this._rotation && (b += "rotate(" + this._rotation + "deg) ");
-    this.style[Rum.jsTransform] = b
+    this.style[CreateDiv.jsTransform] = b
 }
 ;
-Rum.setPrefix = function() {
+CreateDiv.setPrefix = function() {
     if (!BrowserDetect.IE8) {
         var b = window.getComputedStyle(document.documentElement, "")
           , b = (Array.prototype.slice.call(b).join("").match(/-(moz|webkit|ms)-/) || "" === b.OLink && ["", "o"])[1];
-        Rum.prefix = b[0].toUpperCase() + b.substr(1);
-        "ms" == Rum.prefix.toLowerCase() && (Rum.prefix = "ms");
-        Rum.jsTransform = Rum.prefix + "Transform"
+        CreateDiv.prefix = b[0].toUpperCase() + b.substr(1);
+        "ms" == CreateDiv.prefix.toLowerCase() && (CreateDiv.prefix = "ms");
+        CreateDiv.jsTransform = CreateDiv.prefix + "Transform"
     }
 }
 ;
-Rum.setPrefix();
+CreateDiv.setPrefix();
 var Template = {
     extend: function(b, f) {
         var n;
@@ -3179,7 +3179,7 @@ function AssetLoader() {
             y(b)
         }
         ;
-        f.src = w + q[p]
+        f.src = w + q[p];
     }
     var f = {}, n = [], q = [], p, c, k, y, w = "", e = !0;
     f.setBasePath = function(b) {
@@ -3253,6 +3253,8 @@ function AssetLoader() {
     ;
     this.activate()
 }
+
+// CREATES AND INITIALIZES NAVIGATION BAR
 ;function Nav() {
     function b(b) {
         _nav.style.width = Model.viewport.width + "px"
@@ -3283,35 +3285,12 @@ function AssetLoader() {
     }
     ;
     _nav = document.querySelector(".nav");
+	_nav.style.visibility = "visible";
     n = document.querySelector(".nav_logo");
-    q = document.querySelector(".nav__hamburger");
-    p = document.querySelector(".nav__x");
+    q = document.querySelector(".nav_burger");
+    p = document.querySelector(".nav_x");
     document.querySelector("body main");
-    //c = new Menu(document.querySelector(".menu-options"));
     window.addEventListener("resize", b);
-    /*n.addEventListener("click", function(b) {
-        b.preventDefault();
-        c.isOpen && c.close();
-        Controller.updateURL("/")
-    });*/
-    /*q.addEventListener("click", function(b) {
-        debugger;
-        c.isOpen ? (q.classList.remove("nav__hamburger--open"),
-        c.close(),
-        p.style.display = "block",
-        TweenLite.to(p, .2, {
-            opacity: 1,
-            ease: Linear.easeNone
-        })) : (q.classList.add("nav__hamburger--open"),
-        c.open(),
-        TweenLite.to(p, .2, {
-            opacity: 0,
-            ease: Linear.easeNone,
-            onComplete: function() {
-                p.style.display = "none"
-            }
-        }))
-    });*/
     p.addEventListener("click", function(b) {
         Controller.updateURL("/")
     });
@@ -3320,107 +3299,7 @@ function AssetLoader() {
     return f
 }
 
-/* Menu (TEAM AND ABOUT) stuff - good to use in the future
-;function Menu(b) {
-    function f(c) {
-        _menuButtonList.querySelector(".menu_section_button-selected").classList.remove("menu_section_button-selected");
-        c.target.classList.add("menu_section_button-selected");
-        var e = c.target.getAttribute("data-section")
-          , f = b.querySelector(".content_selected");
-        TweenLite.to(f, .2, {
-            opacity: 0,
-            ease: Linear.easeNone,
-            onComplete: function() {
-                f.classList.remove("content_selected");
-                var c = b.querySelector('div[data-section="' + e + '"]');
-                c.classList.add("content_selected");
-                c.style.opacity = 0;
-                n();
-                TweenLite.to(c, .2, {
-                    delay: .1,
-                    opacity: 1,
-                    ease: Linear.easeNone
-                })
-            }
-        })
-    }
-    function n() {
-        var c = b.querySelector(".content_selected")
-          , e = (Model.viewport.height - 190 - c.clientHeight) / 2 - 20;
-        20 > e && (e = 20);
-        c.style.marginTop = e + "px"
-    }
-    function q() {
-        TweenLite.to(k, 4, {
-            backgroundColor: Model.colors[e[v]],
-            ease: Linear.easeNone,
-            onComplete: function() {
-                v++;
-                v > e.length - 1 && (v = 0);
-                q()
-            }
-        })
-    }
-    function p(e) {
-        c.isOpen && (b.style.width = Model.viewport.width + "px",
-        k.style.height = Model.viewport.height + "px",
-        n())
-    }
-    var c = {
-        isOpen: !1
-    }, k, y, w, e = ["teal", "blue"], v = 0;
-    c.open = function() {
-        c.isOpen = !0;
-        b.classList.add("menu--show");
-        b.style.width = Model.viewport.width + "px";
-        n();
-        TweenLite.to(k, .5, {
-            height: Model.viewport.height,
-            ease: Quart.easeInOut
-        });
-        TweenLite.to(y, .5, {
-            delay: .4,
-            opacity: 1,
-            ease: Linear.easeNone
-        });
-        v = 0;
-        k.style.backgroundColor = "";
-        q()
-    }
-    ;
-    c.close = function() {
-        TweenLite.killTweensOf(k);
-        c.isOpen = !1;
-        TweenLite.to(y, .5, {
-            opacity: 0,
-            ease: Linear.easeNone
-        });
-        TweenLite.to(k, .5, {
-            delay: .3,
-            height: 0,
-            ease: Quart.easeInOut,
-            onComplete: function() {
-                b.classList.remove("menu--show")
-            }
-        })
-    }
-    ;
-    new Rum(b);
-    b.style.width = Model.viewport.width + "px";
-    k = new Rum(b.querySelector(".menu__bg"));
-    y = b.querySelector(".menu__text-container");
-    _menuButtonList = b.querySelector(".menu__button-list");
-    w = _menuButtonList.querySelectorAll(".menu-options");
-    (function() {
-        window.addEventListener("resize", p);
-        for (var b = 0; b < w.length; b++)
-            w[b].addEventListener("click", f)
-    })();
-    return c
-} */
-
-
-;function DayList() {
+;function List() {
     function b(b) {
         var c = {};
         1650 <= Model.viewport.width && 1070 <= Model.viewport.height ? (c.multiplier = 1.25,
@@ -3512,23 +3391,23 @@ function AssetLoader() {
     function v() {
         oa.activate();
         aa.activate();
-        9 === F ? R.classList.remove("arrow-right--show") : R.classList.add("arrow-right--show");
-        0 === F ? K.classList.remove("arrow-left--show") : K.classList.add("arrow-left--show")
+        4 === F ? R.classList.remove("arrow-right-show") : R.classList.add("arrow-right-show");
+        0 === F ? K.classList.remove("arrow-left-show") : K.classList.add("arrow-left-show")
     }
     function I() {
         oa.deactivate();
         aa.deactivate();
-        K.classList.remove("arrow-left--show");
-        R.classList.remove("arrow-right--show")
+        K.classList.remove("arrow-left-show");
+        R.classList.remove("arrow-right-show")
     }
     var H = 100, P = {}, E, a, N = !1, F = 0, la, z = !1, K, R, oa, aa;
-    /*P.animateIn = function(b) {
+    P.animateIn = function(b) {
         TweenLite.to(la, .7, {
             delay: .7,
             opacity: 1,
             ease: Quad.easeOut
         });
-        F = "" === Controller.url ? 0 : 10 - Number(Controller.url);
+        F = "" === Controller.url ? 0 : 5 - Number(Controller.url);
         w();
         var c = 1.2 + .3 * F;
         setTimeout(a[F].select, 1E3 * (c + 1 - .5));
@@ -3557,11 +3436,11 @@ function AssetLoader() {
         }),
         Model.nav.hideX()) : !z && b && (z = !0,
         I(),
-        b = 10 - Number(b),
+        b = 5 - Number(b),
         F !== b ? (a[F].deselect(),
-        F = b,
+        F = 0,
         N = !0,
-        //w(),
+        w(),
         TweenLite.to(E, .7, {
             _x: Math.floor(-a[F].offsetLeft + (Model.viewport.width - Model.tileDimensions.width) / 2),
             ease: Quart.easeInOut,
@@ -3578,32 +3457,31 @@ function AssetLoader() {
         I(),
         E._x = Math.floor(-a[F].offsetLeft + (Model.viewport.width - Model.tileDimensions.width) / 2),
         E._update()))
-    }*/
+    }
     ;
-    //Model.dayListMask = document.querySelector(".day-list-mask");
-    E = new Rum(document.querySelector(".day-list"));
+    Model.listMask = document.querySelector(".list-mask");
+    E = new CreateDiv(document.querySelector(".list"));
     E.style.visibility = "visible";
     H = 550 > Model.viewport.width ? 0 : 100;
     b(!1);
-    /*(function() {
-        var b = E.querySelectorAll(".day-list__item");
+    (function() {
+        var b = E.querySelectorAll(".list_item");
         a = [];
         for (var c = 0; c < b.length; c++) {
             var e = new DayItem(b[c]);
-            e.href = 10 - c;
+            e.href = b[c].dataset.name;
             a.push(e)
         }
-		debugger;
-        la = new TileNumbers(p);
+        la = new MenuList(p);
         Model.mainContainer.appendChild(la)
-    })();*/
+    })();
     K = Model.mainContainer.querySelector(".arrow-left");
     R = Model.mainContainer.querySelector(".arrow-right");
     K.style.top = Math.floor(Model.viewport.height / 2) + "px";
     R.style.top = Math.floor(Model.viewport.height / 2) + "px";
     K.addEventListener("click", k);
     R.addEventListener("click", c);
-    //f();
+    f();
     E._x = Model.viewport.width;
     E._update();
     (function() {
@@ -3759,8 +3637,8 @@ function AssetLoader() {
     }
     function I() {
         K = [];
-        for (var a = b.querySelectorAll(".day-list__album"), c = 0; c < a.length; c++) {
-            var e = new Rum(a[c]);
+        for (var a = b.querySelectorAll(".list_album"), c = 0; c < a.length; c++) {
+            var e = new CreateDiv(a[c]);
             e._x = Model.albumPositions[L][c].x * Model.tileDimensions.multiplier;
             e._y = Model.albumPositions[L][c].y * Model.tileDimensions.multiplier;
             e._rotation = Model.albumPositions[L][c].rotation;
@@ -3832,7 +3710,7 @@ function AssetLoader() {
     }
     function N(a) {
         f(Model.colors[T]);
-        Model.dayListMask.style.height = "100%";
+        Model.listMask.style.height = "100%";
         document.documentElement.style.backgroundColor = "";
         window.removeEventListener("scroll", n);
         R.style.display = "";
@@ -3872,7 +3750,7 @@ function AssetLoader() {
                 c.style.marginTop = 0,
                 1100 <= Model.viewport.width && (c.style.marginTop = Math.floor((e.clientHeight - c.clientHeight) / 2) + "px")
         }
-        Model.dayListMask.style.height = a + 35 + "px"
+        Model.listMask.style.height = a + 35 + "px"
     }
     function la(a) {
         z.isOpen && (z.style.width = Model.viewport.width + "px",
@@ -3881,7 +3759,7 @@ function AssetLoader() {
         z._update(),
         F())
     }
-    var z = new Rum(b);
+    var z = new CreateDiv(b);
     z.href;
     z.isDisabled = !1;
     z.isOpen = !1;
@@ -3895,6 +3773,7 @@ function AssetLoader() {
                 ease: Quart.easeInOut,
                 onUpdate: function() {
                     this.target._update()
+					this.target.querySelector("img").classList.remove("blur");
                 }
             });
         y();
@@ -3950,6 +3829,7 @@ function AssetLoader() {
                     ease: Quart.easeInOut,
                     onUpdate: function() {
                         this.target._update()
+						this.target.querySelector("img").classList.add("blur");
                     }
                 })
         }
@@ -3973,14 +3853,15 @@ function AssetLoader() {
         }
     }
     ;
-    //R = b.querySelector(".day-list__artists");
-    aa = b.querySelector(".day-list__bg");
-    J = new Rum(b.querySelector(".day-list__title"));
-    X = new Rum(b.querySelector(".day-list__cta"));
+    R = b.querySelector(".list_artists");
+    aa = b.querySelector(".list_bg");
+    J = new CreateDiv(b.querySelector(".list_title"));
+    X = new CreateDiv(b.querySelector(".list_cta"));
     X._y = 35;
     X._update();
     T = b.getAttribute("data-color");
-    /*R ? (S = R.querySelectorAll(".album"), oa = b.querySelector(".day-list__header"),
+    R ? (S = R.querySelectorAll(".album"),
+    oa = b.querySelector(".list_header"),
     L = b.getAttribute("data-layout") ? "layout-" + b.getAttribute("data-layout") : L,
     I(),
     w(),
@@ -3988,61 +3869,49 @@ function AssetLoader() {
     z.addEventListener("click", q),
     BrowserDetect.DESKTOP && (z.addEventListener("mouseenter", p),
     z.addEventListener("mouseleave", c))) : (z.isDisabled = !0,
-    aa.style.backgroundColor = "#f0f0f0");*/
-    return z 
+    aa.style.backgroundColor = "#f0f0f0");
+    return z
 }
-;function TileNumbers(b) {
+
+// CREATES MENU LIST
+;function MenuList(b) {
     function f(c) {
         c.preventDefault();
         b && b(this.num)
     }
-    var n = document.createElement("div"), q, p;
+    var n = document.createElement("div"), p;
     n.changeNumber = function(b) {
-        n.querySelector(".menu-options_nb--selected").classList.remove("menu-options_nb--selected");
+		//debugger;
+        n.querySelector(".menu-list_item-selected").classList.remove("menu-list_item-selected");
         p = b;
         var c = n.children[b];
-		debugger;
         setTimeout(function() {
-            c.classList.add("menu-options_nb--selected")
+            c.classList.add("menu-list_item-selected")
         }, 150);
-        TweenLite.to(q, .5, {
-            backgroundColor: Model.colors[c.color],
-            width: c.clientWidth,
-            _x: c.offsetLeft,
-            ease: Quart.easeInOut,
-            onUpdate: function() {
-                q._update()
-            }
-        })
     }
     ;
-    n.classList.add("menu-options");
+    n.classList.add("menu-list");
     (function() {
-        for (var b = document.body.querySelectorAll(".day-list .day-list__item"), k = "red red red red".split(" "), p = 0, q = 0; q < b.length; q++) {
-            var e = 0 //b[q].querySelector(".day-list__artists") ? !1 : !0
-              , v = e ? document.createElement("span") : document.createElement("a");
+        for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue teal pink blue teal pink blue teal pink blue teal pink".split(" "), p = 0, q = 0; q < b.length; q++) {
+            var e = b[q].querySelector(".list_artists") ? !1 : !0,
+				v = e ? document.createElement("span") : document.createElement("a");
             v.color = e ? "grey" : k[p];
-            v.classList.add("menu-options_nb");
+            v.classList.add("menu-list_item");
             v.classList.add(v.color);
-            v.num = q;
-            v.innerHTML = 4 - q;
+			v.num = q;
+            v.innerHTML = b[q].dataset.name;
             n.appendChild(v);
             p++;
             p > k.length - 1 && (k = 0);
-            0 === q && v.classList.add("menu-options_nb--selected");
-            e ? v.classList.add("menu-options_nb--disabled") : (v.href = 4 - q,
+            0 === q && v.classList.add("menu-list_item-selected");
+            e ? v.classList.add("menu-list_item-disabled") : (v.href = b[q].dataset.name,
             v.addEventListener("click", f))
         }
     })();
-    q = new Rum;
-    q.classList.add("menu-options__line");
-    n.appendChild(q);
-    window.addEventListener("resize", function(b) {
-        n.children[p] && (q._x = n.children[p].offsetLeft,
-        q._update())
-    });
     return n
 }
+
+// THIS SHOULD COME IN HANDY IN NEAR FUTURE
 ;function SocialButtons() {
     function b(b) {
         b.target.classList.contains("share--playlist") ? ga("send", {
@@ -4058,6 +3927,8 @@ function AssetLoader() {
     })();
     return {}
 }
+
+// THIS SHOULD COME IN HANDY IN NEAR FUTURE
 ;function ArtistPanel(b, f, n) {
     function q() {
         for (var b = 0; 10 > b; b++)
@@ -4084,7 +3955,7 @@ function AssetLoader() {
     function p() {
         c.close()
     }
-    var c = new Rum, k, y, w, e = [];
+    var c = new CreateDiv, k, y, w, e = [];
     c.close = function() {
         TweenLite.to(k, .3, {
             opacity: 0,
@@ -4108,7 +3979,7 @@ function AssetLoader() {
     k = document.createElement("div");
     k.classList.add("artist-panel__bg");
     c.appendChild(k);
-    y = new Rum;
+    y = new CreateDiv;
     y.classList.add("artist-panel__sidebar");
     c.appendChild(y);
     (function() {
@@ -4166,44 +4037,39 @@ function AssetLoader() {
         }, 100)
     }
     function f(b) {
-        p.url = n();
-        q(p.url);
+        p.url = b;
         Model.view.update()
     }
     function n() {
         return window.location.pathname.replace(/^\/|\/$/g, "")
     }
-    function q(b) {
-        ga("set", "page", "/" + b);
-        ga("send", "pageview")
-    }
     var p = {
         url: "/",
         init: function() {
-            p.url = n();
+            p.url = ""; 
             b()
         },
         updateURL: function(b) {
-            history.pushState("data", b, b);
-            p.url = n();
-            q(p.url);
+            p.url = b;
             Model.view.update()
         }
     };
     window.Controller = p
 })();
+
+// CHANGE HERE FOR COLORS, DIMENSIONS AND POSITION OF PHOTOS
 (function() {
     function b(b) {
         f.viewport.width = window.innerWidth;
         f.viewport.height = window.innerHeight
     }
     var f = {
-        IMAGE_PATH: "http://192938532.r.cdnsun.net"
+        IMAGE_PATH: ""
     };
     f.view;
     f.nav;
     f.mainContainer = document.querySelector("body main");
-    f.dayListMask;
+    f.listMask;
     f.viewport = {
         width: 0,
         height: 0
@@ -4214,12 +4080,12 @@ function AssetLoader() {
         height: 0
     };
     f.colors = {
-        navy: "#003264",
-        blue: "#00AFFA",
+        blue: "#00A0E4", // IST websafe BLUE
         teal: "#32E1E1",
         pink: "#FAC8FA",
-        red: "#E62B1E",
-        grey: "#F0F0F0"
+        red:  "#FF2100", // TEDx websafe RED
+		dgrey:"#292929", // TEDx websafe GREY
+        grey: "#F0F0F0"  // Disabled color
     };
     f.colorOrder = {
         blue: "blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink".split(" "),
@@ -4316,13 +4182,35 @@ function AssetLoader() {
     ;
     window.Model = f
 })();
+
+// UPDATES VIEW
 function View() {
     function b(b) {
         Model.mainContainer.style.width = Model.viewport.width + "px"
     }
     var f = {}, n;
     f.update = function() {
-        n.update(Controller.url)
+		var num;
+		switch(Controller.url) {
+			case "News":
+				num = 5;
+				break;
+			case "Speakers":
+				num = 4;
+				break;
+			case "Partners":
+				num = 3;
+				break;
+			case "Contest":
+				num = 2	
+				break;
+			case "Past editions":
+				num = 1;
+				break;
+			default:
+				num = ""; 
+		}
+        n.update(num)
     }
     ;
     (function() {
@@ -4330,14 +4218,15 @@ function View() {
         window.addEventListener("resize", b);
         b();
         new SocialButtons;
-		debugger;
-        //n = new DayList;
-        /*n.animateIn(function() {
+        n = new List;
+        n.animateIn(function() {
             f.update()
-        })*/
+        })
     })();
     return f
 }
+
+// INITIALIZES WEBSITE
 ;(function() {
     function b() {
         k.setBasePath("");
@@ -4345,33 +4234,29 @@ function View() {
     }
     function f() {}
     function n() {
-        for (var b = 0; b < p.length; b++)
-            p[b].src = k.getBasePath() + p[b].getAttribute("data-image");
+        for (var b = 0; b < p.length; b++) {
+			p[b].querySelector("img").src = k.getBasePath() + p[b].getAttribute("data-image");
+		}
         b = (new Date).getTime() - w.getTime();
-        3500 > b ? setTimeout(q, 3500 - b) : q()
-    }
-    function q() {
         Model.view = new View;
-        setTimeout(function() {
+		setTimeout(function() {
             Model.nav.animateIn();
-            //y.fadeOut()
         }, 200)
     }
     var p, c = [], k, y, w;
     BrowserDetect.DESKTOP && document.body.classList.add("desktop");
     Controller.init();
     Model.init();
-        w = new Date;
-        p = document.querySelectorAll(".day-list__album");
-        for (var e = 0; e < p.length; e++)
-            c.push(p[e].getAttribute("data-image"));
-        k = new AssetLoader;
-        k.setBasePath(Model.IMAGE_PATH);
-        k.load(c, n, f, b)
+	w = new Date;
+	p = document.querySelectorAll(".list_album");
+	for (var e = 0; e < p.length; e++) {
+		c.push(p[e].getAttribute("data-image"));
+	}
+	k = new AssetLoader;
+	k.setBasePath(Model.IMAGE_PATH);
+	k.load(c, n, f, b)
     window.Main = {}
 })();
-
-/* Updates stuff before load - interesting */
 window.onbeforeunload = function() {
     WindowScroll.scroll({
         y: 0,
