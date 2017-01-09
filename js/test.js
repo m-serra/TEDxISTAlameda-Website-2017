@@ -4087,7 +4087,7 @@ function AssetLoader() {
     };
     f.colors = {
         blue: "#00A0E4", // IST websafe BLUE
-        teal: "#32E1E1",
+        teal: "#32E1E1", //"F2F2F2",
         pink: "#FAC8FA",
         red:  "#FF2100", // TEDx websafe RED
 		dgrey:"#292929", // TEDx websafe GREY
@@ -4100,28 +4100,28 @@ function AssetLoader() {
     };
     f.albumPositions = {
         "layout-1": [{
-            x: -660,
-            y: -90,
-            rotation: 18,
-            focusX: -450,
-            focusY: -60,
-            hoverX: -485,
-            hoverY: -68,
-            headerX: -530,
-            headerY: -76,
-            scrollX: 50,
-            scrollY: 250,
+            x: 700,
+            y: -290,
+            rotation: -40,
+            focusX: 300,
+            focusY: -400,
+            hoverX: 285,
+            hoverY: -390,
+            headerX: 270,
+            headerY: -380,
+            scrollX: 100,
+            scrollY: 100,
             scrollRotation: -5
         }, {
             x: 670,
             y: 70,
-            rotation: -20,
+            rotation: 20,
             focusX: 480,
-            focusY: 110,
+            focusY: 100,
             hoverX: 496,
-            hoverY: 118,
+            hoverY: 108,
             headerX: 540,
-            headerY: 126,
+            headerY: 125,
             scrollX: -90,
             scrollY: 300,
             scrollRotation: 4

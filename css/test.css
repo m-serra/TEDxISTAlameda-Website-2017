@@ -435,6 +435,7 @@ main {
     padding-top: 10px;
     z-index: 5;
 	visibility: hidden;
+	background-color: rgba(255,255,255,0.8)
 }
 
 /* TEDxISTAlameda LOGO - svg */
@@ -873,40 +874,43 @@ body input:checked ~ div .footnote {
     height: 500px;
     position: absolute;
     z-index: 0;
-	box-shadow: 10px 10px 30px #888;
+	/*box-shadow: 10px 10px 30px #888;*/
 }
 
 .list_item:nth-child(2) .list_bg, .list_item:nth-child(5) .list_bg, .list_item:nth-child(8) .list_bg {
-    background-color: #32e1e1;
+    background-color: #f2f2f2;
 }
 
 .list_item:nth-child(3) .list_bg, .list_item:nth-child(6) .list_bg, .list_item:nth-child(9) .list_bg {
-    background-color: #fac8fa;
+    background-color: #f2f2f2;
 }
 
 .list_bg {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: #00a0e4;
+    background-color: #00c402;
 }
 
 .list_title {
     font-family: "Helvetica";
-    font-size: 60px;
+    font-size: 600px;
     line-height: 1em;
-    color: #fff;
+	letter-spacing: -15px;
+	font-weight: 600;
+    color: rgba(255,255,255,1);
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     top: 50%;
-    margin-top: -30px;
-    width: 100%;
-    text-align: center;
+    margin-top: -425px;
+	margin-left: 0;
+    width: 80%;
+    text-align: left;
 }
 
 @media all and (min-width: 780px) {
     .list_title {
-        font-size: 80px;
+        font-size: 300px;
     }
 }
 
@@ -969,6 +973,7 @@ body input:checked ~ div .footnote {
 	border-width: 10px 10px 40px 10px;
 	transform: filter 0.7s ease-in-out;
 	filter: none;
+	z-index: 4;
 }
 .list_album img {
 	width: 400px;
