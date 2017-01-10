@@ -1009,7 +1009,6 @@
                         <div class="list_header">
                             <span class="list_title">Past editions</span>
                             <!--<span class="list_cta">Learn from the past, focus on the future!</span>-->
-                            <!-- top albums -->
 							<div class="list_album" data-image="images/photos/CarlosArturoTorres.jpg">
 								<img class="blur" src="images/_placeholder2x.png"/> 
 							</div>
@@ -1019,56 +1018,48 @@
                             <div class="list_album" data-image="images/photos/AndreasMogensen.jpg">
 								<img class="blur" src="images/_placeholder2x.png"/>
 							</div>
-                            <!-- end top albums -->
                         </div>
+						<div class="year">
+							2016
+						</div>
 						<!-- album start -->
 						<div class="album">
 							<div class="container">
 								<div class="album__col">
-									<img class="album__artwork" data-artist-name="muccioli" src="images/_placeholder2x.png" data-image="images/albums/6/Muccioli_6.jpg"/>
+									<img class="album__artwork" data-artist-name="withcompany" src="images/_placeholder2x.png" data-image="http://img.youtube.com/vi/y_eZhg724J8/0.jpg"/>
 								</div>
 								<div class="album__col">
 									<div class="album__text-container">
-										<span class="album__number">6</span>
-										<span class="album__name">Natural Child</span>
-										<span class="album__band">Okey Dokey</span>
+										<!--<span class="album__number">6</span>-->
+										<span class="album__name">Designing the conditions to design everything</span>
+										<!--<span class="album__band">With Company</span>-->
 										<span class="album__designer">
-											by <span data-artist-name="muccioli">Chris Muccioli</span>
+											<span data-artist-name="muccioli">With Company</span>
 										</span>
-										<p class="album__description">Psych-y, garage-y, dead-y, blues-y all by way of Nashville, TN. They’ve got it all.</p>
-										<div class="album__play-container">
-											<div class="album__spotify" data-track-id="sFbndG_j260"></div>
-											<span class="album__play-button">Play "Sure Is Nice"</span>
-										</div>
+										<p class="album__description">In a remarkable and enthusiastic talk, Rui Quinta and Tiago Nunes, WithCompany co-founders, explain what Design Thinking did for them and how they are using it today to help constantly redefine the way they work. So how they do what they do? Is it Design Thinking, Branding, Service Design, Digital, Product Design? While working with their clients, Rui and Tiago are actually also designing the conditions for Significantly Different Design.</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- album end -->
-						<!-- album start -->
 						<div class="album">
 							<div class="container">
 								<div class="album__col">
-									<img class="album__artwork" data-artist-name="danico" src="images/_placeholder2x.png" data-image="images/albums/6/Danico_6.jpg"/>
+									<img class="album__artwork" data-artist-name="withcompany" src="images/_placeholder2x.png" data-image="http://img.youtube.com/vi/y_eZhg724J8/0.jpg"/>
 								</div>
 								<div class="album__col">
 									<div class="album__text-container">
-										<span class="album__number">6</span>
-										<span class="album__name">Blood Orange</span>
-										<span class="album__band">Freetown Sound</span>
+										<!--<span class="album__number">6</span>-->
+										<span class="album__name">Designing the conditions to design everything</span>
+										<!--<span class="album__band">With Company</span>-->
 										<span class="album__designer">
-											by <span data-artist-name="danico">Grace Danico</span>
+											by <span data-artist-name="muccioli">With Company</span>
 										</span>
-										<p class="album__description">Freetown Sound is a melange of feelings, textures, and collaborations, and this album in particular feels especially powerful with its collaborations and production. </p>
-										<div class="album__play-container">
-											<div class="album__spotify" data-track-id="Woj9YtolLKw"></div>
-											<span class="album__play-button">Play "E.V.P."</span>
-										</div>
+										<p class="album__description">In a remarkable and enthusiastic talk, Rui Quinta and Tiago Nunes, WithCompany co-founders, explain what Design Thinking did for them and how they are using it today to help constantly redefine the way they work. So how they do what they do? Is it Design Thinking, Branding, Service Design, Digital, Product Design? While working with their clients, Rui and Tiago are actually also designing the conditions for Significantly Different Design.</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- album end -->
 						<!-- album start -->
 						<div class="album">
 							<div class="container">
@@ -1213,6 +1204,16 @@
 				// Substitutes content, based on data-section attribute
 				document.querySelector(".content_selected").classList.remove("content_selected");
 				document.querySelector('div[data-section="' + id + '"]').classList.add("content_selected");
+			});
+			
+			$("input[type=checkbox]").on('change', function() {
+				var q = document.querySelector(".list-mask"),
+					m = document.querySelector(".menu-list")
+					n = document.querySelector(".nav_x")
+				
+				this.checked ? q.classList.add("blurred") : q.classList.remove("blurred")
+				this.checked ? m.classList.add("blurred") : m.classList.remove("blurred")
+				this.checked ? n.style.visibility = "hidden" : n.style.visibility = "visible"
 			});
         </script>
     </body>

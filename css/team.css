@@ -70,6 +70,8 @@ header .intro-text .skills {
     cursor: pointer;
     display: inline-block;
     margin: 2%;
+	border: 2px solid #ff2100;
+
 }
 
 .head-image {

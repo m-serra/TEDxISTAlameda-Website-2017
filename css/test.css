@@ -398,8 +398,9 @@ main {
   overflow-y: scroll; }
 
 .container {
-    width: 100%;
-    margin: 0 auto;
+    width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 @media all and (min-width: 740px) {
@@ -447,6 +448,7 @@ main {
     overflow: hidden;
     cursor: default !important; 
     text-align: center;
+	filter: blur(0px);
 }
 
 .nav_logo-svg {
@@ -545,13 +547,13 @@ body input:checked + label span:last-child {
 }
 
 @media all and (min-width: 1020px) {
-    .nav__x {
+    .nav_x {
         left: 50%;
         margin-left: -483px;
     }
 }
 @media all and (min-width: 1300px) {
-    .nav__x {
+    .nav_x {
         margin-left: -600px;
     }
 }
@@ -573,6 +575,10 @@ body input:checked + label span:last-child {
     top: 0;
     left: 0;
     overflow: hidden;
+}
+
+.blurred {
+	filter: blur(10px);
 }
 
 .arrow-left {
@@ -652,9 +658,9 @@ body input:checked + label span:last-child {
 
 /* CONTENT TEAM & ABOUT ----------- */
 body input ~ div {
-  background: #ff2100;
+  background-color: rgba(255,255,255,0.5); /*#E0E0E0;*/
   position: fixed;
-  top: 0;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 0%;
@@ -662,7 +668,6 @@ body input ~ div {
   transition: 0.5s ease-in-out 0.8s;
   -moz-transition: 0.5s ease-in-out 0.8s;
   -webkit-transition: 0.5s ease-in-out 0.8s;
-  overflow: hidden;
 }
 /*
 body input ~ div > ul {
@@ -694,7 +699,6 @@ body input ~ div > ul > li > a {
 body input:checked ~ div {
 	height: 100%;
 	/*border: 10px solid #FFF;*/
-	background-color: #ff2100;
     transition: height 0.5s ease-in-out 0.2s;
     -moz-transition: height 0.5s ease-in-out 0.2s;
     -webkit-transition: height 0.5s ease-in-out 0.2s;
@@ -707,13 +711,12 @@ body input ~ div .new_section {
 	font-weight: 200;
 	letter-spacing: 1px;
     text-align: center; 
-	margin-top: 5%;
+	margin-top: 2%;
 	padding: 0;
 	opacity: 0;
 	transition: 0.5s ease-in-out 0.6s;
 	-moz-transition: 0.5s ease-in-out 0.6s;
 	-webkit-transition: 0.5s ease-in-out 0.6s;
-
 }
 
 body input:checked ~ div .new_section {
@@ -736,12 +739,12 @@ body input:checked ~ div .new_section_button {
 
 body input ~ div .new_section_button-selected, 
 body input ~ div .new_section a:hover {
-	color: #FFF !important;
+	color: #FF2100 !important;
 }
 
 body input:checked ~ div .new_section_button-selected, 
 body input:checked ~ div .new_section a:hover {
-	color: #FFF !important;
+	color: #FF2100 !important;
 }
 
 body input ~ div .content-list{
@@ -768,7 +771,7 @@ body input:checked ~ div .content-list{
 	text-align: center;
 	margin-top: 20px;
 	opacity: 0;
-	color: #FFF;
+	color: #FF2100;
 	transition: opacity 0.8s ease-in-out 0.1s;
 	-moz-transition: opacity 0.8s ease-in-out 0.1s;
 	-webkit-transition: opacity 0.8s ease-in-out 0.1s;
@@ -785,12 +788,12 @@ body input ~ div .footnote {
 	height: 35px;
 	padding-left: 20px;
 	padding-right: 20px;
-	font-size: 10px;
-	color: #FFF;
+	font-size: 11px;
+	color: #ff2100;
 	text-align: center;
 	visibility: hidden;
 	opacity: 0;
-	background-color: #ff2100;
+	background-color: rgba(255,255,255,0,5);
 	transition: 0.4s ease-in-out 0.2s;
 	-moz-transition: 0.4s ease-in-out 0.2s;
 	-webkit-transition: 0.4s ease-in-out 0.2s;
@@ -803,6 +806,7 @@ body input:checked ~ div .footnote {
 	-moz-transition: opacity 0.5s ease-in-out 0.8s;
 	-webkit-transition: opacity 0.5s ease-in-out 0.8s;
 }
+
 /* -------------------------------- */
 
 /* MENU-LIST OPTIONS -------------- */
@@ -879,7 +883,7 @@ body input:checked ~ div .footnote {
 }
 
 .list_item:nth-child(2) .list_bg, .list_item:nth-child(5) .list_bg, .list_item:nth-child(8) .list_bg {
-    background-color: #f2f2f2;
+    background-color: #e0e0e0;
 }
 
 .list_item:nth-child(3) .list_bg, .list_item:nth-child(6) .list_bg, .list_item:nth-child(9) .list_bg {
@@ -894,7 +898,6 @@ body input:checked ~ div .footnote {
 }
 
 .list_title {
-    font-family: "Helvetica";
     font-size: 600px;
     line-height: 1em;
 	letter-spacing: -15px;
@@ -903,7 +906,7 @@ body input:checked ~ div .footnote {
     position: absolute;
     z-index: 2;
     top: 50%;
-    margin-top: -425px;
+    margin-top: -355px;
 	margin-left: 0;
     width: 80%;
     text-align: left;
@@ -911,7 +914,7 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 780px) {
     .list_title {
-        font-size: 300px;
+        font-size: 250px;
     }
 }
 
@@ -1017,11 +1020,14 @@ body input:checked ~ div .footnote {
 
 .album {
 	display: none;
-	width: 100%;
+	width: 80%;
+	height: 75%!important;
+	margin-left: 8%;
+	margin-right: 12%;
 	position: relative;
 	top: 100%;
-	margin-top: 300px;
-    margin-bottom: 100px;
+	margin-top: 250px;
+    margin-bottom: 0px;
 }
 
 @media all and (min-width: 1100px) {
@@ -1133,37 +1139,43 @@ body input:checked ~ div .footnote {
 }
 
 .album__col {
-    width: 280px;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
+	background-color: #FFF;
+	padding: 0px;
 }
 
 .album__col:first-child {
     margin-bottom: 20px;
 }
+.album__col:nth-child(2){
+	padding: 50px;
+}
 
 @media all and (min-width: 1100px) {
     .album__col:first-child {
-        margin-right: 100px;
-        margin-bottom: 0;
+        margin-right: 0px;
+        margin-top: 0px;
     }
 }
 
 @media all and (min-width: 350px) {
     .album__col {
-        width: 330px;
+        width: 300px;
     }
 }
 
 @media all and (min-width: 740px) {
     .album__col {
-        width: 460px;
+        width: 400px;
     }
 }
 
 @media all and (min-width: 1100px) {
     .album__col {
-        width: 460px;
+        width: 576px!important;
+		height: 432px !important;
         float: left;
         margin-left: 0;
         margin-right: 0;
@@ -1172,7 +1184,7 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 1300px) {
     .album__col {
-        width: 560px;
+        width: 500px;
     }
 }
 
@@ -1186,7 +1198,7 @@ body input:checked ~ div .footnote {
     width: 280px;
     height: 280px;
     background-color: #fac8fa;
-    box-shadow: 2px 4px 3px 2px rgba(50, 50, 50, 0.15);
+    /*box-shadow: 2px 4px 3px 2px rgba(50, 50, 50, 0.15);*/
 }
 
 @media all and (min-width: 350px) {
@@ -1205,8 +1217,8 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 1100px) {
     .album__artwork {
-        width: 460px;
-        height: 460px;
+        width: 480px;
+        height: 360px;
     }
 }
 
@@ -1219,13 +1231,13 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 1500px) {
     .album__artwork {
-        width: 660px;
-        height: 660px;
+        width: 576px;
+        height: 432px;
     }
 }
 
 .album__text-container {
-    color: #003264;
+    color: #292929;
 }
 
 .album__number {
@@ -1251,9 +1263,8 @@ body input:checked ~ div .footnote {
 .album__name {
     font-size: 24px;
     display: block;
-    font-family: "Helvetica";
     line-height: 1em;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 @media all and (min-width: 1100px) {
@@ -1264,15 +1275,16 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 1300px) {
     .album__name {
+		margin-top: -40px;
         font-size: 40px;
+		line-height: 1.2em;
     }
 }
 
 .album__band {
     font-size: 18px;
     display: block;
-    margin-bottom: 25px;
-    font-family: "Clearface ITC W01";
+    margin-bottom: 35px;
 }
 
 @media all and (min-width: 1100px) {
@@ -1288,9 +1300,9 @@ body input:checked ~ div .footnote {
 }
 
 .album__designer {
+	font-size: 35px;
     display: block;
-    margin-bottom: 25px;
-    font-family: "Clearface ITC W01";
+    margin-bottom: 35px;
 }
 
 .album__designer a, .album__designer span {
@@ -1309,7 +1321,6 @@ body input:checked ~ div .footnote {
 
 .album__description {
     margin: 0;
-    font-family: "Clearface ITC W01";
     line-height: 1.4em;
 }
 
@@ -1522,4 +1533,21 @@ body input:checked ~ div .footnote {
 
 .artist-panel__close-x:hover img {
     transform: rotate(90deg);
+}
+
+
+
+
+.year {
+	position: absolute;
+	width: 100%;
+	text-align: left;
+	vertical-align: center;
+	font-size: 210px;
+	font-weight: 600;
+	letter-spacing: -22px;
+	bottom: -425px;
+	color: #ff2100;/*rgb(230,230,230);*/
+	z-index: 0;
+	overflow: hidden;
 }

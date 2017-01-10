@@ -4087,7 +4087,7 @@ function AssetLoader() {
     };
     f.colors = {
         blue: "#00A0E4", // IST websafe BLUE
-        teal: "#32E1E1", //"F2F2F2",
+        teal: "#f2f2f2", //"F2F2F2",
         pink: "#FAC8FA",
         red:  "#FF2100", // TEDx websafe RED
 		dgrey:"#292929", // TEDx websafe GREY
@@ -4103,12 +4103,12 @@ function AssetLoader() {
             x: 700,
             y: -290,
             rotation: -50,
-            focusX: 300,
-            focusY: -400,
-            hoverX: 285,
-            hoverY: -390,
-            headerX: 270,
-            headerY: -380,
+            focusX: 240,
+            focusY: -340,
+            hoverX: 230,
+            hoverY: -350,
+            headerX: 220,
+            headerY: -360,
             scrollX: 100,
             scrollY: 100,
             scrollRotation: -5
