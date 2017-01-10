@@ -4102,7 +4102,7 @@ function AssetLoader() {
         "layout-1": [{
             x: 700,
             y: -290,
-            rotation: -40,
+            rotation: -50,
             focusX: 300,
             focusY: -400,
             hoverX: 285,
