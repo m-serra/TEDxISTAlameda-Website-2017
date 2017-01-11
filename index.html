@@ -8,7 +8,7 @@
 
 		<meta name="description" content="TEDxISTAlameda (x = independently organized TEDx event)."/>
         <link rel="icon" type="image/x-icon" href="images/_favicon.png"/>
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width"/>
         <meta property="og:title" content="TEDxISTAlameda"/>
         <meta property="og:type" content="website"/>
         <meta property="og:site_name" content="TEDxISTAlameda"/>
@@ -44,7 +44,8 @@
 				
 				<!-- NAVIGATION BAR LOGO -->
 				<a class="nav_logo">
-        			<svg class="nav_logo-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="300px" viewBox="0 0 1269.691 246.96" enable-background="new 0 0 1269.691 246.96">
+        			<div class="logo-container">
+                        <svg class="nav_logo-svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1269.691 246.96" enable-background="new 0 0 1269.691 246.96">
         				<g i:extraneous="self">
 							<g>
 								<path fill="#FF2B06" d="M60.376,189.955l-7.567-10.906h7.211l4.05,6.01l4.006-6.01h6.988l-7.567,10.771L76,202.061h-7.21
@@ -151,25 +152,28 @@
 							</g>
 							<text transform="matrix(1 0 0 1 425.5791 143.8516)" font-family="'Helvetica'" font-size="146.9047">ISTAlameda</text>
 						</g>
-        			</svg>
+        			    </svg>
+                    </div>
       			</a>
 			
 				<!-- HAMBURGUER MENU -->
-				<input id="nav_burger" type="checkbox" style="visibility: hidden;"/>
+                <input id="nav_burger" type="checkbox" style="visibility: hidden; float: right"/>
 				<label for="nav_burger">
 					<span></span><span></span><span></span>
 				</label>
-
+           
 				<!-- TEAM & ABOUT - CONTENT -->
 				<div>   
 					<!-- Sections -->
-					<nav id="team_about" class="new_section">
-						<ul>
-							<li><a class="new_section_button new_section_button-selected" data-section="team">Team</a></li>
-							<span>/</span>
-							<li><a class="new_section_button" data-section="about">About</a></li>
-						</ul>
-					</nav>
+                    <div class="nav_container">   
+                        <nav id="team_about" class="new_section">
+                            <ul>
+                                <li><a class="new_section_button new_section_button-selected" data-section="team">Team</a></li>
+                                <span>/</span>
+                                <li><a class="new_section_button" data-section="about">About</a></li>
+                            </ul>
+                        </nav>
+                    </div>
 					<div class="content-list">
 						<!-- Team -->
 						<div class="content content_selected" data-section="team">
@@ -261,7 +265,9 @@
 									</div>    
 								</div>
 							</div>
-							<h2>Is someone missing here?</h2> 
+							<div class="content-text">
+                                <h2>Is someone missing here?</h2> 
+                            </div>
 						</div>
 
 						<!-- About -->

@@ -60,8 +60,8 @@ header .intro-text .skills {
 
 
 .row {
-	margin-left: 19%;
-	margin-right: 19%;
+	margin-left: 25vw;
+	margin-right: 25vw;
 }
 
 .image-holder {
@@ -69,7 +69,7 @@ header .intro-text .skills {
     width: 100px;
     cursor: pointer;
     display: inline-block;
-    margin: 2%;
+    margin: 0.4vw;
 	border: 2px solid #ff2100;
 
 }
@@ -139,50 +139,48 @@ header .intro-text .skills {
 /* Resizing the grid ---------------------- */
 @media all and (max-width: 1570px) {
 	.row {
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: 10vw;
+		margin-right: 10vw;
 	}
 }
 
 @media all and (max-width: 1400px) {
-    .image-holder {
-		margin: 1.5% 1.5% 1.5% 2%;
-    }
+    
 }
 
-@media all and (max-width: 1205px) {
+@media all and (max-width: 1280px) {
 	.row {
-		margin-left: 5%;
-		margin-right: 5%;
-	}
-}
-
-@media all and (max-width: 1070px) {
-    .image-holder {
-		margin: 1% 1% 1% 1%;
-    }
-}
-
-/* Ipad pro + desktops */
-@media all and (max-width: 1024px){
-	.row {
-		margin-left: 6%;
-		margin-right: 6%;
-	}
-    .image-holder {
-		margin: 1% 1% 1% 1%;
-    }
-}
-
-@media all and (max-width: 980px) {
-	.row {
-		margin-left: 5%;
-		margin-right: 5%;
+		margin-left: 15vw;
+		margin-right: 15vw;
 	}
     .image-holder {
 		height: 90px;
 		width: 90px;
-		margin: 1% 1% 1% 1%;
+    }
+}
+
+
+/* Ipad pro + desktops */ 
+@media all and (max-width: 1024px){ /*SET*/
+	.row {
+		margin-left: 15vw;
+		margin-right: 15vw;
+	}
+    .image-holder {
+		height: 75px;
+		width: 75px;
+    }
+}
+
+
+@media all and (max-width: 960px) {
+	.row {
+		margin-left: 20vw;
+		margin-right: 20vw;
+	}
+    .image-holder {
+		height: 75px;
+		width: 75px;
     }
 	.head-image {
 		transform: scale(90/100);
@@ -191,11 +189,11 @@ header .intro-text .skills {
 
 @media all and (max-width: 850px) {
     .image-holder {
-		margin: 0.5% 0.5% 0.5% 0.5%;
+	
     }
 }
 
-/* Ipad / Tablets */
+/* Ipad / Tablets */ 
 @media all and (max-width: 785px) {
 	.row {
 		margin-left: 13%;
@@ -204,18 +202,34 @@ header .intro-text .skills {
     .image-holder {
 		height: 90px;
 		width: 90px;
-		margin: 1% 2% 1% 2%;
+
     }
 	.head-image {
 		transform: scale(100/90);
 	}
 }
-
-/* All phones */
+/* All phones */ 
 @media all and (max-width: 450px) {
 	.row {
 		margin-left: 10%;
 		margin-right: 10%;
 	}
-}
+} 
 /* ---------------------------------------- */
+
+
+.nav_container {
+    width: 100vw;
+    margin: 1vh 0 1vh 0;
+}
+
+
+
+.burguer-container {
+    height: 0;
+    width: 4%;
+    padding-top: 4%;
+    position: relative;
+    float: right;
+    
+}
