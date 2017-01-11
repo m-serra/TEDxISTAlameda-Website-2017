@@ -3742,16 +3742,16 @@ function AssetLoader() {
         	R[jj].style.display = "block";
         for (var a = Model.viewport.height + 300, b = 0; b < S.length; b++) {
             var c = S[b];
-            c.style.height = 1100 <= Model.viewport.width || c.classList.contains("album--footer") ? Model.viewport.height + "px" : "auto";
+            c.style.height = 1100 <= Model.viewport.width || c.classList.contains("album--footer") ? "260px" : "auto"; //Model.viewport.height +
             c.style.border = "1px solid transparent";
             a += c.clientHeight;
-            1100 > Model.viewport.width && b < S.length - 1 && (a += 100);
-            var e = c.querySelector(".container");
-            e.style.marginTop = 0;
-            1100 <= Model.viewport.width && (e.style.marginTop = Math.floor((Model.viewport.height - e.clientHeight) / 2) + "px");
+            1100 > Model.viewport.width && b < S.length - 1 && (a += 100); 
+            //var e = c.querySelector(".container");
+            //e.style.marginTop = 0;
+            //1100 <= Model.viewport.width && (e.style.marginTop = Math.floor((Model.viewport.height - e.clientHeight) / 2) + "px");
             if (c = c.querySelector(".album__text-container"))
-                c.style.marginTop = 0,
-                1100 <= Model.viewport.width && (c.style.marginTop = Math.floor((e.clientHeight - c.clientHeight) / 2) + "px")
+                c.style.marginTop = 0//,
+                //1100 <= Model.viewport.width && (c.style.marginTop = Math.floor((e.clientHeight - c.clientHeight) / 2) + "px")
         }
         Model.listMask.style.height = a + 35 + "px"
     }
@@ -4087,7 +4087,7 @@ function AssetLoader() {
     };
     f.colors = {
         blue: "#00A0E4", // IST websafe BLUE
-        teal: "#f2f2f2", //"F2F2F2",
+        teal: "#E0E0E0", //"F2F2F2",
         pink: "#FAC8FA",
         red:  "#FF2100", // TEDx websafe RED
 		dgrey:"#292929", // TEDx websafe GREY
@@ -4122,8 +4122,8 @@ function AssetLoader() {
             hoverY: 108,
             headerX: 540,
             headerY: 125,
-            scrollX: -90,
-            scrollY: 300,
+            scrollX: -30,
+            scrollY: 100,
             scrollRotation: 4
         }, {
             x: 20,
