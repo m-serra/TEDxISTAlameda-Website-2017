@@ -478,7 +478,7 @@ main {
     position: fixed;
     width: 100%;
     min-height: 50px;
-    height: 10vh;;
+    height: 10vh;
     padding-top: 10px;
     z-index: 5;
 	visibility: hidden;
@@ -491,7 +491,6 @@ main {
     height: auto;
     min-height: 50px;
     display: inherit;
-    margin: 0.5vh;
     overflow: hidden;
     cursor: default !important; 
     text-align: center;
@@ -777,12 +776,14 @@ body input:checked ~ div {
 }
 
 body input ~ div .new_section {
-	font-size: 36px;
+	
+    font-size: 36px;
     color: #000 !important;
 	font-weight: 200;
 	letter-spacing: 1px;
     text-align: center;
     height: auto;
+    
 	padding: 0;
 	opacity: 0;
 	transition: 0.5s ease-in-out 0.6s;
