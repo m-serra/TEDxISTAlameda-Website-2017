@@ -3261,20 +3261,32 @@ function AssetLoader() {
     }
     var f = {}, n, q, p, c;
     f.showX = function() {
+		m = document.querySelector(".menu-list");
         document.body.classList.remove("home");
         TweenLite.to(p, .4, {
             delay: .6,
-            top: 20,
+            top: 25,
             ease: Quart.easeOut
         })
+		TweenLite.to(m, .4, {
+			delay: .6,
+			opacity: 0,
+			ease: Quart.easeOut
+		})
     }
     ;
     f.hideX = function() {
+		m = document.querySelector(".menu-list");
         document.body.classList.add("home");
         TweenLite.to(p, .3, {
             top: -30,
             ease: Quart.easeIn
         })
+		TweenLite.to(m, .4, {
+			delay: .6,
+			opacity: 1,
+			ease: Quart.easeOut
+		})
     }
     ;
     f.animateIn = function() {
@@ -3388,7 +3400,7 @@ function AssetLoader() {
         R.style.top = Math.floor(Model.viewport.height / 2) + "px";
         z ? b() : BrowserDetect.DESKTOP && f(!0)
     }
-    function v() {
+    function v() { 
         oa.activate();
         aa.activate();
         4 === F ? R.classList.remove("arrow-right-show") : R.classList.add("arrow-right-show");
@@ -3508,35 +3520,10 @@ function AssetLoader() {
             ease: Linear.easeNone
         })
     }
-    function n(a) {
-        if (z.isOpen) {
-            a = WindowScroll.getPositionY();
-            if (a < Model.viewport.height + 300) {
-                var b = a / (Model.viewport.height + 300);
-                BrowserDetect.DESKTOP && (J._y = 400 * b,
-                J._update());
-                for (var c = 0; c < K.length; c++) {
-                    var e = K[c];
-                    e._x = Model.albumPositions[L][c].headerX - b * Model.albumPositions[L][c].scrollX;
-                    e._y = Model.albumPositions[L][c].headerY + b * Model.albumPositions[L][c].scrollY;
-                    e._rotation = Model.albumPositions[L][c].rotation + b * Model.albumPositions[L][c].scrollRotation;
-                    e._update()
-                }
-                1 === ha && (ha--,
-                f(Model.colors[Model.colorOrder[T][ha]]))
-            }
-            b = S[ha];
-            c = a - Model.viewport.height / 2 - 300;
-            !1 === C && b.offsetTop < c ? (ha++,
-            ha >= S.length ? (C = !0,
-            f("#ffffff")) : f(Model.colors[Model.colorOrder[T][ha]])) : (b = S[ha - 1]) && b.offsetTop > a - Model.viewport.height / 2 - 300 && (ha--,
-            C = !1,
-            f(Model.colors[Model.colorOrder[T][ha]]))
-        }
-    }
     function q(a) {
         !z.isOpen && ba && Controller.updateURL(z.href)
     }
+	// WHEN MOUSE ENTER (HOVER)
     function p(a) {
         if (!z.isOpen && ba)
             for (k(),
@@ -3562,9 +3549,10 @@ function AssetLoader() {
                     }
                 })
     }
+	// WHEN MOUSE LEAVE (HOVER)
     function c(a) {
         if (!z.isOpen && ba)
-            for (y(),
+            for (k(),
             TweenLite.to(z, .3, {
                 _y: 0,
                 _x: 0,
@@ -3587,39 +3575,15 @@ function AssetLoader() {
                     }
                 })
     }
+	// POSITION OF TITLE
     function k() {
         TweenLite.to(J, .3, {
-            _y: -25,
+            _y: 100,
             ease: Quad.easeInOut,
             onUpdate: function() {
                 J._update()
             }
         });
-        TweenLite.to(X, .3, {
-            opacity: 1,
-            _y: 0,
-            ease: Quad.easeInOut,
-            onUpdate: function() {
-                X._update()
-            }
-        })
-    }
-    function y() {
-        TweenLite.to(J, .3, {
-            _y: 0,
-            ease: Quad.easeInOut,
-            onUpdate: function() {
-                J._update()
-            }
-        });
-        TweenLite.to(X, .3, {
-            opacity: 0,
-            _y: 35,
-            ease: Quad.easeInOut,
-            onUpdate: function() {
-                X._update()
-            }
-        })
     }
     function w() {
 		for (var d = 0; d < R.length; d++)
@@ -3636,9 +3600,10 @@ function AssetLoader() {
         document.body.removeChild(V);
         V = null
     }
+	// UPDATES POSITION OF PHOTOS
     function I() {
         K = [];
-        for (var a = b.querySelectorAll(".list_album"), c = 0; c < a.length; c++) {
+        for (var a = b.querySelectorAll(".list_photo"), c = 0; c < a.length; c++) {
             var e = new CreateDiv(a[c]);
             e._x = Model.albumPositions[L][c].x * Model.tileDimensions.multiplier;
             e._y = Model.albumPositions[L][c].y * Model.tileDimensions.multiplier;
@@ -3665,6 +3630,7 @@ function AssetLoader() {
             })
         }
     }
+    // ADICIONAR AQUI PLAY DO VIDEO
     function P(b) {
         if (b.currentTarget.querySelector("audio, iframe"))
             a();
@@ -3686,6 +3652,7 @@ function AssetLoader() {
             })
         }
     }
+	// CHANGES ALBUM ARTWORK WITH IMAGES (TO CHANGE / ERASE)
     function E() {
         ca = !0;
         for (var a = b.querySelectorAll(".album__artwork"), c = 0; c < a.length; c++) {
@@ -3702,6 +3669,7 @@ function AssetLoader() {
             e.src = Model.IMAGE_PATH + a[c].getAttribute("data-image")
         }
     }
+	// TERMINA O AUDIO / A TALK (TO CHANGE - REMOVE)
     function a() {
         for (var a = b.querySelectorAll(".album__play-container--playing"), c = 0; c < a.length; c++) {
             var e = a[c];
@@ -3713,9 +3681,9 @@ function AssetLoader() {
         f(Model.colors[T]);
         Model.listMask.style.height = "100%";
         document.documentElement.style.backgroundColor = "";
-        window.removeEventListener("scroll", n);
 		for (var jj = 0; jj < R.length; jj++)
 			R[jj].style.display = "";
+		S[0].style.display = "";
         oa.style.overflow = "";
         z.style.cursor = "pointer";
         z.isOpen = !1;
@@ -3723,7 +3691,8 @@ function AssetLoader() {
         aa.style.height = "";
         TweenLite.to(z, .6, {
             delay: .2,
-            _y: 0,
+            top: Math.ceil((Model.viewport.height - Model.tileDimensions.height) / 2),
+			_y: 0,
             _x: 0,
             width: Model.tileDimensions.width,
             height: Model.tileDimensions.height,
@@ -3737,28 +3706,42 @@ function AssetLoader() {
             }
         })
     }
+	// UPDATES LISTMASK HEIGHT
     function F() {
-		for (var jj = 0; jj < R.length; jj++)
-        	R[jj].style.display = "block";
-        for (var a = Model.viewport.height + 300, b = 0; b < S.length; b++) {
-            var c = S[b];
-            c.style.height = 1100 <= Model.viewport.width || c.classList.contains("album--footer") ? "260px" : "auto"; //Model.viewport.height +
+		var h = Model.viewport.height*0.47 + 646, // DON'T CHANGE!
+			a = h;
+		// Sections
+        for (var b = 0; b < R.length; b++) {
+            var c = R[b];
+			c.style.top = h + "px";
+			c.style.display = "block";
+            c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "370px" : "500px";
             c.style.border = "1px solid transparent";
-            a += c.clientHeight;
-            1100 > Model.viewport.width && b < S.length - 1 && (a += 100); 
-            //var e = c.querySelector(".container");
-            //e.style.marginTop = 0;
-            //1100 <= Model.viewport.width && (e.style.marginTop = Math.floor((Model.viewport.height - e.clientHeight) / 2) + "px");
-            if (c = c.querySelector(".album__text-container"))
-                c.style.marginTop = 0//,
-                //1100 <= Model.viewport.width && (c.style.marginTop = Math.floor((e.clientHeight - c.clientHeight) / 2) + "px")
+            a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 410 : 540;
         }
-        Model.listMask.style.height = a + 35 + "px"
+		// Especial section - editions
+		for (var b=0; b < Q.length; b++) {
+			var c = Q[b];
+			c.style.top = h + "px";
+			c.style.display = "block";
+            c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "160px" : "200px";
+            c.style.border = "1px solid transparent";
+            a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 200 : 240;
+		}
+		// Footer
+		var f = S[0];
+		f.style.top = h + "px";
+		f.style.display = "block";
+		f.style.height = "180px";
+		f.style.border = "1px solid transparent";
+		a += 180;
+		// Update listMask height
+		Model.listMask.style.height = a + "px";
     }
     function la(a) {
-        z.isOpen && (z.style.width = Model.viewport.width + "px",
+		z.isOpen && (z.style.width = Model.viewport.width + "px",
         z.style.height = Model.viewport.height + "px",
-        aa.style.height = Model.viewport.height + 40 + "px",
+        aa.style.height = Model.viewport.height + "px",
         z._update(),
         F())
     }
@@ -3779,13 +3762,14 @@ function AssetLoader() {
 					this.target.querySelector("img").classList.remove("blur");
                 }
             });
-        y();
+        k();
         z.style.cursor = "";
         z.isOpen = !0;
         z.style.zIndex = 1;
         TweenLite.to(z, .6, {
-            _y: Math.ceil(-(Model.viewport.height - Model.tileDimensions.height) / 2),
+            //_y: Math.ceil(-(Model.viewport.height - Model.tileDimensions.height) / 2),
             _x: Math.ceil(-(Model.viewport.width - Model.tileDimensions.width) / 2),
+			top: 15,
             width: Model.viewport.width,
             height: Model.viewport.height,
             ease: Quart.easeInOut,
@@ -3794,10 +3778,9 @@ function AssetLoader() {
             },
             onComplete: function() {
                 document.documentElement.style.backgroundColor = Model.colors[T];
-                oa.style.overflow = "visible";
-                window.addEventListener("scroll", n);
-                F();
+                oa.style.overflow = "visible"; 
                 la();
+				// ADICIONAR AQUI PLAY DO VIDEO
                 for (var a = b.querySelectorAll(".album__play-container"), c = 0; c < a.length; c++) {
                     var e = a[c];
                     "true" == e.querySelector(".album__spotify").getAttribute("data-mp3") ? e.addEventListener("click", H) : e.addEventListener("click", P)
@@ -3809,14 +3792,14 @@ function AssetLoader() {
     ;
     z.close = function(b) {
         V && V.close();
-        a();
+        a(); // INSERIR AQUI CONTEÚDO QUE TERMINA A TALK DE SER EXECUTADA
         0 < WindowScroll.getPositionY() ? WindowScroll.scroll({
             y: 0,
             speed: .4,
             onComplete: function() {
-                N(b)
-            }
-        }) : N(b)
+                N(b);
+			}
+        }) : N(b); 
     }
     ;
     z.select = function() {
@@ -3857,22 +3840,20 @@ function AssetLoader() {
     }
     ;
     R = b.querySelectorAll(".album");
+	Q = b.querySelectorAll(".edition");
+	S = b.querySelectorAll(".page_footer")
     aa = b.querySelector(".list_bg");
     J = new CreateDiv(b.querySelector(".list_title"));
-    X = new CreateDiv(b.querySelector(".list_cta"));
-    X._y = 35;
-    X._update();
+	k();
     T = b.getAttribute("data-color");
-    R ? (S = R,
-    oa = b.querySelector(".list_header"),
-    L = b.getAttribute("data-layout") ? "layout-" + b.getAttribute("data-layout") : L,
-    I(),
-    w(),
-    window.addEventListener("resize", la),
-    z.addEventListener("click", q),
+    oa = b.querySelector(".list_header");
+    L = b.getAttribute("data-layout") ? "layout-" + b.getAttribute("data-layout") : L;
+    I();
+    w();
+    window.addEventListener("resize", la);
+    z.addEventListener("click", q);
     BrowserDetect.DESKTOP && (z.addEventListener("mouseenter", p),
-    z.addEventListener("mouseleave", c))) : (z.isDisabled = !0,
-    aa.style.backgroundColor = "#f0f0f0");
+    z.addEventListener("mouseleave", c));
     return z
 }
 
@@ -3884,7 +3865,6 @@ function AssetLoader() {
     }
     var n = document.createElement("div"), p;
     n.changeNumber = function(b) {
-		//debugger;
         n.querySelector(".menu-list_item-selected").classList.remove("menu-list_item-selected");
         p = b;
         var c = n.children[b];
@@ -3895,11 +3875,9 @@ function AssetLoader() {
     ;
     n.classList.add("menu-list");
     (function() {
-        for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue teal pink blue teal pink blue teal pink blue teal pink".split(" "), p = 0, q = 0; q < b.length; q++) {
-            var e = 1; // b[q].querySelector(".album") ? !1 : !0,
-				v = document.createElement("a");
-				//v = e ? document.createElement("span") : document.createElement("a");
-            v.color = k[p];//e ? "grey" : k[p];
+        for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue teal pink blue teal".split(" "), p = 0, q = 0; q < b.length; q++) {
+            var v = document.createElement("a");
+            v.color = k[p];
             v.classList.add("menu-list_item");
             v.classList.add(v.color);
 			v.num = q;
@@ -3908,8 +3886,6 @@ function AssetLoader() {
             p++;
             p > k.length - 1 && (k = 0);
             0 === q && v.classList.add("menu-list_item-selected");
-            //e ? v.classList.add("menu-list_item-disabled") : (v.href = b[q].dataset.name,
-            //v.addEventListener("click", f))
 			v.href = b[q].dataset.name;
             v.addEventListener("click", f);
         }
@@ -4130,11 +4106,11 @@ function AssetLoader() {
             y: 500,
             rotation: 12,
             focusX: -20,
-            focusY: 300,
+            focusY: 345,
             hoverX: -28,
-            hoverY: 316,
+            hoverY: 361,
             headerX: -56,
-            headerY: 332,
+            headerY: 377, 
             scrollX: 30,
             scrollY: -100,
             scrollRotation: -3
@@ -4183,7 +4159,8 @@ function AssetLoader() {
     f.init = function() {
         BrowserDetect.DESKTOP ? (window.addEventListener("resize", b),
         b()) : (f.viewport.width = window.innerWidth,
-        f.viewport.height = screen ? window.innerWidth > window.innerHeight ? 630 > screen.width ? 630 : screen.width - 40 : 630 > screen.height ? 630 : screen.height - 40 : 630 < window.innerHeight ? window.innerHeight : 630)
+		f.viewport.height = window.innerHeight)		
+        //f.viewport.height = screen ? window.innerWidth > window.innerHeight ? 630 > screen.width ? 630 : screen.width - 40 : 630 > screen.height ? 630 : screen.height - 40 : 630 < window.innerHeight ? window.innerHeight : 630)
     }
     ;
     window.Model = f
@@ -4223,7 +4200,6 @@ function View() {
         Model.nav = new Nav;
         window.addEventListener("resize", b);
         b();
-        new SocialButtons;
         n = new List;
         n.animateIn(function() {
             f.update()
@@ -4254,7 +4230,7 @@ function View() {
     Controller.init();
     Model.init();
 	w = new Date;
-	p = document.querySelectorAll(".list_album");
+	p = document.querySelectorAll(".list_photo");
 	for (var e = 0; e < p.length; e++) {
 		c.push(p[e].getAttribute("data-image"));
 	}
