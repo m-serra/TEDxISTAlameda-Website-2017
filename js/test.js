@@ -3715,10 +3715,19 @@ function AssetLoader() {
             var c = R[b];
 			c.style.top = h + "px";
 			c.style.display = "block";
-            c.style.height = "260px";
+            c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "370px" : "500px";
             c.style.border = "1px solid transparent";
-            a += 300; // 260 + 40
+            a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 410 : 540;
         }
+		// Especial section - editions
+		for (var b=0; b < Q.length; b++) {
+			var c = Q[b];
+			c.style.top = h + "px";
+			c.style.display = "block";
+            c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "160px" : "200px";
+            c.style.border = "1px solid transparent";
+            a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 200 : 240;
+		}
 		// Footer
 		var f = S[0];
 		f.style.top = h + "px";
@@ -3831,6 +3840,7 @@ function AssetLoader() {
     }
     ;
     R = b.querySelectorAll(".album");
+	Q = b.querySelectorAll(".edition");
 	S = b.querySelectorAll(".page_footer")
     aa = b.querySelector(".list_bg");
     J = new CreateDiv(b.querySelector(".list_title"));

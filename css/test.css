@@ -1073,7 +1073,17 @@ body input:checked ~ div .footnote {
 /* SECTION ------------------------ */
 .album {
 	display: none;
-	width: 944px;
+	width: 942px;
+	height: 260px!important;
+	margin: 0px auto 40px auto;
+	position: relative;
+	top: 1240px;
+	overflow: hidden;
+}
+
+.edition{
+	display: none;
+	width: 942px;
 	height: 260px!important;
 	margin: 0px auto 40px auto;
 	position: relative;
@@ -1082,8 +1092,8 @@ body input:checked ~ div .footnote {
 }
 
 .album__col {
-    width: 330px;
-	height: 179px;
+    width: 460px;
+	height: 260px;
     margin: 0;
 	padding: 0;
 	float: left;
@@ -1096,24 +1106,114 @@ body input:checked ~ div .footnote {
 	padding: 40px 40px 0px 40px;
 }
 
-
-@media all and (min-width: 350px) {
-    .album__col {
-        width: 330px;
-		height: 179px;
-    }
+.album__col:first-child .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  background: url("../images/ui/youtube_in.png") center / 50px 50px no-repeat;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
-@media all and (min-width: 740px) {
-    .album__col {
-        width: 480px;
-		height: 260px;
-    }
+.album__col:first-child:hover .overlay {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-@media all and (min-width: 1100px) {
+.section_title {
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	margin: 0;
+	z-index: 0;
+}
+
+.year {
+	font-size: 125px;
+	font-weight: 600;
+	color: #ff2100;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.year:after{
+	content: '';
+    position: absolute;
+    top: 143px;
+	left: 0; right: 0;
+	margin-left: auto;
+	margin-right: auto;
+    width: 300px;
+    height: 3px;
+    background: #292929;
+}
+
+.theme {
+	font-size: 27px;
+	font-weight: 600;
+	color: #292929;
+}
+
+.theme:after {
+	content: '';
+    position: absolute;
+    top: 213px;
+	left: 0; right: 0;
+	margin-left: auto;
+	margin-right: auto;
+    width: 300px;
+    height: 3px;
+    background: #292929;	
+}
+
+.main-header {
+	color: #292929;
+	font-size: 29px;
+	line-height: 30px;
+	font-weight: 700;
+	margin: 10px 0 0 0;
+}
+
+.main-header:after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    width: 60px;
+    height: 5px;
+    background: #ff2100;
+}
+
+.speaker{
+	color:#ff2100; 
+	font-size: 24px;
+	margin: 10px 0 10px 0;
+}
+
+.excerpt{
+	color: #292929;
+	font-size: 15px;
+	font-weight: 100;
+	line-height: 20px;
+	margin: 15px 0 15px 0;
+}
+
+.talkvideo {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+@media all and (max-width: 1500px) {
 	.album {
-		width: 944px;
+		width: 942px;
 	}
 	.album__col:first-child {
         width: 460px;
@@ -1123,6 +1223,100 @@ body input:checked ~ div .footnote {
         width: 480px;
 		height: 260px;
     }
+}
+@media all and (max-width: 1100px) {
+	.edition{
+		width: 460px;
+		height: 200px!important;
+	}
+	.year {
+		margin-top: 20px;
+		font-size: 90px;
+	}
+	.year:after {
+		top: 125px;
+		width: 250px;
+	}
+	.theme {
+		font-size: 18px;
+	}
+	.theme:after {
+		top: 181px;
+		width: 250px;
+	}
+	.album {
+		width: 460px;
+		height: 500px!important;
+	}
+	.album__col:first-child {
+        width: 460px;
+		height: 260px;
+    }
+    .album__col:last-child {
+        width: 460px;
+		height: 240px;
+    }
+	.main-header {
+		font-size: 25px;
+	}
+	.speaker{
+		margin: 10px 0 10px 0;
+		font-size: 22px;
+	}
+	.excerpt{
+		font-size: 14px;
+	}
+}
+@media all and (max-width: 600px) {
+	.edition {
+		width: 300px;
+		height: 160px!important;
+	}
+	.year {
+		margin-top: 0px;
+		font-size: 70px;
+	}
+	.year:after {
+		top: 82px;
+		width: 200px;
+	}
+	.theme {
+		font-size: 17px;
+	}
+	.theme:after {
+		display: none;
+	}
+	.album {
+		width: 300px;
+		height: 370px!important;
+	}
+	.album__col:first-child {
+        width: 300px;
+		height: 170px;
+    }
+    .album__col:last-child {
+        width: 300px;
+		height: 200px;
+		padding: 20px;
+    }
+	.main-header {
+		font-size: 17px;
+		line-height: 22px;
+	}
+	.main-header:after{
+		top:20px;
+		left:20px;
+		height: 4px;
+	}
+	.speaker{
+		margin: 5px 0 10px 0;
+		font-size: 17px;
+	}
+	.excerpt{
+		margin-top: 10px;
+		font-size: 11px;
+		line-height: 18px;
+	}
 }
 
 .album__artwork {
@@ -1166,109 +1360,6 @@ body input:checked ~ div .footnote {
         width: 576px;
         height: 432px;
     }
-}
-
-.album__text-container {
-    color: #292929;
-}
-
-.main-header {
-	color: #292929;
-	font-size: 29px;
-	line-height: 30px;
-	font-weight: 700;
-	margin: 10px 0 0 0;
-}
-
-.main-header:after {
-    content: '';
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    width: 60px;
-    height: 5px;
-    background: #ff2100;
-}
-
-.excerpt{
-	color: #292929;
-	font-size: 15px;
-	font-weight: 100;
-	line-height: 20px;
-	margin: 15px 0 15px 0;
-}
-
-.year {
-	font-size: 125px;
-	font-weight: 600;
-	color: #ff2100;
-	display: block;
-	margin-bottom: 20px;
-}
-
-.year:after{
-	content: '';
-    position: absolute;
-    top: 143px;
-	left: 0; right: 0;
-	margin-left: auto;
-	margin-right: auto;
-    width: 300px;
-    height: 3px;
-    background: #292929;
-}
-
-.theme {
-	font-size: 27px;
-	font-weight: 600;
-	color: #292929;
-}
-
-.theme:after {
-	content: '';
-    position: absolute;
-    top: 213px;
-	left: 0; right: 0;
-	margin-left: auto;
-	margin-right: auto;
-    width: 300px;
-    height: 3px;
-    background: #292929;	
-}
-
-.section_title {
-	position: absolute;
-	text-align: center;
-	top: 0;
-	width: 100%;
-	margin: 0;
-	z-index: 0;
-}
-
-.album__col:first-child .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  background: url("../images/ui/youtube_in.png") center / 50px 50px no-repeat;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-}
-
-.album__col:first-child:hover .overlay {
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.talkvideo {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
 }
 /* -------------------------------- */
 
