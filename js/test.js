@@ -3265,7 +3265,7 @@ function AssetLoader() {
         document.body.classList.remove("home");
         TweenLite.to(p, .4, {
             delay: .6,
-            top: 25,
+            top: Model.viewport.width < 450 ? 80 : 25,
             ease: Quart.easeOut
         })
 		TweenLite.to(m, .4, {
@@ -3612,69 +3612,63 @@ function AssetLoader() {
             K.push(e)
         }
     }
-    function H(b) {
-        if (b.currentTarget.querySelector("audio, iframe"))
-            a();
-        else {
-            a();
-            b.currentTarget.classList.add("album__play-container--playing");
-            var c = new Audio;
-            c.src = b.currentTarget.querySelector(".album__spotify").getAttribute("data-track-id");
-            c.style.display = "none";
-            b.target.appendChild(c);
-            c.play();
-            ga("send", {
-                hitType: "event",
-                eventCategory: "Media",
-                eventAction: "Play"
-            })
-        }
-    }
     // ADICIONAR AQUI PLAY DO VIDEO
     function P(b) {
-        if (b.currentTarget.querySelector("audio, iframe"))
+        if (b.currentTarget.querySelector("iframe"))
             a();
         else {
             a();
-            b.currentTarget.classList.add("album__play-container--playing");
+            b.currentTarget.classList.add("playing");
             var c = document.createElement("iframe");
-            c.src = "https://www.youtube.com/embed/" + b.currentTarget.querySelector(".album__spotify").getAttribute("data-track-id") + "?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1";
-            c.width = "80";
-            c.height = "80";
+            c.src = "https://www.youtube.com/embed/" + b.currentTarget.getAttribute("data-media") + "?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1";
+            c.width = "460";
+            c.height = "260";
             c.frameborder = "0";
             c.allowtransparency = "true";
-            c.style.display = "none";
+            c.style.display = "block";
+			c.setAttribute('allowFullScreen', '');
+			c.setAttribute('webkitAllowFullScreen', '');
+			c.setAttribute('mozallowFullScreen', '');
             b.currentTarget.appendChild(c);
-            ga("send", {
-                hitType: "event",
-                eventCategory: "Media",
-                eventAction: "Play"
-            })
+			
+			// HIDES THUMBNAIL & ICON
+			c.parentNode.getElementsByTagName("img")[0].style.display = "none";
+			c.parentNode.getElementsByTagName("div")[0].style.display = "none";
+			c.style.border = 0;
         }
     }
-	// CHANGES ALBUM ARTWORK WITH IMAGES (TO CHANGE / ERASE)
+	// CHANGES PLACEHOLDER IMAGE WITH THUMBNAIL FROM TALK
     function E() {
         ca = !0;
-        for (var a = b.querySelectorAll(".album__artwork"), c = 0; c < a.length; c++) {
+        for (var a = b.querySelectorAll(".talkcontainer"), c = 0; c < a.length; c++) {
+			// ADD THUMBNAIL
             var e = document.createElement("img");
             e.num = c;
             e.onload = function() {
                 a[this.num].src = this.src
-            }
-            ;
-            e.onerror = function(b) {
-                e.src = a[c].getAttribute("data-image")
-            }
-            ;
-            e.src = Model.IMAGE_PATH + a[c].getAttribute("data-image")
+            };
+            e.src = Model.IMAGE_PATH + "http://img.youtube.com/vi/" + a[c].getAttribute("data-media") + "/hqdefault.jpg"
+			e.width = "460";
+            e.height = "360";
+			e.style.backgroundColor = "#e0e0e0"
+			e.style.transform = "translate(0,-13.9%)"
+			e.style.clipPath = "inset(13.9% 0 13.9% 0)"
+			a[c].appendChild(e);
+			
+			// ADD YOUTUBE ICON
+			var f = document.createElement("div");
+			f.classList.add("hoverlay");
+			a[c].appendChild(f); 
         }
     }
 	// TERMINA O AUDIO / A TALK (TO CHANGE - REMOVE)
     function a() {
-        for (var a = b.querySelectorAll(".album__play-container--playing"), c = 0; c < a.length; c++) {
+        for (var a = b.querySelectorAll(".playing"), c = 0; c < a.length; c++) {
             var e = a[c];
-            e.classList.remove("album__play-container--playing");
-            (e = e.querySelector("audio, iframe")) && e.parentNode.removeChild(e)
+            e.classList.remove("playing");
+			e.getElementsByTagName("img")[0].style.display = "block";
+			e.getElementsByTagName("div")[0].style.display = "block";
+            (e = e.querySelector("iframe")) && e.parentNode.removeChild(e)
         }
     }
     function N(a) {
@@ -3743,7 +3737,7 @@ function AssetLoader() {
     function la(a) {
 		z.isOpen && (z.style.width = Model.viewport.width + "px",
         z.style.height = Model.viewport.height + "px",
-        aa.style.height = Model.viewport.height + "px",
+        aa.style.height = Model.viewport.height + 50 + "px", // 50px OFFSET BECAUSE OF A BUG I'M STILL LOOKING FOR
         z._update(),
         F())
     }
@@ -3771,7 +3765,7 @@ function AssetLoader() {
         TweenLite.to(z, .6, {
             //_y: Math.ceil(-(Model.viewport.height - Model.tileDimensions.height) / 2),
             _x: Math.ceil(-(Model.viewport.width - Model.tileDimensions.width) / 2),
-			top: 15,
+			top: (BrowserDetect.MOBILE || BrowserDetect.TABLET) ? 0 : 15,
             width: Model.viewport.width,
             height: Model.viewport.height,
             ease: Quart.easeInOut,
@@ -3782,10 +3776,10 @@ function AssetLoader() {
                 document.documentElement.style.backgroundColor = Model.colors[T];
                 oa.style.overflow = "visible"; 
                 la();
-				// ADICIONAR AQUI PLAY DO VIDEO
-                for (var a = b.querySelectorAll(".album__play-container"), c = 0; c < a.length; c++) {
+				// ADICIONA VIDEO DA TALK
+                for (var a = b.querySelectorAll(".talkcontainer"), c = 0; c < a.length; c++) {
                     var e = a[c];
-                    "true" == e.querySelector(".album__spotify").getAttribute("data-mp3") ? e.addEventListener("click", H) : e.addEventListener("click", P)
+                    e.addEventListener("click", P)
                 }
                 ca || E()
             }
@@ -4161,8 +4155,8 @@ function AssetLoader() {
     f.init = function() {
         BrowserDetect.DESKTOP ? (window.addEventListener("resize", b),
         b()) : (f.viewport.width = window.innerWidth,
-		f.viewport.height = window.innerHeight)		
-        //f.viewport.height = screen ? window.innerWidth > window.innerHeight ? 630 > screen.width ? 630 : screen.width - 40 : 630 > screen.height ? 630 : screen.height - 40 : 630 < window.innerHeight ? window.innerHeight : 630)
+		f.viewport.height = 630 < window.innerHeight ? window.innerHeight : 630)		
+        //f.viewport.height = screen ? window.innerWidth > window.innerHeight ? 630 > screen.width ? 630 : screen.width - 40 : 630 > screen.height ? 630 : screen.height - 40 : 630 < window.innerHeight ? window.innerHeight : 630) 
     }
     ;
     window.Model = f

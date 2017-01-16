@@ -583,7 +583,6 @@ body input:checked + label span:last-child {
 .nav_x span:last-child {
 	transform: rotate(-45deg);
 }
-
 @media all and (min-width: 1020px) {
     .nav_x {
         left: 50%;
@@ -1073,10 +1072,10 @@ body input:checked ~ div .footnote {
 /* SECTION ------------------------ */
 .album {
 	display: none;
+	position: relative;
 	width: 942px;
 	height: 260px!important;
 	margin: 0px auto 40px auto;
-	position: relative;
 	top: 1240px;
 	overflow: hidden;
 }
@@ -1095,7 +1094,7 @@ body input:checked ~ div .footnote {
     width: 460px;
 	height: 260px;
     margin: 0;
-	padding: 0;
+	padding:0;
 	float: left;
 	background-color: #FFF;
 	overflow: hidden;
@@ -1104,25 +1103,6 @@ body input:checked ~ div .footnote {
 
 .album__col:last-child{
 	padding: 40px 40px 0px 40px;
-}
-
-.album__col:first-child .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  background: url("../images/ui/youtube_in.png") center / 50px 50px no-repeat;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-}
-
-.album__col:first-child:hover .overlay {
-  opacity: 1;
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .section_title {
@@ -1140,6 +1120,7 @@ body input:checked ~ div .footnote {
 	color: #ff2100;
 	display: block;
 	margin-bottom: 20px;
+	margin-top: 0px;
 }
 
 .year:after{
@@ -1202,13 +1183,6 @@ body input:checked ~ div .footnote {
 	font-weight: 100;
 	line-height: 20px;
 	margin: 15px 0 15px 0;
-}
-
-.talkvideo {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
 }
 
 @media all and (max-width: 1500px) {
@@ -2056,4 +2030,26 @@ body input:checked ~ div .footnote {
 
 .greyC {
 	color: #f2f2f2;
+}
+
+.hoverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: url("../images/ui/youtube1.svg") center / 50px 50px no-repeat;
+}
+
+.album__col:hover .hoverlay {
+  background: url("../images/ui/youtube2.svg") center / 50px 50px no-repeat;
+}
+
+.talkcontainer {
+	height:260px;
+	width:460px;
+	overflow:hidden;
+	cursor:pointer;
+	background: #000;
 }
