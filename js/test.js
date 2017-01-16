@@ -3683,6 +3683,8 @@ function AssetLoader() {
         document.documentElement.style.backgroundColor = "";
 		for (var jj = 0; jj < R.length; jj++)
 			R[jj].style.display = "";
+		for (var jj = 0; jj < Q.length; jj++)
+			Q[jj].style.display = "";
 		S[0].style.display = "";
         oa.style.overflow = "";
         z.style.cursor = "pointer";
@@ -3749,7 +3751,7 @@ function AssetLoader() {
     z.href;
     z.isDisabled = !1;
     z.isOpen = !1;
-    var K = [], R, oa, aa, T, J, X, S, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, V;
+    var K = [], R, oa, aa, T, J, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, V;
     z.open = function(a) {
         for (a = 0; a < K.length; a++)
             TweenLite.to(K[a], .6, {
