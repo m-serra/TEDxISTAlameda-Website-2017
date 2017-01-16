@@ -3734,9 +3734,9 @@ function AssetLoader() {
 		var f = S[0];
 		f.style.top = h + "px";
 		f.style.display = "block";
-		f.style.height = "180px";
+		f.style.height = Model.viewport.width > 800 ? "180px" : Model.viewport.width < 550 ? "160px" : "140px";
 		f.style.border = "1px solid transparent";
-		a += 180;
+		a += Model.viewport.width > 800 ? 180 : Model.viewport.width < 550 ? 160 : 140;
 		// Update listMask height
 		Model.listMask.style.height = a + "px";
     }
