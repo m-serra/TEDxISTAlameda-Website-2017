@@ -3603,8 +3603,8 @@ function AssetLoader() {
 		});
 		TweenLite.to(Jb, .5, {
 			delay: 1.7,
-			opacity: 1,
-			top: 620,
+			opacity: 1, 
+			top: 600,
 			ease: Quad.easeInOut
 		});
 		TweenLite.to(D, .5, {
@@ -3630,7 +3630,7 @@ function AssetLoader() {
 		});
 		TweenLite.to(Jb, .3, {
 			opacity: 0,
-			top: 600, 
+			top: 620, 
 			ease: Quad.easeInOut
 		});
 		TweenLite.to(D, .3, {
