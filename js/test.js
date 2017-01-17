@@ -3540,9 +3540,9 @@ function AssetLoader() {
             }),
             a = 0; a < K.length; a++)
                 TweenLite.to(K[a], .3, {
-                    _x: Model.albumPositions[L][a].hoverX,
-                    _y: Model.albumPositions[L][a].hoverY,
-                    _rotation: Model.albumPositions[L][a].rotation,
+                    _x: Model.photoPositions[L][a].hoverX,
+                    _y: Model.photoPositions[L][a].hoverY,
+                    _rotation: Model.photoPositions[L][a].rotation,
                     ease: Quart.easeInOut,
                     onUpdate: function() {
                         this.target._update()
@@ -3566,9 +3566,9 @@ function AssetLoader() {
             }),
             a = 0; a < K.length; a++)
                 TweenLite.to(K[a], .3, {
-                    _x: Model.albumPositions[L][a].focusX,
-                    _y: Model.albumPositions[L][a].focusY,
-                    _rotation: Model.albumPositions[L][a].rotation,
+                    _x: Model.photoPositions[L][a].focusX,
+                    _y: Model.photoPositions[L][a].focusY,
+                    _rotation: Model.photoPositions[L][a].rotation,
                     ease: Quart.easeInOut,
                     onUpdate: function() {
                         this.target._update()
@@ -3585,6 +3585,60 @@ function AssetLoader() {
             }
         });
     }
+	function kopen() {
+		TweenLite.to(Js, 0, {
+			delay: 0.2,
+			opacity: 1,
+			ease: Quad.easeInOut,
+			onUpdate: function(){
+				for (i = 0; i < Js.getElementsByTagName("span").length; i++){
+					var el = Js.getElementsByTagName("span")[i];
+					TweenLite.to(el, .3, {
+						delay: .5 + i*.5,
+						opacity: 1, 
+						ease: Quad.easeInOut
+					});
+				}
+			}
+		});
+		TweenLite.to(Jb, .5, {
+			delay: 1.7,
+			opacity: 1,
+			top: 620,
+			ease: Quad.easeInOut
+		});
+		TweenLite.to(D, .5, {
+			delay: 1.9,
+			opacity: 1,
+			bottom: 20,
+			ease: Quad.easeInOut
+		});
+	}
+	function kclose() {
+		TweenLite.to(Js, .3, {
+			opacity: 0,
+			ease: Quad.easeInOut,
+			onUpdate: function(){
+				for (i = 0; i < Js.getElementsByTagName("span").length; i++){
+					var el = Js.getElementsByTagName("span")[i];
+					TweenLite.to(el, 0, {
+						opacity: 0, 
+						ease: Quad.easeInOut
+					});
+				}
+			}
+		});
+		TweenLite.to(Jb, .3, {
+			opacity: 0,
+			top: 600, 
+			ease: Quad.easeInOut
+		});
+		TweenLite.to(D, .3, {
+			opacity: 0,
+			bottom: 30,
+			ease: Quad.easeInOut
+		});
+	}
     function w() {
 		for (var d = 0; d < R.length; d++)
         	for (var a = R[d].querySelectorAll(".album__designer span"), b = 0; b < a.length; b++)
@@ -3605,9 +3659,9 @@ function AssetLoader() {
         K = [];
         for (var a = b.querySelectorAll(".list_photo"), c = 0; c < a.length; c++) {
             var e = new CreateDiv(a[c]);
-            e._x = Model.albumPositions[L][c].x * Model.tileDimensions.multiplier;
-            e._y = Model.albumPositions[L][c].y * Model.tileDimensions.multiplier;
-            e._rotation = Model.albumPositions[L][c].rotation;
+            e._x = Model.photoPositions[L][c].x * Model.tileDimensions.multiplier;
+            e._y = Model.photoPositions[L][c].y * Model.tileDimensions.multiplier;
+            e._rotation = Model.photoPositions[L][c].rotation;
             e._update();
             K.push(e)
         }
@@ -3621,8 +3675,7 @@ function AssetLoader() {
             b.currentTarget.classList.add("playing");
             var c = document.createElement("iframe");
             c.src = "https://www.youtube.com/embed/" + b.currentTarget.getAttribute("data-media") + "?rel=0&amp;controls=1&amp;showinfo=0&amp;autoplay=1";
-            c.width = "460";
-            c.height = "260";
+			c.classList.add("videotalk");
             c.frameborder = "0";
             c.allowtransparency = "true";
             c.style.display = "block";
@@ -3648,11 +3701,7 @@ function AssetLoader() {
                 a[this.num].src = this.src
             };
             e.src = Model.IMAGE_PATH + "http://img.youtube.com/vi/" + a[c].getAttribute("data-media") + "/hqdefault.jpg"
-			e.width = "460";
-            e.height = "360";
-			e.style.backgroundColor = "#e0e0e0"
-			e.style.transform = "translate(0,-13.9%)"
-			e.style.clipPath = "inset(13.9% 0 13.9% 0)"
+			e.classList.add("imgtalk");
 			a[c].appendChild(e);
 			
 			// ADD YOUTUBE ICON
@@ -3661,7 +3710,7 @@ function AssetLoader() {
 			a[c].appendChild(f); 
         }
     }
-	// TERMINA O AUDIO / A TALK (TO CHANGE - REMOVE)
+	// TERMINA A TALK
     function a() {
         for (var a = b.querySelectorAll(".playing"), c = 0; c < a.length; c++) {
             var e = a[c];
@@ -3685,7 +3734,9 @@ function AssetLoader() {
         z.isOpen = !1;
         z.select();
         aa.style.height = "";
-        TweenLite.to(z, .6, {
+		bg.style.filter = "blur(5px)";		
+		if (na) kclose()  
+		TweenLite.to(z, .6, {
             delay: .2,
             top: Math.ceil((Model.viewport.height - Model.tileDimensions.height) / 2),
 			_y: 0,
@@ -3737,7 +3788,7 @@ function AssetLoader() {
     function la(a) {
 		z.isOpen && (z.style.width = Model.viewport.width + "px",
         z.style.height = Model.viewport.height + "px",
-        aa.style.height = Model.viewport.height + 50 + "px", // 50px OFFSET BECAUSE OF A BUG I'M STILL LOOKING FOR
+        aa.style.height = Model.viewport.height + 0 + "px", // 50px OFFSET BECAUSE BUGS
         z._update(),
         F())
     }
@@ -3745,13 +3796,17 @@ function AssetLoader() {
     z.href;
     z.isDisabled = !1;
     z.isOpen = !1;
-    var K = [], R, oa, aa, T, J, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, V;
+    var K = [], R, oa, aa, T, J, Js, Jb, D, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, na = !1, V;
     z.open = function(a) {
+		TweenLite.to(bg, .6, {
+			filter: "blur(0px)",
+			ease: Quart.easeInOut
+		})
         for (a = 0; a < K.length; a++)
             TweenLite.to(K[a], .6, {
-                _x: Model.albumPositions[L][a].headerX,
-                _y: Model.albumPositions[L][a].headerY,
-                _rotation: Model.albumPositions[L][a].rotation,
+                _x: Model.photoPositions[L][a].headerX,
+                _y: Model.photoPositions[L][a].headerY,
+                _rotation: Model.photoPositions[L][a].rotation,
                 ease: Quart.easeInOut,
                 onUpdate: function() {
                     this.target._update()
@@ -3759,6 +3814,7 @@ function AssetLoader() {
                 }
             });
         k();
+		na ? kopen() : na = 0
         z.style.cursor = "";
         z.isOpen = !0;
         z.style.zIndex = 1;
@@ -3774,7 +3830,7 @@ function AssetLoader() {
             },
             onComplete: function() {
                 document.documentElement.style.backgroundColor = Model.colors[T];
-                oa.style.overflow = "visible"; 
+                oa.style.overflow = "visible";
                 la();
 				// ADICIONA VIDEO DA TALK
                 for (var a = b.querySelectorAll(".talkcontainer"), c = 0; c < a.length; c++) {
@@ -3788,7 +3844,7 @@ function AssetLoader() {
     ;
     z.close = function(b) {
         V && V.close();
-        a(); // INSERIR AQUI CONTEÚDO QUE TERMINA A TALK DE SER EXECUTADA
+        a(); // TERMINA A TALK DE SER EXECUTADA
         0 < WindowScroll.getPositionY() ? WindowScroll.scroll({
             y: 0,
             speed: .4,
@@ -3805,9 +3861,9 @@ function AssetLoader() {
             for (var a = 0; a < K.length; a++)
                 TweenLite.to(K[a], .6, {
                     delay: .2 * Math.random(),
-                    _x: Model.albumPositions[L][a].focusX,
-                    _y: Model.albumPositions[L][a].focusY,
-                    _rotation: Model.albumPositions[L][a].rotation,
+                    _x: Model.photoPositions[L][a].focusX,
+                    _y: Model.photoPositions[L][a].focusY,
+                    _rotation: Model.photoPositions[L][a].rotation,
                     ease: Quart.easeInOut,
                     onUpdate: function() {
                         this.target._update()
@@ -3824,9 +3880,9 @@ function AssetLoader() {
             z.style.cursor = "";
             for (var a = 0; a < K.length; a++)
                 TweenLite.to(K[a], .4, {
-                    _x: Model.albumPositions[L][a].x * Model.tileDimensions.multiplier,
-                    _y: Model.albumPositions[L][a].y * Model.tileDimensions.multiplier,
-                    _rotation: Model.albumPositions[L][a].rotation,
+                    _x: Model.photoPositions[L][a].x * Model.tileDimensions.multiplier,
+                    _y: Model.photoPositions[L][a].y * Model.tileDimensions.multiplier,
+                    _rotation: Model.photoPositions[L][a].rotation,
                     ease: Quart.easeInOut,
                     onUpdate: function() {
                         this.target._update()
@@ -3835,12 +3891,20 @@ function AssetLoader() {
         }
     }
     ;
-    R = b.querySelectorAll(".album");
+    R = b.querySelectorAll(".item_section");
 	Q = b.querySelectorAll(".edition");
 	S = b.querySelectorAll(".page_footer")
     aa = b.querySelector(".list_bg");
-    J = new CreateDiv(b.querySelector(".list_title"));
+    J = new CreateDiv(b.querySelector(".list_title"));	
 	k();
+	if (b.getAttribute("data-name") == "Contest") {
+		na = 1;
+		Js = b.querySelector(".list_subtitle");
+		Jb = b.querySelector(".list_blurb");
+		D = b.querySelector(".arrow");
+		bg = b.querySelector(".bg");
+		bg.style.filter = "blur(5px)";
+	}
     T = b.getAttribute("data-color");
     oa = b.querySelector(".list_header");
     L = b.getAttribute("data-layout") ? "layout-" + b.getAttribute("data-layout") : L;
@@ -3871,9 +3935,9 @@ function AssetLoader() {
     ;
     n.classList.add("menu-list");
     (function() {
-        for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue teal pink blue teal".split(" "), p = 0, q = 0; q < b.length; q++) {
+        for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue lgrey dgrey white lgrey".split(" "), p = 0, q = 0; q < b.length; q++) {
             var v = document.createElement("a");
-            v.color = k[p];
+            v.color = k[p]; 
             v.classList.add("menu-list_item");
             v.classList.add(v.color);
 			v.num = q;
@@ -4059,18 +4123,13 @@ function AssetLoader() {
     };
     f.colors = {
         blue: "#00A0E4", // IST websafe BLUE
-        teal: "#E0E0E0", //"F2F2F2",
-        pink: "#FAC8FA",
         red:  "#FF2100", // TEDx websafe RED
+		lgrey: "#E0E0E0", // Grey light "F2F2F2",
 		dgrey:"#292929", // TEDx websafe GREY
-        grey: "#F0F0F0"  // Disabled color
+		white: "#FFFFFF",// White
+        pink: "#FAC8FA"  // Disabled color
     };
-    f.colorOrder = {
-        blue: "blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink".split(" "),
-        teal: "teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue".split(" "),
-        pink: "pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal pink blue teal".split(" ")
-    };
-    f.albumPositions = {
+    f.photoPositions = {
         "layout-1": [{
             x: 700,
             y: -290,
