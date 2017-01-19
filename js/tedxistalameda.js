@@ -3585,7 +3585,7 @@ function AssetLoader() {
             }
         });
     }
-	function kopen() {
+	function Contest_open() {
 		TweenLite.to(Js, 0, {
 			delay: 0.2,
 			opacity: 1,
@@ -3602,19 +3602,25 @@ function AssetLoader() {
 			}
 		});
 		TweenLite.to(Jb, .5, {
-			delay: 1.7,
+			delay: 1.8,
 			opacity: 1, 
-			top: 600,
 			ease: Quad.easeInOut
 		});
 		TweenLite.to(D, .5, {
-			delay: 1.9,
+			delay: 2,
 			opacity: 1,
 			bottom: 20,
 			ease: Quad.easeInOut
 		});
 	}
-	function kclose() {
+	function Partners_open() {
+		TweenLite.to(Jb, .5, {
+			delay: .3,
+			opacity: 1, 
+			ease: Quad.easeInOut
+		});
+	}
+	function Contest_close() {
 		TweenLite.to(Js, .3, {
 			opacity: 0,
 			ease: Quad.easeInOut,
@@ -3630,12 +3636,17 @@ function AssetLoader() {
 		});
 		TweenLite.to(Jb, .3, {
 			opacity: 0,
-			top: 620, 
 			ease: Quad.easeInOut
 		});
 		TweenLite.to(D, .3, {
 			opacity: 0,
 			bottom: 30,
+			ease: Quad.easeInOut
+		});
+	}
+	function Partners_close() {
+		TweenLite.to(Jb, .3, {
+			opacity: 0, 
 			ease: Quad.easeInOut
 		});
 	}
@@ -3726,16 +3737,29 @@ function AssetLoader() {
         document.documentElement.style.backgroundColor = "";
 		for (var jj = 0; jj < R.length; jj++)
 			R[jj].style.display = "";
-		for (var jj = 0; jj < Q.length; jj++)
-			Q[jj].style.display = "";
 		S[0].style.display = "";
         oa.style.overflow = "";
         z.style.cursor = "pointer";
         z.isOpen = !1;
         z.select();
         aa.style.height = "";
-		bg.style.filter = "blur(5px)";		
-		if (na) kclose()  
+		if (rn) {
+			Rn[0].style.display = "";
+		}  
+		if (rp) {
+			bg.style.filter = "blur(5px)";
+			Rp[0].style.display = "";
+			Partners_close();
+		}
+		if (rc) {
+			Rc[0].style.display = "";
+			bg.style.filter = "blur(5px)";	
+			Contest_close();
+		}
+		if (rpe) {
+			for (var jj = 0; jj < Q.length; jj++)
+				Q[jj].style.display = "";
+		}
 		TweenLite.to(z, .6, {
             delay: .2,
             top: Math.ceil((Model.viewport.height - Model.tileDimensions.height) / 2),
@@ -3756,22 +3780,41 @@ function AssetLoader() {
 	// UPDATES LISTMASK HEIGHT
     function F() {
 		var h = Model.viewport.height*0.47 + 646, // DON'T CHANGE!
-			a = h,
-			d = 0;
-		// Sections
-		if (ra) {
-			h = h - 200;
-			a = a - 200;
-			Rn[0].style.top = h + "px";
-			Rn[0].style.display = "block";
-			Rn[0].style.border = "1px solid transparent"; 
-			var list = Rn[0].getElementsByClassName("social-feed-element");
+			a = 0;
+		// Sections -----
+		// NEWS
+		if (rn) {
+			// Item-section-news
+			var d = 0;
+			h = Model.viewport.height - 100;
+			a = h;
+			c = Rn[0];
+			c.style.top = h + "px";
+			c.style.display = "block";
+			c.style.border = "1px solid transparent"; 
+			var list = c.getElementsByClassName("social-feed-element");
 			for (var b = 0; b < list.length; b++) {
 				d = d + list[b].clientHeight + 25; 
 			}
-            Rn[0].style.height = Math.ceil((d - 25)/2 + 300) + "px";
-            a += Rn[0].clientHeight + 40;			
-		} else {
+            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 100) + "px" : (Math.round(d/100)*100 + 100) + "px";
+			c.parentNode.style.maxHeight = c.style.height;
+            a += c.clientHeight + 40;
+		// SPEAKERS
+		} else if (rs) {
+			h = Model.viewport.height;
+			a = h;
+		// PARTNERS
+		} else if (rp) {
+			// Item-section-intro
+			h = Model.viewport.height;
+			a = h;
+			c = Rp[0];
+			c.style.top = h; 
+			c.style.display = "block";
+			c.style.border = "1px solid transparent"; 
+            c.style.height = "280px";
+            a += 280;
+			// Item-section
 			for (var b = 0; b < R.length; b++) {
             	var c = R[b];
 				c.style.top = h + "px";
@@ -3780,15 +3823,38 @@ function AssetLoader() {
             	c.style.border = "1px solid transparent";
             	a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 410 : 540;
         	}
-		}
-		// Especial section - editions
-		for (var b=0; b < Q.length; b++) {
-			var c = Q[b];
-			c.style.top = h + "px";
+		// CONTEST
+		} else if (rc) {
+			// Item-section-contest
+			h = Model.viewport.height;
+			a = h;
+			c = Rc[0];
+			c.style.top = h; 
 			c.style.display = "block";
-            c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "160px" : "200px";
-            c.style.border = "1px solid transparent";
-            a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 200 : 240;
+			c.style.border = "1px solid transparent"; 
+            c.style.height = "100px";
+            a += 100;	 
+		// PAST EDITIONS
+		} else {
+			a = h;
+			// Item-section
+			for (var b = 0; b < R.length; b++) {
+            	var c = R[b];
+				c.style.top = h + "px";
+				c.style.display = "block";
+            	c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "370px" : "500px";
+            	c.style.border = "1px solid transparent";
+            	a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 410 : 540;
+        	}
+			// Especial section - editions
+			for (var b=0; b < Q.length; b++) {
+				var c = Q[b];
+				c.style.top = h + "px";
+				c.style.display = "block";
+				c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "160px" : "200px";
+				c.style.border = "1px solid transparent";
+				a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 200 : 240;
+			}
 		}
 		// Footer
 		var f = S[0];
@@ -3811,12 +3877,14 @@ function AssetLoader() {
     z.href;
     z.isDisabled = !1;
     z.isOpen = !1;
-    var K = [], R, Rn, oa, aa, T, J, Js, Jb, D, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, na = !1, ra = !1, V;
+    var K = [], R, Rn, Rc, Rp, oa, aa, T, J, Js, Jb, D, bg, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, rn = !1, rs = !1, rp = !1, rc = !1, rpe = !1, V;
     z.open = function(a) {
-		TweenLite.to(bg, .6, {
-			filter: "blur(0px)",
-			ease: Quart.easeInOut
-		})
+		if (rc || rp) { 
+			TweenLite.to(bg, .6, {
+				filter: "blur(0px)",
+				ease: Quart.easeInOut
+			})
+		}
         for (a = 0; a < K.length; a++)
             TweenLite.to(K[a], .6, {
                 _x: Model.photoPositions[L][a].headerX,
@@ -3829,7 +3897,12 @@ function AssetLoader() {
                 }
             });
         k();
-		na ? kopen() : na = 0
+		if (rc) { 
+			Contest_open(); 
+		}
+		if (rp) {
+			Partners_open();
+		}
         z.style.cursor = "";
         z.isOpen = !0;
         z.style.zIndex = 1;
@@ -3907,22 +3980,37 @@ function AssetLoader() {
     }
     ;
     R = b.querySelectorAll(".item_section");
-	if (b.getAttribute("data-name") == "News") {
-		ra = 1;
-		Rn = b.querySelectorAll(".item_section_news");
-	}
-	Q = b.querySelectorAll(".edition");
 	S = b.querySelectorAll(".page_footer")
     aa = b.querySelector(".list_bg");
     J = new CreateDiv(b.querySelector(".list_title"));	
 	k();
+	if (b.getAttribute("data-name") == "News") {
+		rn = 1;
+		Rn = b.querySelectorAll(".item_section_news");
+	}
+	if (b.getAttribute("data-name") == "Speakers") {
+		rs = 1;
+		//Rs = b.querySelectorAll(".item_section_news");
+	}
+	if (b.getAttribute("data-name") == "Partners") {
+		rp = 1;
+		Jb = b.querySelector(".list_blurb_partners"); 
+		bg = b.querySelector(".bg");
+		bg.style.filter = "blur(5px)";
+		Rp = b.querySelectorAll(".item_section_intro");
+	}
 	if (b.getAttribute("data-name") == "Contest") {
-		na = 1;
+		rc = 1;
 		Js = b.querySelector(".list_subtitle");
 		Jb = b.querySelector(".list_blurb");
 		D = b.querySelector(".arrow");
 		bg = b.querySelector(".bg");
 		bg.style.filter = "blur(5px)";
+		Rc = b.querySelectorAll(".item_section_contest");
+	}
+	if (b.getAttribute("data-name") == "Past editions") {
+		rpe = 1;
+		Q = b.querySelectorAll(".edition");
 	}
     T = b.getAttribute("data-color");
     oa = b.querySelector(".list_header");
@@ -4143,9 +4231,9 @@ function AssetLoader() {
     f.colors = {
         blue: "#00A0E4", // IST websafe BLUE
         red:  "#FF2100", // TEDx websafe RED
-		lgrey: "#E0E0E0", // Grey light "F2F2F2",
+		lgrey:"#E0E0E0", // Grey light "F2F2F2",
 		dgrey:"#292929", // TEDx websafe GREY
-		white: "#FFFFFF",// White
+		white:"#FFFFFF",// White
         pink: "#FAC8FA"  // Disabled color
     };
     f.photoPositions = {
@@ -4204,14 +4292,14 @@ function AssetLoader() {
             scrollRotation: -3
         }, {
 			x: 685,
-            y: 90,
+            y: 130,
             rotation: -12,
             focusX: 365,
-            focusY: 150,
+            focusY: 90,
             hoverX: 385,
-            hoverY: 155,
+            hoverY: 105,
             headerX: 425,
-            headerY: 160,
+            headerY: 120,
             scrollX: -90,
             scrollY: 300,
             scrollRotation: 4
