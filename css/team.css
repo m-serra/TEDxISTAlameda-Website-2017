@@ -229,3 +229,14 @@ header .intro-text .skills {
 .overlay {
     top: 10vh;
 }
+
+.scrollable {
+    overflow-y: scroll;
+    max-height:300px;
+    height: 50%; /* Doesnt Work */
+  /* height: 300px; /* Works */
+    width: 95%;
+    background: snow;
+    z-index: 100000;
+}	
+
