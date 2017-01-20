@@ -810,7 +810,7 @@ body input:checked ~ div .content-list{
 	width: 90vw;
     height: 60vh; 
 	text-align: center;
-    bottom: 20vh;
+    top: 150px;
 	margin: 0 5vw 0 5vw;
 	opacity: 0;
 	color: #FF2100;
@@ -823,8 +823,12 @@ body input:checked ~ div .content-list{
 	opacity: 1;
 }
 
-.content-text {
-    margin-top: 3vw;
+.description-text {
+	position: fixed;
+	left: 0; right: 0;
+	margin: 0 auto;
+    bottom: 40px!important;
+	background-color: rgba(255,255,255,0);
 }
 
 body input ~ div .footnote {
@@ -874,7 +878,6 @@ body input:checked ~ div .footnote {
 }
 
 .menu-list_item {
-    color: #000;
     /*height: 30px;*/
     display: inline-block;
     font-size: 20px;
@@ -886,6 +889,8 @@ body input:checked ~ div .footnote {
 	text-transform: uppercase;
 	text-decoration: none;
     transition: color .3s linear;
+	color: #292929;
+	cursor: pointer;
 }
 
 @media all and (min-width: 780px) {
@@ -895,18 +900,10 @@ body input:checked ~ div .footnote {
     }
 }
 
-.menu-list_item-disabled {
-    color: #ccc !important;
-}
-
 .menu-list_item-selected, .menu-list_item:hover {
 	color: #ff2100; 
 	font-weight: 400;
 	text-decoration: none;
-}
-
-.menu-list .menu-list_item-disabled.menu-list_item-selected {
-    border-color: #ccc !important;
 }
 /* -------------------------------- */
 

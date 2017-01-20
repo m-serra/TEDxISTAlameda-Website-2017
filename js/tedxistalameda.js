@@ -3365,18 +3365,26 @@ function AssetLoader() {
         y()
     }
     function c() {
-        F + 1 > a.length - 1 ? N = !1 : (a[F].deselect(),
-        F++,
-        w(),
-        setTimeout(a[F].select, 150),
-        y())
+        if (F + 1 > a.length - 1){
+			N = !1;
+		} else {
+			a[F].deselect();
+        	F++;
+        	w();
+        	setTimeout(a[F].select, 150);
+        	y();
+		}
     }
     function k() {
-        0 > F - 1 ? N = !1 : (a[F].deselect(),
-        F--,
-        w(),
-        setTimeout(a[F].select, 150),
-        y())
+		if (0 > F - 1){
+			N = !1;
+		} else {
+			a[F].deselect();
+        	F--;
+        	w();
+        	setTimeout(a[F].select, 150);
+        	y();
+		}
     }
     function y() {
         v();
@@ -4030,13 +4038,11 @@ function AssetLoader() {
         c.preventDefault();
         b && b(this.num)
     }
-    var n = document.createElement("div"), p;
+    var n = document.createElement("div");
     n.changeNumber = function(b) {
         n.querySelector(".menu-list_item-selected").classList.remove("menu-list_item-selected");
-        p = b;
-        var c = n.children[b];
         setTimeout(function() {
-            c.classList.add("menu-list_item-selected")
+            n.children[b].classList.add("menu-list_item-selected")
         }, 150);
     }
     ;
@@ -4053,25 +4059,23 @@ function AssetLoader() {
             p++;
             p > k.length - 1 && (k = 0);
             0 === q && v.classList.add("menu-list_item-selected");
-			v.href = b[q].dataset.name;
+			//v.href = b[q].dataset.name;
             v.addEventListener("click", f);
         }
     })();
     return n
 }
 
-// THIS SHOULD COME IN HANDY IN NEAR FUTURE
+// SOCIAL MEDIA SHARE BUTTONS
 ;function SocialButtons() {
     function b(b) {
-        b.target.classList.contains("share--playlist") ? ga("send", {
-            hitType: "event",
-            eventCategory: "Playlist",
-            eventAction: "Click"
-        }) : (b.preventDefault(),
-        b.target.classList.contains("share--facebook") ? window.open("https://www.facebook.com/sharer/sharer.php?u=http://10x16.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600") : b.target.classList.contains("share--twitter") && window.open("https://twitter.com/share?text=19 visual artists countdown their 10 favorite albums of 2016 with reimagined cover art. Follow along at&url=http://10x16.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600"))
+        if (b.target.classList.contains("share")) { 
+			b.preventDefault(),
+        	b.target.classList.contains("share-facebook") ? window.open("https://www.facebook.com/sharer/sharer.php?u=http://tedxistalameda.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600") : b.target.classList.contains("share-twitter") && window.open("https://twitter.com/share?text=TEDxISTAlameda 2017 is right around the corner! Follow along at&url=http://tedxistalameda.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600")
+			}
     }
     (function() {
-        for (var f = document.querySelectorAll(".share--playlist, .share--facebook, .share--twitter"), n = 0; n < f.length; n++)
+        for (var f = document.querySelectorAll(".share, .share-facebook, .share-twitter"), n = 0; n < f.length; n++)
             f[n].addEventListener("click", b)
     })();
     return {}
@@ -4410,8 +4414,7 @@ window.onbeforeunload = function() {
 ;
 window.onload = Main.init;
 
-
-// CREATES SOCIAL MEDIA FEED
+//-------------------------------------------------------------------------------------------
 // PAVELK2's social feed. Credits to the author. - see https://github.com/pavelk2/social-feed
 if (typeof Object.create !== 'function') {
     Object.create = function(obj) {
@@ -5111,3 +5114,70 @@ if (typeof Object.create !== 'function') {
     };
 
 })(jQuery);
+//-------------------------------------------------------------------------------------------
+// COUNTDOWN
+jQuery.fn.countdown = function(options, callback) {
+
+  //custom 'this' selector
+  var thisEl = $(this);
+
+  //array of custom settings
+  var settings = { 
+	'date': '1 march 2017 00:00:00',
+	'format': 'on'
+  };
+
+  //main countdown function
+  var countdown_proc = function () {
+
+	var eventDate = Date.parse(settings['date']) / 1000;
+	var currentDate = Math.floor($.now() / 1000);
+
+	if(eventDate <= currentDate) {
+	  callback.call(this);
+	  clearInterval(interval);
+	};
+
+	var seconds = eventDate - currentDate;
+
+	var days = Math.floor(seconds / (60 * 60 * 24)); //calculate the number of days
+	seconds -= days * 60 * 60 * 24; //update the seconds variable with no. of days removed
+
+	var hours = Math.floor(seconds / (60 * 60));
+	seconds -= hours * 60 * 60; //update the seconds variable with no. of hours removed
+
+	var minutes = Math.floor(seconds / 60);
+	seconds -= minutes * 60; //update the seconds variable with no. of minutes removed
+
+	//conditional Ss
+	if (days == 1) { thisEl.find(".timeRefDays").text("Day"); } else { thisEl.find(".timeRefDays").text("Days"); }
+	if (hours == 1) { thisEl.find(".timeRefHours").text("Hour"); } else { thisEl.find(".timeRefHours").text("Hours"); }
+	if (minutes == 1) { thisEl.find(".timeRefMinutes").text("Minute"); } else { thisEl.find(".timeRefMinutes").text("Minutes"); }
+	if (seconds == 1) { thisEl.find(".timeRefSeconds").text("Second"); } else { thisEl.find(".timeRefSeconds").text("Seconds"); }
+
+	//logic for the two_digits ON setting
+	if(settings['format'] == "on") {
+	  days = (String(days).length >= 2) ? days : "0" + days;
+	  hours = (String(hours).length >= 2) ? hours : "0" + hours;
+	  minutes = (String(minutes).length >= 2) ? minutes : "0" + minutes;
+	  seconds = (String(seconds).length >= 2) ? seconds : "0" + seconds;
+	}
+
+	//update the countdown's html values.
+	if(!isNaN(eventDate)) {
+	  thisEl.find(".days").text(days);
+	  thisEl.find(".hours").text(hours);
+	  thisEl.find(".minutes").text(minutes);
+	  thisEl.find(".seconds").text(seconds);
+	} else { 
+	  alert("Invalid date. Here's an example: 12 Tuesday 2012 17:30:00");
+	  clearInterval(interval); 
+	}
+  }
+
+  //run the function
+  countdown_proc();
+
+  //loop the function
+  interval = setInterval(countdown_proc, 1000);
+}
