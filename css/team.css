@@ -231,7 +231,7 @@ header .intro-text .skills {
 }
 
 .scrollable {
-    overflow-y: scroll;
+   
     max-height:300px;
     height: 50%; /* Doesnt Work */
   /* height: 300px; /* Works */
@@ -240,3 +240,9 @@ header .intro-text .skills {
     z-index: 100000;
 }	
 
+
+.about-frame {
+     #liaddshapes::-webkit-scrollbar {
+        width: 0 !important;
+    }
+}
