@@ -3796,7 +3796,7 @@ function AssetLoader() {
 			for (var b = 0; b < list.length; b++) {
 				d = d + list[b].clientHeight + 25; 
 			}
-            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 100) + "px" : (Math.round(d/100)*100 + 100) + "px";
+            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 150) + "px" : (Math.round(d/100)*100 + 100) + "px";
 			c.parentNode.style.maxHeight = c.style.height;
             a += c.clientHeight + 40;
 		// SPEAKERS
@@ -4412,6 +4412,7 @@ window.onload = Main.init;
 
 
 // CREATES SOCIAL MEDIA FEED
+// PAVELK2's social feed. Credits to the author. - see https://github.com/pavelk2/social-feed
 if (typeof Object.create !== 'function') {
     Object.create = function(obj) {
         function F() {}
@@ -4436,7 +4437,7 @@ if (typeof Object.create !== 'function') {
         var options = $.extend(defaults, _options),
             container = $(this),
             template,
-            social_networks = ['facebook', 'instagram', 'vk', 'google', 'blogspot', 'twitter', 'pinterest', 'rss'],
+            social_networks = ['facebook', 'instagram', 'google', 'blogspot', 'twitter', 'pinterest', 'rss'],
             posts_to_load_count = 0,
             loaded_post_count = 0;
         // container.empty().css('display', 'block');
@@ -4538,7 +4539,7 @@ if (typeof Object.create !== 'function') {
                 } else {
                     var i = 0,
                         insert_index = -1;
-                    $.each($(container).children(), function() {
+					$.each($(container).children(), function() {
                         if ($(this).attr('dt-create') < data.dt_create) {
                             insert_index = i;
                             return false;
@@ -4552,7 +4553,6 @@ if (typeof Object.create !== 'function') {
                             current = $(container).children('div:last-child');
                         $(current).insertBefore(before);
                     }
-
                 }
                 if (options.media_min_width) {
 
@@ -4944,96 +4944,6 @@ if (typeof Object.create !== 'function') {
                         if (options.show_media) {
                             post.attachment = '<img class="attachment" src="' + element.images.standard_resolution.url + '' + '" />';
                         }
-                        return post;
-                    }
-                }
-            },
-            vk: {
-                posts: [],
-                loaded: false,
-                base: 'http://vk.com/',
-                api: 'https://api.vk.com/method/',
-                user_json_template: 'https://api.vk.com/method/' + 'users.get?fields=first_name,%20last_name,%20screen_name,%20photo&uid=',
-                group_json_template: 'https://api.vk.com/method/' + 'groups.getById?fields=first_name,%20last_name,%20screen_name,%20photo&gid=',
-                getData: function(account) {
-                    var request_url;
-
-                    switch (account[0]) {
-                        case '@':
-                            var username = account.substr(1);
-                            request_url = Feed.vk.api + 'wall.get?owner_id=' + username + '&filter=' + options.vk.source + '&count=' + options.vk.limit + '&callback=?';
-                            Utility.get_request(request_url, Feed.vk.utility.getPosts);
-                            break;
-                        case '#':
-                            var hashtag = account.substr(1);
-                            request_url = Feed.vk.api + 'newsfeed.search?q=' + hashtag + '&count=' + options.vk.limit + '&callback=?';
-                            Utility.get_request(request_url, Feed.vk.utility.getPosts);
-                            break;
-                        default:
-                    }
-                },
-                utility: {
-                    getPosts: function(json) {
-                        if (json.response) {
-                            $.each(json.response, function() {
-                                if (this != parseInt(this) && this.post_type === 'post') {
-                                    var owner_id = (this.owner_id) ? this.owner_id : this.from_id,
-                                        vk_wall_owner_url = (owner_id > 0) ? (Feed.vk.user_json_template + owner_id + '&callback=?') : (Feed.vk.group_json_template + (-1) * owner_id + '&callback=?'),
-                                        element = this;
-                                    Utility.get_request(vk_wall_owner_url, function(wall_owner) {
-                                        Feed.vk.utility.unifyPostData(wall_owner, element, json);
-                                    });
-                                }
-                            });
-                        }
-                    },
-                    unifyPostData: function(wall_owner, element, json) {
-                        var post = {};
-
-                        post.id = element.id;
-                        post.dt_create = moment.unix(element.date);
-                        post.description = ' ';
-                        post.message = Utility.stripHTML(element.text);
-                        if (options.show_media) {
-                            if (element.attachment) {
-                                if (element.attachment.type === 'link')
-                                    post.attachment = '<img class="attachment" src="' + element.attachment.link.image_src + '" />';
-                                if (element.attachment.type === 'video')
-                                    post.attachment = '<img class="attachment" src="' + element.attachment.video.image_big + '" />';
-                                if (element.attachment.type === 'photo')
-                                    post.attachment = '<img class="attachment" src="' + element.attachment.photo.src_big + '" />';
-                            }
-                        }
-
-                        if (element.from_id > 0) {
-                            var vk_user_json = Feed.vk.user_json_template + element.from_id + '&callback=?';
-                            Utility.get_request(vk_user_json, function(user_json) {
-                                var vk_post = new SocialFeedPost('vk', Feed.vk.utility.getUser(user_json, post, element, json));
-                                vk_post.render();
-                            });
-
-                        } else {
-                            var vk_group_json = Feed.vk.group_json_template + (-1) * element.from_id + '&callback=?';
-                            Utility.get_request(vk_group_json, function(user_json) {
-                                var vk_post = new SocialFeedPost('vk', Feed.vk.utility.getGroup(user_json, post, element, json));
-                                vk_post.render();
-                            });
-                        }
-                    },
-                    getUser: function(user_json, post, element, json) {
-                        post.author_name = user_json.response[0].first_name + ' ' + user_json.response[0].last_name;
-                        post.author_picture = user_json.response[0].photo;
-                        post.author_link = Feed.vk.base + user_json.response[0].screen_name;
-                        post.link = Feed.vk.base + user_json.response[0].screen_name + '?w=wall' + element.from_id + '_' + element.id;
-
-                        return post;
-                    },
-                    getGroup: function(user_json, post, element, json) {
-                        post.author_name = user_json.response[0].name;
-                        post.author_picture = user_json.response[0].photo;
-                        post.author_link = Feed.vk.base + user_json.response[0].screen_name;
-                        post.link = Feed.vk.base + user_json.response[0].screen_name + '?w=wall-' + user_json.response[0].gid + '_' + element.id;
-
                         return post;
                     }
                 }
