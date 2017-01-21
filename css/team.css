@@ -228,21 +228,18 @@ header .intro-text .skills {
 
 .overlay {
     top: 10vh;
+    overflow: hidden;
 }
-
-.scrollable {
-   
-    max-height:300px;
-    height: 50%; /* Doesnt Work */
-  /* height: 300px; /* Works */
-    width: 95%;
-    background: snow;
-    z-index: 100000;
-}	
-
 
 .about-frame {
      #liaddshapes::-webkit-scrollbar {
         width: 0 !important;
     }
+}
+.text-container {  
+    width: 50px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    z-index: 50000;
 }

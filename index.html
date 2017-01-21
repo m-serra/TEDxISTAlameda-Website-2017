@@ -275,16 +275,19 @@
 							<h2>About again?</h2>
 							<p>Let's talk about that about.</p>
                                 <div class="row">
-                                    <div class="col-sm-3">
-                                        <iframe src="test.html" frameborder="0" class="about-frame"></iframe>
+                                    <div class="col-sm-6">
+                                        <div class="text-container">
+                                            texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, 
+                                      <!--  <iframe src="about.html" frameborder="0" class="about-frame" style="width: 100%; height:auto"></iframe> -->
                                     </div>
-                            <!--    <div class="col-sm-5">
-                                    <iframe width="200" height="200" frameborder="0">
-                                        <img src="images/photos/team_building.jpg">
-                                    </iframe>
-                                </div> -->
+                                    <div class="col-sm-6">
+                                      <!--  <iframe src="about.html" frameborder="0" class="about-frame" style="width: 100%; height:auto"></iframe> -->
+                                        
+                                    </div>
+                                    
+                                    </div>
 						  </div>
-					</div>
+					   </div>
 
 					<!-- Footnote -->
 					<div class="footnote">
@@ -1056,10 +1059,11 @@
 		</script>
             
         <script>
+            /*Disable content scroll when on Team/About*/
             $(document).ready(function(){
     
                 $('nav').on({
-                    'mousewheel': function(e) {
+                    'mousewheel DOMMouseScroll': function(e) {
                         /*if (e.target.id == 'main-content') return;*/
                        /* if(e.target.children) return;*/
                         e.preventDefault();
