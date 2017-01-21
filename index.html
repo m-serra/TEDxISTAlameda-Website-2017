@@ -972,22 +972,25 @@
 					}
 				});	
 			};
+			
+			// Updates social-feed
 			updateFeed();
-		});
+
 		
-		// Countdown funciton
-		jQuery(".countdown").countdown();
-    			
-		// Prevents scroll when nav is on
-        jQuery('nav').on({
-        	'mousewheel DOMMouseScroll': function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-             }
-         })
-		
-		// Prevents actions from left-right keys when nav is on
-		// TO DO
+			// Countdown funciton
+			jQuery(".countdown").countdown();
+
+			// Prevents scroll when nav is on
+			jQuery('nav').on({
+				'mousewheel DOMMouseScroll': function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+				 }
+			 })
+
+			// Prevents actions from left-right keys when nav is on
+			// TO DO
+		});			
 		</script>
     </body>
 </html>
