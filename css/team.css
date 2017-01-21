@@ -236,10 +236,21 @@ header .intro-text .skills {
         width: 0 !important;
     }
 }
-.text-container { 
+.text-container {
     position: absolute;
-    width: 50px;
-    height: 200px;
+    width: 40vw;
+    height: 60vh;
     overflow-y: scroll;
     overflow-x:hidden;
+}
+.text-container.left{
+    margin-left: 5vw;
+}
+.text-container.rigth{
+    margin-right: 5vw;
+    right: 0;
+}
+.text-container p{
+    color: black;
+    left: 0;
 }

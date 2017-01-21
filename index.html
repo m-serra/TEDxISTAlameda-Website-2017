@@ -23,6 +23,15 @@
 		
         <link href="css/tedxistalameda.css" rel="stylesheet" type='text/css'>
 		<link href="css/team.css" rel="stylesheet" type='text/css'>
+        
+
+		<link rel="stylesheet" type="text/css" href="ButtonComponentMorph/css/component.css" />
+		<link rel="stylesheet" type="text/css" href="ButtonComponentMorph/css/content.css" />
+        <script src="ButtonComponentMorph/js/modernizr.custom.js"></script>
+        
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="HoverEffectIdeas/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/css/set1.css" />
 
 	</head>
 	
@@ -268,23 +277,45 @@
 						</div>
 
 						<!-- About -->
-						<div class="content" data-section="about">
-							<h2>About again?</h2>
-							<p>Let's talk about that about.</p>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="text-container">
-                                            texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, texto e mais texto, 
-                                      <!--  <iframe src="about.html" frameborder="0" class="about-frame" style="width: 100%; height:auto"></iframe> -->
-                                    </div>
-                                    <div class="col-sm-6">
-                                      <!--  <iframe src="about.html" frameborder="0" class="about-frame" style="width: 100%; height:auto"></iframe> -->
-                                        
-                                    </div>
-                                    
-                                    </div>
-						  </div>
-					   </div>
+						<div class="content" data-section="about">    
+                                       <!-- <div class="text-container left">
+                                            <h2>About TED</h2>
+                                                <p>TED is a nonprofit organization dedicated to spread ideas, since 1984. The annual TED Conference invites the world’s leading thinkers and doers to speak in short and powerful talks (18 minutes top). These talks are then made available, for free, at TED.com. This way, every person, from vastly different fields and unlikely places, can mingle and draw inspiration. </p>
+                                                <p>In the spirit of “ideas worth spreading”, TED has created a program called TEDx, which offers individuals or groups a way to host local, self-organized events that bring communities or organizations together to share a TED-like experience.</p>
+                                        </div>
+                                  
+                                   
+                                        <div class="text-container right">
+                                            <h2>About Us</h2>
+                                                <p>We are a team of 27 volunteers who are passionate about TED’s mission of spreading world-changing ideas to our community. We are combining our skills, expertise and enthusiasm to bring you remarkable speakers with creative and inspiring ideas.</p>
+                                                <p>After its second successful year, TEDxISTAlameda continues to provide the scientific community and students from Lisbon with access to innovative practices, ideas and opinions that are shaping our world. Our focus is to keep the scientific and student community united, and therefore composing an audience ignited about sharing ideas in highly interactive sessions.</p>
+                                                <p>We invite you to be part of this powerful, fulfilling experience. Join us!</p>
+                                        </div> -->
+                                
+                                <div class="morph-button morph-button-modal morph-button-modal-1 morph-button-fixed">
+						              <button type="button" style="width:40vw;height:40vh;">
+                                            <figure class="effect-marley">
+                                                <img src="/images/photos/flickrTED.jpg" style="width:100%; height:auto">
+                                                <figcaption>
+                                                    <h2>About <span>Us</span></h2>
+                                                    <p>Get to know the ideas that move us.</p>
+                                                    <a href="#">View more</a>
+                                                </figcaption>			
+                                            </figure>
+                                      </button>
+						              <div class="morph-content">
+							             <div>
+								            <div class="content-style-text">
+									           <span class="icon icon-close">Close the dialog</span>
+									               <h2>About Us</h2>
+									                   <p>TED is a nonprofit organization dedicated to spread ideas, since 1984. The annual TED Conference invites the world’s leading thinkers and doers to speak in short and powerful talks (18 minutes top). These talks are then made available, for free, at TED.com. This way, every person, from vastly different fields and unlikely places, can mingle and draw inspiration. </p>
+                                                        <p>In the spirit of “ideas worth spreading”, TED has created a program called TEDx, which offers individuals or groups a way to host local, self-organized events that bring communities or organizations together to share a TED-like experience.</p>
+									                   <p><input id="terms" type="checkbox" /><label for="terms">I accept the terms &amp; conditions.</label></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div><!-- morph-button -->
+                            </div>
 
 					<!-- Footnote -->
 					<div class="footnote">
@@ -972,23 +1003,96 @@
 					}
 				});	
 			};
+			
+			// Updates social-feed
 			updateFeed();
-		});
+
 		
-		// Countdown funciton
-		jQuery(".countdown").countdown();
-    			
-		// Prevents scroll when nav is on
-        jQuery('nav').on({
-        	'mousewheel DOMMouseScroll': function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-             }
-         });
+			// Countdown funciton
+			jQuery(".countdown").countdown();
+
+			// Prevents scroll when nav is on
+			jQuery('nav').on({
+				'mousewheel DOMMouseScroll': function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+				 }
+			 })
+
+			// Prevents actions from left-right keys when nav is on
+			// TO DO
+		});			
+		</script>
         
-		
-		// Prevents actions from left-right keys when nav is on
-		// TO DO
+        <script src="ButtonComponentMorph/js/classie.js"></script>
+		<script src="ButtonComponentMorph/js/uiMorphingButton_fixed.js"></script>
+		<script>
+			(function() {	
+				var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+				// trick to prevent scrolling when opening/closing button
+				function noScrollFn() {
+					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+				}
+
+				function noScroll() {
+					window.removeEventListener( 'scroll', scrollHandler );
+					window.addEventListener( 'scroll', noScrollFn );
+				}
+
+				function scrollFn() {
+					window.addEventListener( 'scroll', scrollHandler );
+				}
+
+				function canScroll() {
+					window.removeEventListener( 'scroll', noScrollFn );
+					scrollFn();
+				}
+
+				function scrollHandler() {
+					if( !didScroll ) {
+						didScroll = true;
+						setTimeout( function() { scrollPage(); }, 60 );
+					}
+				};
+
+				function scrollPage() {
+					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+					didScroll = false;
+				};
+
+				scrollFn();
+
+				var UIBtnn = new UIMorphingButton( document.querySelector( '.morph-button' ), {
+					closeEl : '.icon-close',
+					onBeforeOpen : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterOpen : function() {
+						// can scroll again
+						canScroll();
+					},
+					onBeforeClose : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterClose : function() {
+						// can scroll again
+						canScroll();
+					}
+				} );
+
+				document.getElementById( 'terms' ).addEventListener( 'change', function() {
+					UIBtnn.toggle();
+				} );
+			})();
+		</script>
+        <script>
+			// For Demo purposes only (show hover effect on mobile devices)
+			[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
 		</script>
     </body>
 </html>
