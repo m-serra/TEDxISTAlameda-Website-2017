@@ -1266,7 +1266,7 @@ body input:checked ~ div .footnote {
 	font-weight: 600;
 	color: #ff2100;
 	display: block;
-	margin-bottom: 20px;
+	margin-bottom: -16px;
 	margin-top: 0px;
 }
 
@@ -1388,6 +1388,7 @@ body input:checked ~ div .footnote {
 	.year {
 		margin-top: 20px;
 		font-size: 90px;
+		margin-bottom: -6px;
 	}
 	.year:after {
 		top: 125px;

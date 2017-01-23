@@ -135,10 +135,10 @@
 	background-color:#ff2100;
 	border-radius: initial;
 }
-[data-placement="top"] + .tooltip > .tooltip-arrow_second { border-top-color: #ff2100;}
-[data-placement="right"] + .tooltip > .tooltip-arrow_second { border-right-color: #ff2100;}
-[data-placement="bottom"] + .tooltip > .tooltip-arrow_second {border-bottom-color: #ff2100;}
-[data-placement="left"] + .tooltip > .tooltip-arrow_second {border-left-color: #ff2100; }
+[data-placement="top"] + .tooltip > .tooltip-arrow { border-top-color: #ff2100;}
+[data-placement="right"] + .tooltip > .tooltip-arrow { border-right-color: #ff2100;}
+[data-placement="bottom"] + .tooltip > .tooltip-arrow {border-bottom-color: #ff2100;}
+[data-placement="left"] + .tooltip > .tooltip-arrow {border-left-color: #ff2100; }
 
 /* Resizing the grid ---------------------- */
 @media all and (min-height: 900px) {

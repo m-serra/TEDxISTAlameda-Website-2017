@@ -3804,7 +3804,7 @@ function AssetLoader() {
 			for (var b = 0; b < list.length; b++) {
 				d = d + list[b].clientHeight + 25; 
 			}
-            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 170) + "px" : (Math.round(d/100)*100 + 100) + "px";
+            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 300) + "px" : (Math.round(d/100)*100 + 200) + "px";
 			c.parentNode.style.maxHeight = c.style.height;
             a += c.clientHeight + 40;
 		// SPEAKERS
