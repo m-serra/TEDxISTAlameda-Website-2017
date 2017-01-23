@@ -1,67 +1,13 @@
-/* NOTA: Recomendo que não alteres as características do "header", uma vez que pode breakar o website
-   O mesmo se aplica à classe "container", que é utilizada no website para algo diferente - mas entretanto devo mudar o nome */
-/*
-header {
-    padding-top: 0;
-    text-align: center;
-    color: #333;
-}
-
-header .container {
-    padding-top: 0 px;
-    /*padding-bottom: 20px
-}
-
-header img {
-    display: block;
-    margin: 0 auto 20px
-}
-
-header .intro-text .name {
-    display: block;
-    font-family: 'Domine', serif;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 2em
-}
-
-header .intro-text .skills {
-    font-size: 1.25em;
-    font-weight: 300
-}
-
-@media(min-width:768px) {
-    header .container {
-        padding-bottom: 20px
-    }
-    header .intro-text .name {
-        font-size: 4.30em;
-        text-align: left
-    }
-    header .intro-text .skills {
-        font-size: 1.75em
-    }
-}
-
-@media(min-width:1020px) {
-    header .container {
-        padding-bottom: 20px;
-        width: 750px;
-            
-    }
-    header .intro-text .name {
-        font-size: 4.30em;
-        text-align: left
-    }
-    header .intro-text .skills {
-        font-size: 1.75em
-    }
-}*/
-
-
-.row {
-	margin-left: 25vw;
-	margin-right: 25vw;
+. {
+	column-count: 7;
+	column-gap: 20px;
+ 	-moz-column-gap: 20px;
+ 	-webkit-column-gap: 20px;
+	max-height: 500px;
+	max-width: 980px;
+	margin: 0 auto;
+	margin-top: 0%;
+	overflow-y: scroll;
 }
 
 .image-holder {
@@ -69,14 +15,14 @@ header .intro-text .skills {
     width: 100px;
     cursor: pointer;
     display: inline-block;
-    margin: 0.4vw;
 	border: 2px solid #ff2100;
-
+	margin: 20px;
 }
 
 .head-image {
-    background-image: url(../images/photos/JE_team_2.jpg);
+    background-image: url(../images/photos/tedxistalameda_team-min.jpg);
     display: none;
+	margin-left:0px;
 }
 
 .image-holder .head-image {
@@ -96,26 +42,12 @@ header .intro-text .skills {
     filter: grayscale(0%)
 }
 
-.head-container {
-    padding: 20px 50px;
-}
 
 .head-team {
-    margin-bottom: 20px;
-    overflow: hidden;
+    margin-bottom: 0px;
+    overflow-y: scroll;
     text-align: center;
 }
-
-/* tooltip -> Aquela cena de aparecer o nome */
-.tooltip.top .tooltip-inner {
-    background-color: #f9423a;
-    border-radius: initial
-}
-
-.tooltip.top .tooltip-arrow {
-    border-top-color: #f9423a
-}
-/* ----------------------------------------- */
 
 .head-image.click,
 .head-image.down,
@@ -130,89 +62,221 @@ header .intro-text .skills {
     display: block;
 }
 
-.head-info .close {
-    font-size: 2em;
-    margin: 10px;
-    text-shadow: none;
+.description-text {
+	position: fixed;
+	height: 140px!important;
+	width: 100%;
+	left: 0; right: 0;
+	margin: 0px auto;
+	padding-top: 10px;
+    bottom: 0;
+	background-color: rgba(255,255,255,0.9);
+	z-index: 10000;
+	opacity: 0;
+	transition: opacity .5s ease-in-out;
 }
+
+.description-text .name {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.description-text .desc {
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.description-text .socialmedia {
+	width: 100%;
+	height: 30px;
+}
+
+.description-text .socialmedia > a .mail_svg{
+	height: 22px!important;
+	width: 22px!important;
+	margin-right: 15px;
+	margin-left: 0px;
+	fill: #000;
+}
+
+.description-text .socialmedia > a .mail_svg:hover{
+	fill: #ff2100;
+}
+
+.description-text .socialmedia > a .in_svg{
+	height: 22px!important;
+	width: 22px!important;
+	margin-right: 15px;
+}
+
+.description-text .socialmedia > a .fb_svg{
+	height: 22px!important;
+	width: 22px!important;
+	margin-left: 5px;
+	margin-right: 0px;
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	opacity: 0;
+}
+
+.close x-svg {
+	height: 15px;
+	width: 15x;
+}
+
+.tooltip-inner { 
+	background-color:#ff2100;
+	border-radius: initial;
+}
+[data-placement="top"] + .tooltip > .tooltip-arrow_second { border-top-color: #ff2100;}
+[data-placement="right"] + .tooltip > .tooltip-arrow_second { border-right-color: #ff2100;}
+[data-placement="bottom"] + .tooltip > .tooltip-arrow_second {border-bottom-color: #ff2100;}
+[data-placement="left"] + .tooltip > .tooltip-arrow_second {border-left-color: #ff2100; }
 
 /* Resizing the grid ---------------------- */
-@media all and (max-width: 1570px) {
-	.row {
-		margin-left: 10vw;
-		margin-right: 10vw;
+@media all and (min-height: 900px) {
+	.new_section {
+		margin-top: 1%;
+	}
+	.row_second {
+		margin-top: 3%!important;
+	}
+	.description-text {
+		height: 200px!important;
+	}
+	.description-text .name {
+		margin-top: 20px;
+		margin-bottom: 15px;
+	}
+	.description-text .desc {
+		margin-top: 10px;
+		margin-bottom: 20px;
 	}
 }
-
-@media all and (max-width: 1400px) {
-    
-}
-
-@media all and (max-width: 1280px) {
-	.row {
-		margin-left: 15vw;
-		margin-right: 15vw;
-	}
-    .image-holder {
-		height: 90px;
-		width: 90px;
-    }
-}
-
 
 /* Ipad pro + desktops */ 
-@media all and (max-width: 1024px){ /*SET*/
-	.row {
-		margin-left: 15vw;
-		margin-right: 15vw;
+@media all and (min-width: 1090px){
+	.row_second {
+		column-count: 7;
+		column-gap: 20px;
+ 		-moz-column-gap: 20px;
+ 		-webkit-column-gap: 20px;
+		height: 580px;
+		width: 980px;
+		margin: 0 auto;
 	}
-    .image-holder {
-		height: 75px;
-		width: 75px;
-    }
-}
-
-
-@media all and (max-width: 960px) {
-	.row {
-		margin-left: 20vw;
-		margin-right: 20vw;
-	}
-    .image-holder {
-		height: 75px;
-		width: 75px;
-    }
-	.head-image {
-		transform: scale(90/100);
+	.image-holder {
+		margin: 10px;
 	}
 }
-
-@media all and (max-width: 850px) {
-    .image-holder {
-	
-    }
+@media all and (max-width: 1090px){
+	.row_second{
+		column-count: 7;
+		column-gap: 5px;
+ 		-moz-column-gap: 5px;
+ 		-webkit-column-gap: 5px;
+		height: 580px;
+		width: 820px;
+		margin: 0 auto;
+	}
+	.image-holder {
+		margin: 12px 5px 5px 5px;
+	}
+	.description-text {
+		height: 140px!important;
+		padding-top: 10px;
+	}
+}
+@media all and (max-width: 910px) {
+	.image-holder {
+		height: 84px;
+		width: 84px;
+		margin: 12px 2px 2px 2px;
+	}
+	.row_second{
+		column-count: 7;
+		column-gap: 2px;
+ 		-moz-column-gap: 2px;
+ 		-webkit-column-gap: 2px;
+		height: 580px;
+		width: 680px;
+		margin: 0 auto;
+	}
+	.close {
+		opacity: 0;
+	}
 }
 
 /* Ipad / Tablets */ 
 @media all and (max-width: 785px) {
-	.row {
-		margin-left: 13%;
-		margin-right: 13%;
+	.description-text {
+		height: 170px!important;
+		padding-top: 0px;
 	}
-    .image-holder {
-		height: 90px;
-		width: 90px;
-
-    }
-	.head-image {
-		transform: scale(100/90);
+	.close {
+		opacity: 1;
+	}
+}
+@media all and (max-width: 750px) {
+	.row_second{
+		column-count: 4;
+		column-gap: 3px;
+ 		-moz-column-gap: 3px;
+ 		-webkit-column-gap: 3px;
+		height: 1000px;
+		width: 400px;
+		margin: 0 auto;
+	}	
+	.description-text {
+		height: 120px!important;
+		padding-top: 10px;
+	}
+	.close {
+		opacity: 1;
 	}
 }
 /* All phones */ 
-@media all and (max-width: 450px) {
-	.row {
-		margin-left: 10%;
-		margin-right: 10%;
+@media all and (max-width: 470px) {
+	.row_second{
+		column-count: 3;
+		column-gap: 3px;
+ 		-moz-column-gap: 3px;
+ 		-webkit-column-gap: 3px;
+		height: 1200px;
+		width: 320px;
+		overflow: visible;
+	}	
+	.description-text {
+		height: 120px!important;
+		padding-top: 7px;
+	}
+	.close {
+		opacity: 1;
+	}
+} 
+@media all and (max-width: 370px) {
+	.row_second{
+		column-count: 2;
+		column-gap: 3px;
+ 		-moz-column-gap: 3px;
+ 		-webkit-column-gap: 3px;
+		height: 2000px;
+		width: 200px;
+		overflow: visible;
+	}	
+	.description-text {
+		height: 120px!important;
+		padding-top: 7px;
+	}
+	.close {
+		opacity: 1;
 	}
 } 
 /* ---------------------------------------- */
