@@ -3531,6 +3531,11 @@ function AssetLoader() {
     function q(a) {
         !z.isOpen && ba && Controller.updateURL(z.href)
     }
+	function m(a) {
+		if (27 == a.keyCode) {
+			Controller.updateURL("/");
+		}
+	}
 	// WHEN MOUSE ENTER (HOVER)
     function p(a) {
         if (!z.isOpen && ba)
@@ -4029,6 +4034,7 @@ function AssetLoader() {
     z.addEventListener("click", q);
     BrowserDetect.DESKTOP && (z.addEventListener("mouseenter", p),
     z.addEventListener("mouseleave", c));
+	document.addEventListener("keydown", m);
     return z
 }
 
