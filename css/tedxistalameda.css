@@ -921,6 +921,7 @@ body input:checked ~ div .footnote {
     height: 100%;
     position: absolute;
     background-color: #00A0E4;
+	z-index: 0;
 }
 .list_item:nth-child(1) .list_bg {
 	background-color: #E0E0E0;
@@ -929,7 +930,7 @@ body input:checked ~ div .footnote {
 	background-color: #00A0E4; /* CHANGE COLOR */
 }
 .list_item:nth-child(3) .list_bg {
-	background-color: #E0E0E0; /* CHANGE COLOR */
+	background-color: #E0E0E0;
 }
 .list_item:nth-child(4) .list_bg {
 	background-color: #292929;
@@ -942,8 +943,10 @@ body input:checked ~ div .footnote {
 	width: 100%;
     height: 100%;
     position: absolute;
-	background-size: cover;
-	overflow: hidden;
+	background-size: fixed;
+	-o-background-size: fixed;
+	-moz-background-size: fixed;
+	-webkit-background-size: fixed;
 }
 
 .list_title {
@@ -2193,20 +2196,22 @@ body input:checked ~ div .footnote {
 /* SOCIAL MEDIA FEED -------------- */
 .container_news {
   	display: inline-block;
-  	width: 100%;}
+  	width: 942px;
+}
 
 .social-feed-container {
-	column-count: 0;
-	column-gap: 25px;
- 	-moz-column-gap: 25px;
- 	-webkit-column-gap: 25px;
+	columns: 0;
+	-moz-columns: 0;
+	-webkit-columns: 0;
+	column-gap: 5px;
+ 	-moz-column-gap: 5px;
+ 	-webkit-column-gap: 5px;
 	max-height: 3000px;
 }
 
 .social-feed-element{
-    box-shadow: 0 0 10px 0 rgba(10, 10, 10, 0.2);
+    box-shadow: 0 0 5px 0 rgba(10, 10, 10, 0.2);
     transition: 0.25s;
-    -webkit-backface-visibility: hidden;
     background-color: #fff;
     color: #333;
     text-align:left;
@@ -2214,18 +2219,15 @@ body input:checked ~ div .footnote {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 16px;
 	display: inline-block;
-    margin: 0 0 25px;
-    width: 100%;
-}
-
-.social-feed-element,
-.social-feed-element .blurb-body {
-    overflow: hidden;
-    zoom: 1;
+    margin: 10px 10px 25px 10px;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	transform: translateX(0);
 }
 
 .social-feed-element:hover{
-    box-shadow: 0 0 20px 0 rgba(10, 10, 10, 0.4);
+	display: inline-block;
+    box-shadow: 0 0 10px 0 rgba(10, 10, 10, 0.4);
 }
 
 .social-feed-element .top_news {
@@ -2236,8 +2238,7 @@ body input:checked ~ div .footnote {
 
 .social-feed-element .media-object {
     display: block;
-    width:50px;
-    border-radius:0%!important;
+    width: 50px;
 	float: left;
 	margin-right: 15px;
 }
@@ -2294,10 +2295,7 @@ body input:checked ~ div .footnote {
 
 .social-feed-element .blurb-body p.social-feed-text {
     margin: 0;
-    overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
 	color: #292929;
 }
 
@@ -2334,19 +2332,30 @@ body input:checked ~ div .footnote {
 	.item_section_news {
 		width: 380px;
 	}
+	.container_news {
+		width: 380px;
+	}
 }
 
 @media all and (min-width: 550px) {
 	.item_section_news {
 		width: 460px;
 	}
+	.container_news {
+		width: 460px;
+	}
 }
 
 @media all and (min-width: 1100px) {
 	.social-feed-container {
-		column-count: 2;
+		columns: 2;
+		-moz-columns: 2;
+		-webkit-columns: 2;	
 	}
 	.item_section_news {
+		width: 942px;
+	}
+	.container_news {
 		width: 942px;
 	}
 }

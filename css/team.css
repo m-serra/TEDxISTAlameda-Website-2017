@@ -1,13 +1,22 @@
 .row_second {
-	column-count: 7;
+	columns: 7;
+	-moz-columns: 7;
+	-webkit-columns: 7;
 	column-gap: 20px;
  	-moz-column-gap: 20px;
  	-webkit-column-gap: 20px;
-	max-height: 500px;
+	max-height: 520px;
 	max-width: 980px;
 	margin: 0 auto;
-	margin-top: 0%;
 	overflow: hidden;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.head-team {
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .image-holder {
@@ -17,7 +26,6 @@
     display: inline-block;
 	border: 2px solid #ff2100;
 	margin: 20px;
-	overflow: hidden;
 }
 
 .head-image {
@@ -27,22 +35,19 @@
 	margin: 0;
     background-image: url(../images/photos/tedxistalameda_team-min.jpg);
     display: none;
+	-o-filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
-    filter: grayscale(100%)
-	overflow: hidden;
+	-moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+	-webkit-transform: translateX(0);
+	-webkit-backface-visibility: hidden;
 }
 
-.image-holder.selected .head-image,
 .image-holder:hover .head-image {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%)
-}
-
-
-.head-team {
-    margin-bottom: 0px;
-    overflow-y: scroll;
-    text-align: center;
+	-o-filter: grayscale(0%);
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+    filter: grayscale(0%);
 }
 
 .head-image.click,
@@ -93,8 +98,8 @@
 .description-text .socialmedia > a .mail_svg{
 	height: 22px!important;
 	width: 22px!important;
-	margin-right: 15px;
-	margin-left: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
 	fill: #000;
 }
 
@@ -105,14 +110,15 @@
 .description-text .socialmedia > a .in_svg{
 	height: 22px!important;
 	width: 22px!important;
-	margin-right: 15px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .description-text .socialmedia > a .fb_svg{
 	height: 22px!important;
 	width: 22px!important;
-	margin-left: 5px;
-	margin-right: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .close {
@@ -130,6 +136,8 @@
 .tooltip-inner { 
 	background-color:#ff2100;
 	border-radius: initial;
+	max-width: none;
+	white-space: nowrap;
 }
 [data-placement="top"] + .tooltip > .tooltip-arrow { border-top-color: #ff2100;}
 [data-placement="right"] + .tooltip > .tooltip-arrow { border-right-color: #ff2100;}
@@ -160,7 +168,9 @@
 /* Ipad pro + desktops */ 
 @media all and (min-width: 1090px){
 	.row_second {
-		column-count: 7;
+		columns: 7;
+		-moz-columns: 7;
+		-webkit-columns: 7;
 		column-gap: 20px;
  		-moz-column-gap: 20px;
  		-webkit-column-gap: 20px;
@@ -174,7 +184,9 @@
 }
 @media all and (max-width: 1090px){
 	.row_second{
-		column-count: 7;
+		columns: 7;
+		-moz-columns: 7;
+		-webkit-columns: 7;
 		column-gap: 5px;
  		-moz-column-gap: 5px;
  		-webkit-column-gap: 5px;
@@ -197,7 +209,9 @@
 		margin: 12px 2px 2px 2px;
 	}
 	.row_second{
-		column-count: 7;
+		columns: 7;
+		-moz-columns: 7;
+		-webkit-columns: 7;
 		column-gap: 2px;
  		-moz-column-gap: 2px;
  		-webkit-column-gap: 2px;
@@ -222,7 +236,9 @@
 }
 @media all and (max-width: 750px) {
 	.row_second{
-		column-count: 4;
+		columns: 4;
+		-moz-columns: 4;
+		-webkit-columns: 4;
 		column-gap: 3px;
  		-moz-column-gap: 3px;
  		-webkit-column-gap: 3px;
@@ -241,7 +257,9 @@
 /* All phones */ 
 @media all and (max-width: 470px) {
 	.row_second{
-		column-count: 3;
+		columns: 3;
+		-moz-columns: 3;
+		-webkit-columns: 3;
 		column-gap: 3px;
  		-moz-column-gap: 3px;
  		-webkit-column-gap: 3px;
@@ -259,7 +277,9 @@
 } 
 @media all and (max-width: 370px) {
 	.row_second{
-		column-count: 2;
+		columns: 2;
+		-moz-columns: 2;
+		-webkit-columns: 2;
 		column-gap: 3px;
  		-moz-column-gap: 3px;
  		-webkit-column-gap: 3px;
@@ -276,41 +296,3 @@
 	}
 } 
 /* ---------------------------------------- */
-
-.burguer-container {
-    height: 0;
-    width: 4%;
-    padding-top: 4%;
-    position: relative;
-    float: right;
-    
-}
-
-.overlay {
-    top: 10vh;
-    overflow: hidden;
-}
-
-.about-frame {
-     #liaddshapes::-webkit-scrollbar {
-        width: 0 !important;
-    }
-}
-.text-container {
-    position: absolute;
-    width: 40vw;
-    height: 60vh;
-    overflow-y: scroll;
-    overflow-x:hidden;
-}
-.text-container.left{
-    margin-left: 5vw;
-}
-.text-container.rigth{
-    margin-right: 5vw;
-    right: 0;
-}
-.text-container p{
-    color: black;
-    left: 0;
-}

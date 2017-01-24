@@ -3724,7 +3724,7 @@ function AssetLoader() {
             e.onload = function() {
                 a[this.num].src = this.src
             };
-            e.src = Model.IMAGE_PATH + "http://img.youtube.com/vi/" + a[c].getAttribute("data-media") + "/hqdefault.jpg"
+            e.src = Model.IMAGE_PATH + "https://img.youtube.com/vi/" + a[c].getAttribute("data-media") + "/hqdefault.jpg"
 			e.classList.add("imgtalk");
 			a[c].appendChild(e);
 			
@@ -3882,7 +3882,7 @@ function AssetLoader() {
     function la(a) {
 		z.isOpen && (z.style.width = Model.viewport.width + "px",
         z.style.height = Model.viewport.height + "px",
-        aa.style.height = Model.viewport.height + 0 + "px", // 50px OFFSET BECAUSE BUGS
+        aa.style.height = Model.viewport.height + 0 + "px",
         z._update(),
         F())
     }
@@ -4077,7 +4077,7 @@ function AssetLoader() {
     function b(b) {
         if (b.target.classList.contains("share")) { 
 			b.preventDefault(),
-        	b.target.classList.contains("share-facebook") ? window.open("https://www.facebook.com/sharer/sharer.php?u=http://tedxistalameda.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600") : b.target.classList.contains("share-twitter") && window.open("https://twitter.com/share?text=TEDxISTAlameda 2017 is right around the corner! Follow along at&url=http://tedxistalameda.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600")
+        	b.target.classList.contains("share-facebook") ? window.open("https://www.facebook.com/sharer/sharer.php?u=https://www.tedxistalameda.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600") : b.target.classList.contains("share-twitter") && window.open("https://twitter.com/share?text=TEDxISTAlameda 2017 is right around the corner! Follow along at&url=https://www.tedxistalameda.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600")
 			}
     }
     (function() {
@@ -4505,7 +4505,7 @@ if (typeof Object.create !== 'function') {
                 return '<a target="_blank" href="' + string + '">' + string + '<\/a>';
             },
             wrapGoogleplusTagTemplate: function(string) {
-                return '<a target="_blank" href="https://plus.google.com/s/' + string + '" >' + string + '<\/a>';
+                return '<a target="_blank" href="http://plus.google.com/s/' + string + '" >' + string + '<\/a>';
             },
             shorten: function(string) {
                 string = $.trim(string);
@@ -4716,7 +4716,7 @@ if (typeof Object.create !== 'function') {
             },
             facebook: {
                 posts: [],
-                graph: 'https://graph.facebook.com/',
+                graph: 'http://graph.facebook.com/',
                 loaded: false,
                 getData: function(account) {
                     var proceed = function(request_url){
@@ -4748,7 +4748,7 @@ if (typeof Object.create !== 'function') {
                 utility: {
                     getUserId: function(username, callback) {
                         var query_extention = '&access_token=' + options.facebook.access_token + '&callback=?';
-                        var url = 'https://graph.facebook.com/' + username + '?' + query_extention;
+                        var url = 'http://graph.facebook.com/' + username + '?' + query_extention;
                         var result = '';
                         $.get(url, callback, 'json');
                     },
@@ -4813,7 +4813,7 @@ if (typeof Object.create !== 'function') {
             google: {
                 posts: [],
                 loaded: false,
-                api: 'https://www.googleapis.com/plus/v1/',
+                api: 'http://www.googleapis.com/plus/v1/',
                 getData: function(account) {
                     var request_url;
                     switch (account[0]) {
@@ -5000,7 +5000,7 @@ if (typeof Object.create !== 'function') {
             pinterest: {
                 posts: [],
                 loaded: false,
-                apiv1: 'https://api.pinterest.com/v1/',
+                apiv1: 'http://api.pinterest.com/v1/',
 
                 getData: function(account) {
                     var request_url,
@@ -5040,7 +5040,7 @@ if (typeof Object.create !== 'function') {
                         post.message = element.note;
                         post.description = '';
                         post.social_network = 'pinterest';
-                        post.link = element.link ? element.link : 'https://www.pinterest.com/pin/' + element.id;
+                        post.link = element.link ? element.link : 'http://www.pinterest.com/pin/' + element.id;
                         if (options.show_media) {
                             post.attachment = '<img class="attachment" src="' + element.image['original'].url + '" />';
                         }
@@ -5051,7 +5051,7 @@ if (typeof Object.create !== 'function') {
             rss : {
                 posts: [],
                 loaded: false,
-                api : 'https://query.yahooapis.com/v1/public/yql?q=',
+                api : 'http://query.yahooapis.com/v1/public/yql?q=',
                 datatype: 'json',
 
                 getData: function(url) {
