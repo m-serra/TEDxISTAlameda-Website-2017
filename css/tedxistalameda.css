@@ -72,7 +72,8 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -1357,6 +1358,11 @@ body input:checked ~ div .footnote {
 	color:#ff2100; 
 	font-size: 24px;
 	margin: 10px 0 10px 0;
+}
+
+.speaker > a {
+	color: #ff2100!important;
+	cursor: pointer;
 }
 
 .excerpt{

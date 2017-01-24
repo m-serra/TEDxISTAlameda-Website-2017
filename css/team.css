@@ -1,4 +1,4 @@
-. {
+.row_second {
 	column-count: 7;
 	column-gap: 20px;
  	-moz-column-gap: 20px;
@@ -7,7 +7,7 @@
 	max-width: 980px;
 	margin: 0 auto;
 	margin-top: 0%;
-	overflow-y: scroll;
+	overflow: hidden;
 }
 
 .image-holder {
@@ -17,23 +17,19 @@
     display: inline-block;
 	border: 2px solid #ff2100;
 	margin: 20px;
+	overflow: hidden;
 }
 
 .head-image {
-    background-image: url(../images/photos/tedxistalameda_team-min.jpg);
-    display: none;
-	margin-left:0px;
-}
-
-.image-holder .head-image {
-    width: 100%;
+	width: 100%;
     height: 100%;
     border-radius: 0;
-}
-
-.image-holder .head-image {
-    -webkit-filter: grayscale(100%);
+	margin: 0;
+    background-image: url(../images/photos/tedxistalameda_team-min.jpg);
+    display: none;
+	-webkit-filter: grayscale(100%);
     filter: grayscale(100%)
+	overflow: hidden;
 }
 
 .image-holder.selected .head-image,
