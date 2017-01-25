@@ -243,9 +243,9 @@
 									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
 										<div class="head-image" data-image-num="21" data-toggle="tooltip" data-placement="bottom" data-title="Filipa Catarro" data-description="Curator" data-mail="filipa"></div>								
 									</div>
-									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
+									<!--div class="image-holder" data-toggle="collapse" data-target=".head-info">
 										<div class="head-image" data-image-num="20" data-toggle="tooltip" data-placement="bottom" data-title="Filipe Quintino" data-description="Sponsor Manager" data-mail="filipe"></div>		
-									</div>
+									</div-->
 									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
 										<div class="head-image" data-image-num="19" data-toggle="tooltip" data-placement="bottom" data-title="Francisco Silva" data-description="Marketing Hacker" data-mail="francisco"></div>		
 									</div>
@@ -378,6 +378,7 @@
 							<div class="container_news">
 								<div class="social-feed-container"></div>
 							</div>
+							<button class="social_feed_button">Refresh feed</button>
 						</div>
 						<!-- section end -->
 						
@@ -956,25 +957,25 @@
 			});
 			
 			// PAVELK2's social feed. Credits to the author. - see https://github.com/pavelk2/social-feed
-			var updateFeed = function() {
+			var updateFeed = function(lim) {
 				jQuery('.social-feed-container').socialfeed({
 					// FACEBOOK
 					facebook: {
 						accounts: ['@tedxistalameda','#tedxistalameda'],
-						limit: 4,
+						limit: lim,
 						access_token: '973206692813424|31d18a9adee673356307c33fe7a2accf'
 					},
 					// Twitter
 					twitter: {
 						accounts: ['@tedxistalameda','#tedxistalameda'],
-						limit: 4,
+						limit: lim,
 						consumer_key: 'Wtt1XYDBq8JzYfhmXMa5Gx3bj', // make sure to have your app read-only
 						consumer_secret: 'wmpzZKxgSwI3ogkAo111JmiwcYLzX61ZhlDQffrvq7QTENR1NB', // make sure to have your app read-only
 					},
 					// INSTAGRAM
 					instagram: {
 						accounts: ['@tedxistalameda','#tedxistalameda'],
-						limit: 4,
+						limit: lim,
 						user_id: '2957809458',
 						access_token: '2957809458.2115149.f46ae62caa954c1d84e5eb1a0f2c899e'
 					},
@@ -1009,13 +1010,26 @@
 					</div>',
 					// Moderation function - if returns false, template will have class hidden
 					moderation: function(content) {
-						return (content.text) ? content.text.indexOf('fuck') == -1 : true;
+						return true; //(content.text) ? content.text.indexOf('fuck') == -1 : true;
 					}
 				});	
 			};
 			
 			// Updates social-feed
-			updateFeed();
+			var lim = 4;
+			updateFeed(lim);
+			
+			// Button update social-feed
+			$( ".social_feed_button" ).click(function() {
+				debugger
+				lim += 1;
+  				updateFeed(lim);
+				document.querySelector(".list_item").open();
+				/*WindowScroll.scroll({
+            		y: Model.viewport.height - 190,
+            		speed: .4,
+        		})*/
+			});
 
 			// Countdown funciton
 			jQuery(".countdown").countdown();

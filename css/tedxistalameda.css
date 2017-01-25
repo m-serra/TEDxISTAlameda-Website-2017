@@ -2197,16 +2197,18 @@ body input:checked ~ div .footnote {
 .container_news {
   	display: inline-block;
   	width: 942px;
+	height: 100%;
 }
 
 .social-feed-container {
+	height: 100%;
 	columns: 0;
 	-moz-columns: 0;
 	-webkit-columns: 0;
 	column-gap: 5px;
  	-moz-column-gap: 5px;
  	-webkit-column-gap: 5px;
-	max-height: 3000px;
+	/*max-height: 3000px;*/
 }
 
 .social-feed-element{
@@ -2417,4 +2419,18 @@ body input:checked ~ div .footnote {
 
 .intro_content .intro_text a:hover {
 	text-decoration: underline;
+}
+
+.social_feed_button {
+	position: relative;
+	background-color: #ff2100;
+    color: #FFF;
+    font-size: 16px;
+	letter-spacing: 1px;
+	text-align: center;
+	height: 40px;
+	width: 170px;
+	left: 386px;
+	border: 0;
+	bottom: 44px;
 }

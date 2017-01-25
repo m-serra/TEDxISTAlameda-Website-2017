@@ -3809,8 +3809,7 @@ function AssetLoader() {
 			for (var b = 0; b < list.length; b++) {
 				d = d + list[b].clientHeight + 25; 
 			}
-            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 300) + "px" : (Math.round(d/100)*100 + 200) + "px";
-			c.parentNode.style.maxHeight = c.style.height;
+            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 284) + "px" : (Math.round(d/100)*100 + 184) + "px";
             a += c.clientHeight + 40;
 		// SPEAKERS
 		} else if (rs) {
@@ -4441,7 +4440,7 @@ if (typeof Object.create !== 'function') {
             media_min_width: 300,
             length: 500, // maximum length of post message shown
             date_format: 'll'
-        };
+		};
         //---------------------------------------------------------------------------------
         var options = $.extend(defaults, _options),
             container = $(this),
@@ -4716,7 +4715,7 @@ if (typeof Object.create !== 'function') {
             },
             facebook: {
                 posts: [],
-                graph: 'http://graph.facebook.com/',
+                graph: 'https://graph.facebook.com/',
                 loaded: false,
                 getData: function(account) {
                     var proceed = function(request_url){
@@ -4748,7 +4747,7 @@ if (typeof Object.create !== 'function') {
                 utility: {
                     getUserId: function(username, callback) {
                         var query_extention = '&access_token=' + options.facebook.access_token + '&callback=?';
-                        var url = 'http://graph.facebook.com/' + username + '?' + query_extention;
+                        var url = 'https://graph.facebook.com/' + username + '?' + query_extention;
                         var result = '';
                         $.get(url, callback, 'json');
                     },
@@ -4813,7 +4812,7 @@ if (typeof Object.create !== 'function') {
             google: {
                 posts: [],
                 loaded: false,
-                api: 'http://www.googleapis.com/plus/v1/',
+                api: 'https://www.googleapis.com/plus/v1/',
                 getData: function(account) {
                     var request_url;
                     switch (account[0]) {
@@ -5000,7 +4999,7 @@ if (typeof Object.create !== 'function') {
             pinterest: {
                 posts: [],
                 loaded: false,
-                apiv1: 'http://api.pinterest.com/v1/',
+                apiv1: 'https://api.pinterest.com/v1/',
 
                 getData: function(account) {
                     var request_url,
@@ -5040,7 +5039,7 @@ if (typeof Object.create !== 'function') {
                         post.message = element.note;
                         post.description = '';
                         post.social_network = 'pinterest';
-                        post.link = element.link ? element.link : 'http://www.pinterest.com/pin/' + element.id;
+                        post.link = element.link ? element.link : 'https://www.pinterest.com/pin/' + element.id;
                         if (options.show_media) {
                             post.attachment = '<img class="attachment" src="' + element.image['original'].url + '" />';
                         }
@@ -5051,7 +5050,7 @@ if (typeof Object.create !== 'function') {
             rss : {
                 posts: [],
                 loaded: false,
-                api : 'http://query.yahooapis.com/v1/public/yql?q=',
+                api : 'https://query.yahooapis.com/v1/public/yql?q=',
                 datatype: 'json',
 
                 getData: function(url) {
