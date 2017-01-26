@@ -3798,18 +3798,27 @@ function AssetLoader() {
 		// NEWS
 		if (rn) {
 			// Item-section-news
-			var d = 0;
-			h = Model.viewport.height - 100;
-			a = h;
-			c = Rn[0];
+			var d = 0, h = Model.viewport.height - 100, a = h, c = Rn[0], e = 0;
 			c.style.top = h + "px";
 			c.style.display = "block";
 			c.style.border = "1px solid transparent"; 
 			var list = c.getElementsByClassName("social-feed-element");
 			for (var b = 0; b < list.length; b++) {
-				d = d + list[b].clientHeight + 25; 
+				d += list[b].clientHeight + 25; 
 			}
-            c.style.height = Model.viewport.width > 1100 ? (Math.round(d/200)*100 + 284) + "px" : (Math.round(d/100)*100 + 184) + "px";
+			if (Model.viewport.width > 1100) {
+				e = Math.round(d/2);
+				for (var b = 0; b < list.length; b++) {
+					e -= list[b].clientHeight + 25;
+					if (e < 0) {
+						e = Math.round(d/2 + Math.abs(e));
+						break;
+					}
+				}
+				c.style.height = e + 100 + "px";
+			} else {
+				c.style.height = d + 184 + "px";
+			}
             a += c.clientHeight + 40;
 		// SPEAKERS
 		} else if (rs) {

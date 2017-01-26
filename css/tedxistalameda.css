@@ -166,37 +166,6 @@ svg:not(:root) {
   animation: draw 10s 1 linear forwards;
 }*/
 
-@keyframes draw {
-  95% {
-    stroke-dashoffset: 0;
-	fill-opacity: 0;
-  }
-  100% {
-	stroke-width: 0;
-	fill-opacity: 1;
-  }
-}
-
-.pirates {
-	position: absolute;
-  	margin: auto;
-	left: 0;
-	top: -110px;
-	z-index: -1;
-	transform: scaleX(-1);
-}
-
-.pirates path {
-  fill-opacity: 0;
-  stroke: #FFF;
-  stroke-width: 3;
-  stroke-dasharray: 870;
-  stroke-dashoffset: 870;
-  animation: draw 10s 1 linear forwards;
-}
-
-
-
 /* Grouping content
    ========================================================================== */
 /**
@@ -448,7 +417,7 @@ main {
     position: fixed;
     width: 100%;
     min-height: 50px;
-    height: 10vh;
+    height: 90px;
     padding-top: 10px;
     z-index: 5;
 	visibility: hidden;
@@ -458,7 +427,7 @@ main {
 /* TEDxISTAlameda LOGO - svg */
 .nav_logo {
     width: 100%;
-    height: auto;
+	margin-top: 5px;
     min-height: 50px;
     display: inherit;
     overflow: hidden;
@@ -922,6 +891,9 @@ body input:checked ~ div .footnote {
     position: absolute;
     background-color: #00A0E4;
 	z-index: 0;
+	-webkit-transform: translate3d(0,0,0);
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
 }
 .list_item:nth-child(1) .list_bg {
 	background-color: #E0E0E0;
@@ -942,11 +914,7 @@ body input:checked ~ div .footnote {
 .bg {
 	width: 100%;
     height: 100%;
-    position: absolute;
-	background-size: fixed;
-	-o-background-size: fixed;
-	-moz-background-size: fixed;
-	-webkit-background-size: fixed;
+	position: absolute;
 }
 
 .list_title {
@@ -1606,57 +1574,48 @@ body input:checked ~ div .footnote {
 	clear: both;
 }
 
-.fb_svg {
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-	fill: #000;
-}
-.fb_svg:hover {
-	fill: #ff2100;
+.facebook-icon {
+	color: #3B5998;
 }
 
-.tw_svg {
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-	margin-left: 8px;
-	fill: #000;
+.twitter-icon {
+	color: #33CCFF;
 }
 
-.tw_svg:hover {
-	fill: #ff2100;
+.instagram-icon {
+	color: #833AB4;
 }
 
-.it_svg {
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-	margin-left: 10px;
-	fill: #000;
+.linkedin-icon {
+	color: #0077B5;
 }
 
-.it_svg:hover {
-	fill: #ff2100;
+.flickr-icon {
+	color: #045FE0;
 }
 
-.in_svg {
-	width: 30px;
-	height: 30px;
-	margin-right: 12px;
-	margin-left: 10px;
-	fill: #000;
+.mail-icon {
+	color: #EE2A24;
 }
 
-.in_svg:hover{
-	fill: #ff2100;
+a > svg.facebook,
+a > svg.twitter,
+a > svg.instagram,
+a > svg.linkedin,
+a > svg.flickr {
+	color: #000;
+}
+a > svg.facebook:hover,
+a > svg.twitter:hover,
+a > svg.instagram:hover,
+a > svg.linkedin:hover,
+a > svg.flickr:hover {
+	color: #FF2100;
 }
 
-.mail_svg {
-	width: 30px;
-	height: 30px;
+.mail-footer {
 	margin-right: 5px;
-	fill: #e0e0e0;
+	color: #e0e0e0;
 }
 
 .footer_logos {
@@ -1723,30 +1682,10 @@ body input:checked ~ div .footnote {
 		width: 700px;
 	}
 
-	.fb_svg {
-		width: 25px;
+	.mail-footer {
 		height: 25px;
-	}
-
-	.tw_svg {
 		width: 25px;
-		height: 25px;
-	}
-
-	.it_svg {
-		width: 25px;
-		height: 25px;
-	}
-
-	.in_svg {
-		width: 25px;
-		height: 25px;
-	}
-
-	.mail_svg {
-		width: 25px;
-		height: 25px;
-		margin-top: 2px;
+		margin-top: 3px;
 	}
 
 	.footer_logos {
@@ -1803,34 +1742,25 @@ body input:checked ~ div .footnote {
 	.footer_section {
 		width: 480px;
 	}
-
-	.fb_svg {
-		width: 20px;
-		height: 20px;
+	
+	.facebook,
+	.twitter,
+	.instagram,
+	.linkedin,
+	.flickr {
+		width: 25px;
+		height: 25px;
+		margin-left: 1px;
 	}
 
-	.tw_svg {
-		width: 20px;
+	.mail-footer {
 		height: 20px;
-	}
-
-	.it_svg {
 		width: 20px;
-		height: 20px;
-	}
-
-	.in_svg {
-		width: 20px;
-		height: 20px;
-	}
-
-	.mail_svg {
-		width: 20px;
-		height: 20px;
+		margin-top: 3px;
 	}
 
 	.footer_logos {
-		width: 180px;
+		width: 179px;
 		margin-top: 3px;
 	}
 
@@ -1843,11 +1773,11 @@ body input:checked ~ div .footnote {
 	.subscribe_button {
 		padding: 6px 5px!important;
 		font-size: 12px!important;
-		width: 70px!important;
+		width: 72px!important;
 	}
 
 	.input_text {
-		width: 188px;
+		width: 187px;
 		height: 20px;
 		font-size: 13px;
 	}
@@ -1871,30 +1801,21 @@ body input:checked ~ div .footnote {
 		text-align: center;
 		width: 280px;
 	}
-
-	.fb_svg {
+	
+	.facebook,
+	.twitter,
+	.instagram,
+	.linkedin,
+	.flickr {
 		width: 25px;
 		height: 25px;
+		margin-left: 1px;
 	}
-
-	.tw_svg {
-		width: 25px;
+	
+	.mail-footer {
 		height: 25px;
-	}
-
-	.it_svg {
 		width: 25px;
-		height: 25px;
-	}
-
-	.in_svg {
-		width: 25px;
-		height: 25px;
-	}
-
-	.mail_svg {
-		width: 20px;
-		height: 20px;
+		margin-top: 0px;
 	}
 
 	.footer_logos {
@@ -1917,7 +1838,7 @@ body input:checked ~ div .footnote {
 	}
 
 	.input_text {
-		width: 180px;
+		width: 174px;
 		height: 20px;
 		font-size: 14px;
 	}
@@ -2312,23 +2233,27 @@ body input:checked ~ div .footnote {
     text-decoration: underline;
 }
 
-.facebook-icon {
-	height: 35px;
-	width: 35px;
-	background: url("../images/ui/facebook.svg") center / 35px 35px no-repeat;
+.social_feed_button {
+	position: absolute;
+	background-color: #FFF;
+    color: #FF2100;
+    font-size: 16px;
+	letter-spacing: 1px;
+	text-align: center;
+	height: 40px;
+	width: 170px;
+	left: 0; right: 0;
+	margin: 0 auto;
+	border: 2px solid #FF2100;
+	bottom: 0px;
 }
 
-.twitter-icon {
-	height: 35px;
-	width: 35px;
-	background: url("../images/ui/twitter.svg") center / 35px 35px no-repeat;
+.social_feed_button:hover {
+	background-color: #ff2100;
+    color: #FFF;
+	border: 0px;
 }
 
-.instagram-icon {
-	height: 35px;
-	width: 35px;
-	background: url("../images/ui/instagram.svg") center / 35px 35px no-repeat;
-}
 
 @media all and (min-width: 400px) {
 	.item_section_news {
@@ -2419,18 +2344,4 @@ body input:checked ~ div .footnote {
 
 .intro_content .intro_text a:hover {
 	text-decoration: underline;
-}
-
-.social_feed_button {
-	position: relative;
-	background-color: #ff2100;
-    color: #FFF;
-    font-size: 16px;
-	letter-spacing: 1px;
-	text-align: center;
-	height: 40px;
-	width: 170px;
-	left: 386px;
-	border: 0;
-	bottom: 44px;
 }
