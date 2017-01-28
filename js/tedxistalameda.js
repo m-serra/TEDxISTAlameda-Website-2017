@@ -3815,7 +3815,7 @@ function AssetLoader() {
 						break;
 					}
 				}
-				c.style.height = e + 100 + "px";
+				c.style.height = e + 140 + "px";
 			} else {
 				c.style.height = d + 184 + "px";
 			}

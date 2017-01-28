@@ -95,32 +95,6 @@
 	height: 30px;
 }
 
-.description-text .socialmedia > a .mail_svg{
-	height: 22px!important;
-	width: 22px!important;
-	margin-right: 10px;
-	margin-left: 10px;
-	fill: #000;
-}
-
-.description-text .socialmedia > a .mail_svg:hover{
-	fill: #ff2100;
-}
-
-.description-text .socialmedia > a .in_svg{
-	height: 22px!important;
-	width: 22px!important;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-.description-text .socialmedia > a .fb_svg{
-	height: 22px!important;
-	width: 22px!important;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
 .close {
 	position: absolute;
 	top: 10px;
