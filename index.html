@@ -276,13 +276,13 @@
 										<div class="head-image" data-image-num="7" data-toggle="tooltip" data-placement="bottom" data-title="Maria Leonor Narciso" data-description="Innovation Manager" data-mail="leonor"></div>
 									</div>
 									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
-										<div class="head-image" data-image-num="6" data-toggle="tooltip" data-placement="bottom" data-title="Miguel Pereira" data-description="Innovation Manager" data-mail="miguel"></div>
+										<div class="head-image" data-image-num="6" data-toggle="tooltip" data-placement="bottom" data-title="Miguel Pereira" data-description="Innovation Manager" data-mail="miguel" data-linkedin="miguelalvespereira" data-facebook="pereira.alves.miguel"></div>
 									</div>
 									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
 										<div class="head-image" data-image-num="5" data-toggle="tooltip" data-placement="bottom" data-title="Pedro Graça" data-description="Sponsor Manager" data-mail="pedro" data-linkedin="pedromgraca" data-facebook="pedro.graca.14"></div>
 									</div>
 									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
-										<div class="head-image" data-image-num="4" data-toggle="tooltip" data-placement="bottom" data-title="Rafael Belchior" data-description="Front-end Coder" data-mail="rafael"></div>
+										<div class="head-image" data-image-num="4" data-toggle="tooltip" data-placement="bottom" data-title="Rafael Belchior" data-description="Front-end Coder" data-mail="rafael" data-linkedin="rafaelpbelchior" data-facebook="rafaelpbelchior"></div>
 									</div>
 									<div class="image-holder" data-toggle="collapse" data-target=".head-info">
 										<div class="head-image" data-image-num="3" data-toggle="tooltip" data-placement="bottom" data-title="Raquel Silva" data-description="Visual Designer" data-mail="raquel" data-linkedin="raquelpcps" data-facebook="raquel.silva.16547"></div>
@@ -365,9 +365,7 @@
 						
 						<!-- section start -->
 						<div class="item_section_news">
-							<div class="container_news">
-								<div class="social-feed-container"></div>
-							</div>
+							<div class="social-feed-container"></div>
 							<!--button class="social_feed_button">Refresh feed</button-->
 						</div>
 						<!-- section end -->
@@ -1062,7 +1060,7 @@
 					//update_period: 3600,
 					date_local: "en",
 					template_html:
-					'<div class="social-feed-element{{? !it.moderation_passed}}hidden{{?}}" dt-create="{{=it.dt_create}}" social-feed-id = "{{=it.id}}"> \
+					'<div class="social-feed-element{{? !it.moderation_passed}}hidden{{?}}" dt-create="{{=it.dt_create}}" social-feed-id = "{{=it.social_network}}"> \
 						<div class="top_news"> \
 							<a href="{{=it.author_link}}" target="_blank"> \
 								<img class="media-object" src="{{=it.author_picture}}"/> \
@@ -1088,7 +1086,7 @@
 					</div>',
 					// Moderation function - if returns false, template will have class hidden <div class="{{=it.social_network}}-icon"></div> \
 					moderation: function(content) {
-						return true; //(content.text) ? content.text.indexOf('fuck') == -1 : true;
+						return true;
 					}
 				});	
 			};
@@ -1128,6 +1126,8 @@
 		});			
 		</script>
 		
+		<!-- jquery.socialfeed.js -->
+        <script src="js/jquery.socialfeed.js"></script>
 		<!-- tedxistalameda.js - core functions -->
         <script src="js/tedxistalameda.js"></script>
 		<!-- team.js - required for team page -->

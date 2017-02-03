@@ -2116,14 +2116,13 @@ a > svg.flickr:hover {
 }
 
 /* SOCIAL MEDIA FEED -------------- */
-.container_news {
-  	display: inline-block;
-  	width: 942px;
-	height: 100%;
-}
-
 .social-feed-container {
+	width: 942px;
 	height: 100%;
+	/*display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;*/
 	columns: 0;
 	-moz-columns: 0;
 	-webkit-columns: 0;
@@ -2260,7 +2259,7 @@ a > svg.flickr:hover {
 	.item_section_news {
 		width: 380px;
 	}
-	.container_news {
+	.social-feed-container {
 		width: 380px;
 	}
 }
@@ -2269,7 +2268,7 @@ a > svg.flickr:hover {
 	.item_section_news {
 		width: 460px;
 	}
-	.container_news {
+	.social-feed-container {
 		width: 460px;
 	}
 }
@@ -2278,12 +2277,10 @@ a > svg.flickr:hover {
 	.social-feed-container {
 		columns: 2;
 		-moz-columns: 2;
-		-webkit-columns: 2;	
-	}
-	.item_section_news {
+		-webkit-columns: 2;
 		width: 942px;
 	}
-	.container_news {
+	.item_section_news {
 		width: 942px;
 	}
 }
