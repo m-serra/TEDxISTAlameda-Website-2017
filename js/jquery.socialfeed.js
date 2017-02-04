@@ -18,7 +18,7 @@ if (typeof Object.create !== 'function') {
             media_min_width: 300,
             length: 500, // maximum length of post message shown
             date_format: 'll',
-            date_locale: 'en'
+			date_locale: 'en'
         };
         //---------------------------------------------------------------------------------
         var options = $.extend(defaults, _options),
@@ -119,7 +119,7 @@ if (typeof Object.create !== 'function') {
                 var data = this.content;
 
                 if ($(container).children('[social-feed-id=' + data.id + ']').length !== 0) {
-                    return false;
+                    return true; // false?
                 }
                 if ($(container).children().length === 0) {
                     $(container).append(rendered_html);
@@ -171,7 +171,7 @@ if (typeof Object.create !== 'function') {
                 }
 
                 loaded_post_count++;
-                if (loaded_post_count == posts_to_load_count) {
+                if (loaded_post_count + 1 == posts_to_load_count) {
                     fireCallback();
                 }
 
@@ -259,12 +259,14 @@ if (typeof Object.create !== 'function') {
                 utility: {
                     getPosts: function(json) {
                         if (json) {
-							// fix callback render
-                            if(json.length < options.twitter.limit) posts_to_load_count -= options.twitter.limit - json.length;
+                            if(json.length < options.twitter.limit) 
+								posts_to_load_count -= options.twitter.limit - json.length;
                             $.each(json, function() {
                                 var element = this;
                                 var post = new SocialFeedPost('twitter', Feed.twitter.utility.unifyPostData(element));
-                                post.render();
+                                var render_successful = post.render();
+								if(!render_successful)
+									posts_to_load_count--
                             });
                         }
                     },
@@ -359,10 +361,14 @@ if (typeof Object.create !== 'function') {
                     },
                     getPosts: function(json) {
                         if (json['data']) {
-                            json['data'].forEach(function(element) {
+							if(json['data'].length<options.facebook.limit)
+								posts_to_load_count -= options.facebook.limit - json['data'].length;
+							json['data'].forEach(function(element) {
                                 var post = new SocialFeedPost('facebook', Feed.facebook.utility.unifyPostData(element));
-                                post.render();
-                            });
+                                var render_successful = post.render();
+								if(!render_successful)
+									posts_to_load_count--
+							});
                         }
                     },
                     unifyPostData: function(element) {
@@ -414,10 +420,14 @@ if (typeof Object.create !== 'function') {
                 utility: {
                     getPosts: function(json) {
                         if (json.items) {
+							 if(json.items.length<options.google.limit)
+								 posts_to_load_count -= options.google.limit - json.items.length;
                             $.each(json.items, function(i) {
                                 var post = new SocialFeedPost('google', Feed.google.utility.unifyPostData(json.items[i]));
-                                post.render();
-                            });
+                                var render_successful = post.render();
+								if(!render_successful)
+									posts_to_load_count--
+							});
                         }
                     },
                     unifyPostData: function(element) {
@@ -507,8 +517,10 @@ if (typeof Object.create !== 'function') {
                                 posts_to_load_count -= options.instagram.limit - json.data.length;
                             json.data.forEach(function(element) {
                                 var post = new SocialFeedPost('instagram', Feed.instagram.utility.unifyPostData(element));
-                                post.render();
-                            });
+                                var render_successful = post.render();
+								if(!render_successful)
+									posts_to_load_count--
+							});
                         }
                     },
                     getUsers: function(json) {
@@ -541,7 +553,7 @@ if (typeof Object.create !== 'function') {
                     }
                 }
             },
-            vk: {
+/*            vk: {
                 posts: [],
                 loaded: false,
                 base: 'http://vk.com/',
@@ -630,7 +642,7 @@ if (typeof Object.create !== 'function') {
                         return post;
                     }
                 }
-            },
+            },*/
             blogspot: {
                 loaded: false,
                 getData: function(account) {
@@ -698,9 +710,13 @@ if (typeof Object.create !== 'function') {
 
                     getPosts: function(json) {
                         json.data.forEach(function(element) {
+							if(json.data.length<options.pinterest.limit)
+								 posts_to_load_count -= options.pinterest.limit - json.data.length;
                             var post = new SocialFeedPost('pinterest', Feed.pinterest.utility.unifyPostData(element));
-                            post.render();
-                        });
+                            var render_successful = post.render();
+							if(!render_successful)
+								posts_to_load_count--                        
+						});
                     },
 
                     unifyPostData: function(element){
@@ -722,7 +738,7 @@ if (typeof Object.create !== 'function') {
                     }
                 }
             },
-            rss : {
+/*            rss : {
                 posts: [],
                 loaded: false,
                 api : 'https://query.yahooapis.com/v1/public/yql?q=',
@@ -778,7 +794,7 @@ if (typeof Object.create !== 'function') {
                         return post;
                     }
                 }
-            }
+            }*/
         };
 
         //make the plugin chainable

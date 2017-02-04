@@ -3804,20 +3804,24 @@ function AssetLoader() {
 			c.style.border = "1px solid transparent"; 
 			var list = c.getElementsByClassName("social-feed-element");
 			for (var b = 0; b < list.length; b++) {
-				d += list[b].clientHeight + 25; 
+				d += list[b].clientHeight + 35; 
 			}
 			if (Model.viewport.width > 1100) {
 				e = Math.round(d/2);
 				for (var b = 0; b < list.length; b++) {
-					e -= list[b].clientHeight + 25;
-					if (e < 0) {
-						e = Math.round(d/2 + Math.abs(e));
+					e -= list[b].clientHeight + 35;
+					if (e < 0 ) {
+						if (Math.abs(e) < (list[b].clientHeight + 35)/2) {
+							e = Math.round(d/2) + Math.abs(e);
+						} else {
+							e = Math.round(d/2) + (e + list[b].clientHeight + 35);
+						}
 						break;
 					}
 				}
-				c.style.height = e + 140 + "px";
+				c.style.height = e + 110 + "px";
 			} else {
-				c.style.height = d + 184 + "px";
+				c.style.height = d + 164 + "px";
 			}
             a += c.clientHeight + 40;
 		// SPEAKERS
@@ -4005,7 +4009,7 @@ function AssetLoader() {
     aa = b.querySelector(".list_bg");
     J = new CreateDiv(b.querySelector(".list_title"));	
 	k();
-	if (b.getAttribute("data-name") == "News") {
+	if (b.getAttribute("data-name") == "News Feed") {
 		rn = 1;
 		Rn = b.querySelectorAll(".item_section_news");
 	}
@@ -4247,7 +4251,7 @@ function AssetLoader() {
         height: 0
     };
     f.colors = {
-        blue: "#00A0E4", // IST websafe BLUE
+        blue: "#60A6F1", // IST websafe BLUE #00A0E4
         red:  "#FF2100", // TEDx websafe RED
 		lgrey:"#E0E0E0", // Grey light "F2F2F2",
 		dgrey:"#292929", // TEDx websafe GREY
@@ -4355,7 +4359,7 @@ function View() {
     f.update = function() {
 		var num;
 		switch(Controller.url) {
-			case "News":
+			case "News Feed":
 				num = 5;
 				break;
 			case "Speakers":
