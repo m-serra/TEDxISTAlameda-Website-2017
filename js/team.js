@@ -107,22 +107,24 @@ jQuery("input[type=checkbox]").on('change', function() {
         a.removeClass("up upleft left downleft down downright right upright front click");
         var f = c * 100 + delta;
         Model.viewport.width > 910 ? a.addClass("click").css("background-position", "1000px " + f + "px") : a.addClass("click").css("background-position", "992px " + f + "px");
+		$(".description-text").css('visibility', 'visible');
 		$(".description-text").css('opacity', 1);
         $(".description-text .name").html(b);
         $(".description-text .desc").html(d);
-		if (!e) {
+		debugger
+		if (!e || e == "undefined") {
 			$(".description-text .socialmedia a:nth-child(1)").css("display", "none")
 		} else {
 			$(".description-text .socialmedia a:nth-child(1)").css("display", "inline-flex")
 			$(".description-text .socialmedia a:nth-child(1)")[0].href = "mailto:team+" + e + "@tedxistalameda.com";			
 		}
-		if (!h) {
+		if (!h || h == "undefined") {
 			$(".description-text .socialmedia a:nth-child(2)").css("display", "none")
 		} else {
 			$(".description-text .socialmedia a:nth-child(2)").css("display", "inline-flex")
 			$(".description-text .socialmedia a:nth-child(2)")[0].href = "http://linkedin.com/in/" + h;
 		}
-		if (!g) {
+		if (!g || g == "undefined") {
 			$(".description-text .socialmedia a:nth-child(3)").css("display", "none")
 		} else {
 			$(".description-text .socialmedia a:nth-child(3)").css("display", "inline-flex")
@@ -131,8 +133,10 @@ jQuery("input[type=checkbox]").on('change', function() {
     }); 
     $(".row_second").mouseenter(function() {
 		$(".description-text").css('opacity', 0);
+		$(".description-text").css('visibility', 'hidden');
     });
     $(".close").click(function() {
 		$(".description-text").css('opacity', 0);
+		$(".description-text").css('visibility', 'hidden');
     })
 });
