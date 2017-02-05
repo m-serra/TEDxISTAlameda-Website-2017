@@ -1,12 +1,12 @@
 .row_second {
-	width: 840px;
-	height: 540px;
+	width: 860px;
+	height: 550px;
 	margin: 0 auto;
 	-webkit-transform: translateX(0);
 	-moz-transform: translateX(0);
 	transform: translateX(0);
 	overflow: hidden;
-	padding-top: 0.1%;
+	padding-top: 1%;
 }
 
 .head-team {
@@ -18,6 +18,7 @@
 	-webkit-align-content: center;
 	justify-content: flex-start;
 	-webkit-justify-content: flex-start;
+	margin: 0 10px;
 }
 
 .image-holder {
@@ -71,7 +72,7 @@
 	margin: 0px auto;
 	padding-top: 10px;
     bottom: 0;
-	background-color: rgba(255,255,255,0.9);
+	background-color: transparent;
 	visibility: hidden;
 	opacity: 0;
 	transition: opacity .5s ease-in-out;
@@ -134,7 +135,10 @@
 }
 @media all and (min-height: 800px) {
 	body input ~ div .new_section {
-		margin-top: 3vh;
+		margin-top: 20px;
+	}
+	.row_second {
+		margin-top: -18px;
 	}
 	body input ~ div .textbox {
 		margin-top: 4.5vh!important;
@@ -150,8 +154,8 @@
 /* Ipad pro + desktops */ 
 @media all and (max-width: 1090px){
 	.row_second{
-		width: 840px;
-		padding-top: 1%;
+		width: 860px;
+		height: 550px;
 	}
 	.description-text {
 		height: 140px!important;
@@ -165,8 +169,7 @@
 		margin: 10px 5px;
 	}
 	.row_second{
-		padding-top: 3%;
-		width: 658px;
+		width: 678px;
 		height: 480px;
 	}
 }
@@ -174,11 +177,11 @@
 /* Ipad / Tablets */ 
 @media all and (max-width: 785px) {
 	.row_second{
-		width: 564px;
+		width: 584px;
 		height: 590px;
-		padding-top: 5%;
 	}
 	.description-text {
+		background-color: rgba(255,255,255,0.8);
 		height: 170px!important;
 		padding-top: 0px;
 	}
@@ -189,12 +192,14 @@
 /* All phones */ 
 @media all and (max-width: 470px) {
 	.row_second{
-		width: 302px;
+		width: 312px;
 		height: 990px;
 		padding-left: 3%;
-		padding-top: 2%;
-		margin-bottom: 60px;
+		margin-bottom: 180px!important;
 	}	
+	.head-team {
+		margin: 0 5px;
+	}
 	.description-text {
 		height: 110px!important;
 		padding-top: 7px;

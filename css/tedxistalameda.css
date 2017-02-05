@@ -539,7 +539,7 @@ body label:hover {
 	body input + label > .caption {
         width: 20px;
 		top: 21px;
-		font-size: 9px;
+		font-size: 8px;
     }
 }
 @media all and (max-width: 370px) {
@@ -798,7 +798,7 @@ body input:checked ~ div .content-list{
 
 body input ~ div .textbox {
 	margin: 20px auto;
-	width: 49%;
+	width: 45%;
 	color: #292929;
 }
 body input ~ div .textbox:nth-child(2) {
@@ -863,7 +863,7 @@ body input:checked ~ div .footnote {
 		margin-top: 3vh;
 	}	
 	body input ~ div .textbox-description {
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 24px;
 	}
 }
@@ -1687,6 +1687,10 @@ body input:checked ~ div .footnote {
 
 .mail-icon {
 	color: #EE2A24;
+}
+
+.website-icon {
+	color: #292929;
 }
 
 a > svg.facebook,
