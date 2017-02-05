@@ -103,7 +103,8 @@ jQuery("input[type=checkbox]").on('change', function() {
         	d = a.attr("data-description"),
 			e = a.attr("data-mail"),
 			g = a.attr("data-facebook"),
-			h = a.attr("data-linkedin");
+			h = a.attr("data-linkedin"),
+			w = a.attr("data-website");
         a.removeClass("up upleft left downleft down downright right upright front click");
         var f = c * 100 + delta;
         Model.viewport.width > 910 ? a.addClass("click").css("background-position", "1000px " + f + "px") : a.addClass("click").css("background-position", "992px " + f + "px");
@@ -111,7 +112,6 @@ jQuery("input[type=checkbox]").on('change', function() {
 		$(".description-text").css('opacity', 1);
         $(".description-text .name").html(b);
         $(".description-text .desc").html(d);
-		debugger
 		if (!e || e == "undefined") {
 			$(".description-text .socialmedia a:nth-child(1)").css("display", "none")
 		} else {
@@ -129,6 +129,12 @@ jQuery("input[type=checkbox]").on('change', function() {
 		} else {
 			$(".description-text .socialmedia a:nth-child(3)").css("display", "inline-flex")
 			$(".description-text .socialmedia a:nth-child(3)")[0].href = "http://www.facebook.com/" + g;
+		}
+		if (!w || w == "undefined") {
+			$(".description-text .socialmedia a:nth-child(4)").css("display", "none")
+		} else {
+			$(".description-text .socialmedia a:nth-child(4)").css("display", "inline-flex")
+			$(".description-text .socialmedia a:nth-child(4)")[0].href = w;
 		}
     }); 
     $(".row_second").mouseenter(function() {
