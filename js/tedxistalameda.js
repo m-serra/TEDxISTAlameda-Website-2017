@@ -3607,7 +3607,7 @@ function AssetLoader() {
 				for (i = 0; i < Js.getElementsByTagName("span").length; i++){
 					var el = Js.getElementsByTagName("span")[i];
 					TweenLite.to(el, .3, {
-						delay: .8 + i*.8,
+						delay: .6 + i*.6,
 						opacity: 1, 
 						ease: Quad.easeInOut
 					});

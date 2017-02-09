@@ -1321,7 +1321,7 @@ body input:checked ~ div .footnote {
 
 .speaker_focus{
      animation-name: speaker_focus;
-	 animation-duration: 1.5s;
+	 animation-duration: 2.0s;
 	 animation-iteration-count: 1;
 	 animation-timing-function: ease-out;
      animation-direction: normal;
