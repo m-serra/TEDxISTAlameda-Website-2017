@@ -1,121 +1,55 @@
-/* NOTA: Recomendo que não alteres as características do "header", uma vez que pode breakar o website
-   O mesmo se aplica à classe "container", que é utilizada no website para algo diferente - mas entretanto devo mudar o nome */
-/*
-header {
-    padding-top: 0;
-    text-align: center;
-    color: #333;
+.row_second {
+	width: 860px;
+	height: 550px;
+	margin: 0 auto;
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	transform: translateX(0);
+	overflow: hidden;
+	padding-top: 1%;
 }
 
-header .container {
-    padding-top: 0 px;
-    /*padding-bottom: 20px
-}
-
-header img {
-    display: block;
-    margin: 0 auto 20px
-}
-
-header .intro-text .name {
-    display: block;
-    font-family: 'Domine', serif;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 2em
-}
-
-header .intro-text .skills {
-    font-size: 1.25em;
-    font-weight: 300
-}
-
-@media(min-width:768px) {
-    header .container {
-        padding-bottom: 20px
-    }
-    header .intro-text .name {
-        font-size: 4.30em;
-        text-align: left
-    }
-    header .intro-text .skills {
-        font-size: 1.75em
-    }
-}
-
-@media(min-width:1020px) {
-    header .container {
-        padding-bottom: 20px;
-        width: 750px;
-            
-    }
-    header .intro-text .name {
-        font-size: 4.30em;
-        text-align: left
-    }
-    header .intro-text .skills {
-        font-size: 1.75em
-    }
-}*/
-
-
-.row {
-	margin-left: 25vw;
-	margin-right: 25vw;
+.head-team {
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row wrap;
+	-webkit-flex-flow: row wrap;
+	align-content: center;
+	-webkit-align-content: center;
+	justify-content: flex-start;
+	-webkit-justify-content: flex-start;
+	margin: 0 10px;
 }
 
 .image-holder {
     height: 100px;
     width: 100px;
+	margin: 10px;
     cursor: pointer;
-    display: inline-block;
-    margin: 0.4vw;
 	border: 2px solid #ff2100;
-
 }
 
 .head-image {
-    background-image: url(../images/photos/JE_team_2.jpg);
-    display: none;
-}
-
-.image-holder .head-image {
-    width: 100%;
+	width: 100%;
     height: 100%;
     border-radius: 0;
+	margin: 0;
+    background-image: url(../images/photos/tedxistalameda_team-min.jpg);
+    display: none;
+	-o-filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+	-webkit-transform: translateX(0);
+	-webkit-backface-visibility: hidden;
 }
 
-.image-holder .head-image {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%)
-}
-
-.image-holder.selected .head-image,
 .image-holder:hover .head-image {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%)
+	-o-filter: grayscale(0%);
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+    filter: grayscale(0%);
 }
-
-.head-container {
-    padding: 20px 50px;
-}
-
-.head-team {
-    margin-bottom: 20px;
-    overflow: hidden;
-    text-align: center;
-}
-
-/* tooltip -> Aquela cena de aparecer o nome */
-.tooltip.top .tooltip-inner {
-    background-color: #f9423a;
-    border-radius: initial
-}
-
-.tooltip.top .tooltip-arrow {
-    border-top-color: #f9423a
-}
-/* ----------------------------------------- */
 
 .head-image.click,
 .head-image.down,
@@ -130,127 +64,159 @@ header .intro-text .skills {
     display: block;
 }
 
-.head-info .close {
-    font-size: 2em;
-    margin: 10px;
-    text-shadow: none;
+.description-text {
+	position: fixed;
+	height: 130px!important;
+	width: 100%;
+	left: 0; right: 0;
+	margin: 0px auto;
+	padding-top: 10px;
+    bottom: 0;
+	background-color: transparent;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .5s ease-in-out;
 }
+
+.description-text .name {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+.description-text .desc {
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.description-text .socialmedia {
+	width: 100%;
+	height: 30px;
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	opacity: 0;
+}
+
+.close x-svg {
+	height: 15px;
+	width: 15x;
+}
+
+.tooltip-inner { 
+	background-color:#ff2100;
+	border-radius: initial;
+	max-width: none;
+	white-space: nowrap;
+}
+[data-placement="top"] + .tooltip > .tooltip-arrow { border-top-color: #ff2100;}
+[data-placement="right"] + .tooltip > .tooltip-arrow { border-right-color: #ff2100;}
+[data-placement="bottom"] + .tooltip > .tooltip-arrow {border-bottom-color: #ff2100;}
+[data-placement="left"] + .tooltip > .tooltip-arrow {border-left-color: #ff2100; }
 
 /* Resizing the grid ---------------------- */
-@media all and (max-width: 1570px) {
-	.row {
-		margin-left: 10vw;
-		margin-right: 10vw;
+@media all and (min-height: 900px) {
+	.description-text {
+		height: 200px!important;
+	}
+	.description-text .name {
+		margin-top: 0px;
+		margin-bottom: 15px;
+	}
+	.description-text .desc {
+		margin-top: 10px;
+		margin-bottom: 15px;
 	}
 }
-
-@media all and (max-width: 1400px) {
-    
-}
-
-@media all and (max-width: 1280px) {
-	.row {
-		margin-left: 15vw;
-		margin-right: 15vw;
+@media all and (min-height: 800px) {
+	body input ~ div .new_section {
+		margin-top: 20px;
 	}
-    .image-holder {
-		height: 90px;
-		width: 90px;
-    }
+	.row_second {
+		margin-top: -18px;
+	}
+	body input ~ div .textbox {
+		margin-top: 4.5vh!important;
+	}	
+	body input ~div .textbox:nth-child(2) {
+		margin-top: 5vh;
+	}
+	.row_second {
+		padding-top: 3%;
+	}
 }
-
 
 /* Ipad pro + desktops */ 
-@media all and (max-width: 1024px){ /*SET*/
-	.row {
-		margin-left: 15vw;
-		margin-right: 15vw;
+@media all and (max-width: 1090px){
+	.row_second{
+		width: 860px;
+		height: 550px;
 	}
-    .image-holder {
-		height: 75px;
-		width: 75px;
-    }
-}
-
-
-@media all and (max-width: 960px) {
-	.row {
-		margin-left: 20vw;
-		margin-right: 20vw;
-	}
-    .image-holder {
-		height: 75px;
-		width: 75px;
-    }
-	.head-image {
-		transform: scale(90/100);
+	.description-text {
+		height: 140px!important;
+		padding-top: 10px;
 	}
 }
-
-@media all and (max-width: 850px) {
-    .image-holder {
-	
-    }
+@media all and (max-width: 910px) {
+	.image-holder {
+		height: 84px;
+		width: 84px;
+		margin: 10px 5px;
+	}
+	.row_second{
+		width: 678px;
+		height: 480px;
+	}
 }
 
 /* Ipad / Tablets */ 
 @media all and (max-width: 785px) {
-	.row {
-		margin-left: 13%;
-		margin-right: 13%;
+	.row_second{
+		width: 584px;
+		height: 590px;
 	}
-    .image-holder {
-		height: 90px;
-		width: 90px;
-
-    }
-	.head-image {
-		transform: scale(100/90);
+	.description-text {
+		background-color: rgba(255,255,255,0.8);
+		height: 170px!important;
+		padding-top: 0px;
+	}
+	.close {
+		opacity: 1;
 	}
 }
 /* All phones */ 
-@media all and (max-width: 450px) {
-	.row {
-		margin-left: 10%;
-		margin-right: 10%;
+@media all and (max-width: 470px) {
+	.row_second{
+		width: 312px;
+		height: 990px;
+		padding-left: 3%;
+		margin-bottom: 180px!important;
+	}	
+	.head-team {
+		margin: 0 5px;
+	}
+	.description-text {
+		height: 110px!important;
+		padding-top: 7px;
+	}
+	.description-text .name {
+		font-size: 20px;
+	}
+	.description-text .desc {
+	font-size: 14px;
+	}
+	.close {
+		opacity: 1;
 	}
 } 
+@media all and (max-width: 370px) {
+	.row_second{
+		margin-bottom: 100px;
+	}	
+}
 /* ---------------------------------------- */
-
-.burguer-container {
-    height: 0;
-    width: 4%;
-    padding-top: 4%;
-    position: relative;
-    float: right;
-    
-}
-
-.overlay {
-    top: 10vh;
-    overflow: hidden;
-}
-
-.about-frame {
-     #liaddshapes::-webkit-scrollbar {
-        width: 0 !important;
-    }
-}
-.text-container {
-    position: absolute;
-    width: 40vw;
-    height: 60vh;
-    overflow-y: scroll;
-    overflow-x:hidden;
-}
-.text-container.left{
-    margin-left: 5vw;
-}
-.text-container.rigth{
-    margin-right: 5vw;
-    right: 0;
-}
-.text-container p{
-    color: black;
-    left: 0;
-}

@@ -14,38 +14,39 @@ function HeadImage(a) {
     this.imageBottom = this.imageTop + b.height();
     this.setImageDirection = function() {
         b.removeClass("up upleft left downleft down downright right upright front click");
-        var d = a * 100;
-        var c = 600;
+        var delta = Model.viewport.width > 910 ? 0 : -8,
+			d = a * 100 + delta,
+        	c = 600 + delta;
         if (mouseX >= this.imageLeft && mouseX <= this.imageRight && mouseY <= this.imageTop) {
-            c = 300;
+            c = 300 + delta;
             b.addClass("up").css("background-position", c + "px " + d + "px")
         } else {
             if (mouseX < this.imageLeft && mouseY < this.imageTop) {
-                c = 200;
+                c = 200 + delta;
                 b.addClass("upleft").css("background-position", c + "px " + d + "px")
             } else {
                 if (mouseX <= this.imageLeft && mouseY >= this.imageTop && mouseY <= this.imageBottom) {
-                    c = 500;
+                    c = 500 + delta;
                     b.addClass("left").css("background-position", c + "px " + d + "px")
                 } else {
                     if (mouseX < this.imageLeft && mouseY > this.imageBottom) {
-                        c = 800;
+                        c = 800 + delta;
                         b.addClass("downleft").css("background-position", c + "px " + d + "px")
                     } else {
                         if (mouseX >= this.imageLeft && mouseX <= this.imageRight && mouseY >= this.imageBottom) {
-                            c = 900;
+                            c = 900 + delta;
                             b.addClass("down").css("background-position", c + "px " + d + "px")
                         } else {
                             if (mouseX > this.imageRight && mouseY > this.imageBottom) {
-                                c = 700;
+                                c = 700 + delta;
                                 b.addClass("downright").css("background-position", c + "px " + d + "px")
                             } else {
                                 if (mouseX >= this.imageRight && mouseY >= this.imageTop && mouseY <= this.imageBottom) {
-                                    c = 400;
+                                    c = 400 + delta;
                                     b.addClass("right").css("background-position", c + "px " + d + "px")
                                 } else {
                                     if (mouseX > this.imageRight && mouseY < this.imageTop) {
-                                        c = 100;
+                                        c = 100 + delta;
                                         b.addClass("upright").css("background-position", c + "px " + d + "px")
                                     } else {
                                         b.addClass("front").css("background-position", c + "px " + d + "px")
@@ -64,10 +65,11 @@ function init() {
     mouseX = 0;
     mouseY = 0;
     $(".head-image").each(function(b, c) {
-        var a = $(this).attr("data-image-num");
-        var d = a * 100;
-        $(this).addClass("front").css("background-position", "600px " + d + "px");
-        window["image_" + b] = new HeadImage(a)
+        var a = $(this).attr("data-image-num"),
+			delta = Model.viewport.width > 910 ? 0 : -8,
+			d = parseInt(a) * 100 + delta;
+		Model.viewport.width > 910 ? $(this).addClass("click").css("background-position", "600px " + d + "px") : $(this).addClass("click").css("background-position", "592px " + d + "px");
+        window["image_" + b] = new HeadImage(parseInt(a))	
     })
 }
 
@@ -83,33 +85,64 @@ function getMousePosition(b) {
     })
 }
 
-$().ready(function() {
-    $(init);
+jQuery("input[type=checkbox]").on('change', function() {
+	$(init);
     $(window).load(init);
     $(window).resize(init);
     $(window).mousemove(getMousePosition);
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".image-holder").click(function() {
-        var a = $(this).find(".head-image");
-        var c = a.attr("data-image-num");
-        var b = a.attr("data-original-title");
-        var e = a.attr("data-head-description");
-        var d = a.attr("data-head-dep");
-        $(".image-holder").removeClass("selected");
-        $(this).addClass("selected");
+	$('[data-toggle="tooltip"]').tooltip({
+		"content": function(){ 
+        	return $(this).attr("data-original-title"); 
+    	}
+	});
+    $(".head-image").click(function() {
+		var a = $(this),
+			delta = Model.viewport.width > 910 ? 0 : -8,
+			c = a.attr("data-image-num"),
+        	b = a.attr("data-title"),
+        	d = a.attr("data-description"),
+			e = a.attr("data-mail"),
+			g = a.attr("data-facebook"),
+			h = a.attr("data-linkedin"),
+			w = a.attr("data-website");
         a.removeClass("up upleft left downleft down downright right upright front click");
-        var f = c * 100;
-        a.addClass("click").css("background-position", "1000px " + f + "px");
-        $(".head-info .dep").html(d);
-        $(".head-info .name").html(b);
-        $(".head-info .desc").html(e);
-        $(".head-info").collapse("show")
+        var f = c * 100 + delta;
+        Model.viewport.width > 910 ? a.addClass("click").css("background-position", "1000px " + f + "px") : a.addClass("click").css("background-position", "992px " + f + "px");
+		$(".description-text").css('visibility', 'visible');
+		$(".description-text").css('opacity', 1);
+        $(".description-text .name").html(b);
+        $(".description-text .desc").html(d);
+		if (!e || e == "undefined") {
+			$(".description-text .socialmedia a:nth-child(1)").css("display", "none")
+		} else {
+			$(".description-text .socialmedia a:nth-child(1)").css("display", "inline-flex")
+			$(".description-text .socialmedia a:nth-child(1)")[0].href = "mailto:team+" + e + "@tedxistalameda.com";			
+		}
+		if (!h || h == "undefined") {
+			$(".description-text .socialmedia a:nth-child(2)").css("display", "none")
+		} else {
+			$(".description-text .socialmedia a:nth-child(2)").css("display", "inline-flex")
+			$(".description-text .socialmedia a:nth-child(2)")[0].href = "http://linkedin.com/in/" + h;
+		}
+		if (!g || g == "undefined") {
+			$(".description-text .socialmedia a:nth-child(3)").css("display", "none")
+		} else {
+			$(".description-text .socialmedia a:nth-child(3)").css("display", "inline-flex")
+			$(".description-text .socialmedia a:nth-child(3)")[0].href = "http://www.facebook.com/" + g;
+		}
+		if (!w || w == "undefined") {
+			$(".description-text .socialmedia a:nth-child(4)").css("display", "none")
+		} else {
+			$(".description-text .socialmedia a:nth-child(4)").css("display", "inline-flex")
+			$(".description-text .socialmedia a:nth-child(4)")[0].href = w;
+		}
     }); 
-    $(".head-image").mouseenter(function() {
-        $(".head-info").collapse("hide");
-        $(".image-holder").removeClass("selected")
+    $(".row_second").mouseenter(function() {
+		$(".description-text").css('opacity', 0);
+		$(".description-text").css('visibility', 'hidden');
     });
-    $(".head-info .close").click(function() {
-        $(".head-info").collapse("hide")
+    $(".close").click(function() {
+		$(".description-text").css('opacity', 0);
+		$(".description-text").css('visibility', 'hidden');
     })
 });
