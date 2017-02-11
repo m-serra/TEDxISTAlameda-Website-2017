@@ -1329,7 +1329,7 @@ var Codebird = function () {
         }
         var post_fields;
 
-        if (httpmethod === "GET") {
+		if (httpmethod === "GET") {
             var url_with_params = url;
             if (JSON.stringify(params) !== "{}") {
                 url_with_params += "?" + _http_build_query(params);

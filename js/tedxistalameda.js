@@ -3839,26 +3839,8 @@ function AssetLoader() {
 			c.style.display = "block";
 			c.style.border = "1px solid transparent"; 
 			var list = c.getElementsByClassName("social-feed-element");
-			for (var b = 0; b < list.length; b++) {
-				d += list[b].clientHeight + 35; 
-			}
-			if (Model.viewport.width > 1100) {
-				e = Math.round(d/2);
-				for (var b = 0; b < list.length; b++) {
-					e -= list[b].clientHeight + 35;
-					if (e < 0 ) {
-						if (Math.abs(e) < (list[b].clientHeight + 35)/2) {
-							e = Math.round(d/2) + Math.abs(e);
-						} else {
-							e = Math.round(d/2) + (e + list[b].clientHeight + 35);
-						}
-						break;
-					}
-				}
-				c.style.height = e + 110 + "px";
-			} else {
-				c.style.height = d + 164 + "px";
-			}
+			var r = Model.viewport.width > 1350 ? 4 : Model.viewport.width > 1000 ? 3 : Model.viewport.width > 670 ? 2 : 1;
+			c.style.height = (list.length - Math.round(list.length/r)*r) == 0 ? 320 * (Math.round(list.length/r)) + "px" : 320 * (Math.round(list.length/r) + 1) + "px" ;
             a += c.clientHeight + 40;
 		// SPEAKERS
 		} else if (rs) {

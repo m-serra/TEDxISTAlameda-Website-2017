@@ -237,7 +237,7 @@ if (typeof Object.create !== 'function') {
                             var userid = account.substr(1);
                             cb.__call(
                                 "statuses_userTimeline",
-                                "id=" + userid + "&count=" + options.twitter.limit,
+                                "id=" + userid + "&count=" + options.twitter.limit + "&include_entities=true" + "&tweet_mode=extended",
                                 Feed.twitter.utility.getPosts,
                                 true // this parameter required
                             );
@@ -246,7 +246,7 @@ if (typeof Object.create !== 'function') {
                             var hashtag = account.substr(1);
                             cb.__call(
                                 "search_tweets",
-                                "q=" + hashtag + "&count=" + options.twitter.limit,
+                                "q=" + hashtag + "&count=" + options.twitter.limit + "&include_entities=true" + "&tweet_mode=extended",
                                 function(reply) {
                                     Feed.twitter.utility.getPosts(reply.statuses);
                                 },
@@ -280,18 +280,25 @@ if (typeof Object.create !== 'function') {
                             post.author_picture = element.user.profile_image_url_https;
                             post.post_url = post.author_link + '/status/' + element.id_str;
                             post.author_name = element.user.name;
-                            post.message = element.text;
+                            post.message = element.full_text;
                             post.description = '';
                             post.link = 'http://twitter.com/' + element.user.screen_name + '/status/' + element.id_str;
-
+							
                             if (options.show_media === true) {
                                 if (element.entities.media && element.entities.media.length > 0) {
                                     var image_url = element.entities.media[0].media_url_https;
                                     if (image_url) {
                                         post.attachment = '<img class="attachment" src="' + image_url + '" />';
                                     }
-                                }
-                            }
+                                } else if (element.retweeted_status) {
+									if (element.retweeted_status.entities.media && element.retweeted_status.entities.media.length > 0) {
+										var image_url = element.retweeted_status.entities.media[0].media_url_https;
+										if (image_url) {
+											post.attachment = '<img class="attachment" src="' + image_url + '" />';
+										}
+									}
+								}
+							}
                         }
                         return post;
                     }
