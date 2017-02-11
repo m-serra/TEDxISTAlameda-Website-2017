@@ -2329,6 +2329,7 @@ a > svg.flickr:hover {
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-content: center;
+	width: 100%;
 	/*max-height: 3000px;*/
 }
 
@@ -2340,10 +2341,12 @@ a > svg.flickr:hover {
     text-align:left;
     font-size: 14px;
     line-height: 16px;
-    margin: 10px 10px 25px 10px;
+    margin: 10px 10px 10px 10px;
 	-webkit-transform: translateX(0);
 	-moz-transform: translateX(0);
 	transform: translateX(0);
+	width: 300px;
+	height: 300px;
 }
 
 .social-feed-element:hover{
@@ -2352,71 +2355,120 @@ a > svg.flickr:hover {
 }
 
 .social-feed-element .top_news {
+	height: 70px;
 	padding: 15px 20px 15px 20px;
+	cursor: default;
 }
 
 .social-feed-element .media-object {
     display: block;
+    width: 40px;
 	float: left;
 	margin-right: 15px;
 }
 
 .social-feed-element .author-news {
+	font-size: 14px;
 	color: #292929;
 	font-weight: 500;
+	margin-top: 4px;
 }
 
 .social-feed-element .time-news {
+	font-size: 12px;
 	color: #E0E0E0;
 	font-weight: 500;
 	margin-top: 3px;
 }
 
 .social-feed-element .icon-feed {
+	position: absolute;
+	top: 17px;
+	height: 34px;
+	width: 34px;
 	color: #005580;
-}
-
-.social-feed-element .attachment {
-	margin-top: 15px;
-    vertical-align: middle;
-}
-
-.social-feed-element .content_news{
-	margin-top: -15px;
-    padding: 0px;
+	right: 20px;
 }
 
 .social-feed-element .blurb-body {
-	height: auto;
-	min-height: 60px;
-	padding: 15px 20px 15px 20px;
+	position: absolute;
+	height: 170px;
+	top: 70px;
+	padding: 0 20px 0px 20px;
+	vertical-align: middle;
 }
 
-.social-feed-element .blurb-body p{
-    color:#666;
-    line-height: 20px;
+.social-feed-element .blurb-body .attachment {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 300px;
+	height: 230px;
+	object-fit: cover;
+	object-position: center;
 }
 
-.social-feed-element .blurb-body p:hover{
-    text-decoration: none;
+.social-feed-element .blurb-body .text {
+	margin-top: 10px!important;
+	line-height: 30px;
+	color: #292929;
+	text-decoration: none;
 	cursor: default;
 }
 
-.social-feed-element .blurb-body p.social-feed-text {
-    margin: 0;
-    text-overflow: ellipsis;
-	color: #292929;
+.social-feed-element a {
+    text-decoration: none;
+	outline: 0;
 }
 
-.social-feed-element a {
-    color: #0088cc;
-    text-decoration: none;
-}
 .social-feed-element a:hover,
 .social-feed-element a:active {
-    outline: 0;
-    color: #005580;
-    text-decoration: underline;
+    color: #0088cc;
+}
+
+.social-feed-element .read-button {
+	position: fixed;
+	left: 20px;
+	bottom: 28px;
+	color: #ff2100!important;
+	font-weight: 800;
+	text-transform: uppercase;
+	width: 150px;
+}
+.social-feed-element .read-button:hover {
+	color: #ff2100!important;
+}
+
+.social-feed-element .read-button.facebook:after {
+	content: 'Read post';
+}
+.social-feed-element .read-button.twitter:after {
+	content: 'Read tweet';
+}
+.social-feed-element .read-button.instagram:after {
+	content: 'Take a look';
+}
+
+.social-feed-element .read-button-line {
+	width: 43px;
+	position: fixed;
+	height: 3px;
+	left: 20px;
+	bottom: 20px;
+	background-color: #ff2100;
+	transition: width 0.5s;
+}
+.social-feed-element:hover .read-button-line.facebook {
+	width: 82px;
+	transition: width 0.5s;
+}
+.social-feed-element:hover .read-button-line.twitter {
+	width: 93px;
+	transition: width 0.5s;
+}
+.social-feed-element:hover .read-button-line.instagram {
+	width: 96px;
+	transition: width 0.5s;
 }
 
 .social_feed_button {
@@ -2441,29 +2493,27 @@ a > svg.flickr:hover {
 }
 
 
-@media all and (min-width: 400px) {
+@media all and (min-width: 0px) {
 	.item_section_news {
-		width: 400px;
-	}
-	.social-feed-container {
-		width: 380px;
+		width: 320px;
 	}
 }
 
-@media all and (min-width: 550px) {
+@media all and (min-width: 670px) {
 	.item_section_news {
-		width: 480px;
-	}
-	.social-feed-container {
-		width: 460px;
+		width: 642px;
 	}
 }
 
-@media all and (min-width: 1100px) {
-	.social-feed-container {
-	}
+@media all and (min-width: 1000px) {
 	.item_section_news {
 		width: 962px;
+	}
+}
+
+@media all and (min-width: 1350px) {
+	.item_section_news {
+		width: 1282px;
 	}
 }
 
