@@ -1161,26 +1161,26 @@
 					// FACEBOOK
 					facebook: {
 						accounts: ['@tedxistalameda','#tedxistalameda'],
-						limit: 6,
+						limit: 8,
 						access_token: '973206692813424|31d18a9adee673356307c33fe7a2accf'
 					},
 					// Twitter
 					twitter: {
 						accounts: ['@tedxistalameda','#tedxistalameda'], 
-						limit: 6,
+						limit: 12,
 						consumer_key: 'Wtt1XYDBq8JzYfhmXMa5Gx3bj', // make sure to have your app read-only
 						consumer_secret: 'wmpzZKxgSwI3ogkAo111JmiwcYLzX61ZhlDQffrvq7QTENR1NB', // make sure to have your app read-only
 					},
 					// INSTAGRAMs
 					instagram: {
 						accounts: ['@tedxistalameda','#tedxistalameda'],
-						limit: 4,
+						limit: 5,
 						user_id: '2957809458',
 						access_token: '2957809458.2115149.f46ae62caa954c1d84e5eb1a0f2c899e'
 					},
 
 					// GENERAL SETTINGS
-					length: 250,
+					length: 140,
 					show_media: true,
 					//update_period: 3600,
 					date_local: "en",
@@ -1198,15 +1198,13 @@
 								</svg> \
 							</div> \
 						</div> \
-						<div class="content_news"> \
-							<a href="{{=it.author_link}}" target="_blank">{{=it.attachment}}</a> \
-							<div class="blurb-body"> \
-								<p class="social-feed-text"> \
-									{{=it.text}} \
-									<a href="{{=it.link}}" target="_blank" class="read-button">Read more</a> \
-								</p> \
-							</div> \
-						</div> \
+						<div class="blurb-body"> \
+							<p class="social-feed-text"> \
+								<div class="text">{{=it.text}}</div> \
+								<a href="{{=it.link}}" target="_blank">{{=it.attachment}}</a> \
+								<a href="{{=it.link}}" target="_blank" class="read-button {{=it.social_network}}"></a> \
+								<div class="read-button-line {{=it.social_network}}"></div> \
+							</p>\
 						</div> \
 					</div>',
 					// Moderation function - if returns false, template will have class hidden <div class="{{=it.social_network}}-icon"></div> \

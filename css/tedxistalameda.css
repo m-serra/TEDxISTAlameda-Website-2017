@@ -811,6 +811,7 @@ body input ~ div .textbox-title {
 	font-weight: 200;
 	margin: 10px 0;
 	color: #ff2100;
+	text-align: center;
 }
 
 body input ~ div .textbox-description {
@@ -819,7 +820,8 @@ body input ~ div .textbox-description {
 	margin: 10px 0;
 	color: #292929;
 	line-height: 25px;
-	text-align: center;
+	text-align: justify;
+    text-justify: distribute;
 }
 
 body input ~ div .textbox-description > a {
@@ -2305,18 +2307,11 @@ a > svg.flickr:hover {
 
 /* SOCIAL MEDIA FEED -------------- */
 .social-feed-container {
-	width: 300px;
-	height: 100%;
-	/*display: flex;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	align-content: center;*/
-	columns: 0;
-	-moz-columns: 0;
-	-webkit-columns: 0;
-	column-gap: 5px;
- 	-moz-column-gap: 5px;
- 	-webkit-column-gap: 5px;
+	align-content: center;
+	width: 100%;
 	/*max-height: 3000px;*/
 }
 
@@ -2327,14 +2322,13 @@ a > svg.flickr:hover {
     color: #333;
     text-align:left;
     font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 16px;
-	display: inline-block;
-    margin: 10px 10px 25px 10px;
+    margin: 10px 10px 10px 10px;
 	-webkit-transform: translateX(0);
 	-moz-transform: translateX(0);
 	transform: translateX(0);
-	width: 100%;
+	width: 300px;
+	height: 300px;
 }
 
 .social-feed-element:hover{
@@ -2343,83 +2337,120 @@ a > svg.flickr:hover {
 }
 
 .social-feed-element .top_news {
-	height: 80px;
+	height: 70px;
 	padding: 15px 20px 15px 20px;
-	cursor:default;
+	cursor: default;
 }
 
 .social-feed-element .media-object {
     display: block;
-    width: 50px;
+    width: 40px;
 	float: left;
 	margin-right: 15px;
 }
 
 .social-feed-element .author-news {
-	font-size: 15px;
+	font-size: 14px;
 	color: #292929;
 	font-weight: 500;
-	margin-top: 7px;
+	margin-top: 4px;
 }
 
 .social-feed-element .time-news {
-	font-size: 13px;
+	font-size: 12px;
 	color: #E0E0E0;
 	font-weight: 500;
 	margin-top: 3px;
 }
 
 .social-feed-element .icon-feed {
-	margin-top: -35px;
-	height: 40px;
-	width: 40px;
+	position: absolute;
+	top: 17px;
+	height: 34px;
+	width: 34px;
 	color: #005580;
-	float: right;
-}
-
-.social-feed-element .attachment {
-	margin-top: 15px;
-    vertical-align: middle;
-	width: 100%;
-	max-height: 400px;
-}
-
-.social-feed-element .content_news{
-	margin-top: -15px;
-    padding: 0px;
+	right: 20px;
 }
 
 .social-feed-element .blurb-body {
-	height: auto;
-	min-height: 60px;
-	padding: 15px 20px 15px 20px;
+	position: absolute;
+	height: 170px;
+	top: 70px;
+	padding: 0 20px 0px 20px;
+	vertical-align: middle;
 }
 
-.social-feed-element .blurb-body p{
-    color:#666;
-    line-height: 20px;
+.social-feed-element .blurb-body .attachment {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 300px;
+	height: 230px;
+	object-fit: cover;
+	object-position: center;
 }
 
-.social-feed-element .blurb-body p:hover{
-    text-decoration: none;
+.social-feed-element .blurb-body .text {
+	margin-top: 10px!important;
+	line-height: 30px;
+	color: #292929;
+	text-decoration: none;
 	cursor: default;
 }
 
-.social-feed-element .blurb-body p.social-feed-text {
-    margin: 0;
-    text-overflow: ellipsis;
-	color: #292929;
+.social-feed-element a {
+    text-decoration: none;
+	outline: 0;
 }
 
-.social-feed-element a {
-    color: #0088cc;
-    text-decoration: none;
-}
 .social-feed-element a:hover,
 .social-feed-element a:active {
-    outline: 0;
-    color: #005580;
-    text-decoration: underline;
+    color: #0088cc;
+}
+
+.social-feed-element .read-button {
+	position: fixed;
+	left: 20px;
+	bottom: 28px;
+	color: #ff2100!important;
+	font-weight: 800;
+	text-transform: uppercase;
+	width: 150px;
+}
+.social-feed-element .read-button:hover {
+	color: #ff2100!important;
+}
+
+.social-feed-element .read-button.facebook:after {
+	content: 'Read post';
+}
+.social-feed-element .read-button.twitter:after {
+	content: 'Read tweet';
+}
+.social-feed-element .read-button.instagram:after {
+	content: 'Take a look';
+}
+
+.social-feed-element .read-button-line {
+	width: 43px;
+	position: fixed;
+	height: 3px;
+	left: 20px;
+	bottom: 20px;
+	background-color: #ff2100;
+	transition: width 0.5s;
+}
+.social-feed-element:hover .read-button-line.facebook {
+	width: 82px;
+	transition: width 0.5s;
+}
+.social-feed-element:hover .read-button-line.twitter {
+	width: 93px;
+	transition: width 0.5s;
+}
+.social-feed-element:hover .read-button-line.instagram {
+	width: 96px;
+	transition: width 0.5s;
 }
 
 .social_feed_button {
@@ -2444,36 +2475,27 @@ a > svg.flickr:hover {
 }
 
 
-@media all and (min-width: 400px) {
+@media all and (min-width: 0px) {
 	.item_section_news {
-		width: 400px;
-	}
-	.social-feed-container {
-		width: 380px;
+		width: 320px;
 	}
 }
 
-@media all and (min-width: 550px) {
+@media all and (min-width: 670px) {
 	.item_section_news {
-		width: 480px;
-	}
-	.social-feed-container {
-		width: 460px;
+		width: 642px;
 	}
 }
 
-@media all and (min-width: 1100px) {
-	.social-feed-container {
-		columns: 2;
-		-moz-columns: 2;
-		-webkit-columns: 2;
-		column-gap: 35px;
- 		-moz-column-gap: 35px;
- 		-webkit-column-gap: 25px;
-		width: 942px;
-	}
+@media all and (min-width: 1000px) {
 	.item_section_news {
 		width: 962px;
+	}
+}
+
+@media all and (min-width: 1350px) {
+	.item_section_news {
+		width: 1282px;
 	}
 }
 
