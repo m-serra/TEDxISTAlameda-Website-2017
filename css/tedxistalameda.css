@@ -1300,7 +1300,7 @@ body input:checked ~ div .footnote {
 	height: 100px; /* Dummy value */
 	margin: 0px auto 0px auto;
 	overflow: hidden;
-    background: #292929;
+    background: #F3F0E7;
 } 
 
 .blurred_speaker {
@@ -1321,7 +1321,7 @@ body input:checked ~ div .footnote {
 
 .speaker_focus{
      animation-name: speaker_focus;
-	 animation-duration: 2.0s;
+	 animation-duration: 1.0s;
 	 animation-iteration-count: 1;
 	 animation-timing-function: ease-out;
      animation-direction: normal;
@@ -1329,24 +1329,18 @@ body input:checked ~ div .footnote {
 	 animation-delay: 0s;
 }
 
-.row .module{
-  height: auto;
-  width: 30vw;
-  min-height: 200px;
-  background: none;
+.module{
+
   position: relative;
-  float: left;
   padding: 20px;
-  margin-right: 4%;
-  margin-bottom: 4%;
   box-shadow: 0 1px 3px rgba(black, 0.2);
 }
 
-.row .module:nth-child(odd){
-  left: 5vw;
+.module:nth-child(3n-1){
+  animation-delay: 0.1s
 }
-.row .module:nth-child(even){
-  left: 95vw;
+.module:nth-child(3n){
+  animation-delay: 0.2s;
 }
 
 .come-in {
@@ -1356,16 +1350,7 @@ body input:checked ~ div .footnote {
 .come-in:nth-child(odd) {
   animation-duration: 1.0s;
 }
-.come-sideways {
-  transition-delay: 2.2s;
-  animation-delay: 2.2s;
-  transform: translateX(30vw);
-  animation: come-sideways 1.0s ease forwards;
-}
-.come-sideways:nth-child(odd) {
-   animation-duration: 1.0s;
 
-}
 .already-visible {
   transform: translateY(0);
   animation: none;
@@ -1375,9 +1360,6 @@ body input:checked ~ div .footnote {
   to { transform: translateY(0); }
 }
 
-@keyframes come-sideways {
-  to { transform: translateX(0); }
-}
 
 .item_section_contest {
 	display: none;

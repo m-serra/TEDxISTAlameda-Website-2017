@@ -3866,8 +3866,8 @@ function AssetLoader() {
 			c.style.top = h + "px";
             c.style.display = "block";
             c.style.border = "1px solid transparent"; 
-            c.style.height = "1000px";
-            a += 1000;
+            c.style.height = "1250px";
+            a += 1250;
 		// PARTNERS
 		} else if (rp) {
 			// Item-section-intro
