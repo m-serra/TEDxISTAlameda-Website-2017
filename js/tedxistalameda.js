@@ -3612,6 +3612,36 @@ function AssetLoader() {
 						ease: Quad.easeInOut
 					});
 				}
+                
+            var win = $(window);
+            var allMods = $(".module");
+            var allSpeakers = $(".blurred_speaker");
+
+            allMods.each(function(i, el) {
+                var el = $(el);
+                if (el.visible(true)) {
+                    el.addClass("already-visible"); 
+
+                }
+            });
+
+            win.scroll(function(event) {
+                allMods.each(function(i, el) {
+                var el = $(el);
+                    if (el.visible(true)) {
+                        el.addClass("come-in");    
+                    }
+
+                });
+                
+                allSpeakers.each(function(i, el) {
+                var el = $(el);
+                    if (el.visible(true)) {
+                        el.addClass("speaker_focus");  
+                    } 
+                });
+
+            });
 			}
 		});		
 	}
@@ -3664,6 +3694,22 @@ function AssetLoader() {
 				}
 			}
 		});
+        
+        var win = $(window);
+            var allMods = $(".module");
+            var allSpeakers = $(".blurred_speaker");
+
+            allMods.each(function(i, el) {
+                var el = $(el);
+                
+                    el.removeClass("already-visible");
+                    el.removeClass("come-in");
+                    /*el.removeClass("speaker_focus");*/ 
+            });
+            allSpeakers.each(function(i, el) {
+                var el = $(el);
+                    el.removeClass("speaker_focus"); 
+            });
 	}
 	function Contest_close() {
 		TweenLite.to(Js, .3, {

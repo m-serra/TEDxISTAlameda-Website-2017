@@ -1276,31 +1276,44 @@
             };
         })(jQuery);
 
-        var win = $(window);
-        var allMods = $(".module");
-        var allSpeakers = $(".blurred_speaker");
+        
+    /*        var win = $(window);
+            var allMods = $(".module");
+            var allSpeakers = $(".blurred_speaker");
 
-        allMods.each(function(i, el) {
-            var el = $(el);
-            if (el.visible(true)) {
-                el.addClass("already-visible"); 
-            }
-        });
-    
-        win.scroll(function(event) {
             allMods.each(function(i, el) {
-            var el = $(el);
+                var el = $(el);
                 if (el.visible(true)) {
-                    el.addClass("come-in"); 
-                } 
+                    el.removeClass("come-in");
+                    el.addClass("already-visible"); 
+
+                }
             });
-            allSpeakers.each(function(i, el) {
-            var el = $(el);
-                if (el.visible(true)) {
-                    el.addClass("speaker_focus");  
-                } 
-            });
-        });   
+
+            win.scroll(function(event) {
+                allMods.each(function(i, el) {
+                var el = $(el);
+                    if (el.visible(true)) {
+                        el.removeClass("already-visible");
+                        el.addClass("come-in");    
+                    }
+
+                });
+                el.removeClass("come-in");
+                allSpeakers.each(function(i, el) {
+                var el = $(el);
+                    if (el.visible(true)) {
+                        el.addClass("speaker_focus");  
+                    } 
+                });
+
+            });*/
+        
+        
+       
+       
+        
+        
 		</script>
 		
 		<!-- jquery.socialfeed.js -->
