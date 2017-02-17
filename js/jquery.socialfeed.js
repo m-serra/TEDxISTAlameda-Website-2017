@@ -85,10 +85,10 @@ if (typeof Object.create !== 'function') {
             wrapGoogleplusTagTemplate: function(string) {
                 return '<a target="_blank" href="https://plus.google.com/s/' + string + '" >' + string + '<\/a>';
             },
-            shorten: function(string) {
+            shorten: function(string, len) {
                 string = $.trim(string);
-                if (string.length > options.length) {
-                    return jQuery.trim(string).substring(0, options.length).split(" ").slice(0, -1).join(" ") + "...";
+                if (string.length > len) {
+                    return jQuery.trim(string).substring(0, len).split(" ").slice(0, -1).join(" ") + "...";
                 } else {
                     return string;
                 }
@@ -108,7 +108,7 @@ if (typeof Object.create !== 'function') {
             this.content.time_ago = data.dt_create.locale(options.date_locale).fromNow();
             this.content.date = data.dt_create.locale(options.date_locale).format(options.date_format);
             this.content.dt_create = this.content.dt_create.valueOf();
-            this.content.text = Utility.wrapLinks(Utility.shorten(data.message + ' ' + data.description), data.social_network);
+            this.content.text = (this.content.attachment === '' || $(this.content.attachment)[0].width < options.media_min_width) ? Utility.wrapLinks(Utility.shorten(data.message + ' ' + data.description, options.length), data.social_network) : Utility.wrapLinks(Utility.shorten(data.message + ' ' + data.description, 101), data.social_network);
             this.content.moderation_passed = (options.moderation) ? options.moderation(this.content) : true;
 
             Feed[social_network].posts.push(this);
