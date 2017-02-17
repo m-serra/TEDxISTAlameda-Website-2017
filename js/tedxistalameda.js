@@ -3265,7 +3265,7 @@ function AssetLoader() {
         document.body.classList.remove("home");
         TweenLite.to(p, .4, {
             delay: .6,
-            top: Model.viewport.width < 450 ? 80 : 25,
+            top: Model.viewport.width < 450 ? 80 : 30,
             ease: Quart.easeOut
         })
 		TweenLite.to(m, .4, {
@@ -3411,7 +3411,7 @@ function AssetLoader() {
     function v() { 
         oa.activate();
         aa.activate();
-        4 === F ? R.classList.remove("arrow-right-show") : R.classList.add("arrow-right-show");
+        3 === F ? R.classList.remove("arrow-right-show") : R.classList.add("arrow-right-show");
         0 === F ? K.classList.remove("arrow-left-show") : K.classList.add("arrow-left-show")
     }
     function I() {
@@ -3427,7 +3427,7 @@ function AssetLoader() {
             opacity: 1,
             ease: Quad.easeOut
         });
-        F = "" === Controller.url ? 0 : 5 - Number(Controller.url);
+        F = "" === Controller.url ? 0 : 4 - Number(Controller.url);
         w();
         var c = 1.2 + .3 * F;
         setTimeout(a[F].select, 1E3 * (c + 1 - .5));
@@ -3456,7 +3456,7 @@ function AssetLoader() {
         }),
         Model.nav.hideX()) : !z && b && (z = !0,
         I(),
-        b = 5 - Number(b),
+        b = 4 - Number(b),
         F !== b ? (a[F].deselect(),
         F = 0,
         N = !0,
@@ -4138,7 +4138,7 @@ function AssetLoader() {
     ;
     n.classList.add("menu-list");
     (function() {
-        for (var b = document.body.querySelectorAll(".list .list_item"), k = "blue lgrey dgrey white lgrey".split(" "), p = 0, q = 0; q < b.length; q++) {
+        for (var b = document.body.querySelectorAll(".list .list_item"), k = "lblue lred lorange lgrey".split(" "), p = 0, q = 0; q < b.length; q++) {
             var v = document.createElement("a");
             v.color = k[p]; 
             v.classList.add("menu-list_item");
@@ -4323,11 +4323,14 @@ function AssetLoader() {
         height: 0
     };
     f.colors = {
-        blue: "#60A6F1", // IST websafe BLUE #00A0E4
+        lblue: "#6EAEF2",
         red:  "#FF2100", // TEDx websafe RED
-		lgrey:"#E0E0E0", // Grey light "F2F2F2",
+		lgrey:"#D1D1D1", // Grey light "F2F2F2",
 		dgrey:"#292929", // TEDx websafe GREY
 		white:"#FFFFFF",// White
+		lred: "#FF9383",
+		lorange: "#F4C484",
+		white: "#FFFFFF",
         pink: "#FAC8FA"  // Disabled color
     };
     f.photoPositions = {
@@ -4432,16 +4435,13 @@ function View() {
 		var num;
 		switch(Controller.url) {
 			case "News Feed":
-				num = 5;
-				break;
-			case "Speakers":
 				num = 4;
 				break;
-			case "Partners":
+			case "Speakers":
 				num = 3;
 				break;
-			case "Contest":
-				num = 2	
+			case "Partners":
+				num = 2;
 				break;
 			case "Past editions":
 				num = 1;
@@ -4503,71 +4503,3 @@ window.onbeforeunload = function() {
 }
 ;
 window.onload = Main.init;
-
-//-------------------------------------------------------------------------------------------
-// COUNTDOWN
-jQuery.fn.countdown = function(options, callback) {
-
-  //custom 'this' selector
-  var thisEl = $(this);
-
-  //array of custom settings
-  var settings = { 
-	'date': '1 march 2017 00:00:00',
-	'format': 'on'
-  };
-
-  //main countdown function
-  var countdown_proc = function () {
-
-	var eventDate = Date.parse(settings['date']) / 1000;
-	var currentDate = Math.floor($.now() / 1000);
-
-	if(eventDate <= currentDate) {
-	  callback.call(this);
-	  clearInterval(interval);
-	};
-
-	var seconds = eventDate - currentDate;
-
-	var days = Math.floor(seconds / (60 * 60 * 24)); //calculate the number of days
-	seconds -= days * 60 * 60 * 24; //update the seconds variable with no. of days removed
-
-	var hours = Math.floor(seconds / (60 * 60));
-	seconds -= hours * 60 * 60; //update the seconds variable with no. of hours removed
-
-	var minutes = Math.floor(seconds / 60);
-	seconds -= minutes * 60; //update the seconds variable with no. of minutes removed
-
-	//conditional Ss
-	if (days == 1) { thisEl.find(".timeRefDays").text("Day"); } else { thisEl.find(".timeRefDays").text("Days"); }
-	if (hours == 1) { thisEl.find(".timeRefHours").text("Hour"); } else { thisEl.find(".timeRefHours").text("Hours"); }
-	if (minutes == 1) { thisEl.find(".timeRefMinutes").text("Minute"); } else { thisEl.find(".timeRefMinutes").text("Minutes"); }
-	if (seconds == 1) { thisEl.find(".timeRefSeconds").text("Second"); } else { thisEl.find(".timeRefSeconds").text("Seconds"); }
-
-	//logic for the two_digits ON setting
-	if(settings['format'] == "on") {
-	  days = (String(days).length >= 2) ? days : "0" + days;
-	  hours = (String(hours).length >= 2) ? hours : "0" + hours;
-	  minutes = (String(minutes).length >= 2) ? minutes : "0" + minutes;
-	  seconds = (String(seconds).length >= 2) ? seconds : "0" + seconds;
-	}
-
-	//update the countdown's html values.
-	if(!isNaN(eventDate)) {
-	  thisEl.find(".days").text(days);
-	  thisEl.find(".hours").text(hours);
-	  thisEl.find(".minutes").text(minutes);
-	  thisEl.find(".seconds").text(seconds);
-	} else { 
-	  alert("Invalid date. Here's an example: 12 Tuesday 2012 17:30:00");
-	  clearInterval(interval); 
-	}
-  }
-
-  //run the function
-  countdown_proc();
-
-  //loop the function
-  interval = setInterval(countdown_proc, 1000);
-}
