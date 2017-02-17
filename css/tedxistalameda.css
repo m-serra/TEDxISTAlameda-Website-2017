@@ -1322,44 +1322,84 @@ body input:checked ~ div .footnote {
 }
 
 .speaker_focus{
-     animation-name: speaker_focus;
-	 animation-duration: 1.0s;
+     animation: speaker_focus 1 1.0s ease-out forwards;
+	/* animation-duration: 1.0s;
 	 animation-iteration-count: 1;
 	 animation-timing-function: ease-out;
      animation-direction: normal;
 	 animation-fill-mode: forwards;
-	 animation-delay: 0s;
+	 animation-delay: 0s;*/
+     -webkit-animation: speaker_focus 1 1.0s ease-out forwards;
+     -moz-animation: speaker_focus 1 1.0s ease-out forwards;
+     -o-animation: speaker_focus 1 1.0s ease-out forwards;
+     -ms-animation: speaker_focus 1 1.0s ease-out forwards;
+    
 }
 
 .module{
-
   position: relative;
   padding: 20px;
   box-shadow: 0 1px 3px rgba(black, 0.2);
 }
 
 .module:nth-child(3n-1){
-  animation-delay: 0.1s
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  -o-animation-delay: 0.1s;
+  -ms-animation-delay: 0.1s;
 }
 .module:nth-child(3n){
   animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  -o-animation-delay: 0.2s;
+  -ms-animation-delay: 0.2s;
 }
 
 .come-in {
   transform: translateY(30vh);
+  -webkit-transform: translateY(30vh);
+  -moz-transform: translateY(30vh);
+  -o-transform: translateY(30vh);
+  -ms-transform: translateY(30vh);
+
   animation: come-in 1.0s ease forwards;
+  -webkit-animation: come-in 1.0s ease forwards;
+  -moz-animation: come-in 1.0s ease forwards;
+  -o-animation: come-in 1.0s ease forwards;
+  -ms-animation: come-in 1.0s ease forwards;
 }
 .come-in:nth-child(odd) {
   animation-duration: 1.0s;
+  -webkit-animation-duration: 1.0s;
+  -moz-animation-duration: 1.0s;
+  -o-animation-duration: 1.0s;
+  -ms-animation-duration: 1.0s;
 }
 
 .already-visible {
   transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -o-transform: translateY(0);
+  -ms-transform: translateY(0);
+    
   animation: none;
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  -ms-animation: none;
 }
 
 @keyframes come-in {
-  to { transform: translateY(0); }
+  to { 
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -o-transform: translateY(0);
+      -ms-transform: translateY(0);
+    }
 }
 
 

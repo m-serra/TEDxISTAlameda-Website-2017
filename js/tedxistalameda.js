@@ -3616,23 +3616,23 @@ function AssetLoader() {
             var win = $(window);
             var allMods = $(".module");
             var allSpeakers = $(".blurred_speaker");
-
+                /*
             allMods.each(function(i, el) {
                 var el = $(el);
                 if (el.visible(true)) {
                     el.addClass("already-visible"); 
 
                 }
-            });
+            });*/
 
             win.scroll(function(event) {
-                allMods.each(function(i, el) {
+               /* allMods.each(function(i, el) {
                 var el = $(el);
                     if (el.visible(true)) {
                         el.addClass("come-in");    
                     }
 
-                });
+                });*/
                 
                 allSpeakers.each(function(i, el) {
                 var el = $(el);
@@ -3894,8 +3894,8 @@ function AssetLoader() {
 			c.style.top = h + "px";
             c.style.display = "block";
             c.style.border = "1px solid transparent"; 
-            c.style.height = "1250px";
-            a += 1250;
+            c.style.height = "1600px";
+            a += 1600;
 		// PARTNERS
 		} else if (rp) {
 			// Item-section-intro
