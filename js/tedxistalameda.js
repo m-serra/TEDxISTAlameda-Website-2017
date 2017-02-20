@@ -3257,7 +3257,7 @@ function AssetLoader() {
 // CREATES AND INITIALIZES NAVIGATION BAR
 ;function Nav() {
     function b(b) {
-        _nav.style.width = Model.viewport.width + "px"
+        _nav.style.width = Model.viewport.width - 10 + "px"
     }
     var f = {}, n, q, p, c;
     f.showX = function() {
@@ -3265,7 +3265,7 @@ function AssetLoader() {
         document.body.classList.remove("home");
         TweenLite.to(p, .4, {
             delay: .6,
-            top: Model.viewport.width < 450 ? 80 : 30,
+            top: Model.viewport.width < 450 ? 80 : 21,
             ease: Quart.easeOut
         })
 		TweenLite.to(m, .4, {
@@ -3279,7 +3279,7 @@ function AssetLoader() {
 		m = document.querySelector(".menu-list");
         document.body.classList.add("home");
         TweenLite.to(p, .3, {
-            top: -30,
+            top: -43,
             ease: Quart.easeIn
         })
 		TweenLite.to(m, .4, {
@@ -3314,19 +3314,19 @@ function AssetLoader() {
 ;function List() {
     function b(b) {
         var c = {};
-        1650 <= Model.viewport.width && 1070 <= Model.viewport.height ? (c.multiplier = 1.25,
-        c.width = 1120,
-        c.height = 700) : 1500 <= Model.viewport.width && 880 <= Model.viewport.height ? (c.multiplier = 1.12,
-        c.width = 960,
-        c.height = 600) : 1220 <= Model.viewport.width && 720 <= Model.viewport.height ? (c.multiplier = 1,
-        c.width = 800,
-        c.height = 500) : 980 <= Model.viewport.width && 620 <= Model.viewport.height ? (c.multiplier = .9,
-        c.width = 640,
-        c.height = 400) : 780 <= Model.viewport.width && 500 <= Model.viewport.height ? (c.multiplier = .8,
-        c.width = 480,
-        c.height = 300) : (c.multiplier = .7,
-        c.width = 240,
-        c.height = 150);
+		1650 <= Model.viewport.width ? (c.multiplier = 1.25,
+		c.width = 1120) : 1500 <= Model.viewport.width ? (c.multiplier = 1.12,
+        c.width = 960) : 980 <= Model.viewport.width ? (c.multiplier = 1,
+        c.width = 720) : 765 <= Model.viewport.width ? (c.multiplier = .8,
+        c.width = 480) : 480 <= Model.viewport.width ? (c.multiplier = .7,
+        c.width = 360) : (c.multiplier = .6, c.width = 240);
+		
+		1070 <= Model.viewport.height ? c.height = 600 : 
+		880 <= Model.viewport.height ? c.height = 550 : 
+		740 <= Model.viewport.height ? c.height = 500 : 
+		620 <= Model.viewport.height ? c.height = 300 : 
+		500 <= Model.viewport.height ? c.height = 200 :
+        c.height = 150;
         if (Model.tileDimensions != c && (Model.tileDimensions = c,
         !1 !== b && a))
             for (b = 0; b < a.length; b++) {
@@ -3488,7 +3488,7 @@ function AssetLoader() {
         var b = E.querySelectorAll(".list_item");
         a = [];
         for (var c = 0; c < b.length; c++) {
-            var e = new DayItem(b[c]);
+            var e = new ListItem(b[c]);
             e.href = b[c].dataset.name;
             a.push(e)
         }
@@ -3521,7 +3521,7 @@ function AssetLoader() {
     })();
     return P
 }
-;function DayItem(b) {
+;function ListItem(b) {
     function f(a) {
         TweenLite.to([document.documentElement, aa], .3, {
             backgroundColor: a,
@@ -3645,34 +3645,6 @@ function AssetLoader() {
 			}
 		});		
 	}
-	function Contest_open() {
-		TweenLite.to(Js, 0, {
-			delay: 0.2,
-			opacity: 1,
-			ease: Quad.easeInOut,
-			onUpdate: function(){
-				for (i = 0; i < Js.getElementsByTagName("span").length; i++){
-					var el = Js.getElementsByTagName("span")[i];
-					TweenLite.to(el, .3, {
-						delay: .5 + i*.5,
-						opacity: 1, 
-						ease: Quad.easeInOut
-					});
-				}
-			}
-		});
-		TweenLite.to(Jb, .5, {
-			delay: 1.8,
-			opacity: 1, 
-			ease: Quad.easeInOut
-		});
-		TweenLite.to(D, .5, {
-			delay: 2,
-			opacity: 1,
-			bottom: 20,
-			ease: Quad.easeInOut
-		});
-	}
 	function Partners_open() {
 		TweenLite.to(Jb, .5, {
 			delay: .3,
@@ -3710,30 +3682,6 @@ function AssetLoader() {
                 var el = $(el);
                     el.removeClass("speaker_focus"); 
             });
-	}
-	function Contest_close() {
-		TweenLite.to(Js, .3, {
-			opacity: 0,
-			ease: Quad.easeInOut,
-			onUpdate: function(){
-				for (i = 0; i < Js.getElementsByTagName("span").length; i++){
-					var el = Js.getElementsByTagName("span")[i];
-					TweenLite.to(el, 0, {
-						opacity: 0, 
-						ease: Quad.easeInOut
-					});
-				}
-			}
-		});
-		TweenLite.to(Jb, .3, {
-			opacity: 0,
-			ease: Quad.easeInOut
-		});
-		TweenLite.to(D, .3, {
-			opacity: 0,
-			bottom: 30,
-			ease: Quad.easeInOut
-		});
 	}
 	function Partners_close() {
 		TweenLite.to(Jb, .3, {
@@ -3842,11 +3790,6 @@ function AssetLoader() {
 			Rp[0].style.display = "";
 			Partners_close();
 		}
-		if (rc) {
-			Rc[0].style.display = "";
-			bg.style.filter = "blur(5px)";	
-			Contest_close();
-		}
         if (rs) {
             Rs[0].style.display = "";
 			Speakers_close();
@@ -3855,6 +3798,23 @@ function AssetLoader() {
 			for (var jj = 0; jj < Q.length; jj++)
 				Q[jj].style.display = "";
 		}
+		// ADDS BORDER
+		var item = document.querySelectorAll(".list_item")
+		for (var j = 0; j < item.length; j++) {
+			item[j].style.border = "5px solid #000";
+		}
+		// HIDES BARRA
+		var barras = document.querySelectorAll(".barra")
+		for (var i = 0; i < barras.length; i++) {
+			barras[i].style.visibility = "hidden";
+		}
+		var o = document.querySelector(".overlay")
+		o.style.left = 0;
+		o.style.right = 0;
+		TweenLite.to(document.querySelector(".nav"), .4, {
+			backgroundColor: "transparent",
+			ease: Quart.easeInOut
+		})
 		TweenLite.to(z, .6, {
             delay: .2,
             top: Math.ceil((Model.viewport.height - Model.tileDimensions.height) / 2),
@@ -3886,7 +3846,7 @@ function AssetLoader() {
 			c.style.border = "1px solid transparent"; 
 			var list = c.getElementsByClassName("social-feed-element");
 			var r = Model.viewport.width > 1350 ? 4 : Model.viewport.width > 1000 ? 3 : Model.viewport.width > 670 ? 2 : 1;
-			c.style.height = (list.length - Math.round(list.length/r)*r) == 0 ? 320 * (Math.round(list.length/r)) + "px" : 320 * (Math.round(list.length/r) + 1) + "px" ;
+			c.style.height = (list.length - Math.round(list.length/r)*r) == 0 ? 320 * (Math.round(list.length/r)) + 5 + "px" : 320 * (Math.round(list.length/r)) + 5 + "px" ; //+1
             a += c.clientHeight + 40;
 		// SPEAKERS
 		} else if (rs) {
@@ -3915,18 +3875,7 @@ function AssetLoader() {
             	c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "370px" : "500px";
             	c.style.border = "1px solid transparent";
             	a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 410 : 540;
-        	}
-		// CONTEST
-		} else if (rc) {
-			// Item-section-contest
-			h = Model.viewport.height;
-			a = h;
-			c = Rc[0];
-			c.style.top = h; 
-			c.style.display = "block";
-			c.style.border = "1px solid transparent"; 
-            c.style.height = "100px";
-            a += 100;	 
+        	} 
 		// PAST EDITIONS
 		} else {
 			a = h;
@@ -3935,9 +3884,9 @@ function AssetLoader() {
             	var c = R[b];
 				c.style.top = h + "px";
 				c.style.display = "block";
-            	c.style.height = Model.viewport.width > 1100 ? "260px" : Model.viewport.width < 600 ? "370px" : "500px";
+            	c.style.height = Model.viewport.width > 1100 ? "254px" : Model.viewport.width < 600 ? "370px" : "500px";
             	c.style.border = "1px solid transparent";
-            	a += Model.viewport.width > 1100 ? 300 : Model.viewport.width < 600 ? 410 : 540;
+            	a += Model.viewport.width > 1100 ? 296 : Model.viewport.width < 600 ? 408 : 540;
         	}
 			// Especial section - editions
 			for (var b=0; b < Q.length; b++) {
@@ -3952,10 +3901,10 @@ function AssetLoader() {
 		// Footer
 		var f = S[0];
 		f.style.top = h + "px";
-		f.style.display = "block";
-		f.style.height = Model.viewport.width > 800 ? "180px" : Model.viewport.width < 550 ? "160px" : "140px";
+		f.style.height = "106px";
 		f.style.border = "1px solid transparent";
-		a += Model.viewport.width > 800 ? 180 : Model.viewport.width < 550 ? 160 : 140;
+		f.style.display = "block";
+		a += 106;
 		// Update listMask height
 		Model.listMask.style.height = a + "px";
     }
@@ -3990,9 +3939,6 @@ function AssetLoader() {
                 }
             });
         k();
-		if (rc) { 
-			Contest_open(); 
-		}
         if (rs) { 
 			Speakers_open(); 
 		}
@@ -4016,11 +3962,28 @@ function AssetLoader() {
                 document.documentElement.style.backgroundColor = Model.colors[T];
                 oa.style.overflow = "visible";
                 la();
-				// ADICIONA VIDEO DA TALK
+				// ADDS BARRA
+				var barras = document.querySelectorAll(".barra")
+				for (var i = 0; i < barras.length; i++) {
+					barras[i].style.visibility = "visible";
+				}
+				// HIDES BORDER
+				var item = document.querySelectorAll(".list_item")
+				for (var j = 0; j < item.length; j++) {
+					item[j].style.border = "none";
+				}
+				// ADDS TALK VIDEO
                 for (var a = b.querySelectorAll(".talkcontainer"), c = 0; c < a.length; c++) {
                     var e = a[c];
                     e.addEventListener("click", P)
                 }
+				var o = document.querySelector(".overlay")
+				o.style.left = 5 + "px";
+				o.style.right = 5 + "px";
+				TweenLite.to(document.querySelector(".nav"), .4, {
+					backgroundColor: "rgba(252,252,252,0.8)",
+					ease: Quart.easeInOut
+				})
                 ca || E()
             }
         })
@@ -4033,9 +3996,9 @@ function AssetLoader() {
             y: 0,
             speed: .4,
             onComplete: function() {
-                N(b);
+				N(b);
 			}
-        }) : N(b); 
+        }) : N(b);
     }
     ;
     z.select = function() {
@@ -4096,15 +4059,6 @@ function AssetLoader() {
 		bg.style.filter = "blur(5px)";
 		Rp = b.querySelectorAll(".item_section_intro");
 	}
-	if (b.getAttribute("data-name") == "Contest") {
-		rc = 1;
-		Js = b.querySelector(".list_subtitle");
-		Jb = b.querySelector(".list_blurb");
-		D = b.querySelector(".arrow");
-		bg = b.querySelector(".bg");
-		bg.style.filter = "blur(5px)";
-		Rc = b.querySelectorAll(".item_section_contest");
-	}
 	if (b.getAttribute("data-name") == "Past editions") {
 		rpe = 1;
 		Q = b.querySelectorAll(".edition");
@@ -4151,6 +4105,7 @@ function AssetLoader() {
             0 === q && v.classList.add("menu-list_item-selected");
 			//v.href = b[q].dataset.name;
             v.addEventListener("click", f);
+			Model.viewport.width < 760 ? v.style.visibility = "hidden" : v.style.visibility = "visible";
         }
     })();
     return n
@@ -4323,14 +4278,10 @@ function AssetLoader() {
         height: 0
     };
     f.colors = {
-        lblue: "#6EAEF2",
-        red:  "#FF2100", // TEDx websafe RED
-		lgrey:"#D1D1D1", // Grey light "F2F2F2",
+		lgrey:"#FCFCFC", // Grey light "F2F2F2",
 		dgrey:"#292929", // TEDx websafe GREY
-		white:"#FFFFFF",// White
-		lred: "#FF9383",
-		lorange: "#F4C484",
-		white: "#FFFFFF",
+		white:"#FFFFFF", // White
+		red: "#FF2100",  // TEDx websafe RED
         pink: "#FAC8FA"  // Disabled color
     };
     f.photoPositions = {
