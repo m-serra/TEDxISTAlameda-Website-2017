@@ -3314,12 +3314,12 @@ function AssetLoader() {
 ;function List() {
     function b(b) {
         var c = {};
-		1650 <= Model.viewport.width ? (c.multiplier = 1.25,
-		c.width = 1120) : 1500 <= Model.viewport.width ? (c.multiplier = 1.12,
-        c.width = 960) : 980 <= Model.viewport.width ? (c.multiplier = 1,
-        c.width = 720) : 765 <= Model.viewport.width ? (c.multiplier = .8,
+		1420 <= Model.viewport.width ? (c.multiplier = 1.25,
+        c.width = 840) : 1200 <= Model.viewport.width ? (c.multiplier = 1.12,
+        c.width = 720) : 980 <= Model.viewport.width ? (c.multiplier = 1,
+        c.width = 600) : 765 <= Model.viewport.width ? (c.multiplier = .8,
         c.width = 480) : 480 <= Model.viewport.width ? (c.multiplier = .7,
-        c.width = 360) : (c.multiplier = .6, c.width = 240);
+        c.width = 360) : (c.multiplier = .6, c.width = 280);
 		
 		1070 <= Model.viewport.height ? c.height = 600 : 
 		880 <= Model.viewport.height ? c.height = 550 : 
@@ -3645,12 +3645,23 @@ function AssetLoader() {
 			}
 		});		
 	}
-	function Partners_open() {
-		TweenLite.to(Jb, .5, {
+    function subtitle_open() {
+		TweenLite.to(Js, .5, {
 			delay: .3,
-			opacity: 1, 
-			ease: Quad.easeInOut
-		});
+			opacity: 1,
+			ease: Quad.easeInOut,
+			onComplete: function(){
+			}
+		});		
+	}
+    function subtitle_close() {
+		TweenLite.to(Js, .3, {
+			delay: 0,
+			opacity: 0,
+			ease: Quad.easeInOut,
+			onComplete: function(){
+			}
+		});		
 	}
     function Speakers_close() {
 		TweenLite.to(Js, .3, {
@@ -3683,12 +3694,6 @@ function AssetLoader() {
                     el.removeClass("speaker_focus"); 
             });
 	}
-	function Partners_close() {
-		TweenLite.to(Jb, .3, {
-			opacity: 0, 
-			ease: Quad.easeInOut
-		});
-	}
     function w() {
 		for (var d = 0; d < R.length; d++)
         	for (var a = R[d].querySelectorAll(".album__designer span"), b = 0; b < a.length; b++)
@@ -3704,7 +3709,7 @@ function AssetLoader() {
         document.body.removeChild(V);
         V = null
     }
-	// UPDATES POSITION OF PHOTOS
+	// UPDATES PHOTO'S POSITION
     function I() {
         K = [];
         for (var a = b.querySelectorAll(".list_photo"), c = 0; c < a.length; c++) {
@@ -3716,7 +3721,7 @@ function AssetLoader() {
             K.push(e)
         }
     }
-    // ADICIONAR AQUI PLAY DO VIDEO
+    // ADDS PLAY MODE TO VIDEO TALK
     function P(b) {
         if (b.currentTarget.querySelector("iframe"))
             a();
@@ -3760,7 +3765,7 @@ function AssetLoader() {
 			a[c].appendChild(f); 
         }
     }
-	// TERMINA A TALK
+	// ENDS TALK
     function a() {
         for (var a = b.querySelectorAll(".playing"), c = 0; c < a.length; c++) {
             var e = a[c];
@@ -3784,11 +3789,12 @@ function AssetLoader() {
         aa.style.height = "";
 		if (rn) {
 			Rn[0].style.display = "";
+			subtitle_close();
 		}  
 		if (rp) {
 			bg.style.filter = "blur(5px)";
 			Rp[0].style.display = "";
-			Partners_close();
+			subtitle_close();
 		}
         if (rs) {
             Rs[0].style.display = "";
@@ -3797,6 +3803,7 @@ function AssetLoader() {
 		if (rpe) {
 			for (var jj = 0; jj < Q.length; jj++)
 				Q[jj].style.display = "";
+			subtitle_close();
 		}
 		// ADDS BORDER
 		var item = document.querySelectorAll(".list_item")
@@ -3808,11 +3815,11 @@ function AssetLoader() {
 		for (var i = 0; i < barras.length; i++) {
 			barras[i].style.visibility = "hidden";
 		}
-		var o = document.querySelector(".overlay")
-		o.style.left = 0;
-		o.style.right = 0;
+		var ov = document.querySelector(".overlay")
+		ov.style.left = 0;
+		ov.style.right = 0;
 		TweenLite.to(document.querySelector(".nav"), .4, {
-			backgroundColor: "transparent",
+			backgroundColor: "rgba(252,252,252,0)",
 			ease: Quart.easeInOut
 		})
 		TweenLite.to(z, .6, {
@@ -3919,9 +3926,9 @@ function AssetLoader() {
     z.href;
     z.isDisabled = !1;
     z.isOpen = !1;
-    var K = [], R, Rn, Rc, Rp, oa, aa, T, J, Js, Jb, D, bg, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, rn = !1, rs = !1, rp = !1, rc = !1, rpe = !1, V;
+    var K = [], R, Rn, Rc, Rp, oa, aa, T, J, Js, D, bg, X, S, Q, ha = 0, C = !1, L = "layout-1", ba = !1, ca = !1, rn = !1, rs = !1, rp = !1, rc = !1, rpe = !1, V;
     z.open = function(a) {
-		if (rc || rp) { 
+		if (rp) { 
 			TweenLite.to(bg, .6, {
 				filter: "blur(0px)",
 				ease: Quart.easeInOut
@@ -3939,11 +3946,11 @@ function AssetLoader() {
                 }
             });
         k();
+		if (rn || rp || rpe) {
+			subtitle_open()
+		}
         if (rs) { 
 			Speakers_open(); 
-		}
-		if (rp) {
-			Partners_open();
 		}
         z.style.cursor = "";
         z.isOpen = !0;
@@ -3977,9 +3984,10 @@ function AssetLoader() {
                     var e = a[c];
                     e.addEventListener("click", P)
                 }
-				var o = document.querySelector(".overlay")
-				o.style.left = 5 + "px";
-				o.style.right = 5 + "px";
+				var ov = document.querySelector(".overlay")
+				ov.style.left = 5 + "px";
+				ov.style.right = 5 + "px";
+				// ADDS OPACITY TO NAV
 				TweenLite.to(document.querySelector(".nav"), .4, {
 					backgroundColor: "rgba(252,252,252,0.8)",
 					ease: Quart.easeInOut
@@ -3990,15 +3998,15 @@ function AssetLoader() {
     }
     ;
     z.close = function(b) {
-        V && V.close();
-        a(); // TERMINA A TALK DE SER EXECUTADA
-        0 < WindowScroll.getPositionY() ? WindowScroll.scroll({
-            y: 0,
-            speed: .4,
-            onComplete: function() {
-				N(b);
+		V && V.close();
+		a(); // TERMINA A TALK DE SER EXECUTADA
+		0 < WindowScroll.getPositionY() ? WindowScroll.scroll({
+			y: 0,
+			speed: .4,
+			onComplete: function() {
+				N(b)
 			}
-        }) : N(b);
+		}) : N(b)
     }
     ;
     z.select = function() {
@@ -4046,6 +4054,7 @@ function AssetLoader() {
 	if (b.getAttribute("data-name") == "News Feed") {
 		rn = 1;
 		Rn = b.querySelectorAll(".item_section_news");
+		Js = b.querySelector(".list_subtitle");
 	}
 	if (b.getAttribute("data-name") == "Speakers") {
 		rs = 1;
@@ -4054,7 +4063,7 @@ function AssetLoader() {
 	}
 	if (b.getAttribute("data-name") == "Partners") {
 		rp = 1;
-		Jb = b.querySelector(".list_blurb_partners"); 
+		Js = b.querySelector(".list_blurb_partners"); 
 		bg = b.querySelector(".bg");
 		bg.style.filter = "blur(5px)";
 		Rp = b.querySelectorAll(".item_section_intro");
@@ -4062,6 +4071,7 @@ function AssetLoader() {
 	if (b.getAttribute("data-name") == "Past editions") {
 		rpe = 1;
 		Q = b.querySelectorAll(".edition");
+		Js = b.querySelector(".list_subtitle");
 	}
     T = b.getAttribute("data-color");
     oa = b.querySelector(".list_header");

@@ -393,8 +393,8 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-	position: fixed;
     overflow: auto;
+	/*position: fixed;*/
 }
 
 body {
@@ -624,29 +624,18 @@ body label:hover {
     z-index: 3;
     cursor: pointer;
     transition: left .3s ease-in-out;
+	visibility: hidden;
 }
-
 .arrow-left-show {
     left: 0;
 }
 
-@media all and (min-width: 330px) {
-    .arrow-left-show {
-        left: 15px;
-    }
-}
-@media all and (min-width: 780px) {
-    .arrow-left-show {
-        left: 25px;
-    }
-}
 
 .arrow-left_svg {
     width: 16px;
     margin: 12px 0 0 12px;
     transition: transform .2s ease-in-out;
 }
-
 .arrow-left_shape {
     fill: #000;
 }
@@ -661,21 +650,10 @@ body label:hover {
     z-index: 3;
     cursor: pointer;
     transition: right .3s ease-in-out;
+	visibility: hidden;
 }
-
 .arrow-right-show {
     right: 0px;
-}
-
-@media all and (min-width: 330px) {
-    .arrow-right-show {
-        right: 15px;
-    }
-}
-@media all and (min-width: 780px) {
-    .arrow-right-show {
-        right: 25px;
-    }
 }
 
 .arrow-right_svg {
@@ -683,7 +661,6 @@ body label:hover {
     margin: 12px 0 0 12px;
     transition: transform .2s ease-in-out;
 }
-
 .arrow-right_shape {
     fill: #000;
 }
@@ -917,12 +894,6 @@ body input:checked ~ div .footnote {
 	transition: filter 1s ease-in-out 0.5s;
 }
 
-@media all and (min-width: 780px) {
-    .menu-list {
-        display: none!important;
-    }
-}
-
 .menu-list_item {
     /*height: 30px;*/
     display: inline-block;
@@ -944,7 +915,7 @@ body input:checked ~ div .footnote {
 
 @media all and (min-width: 780px) {
     .menu-list_item {
-        font-size: 20px;
+        font-size: 18px;
         margin-right: 13px;
     }
 }
@@ -992,45 +963,25 @@ body input:checked ~ div .footnote {
 .list_title {
     font-size: 85px;
     line-height: 1em;
-	letter-spacing: -5px;
+	letter-spacing: 0px!important;
 	font-weight: 100;
     color: #000;
     position: absolute;
-    top: 37%;
-    margin-top: -210px;
-	margin-left: 10px;
-    width: 50%;
+    top: 40%;
+    width: 100%;
     text-align: left;
-	
 }
 
 .list_subtitle {
 	font-size: 22px;
     line-height: 1em;
-	font-weight: 600;
-    color: #FFF;
+	font-weight: 200;
+    color: #000;
     position: absolute;
-    top: 37%;
-    margin-top: -6%;
-	margin-left: 15px;
+    top: 47%;
+	margin-left: 10px;
 	display: flex;
     text-align: left;
-	opacity: 0;
-}
-
-#Contest .list_subtitle span:nth-child(1) {
-	color:#ff2100; 
-	width: 50px;
-	opacity: 0;
-}
-
-#Contest .list_subtitle span:nth-child(2) {
-	width: 103px;
-	opacity: 0;
-}
-
-#Contest .list_subtitle span:nth-child(3) {
-	width: 115px;
 	opacity: 0;
 }
 
@@ -1079,15 +1030,17 @@ body input:checked ~ div .footnote {
 	opacity: 0;
 }
 
-@media all and (min-width: 350px) {
+@media all and (max-width: 764px) {
     .list_title {
-        font-size: 100px;
-		letter-spacing: -10px;
-		margin-top: -220px;
+        font-size: 50px;
+		width: 100%;
+		top: 40%;
+		margin-top: -120px;
+		margin-left: 10px;
 	}
 	.list_subtitle {
-		font-size: 27px;
-		margin-top: 1%;
+		font-size: 18px;
+		margin-left: 12px;
 	}
 	.list_subtitle span:nth-child(1) {
 		width: 58px;
@@ -1109,15 +1062,18 @@ body input:checked ~ div .footnote {
 		margin-top: 8%;
 	}
 }
-@media all and (min-width: 550px) {
+@media all and (min-width: 765px) {
     .list_title {
-        font-size: 143px;
-		letter-spacing: -10px;
-		margin-top: -215px;
+        font-size: 70px;
+		width: 90%;
+		top: 40%;
+		margin-top: -90px;
+		margin-left: 32px;
 	}
 	.list_subtitle {
-		font-size: 36px;
-		margin-top: 3.5%;
+		font-size: 25px;
+		margin-top: 4%;
+		margin-left: 37px;
 	}
 	.list_subtitle span:nth-child(1) {
 		width: 86px;
@@ -1140,14 +1096,15 @@ body input:checked ~ div .footnote {
 		margin-top: 7%;
 	}
 }
-@media all and (min-width: 780px) {
+@media all and (min-width: 980px) {
     .list_title {
-        font-size: 180px;
-		margin-top: -255px;
+        font-size: 80px;
+		width: 80%;
+		margin-top: -110px;
     }
 	.list_subtitle {
-		font-size: 45px;
-		margin-top: 3%;
+		font-size: 25px;
+		margin-left: 37px;
 	}
 	.list_subtitle span:nth-child(1) {
 		width: 107px;
@@ -1168,13 +1125,14 @@ body input:checked ~ div .footnote {
 		margin-top: 6%;
 	}
 }
-@media all and (min-width: 1220px) {
+@media all and (min-width: 1200px) {
     .list_title {
-        font-size: 180px;
+		font-size: 100px;
+        width: 70%;
+		margin-left: 62px;
     }
 	.list_subtitle {
-		font-size: 61px;
-		margin-top: 5%;
+		margin-left: 67px;
 	}
     #Speakers .list_subtitle span:nth-child(1) {
 		width: 215px;
@@ -1193,14 +1151,6 @@ body input:checked ~ div .footnote {
 		line-height: 200%;
 		font-size: 24px;
 		margin-top: 8%;
-	}
-}
-@media all and (min-width: 1500px) {
-	.list_blurb {
-		font-size: 25px;
-	}
-	.list_blurb_partners {
-		font-size: 25px;
 	}
 }
 
