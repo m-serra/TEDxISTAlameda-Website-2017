@@ -3696,20 +3696,18 @@ function AssetLoader() {
 		});
         
         var win = $(window);
-            var allMods = $(".module");
-            var allSpeakers = $(".blurred_speaker");
+        var allMods = $(".module");
+        var allSpeakers = $(".blurred_speaker");
 
-            allMods.each(function(i, el) {
-                var el = $(el);
-                
-                    el.removeClass("already-visible");
-                    el.removeClass("come-in");
-                    /*el.removeClass("speaker_focus");*/ 
-            });
-            allSpeakers.each(function(i, el) {
-                var el = $(el);
-                    el.removeClass("speaker_focus"); 
-            });
+        allMods.each(function(i, el) {
+            var el = $(el);
+            el.removeClass("already-visible");
+            el.removeClass("come-in"); 
+        });
+        allSpeakers.each(function(i, el) {
+            var el = $(el);
+            el.removeClass("speaker_focus"); 
+        });
 	}
 	function Contest_close() {
 		TweenLite.to(Js, .3, {

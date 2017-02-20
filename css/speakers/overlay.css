@@ -1,0 +1,75 @@
+.speaker_overlay {
+    height: 0%;
+    width: 70%;
+    position: fixed;
+    z-index: 2500;
+    top: 15%;
+    left: 15%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.speaker_overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.speaker_overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.speaker_overlay a:hover, .speaker_overlay a:focus {
+    color: #f1f1f1;
+}
+
+.speaker_overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .speaker_overlay {overflow-y: auto;}
+  .speaker_overlay a {font-size: 20px}
+  .speaker_overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@keyframes blur{
+	0% {
+		filter: blur(0px);
+	}
+	100% {
+		filter: blur(6px);
+	}
+}
+
+.blurry{
+     animation: blur 1 0.4s ease-out forwards;
+     -webkit-animation: blur 1 0.4s ease-out forwards;
+     -moz-animation: blur 1 0.4s ease-out forwards;
+     -o-animation: blur 1 0.4s ease-out forwards;
+     -ms-animation: blur 1 0.4s ease-out forwards;   
+}
+
+.blurry_title{
+  filter: blur(4px);
+}
+
+.blurry_button{
+  filter: blur(4px);
+}

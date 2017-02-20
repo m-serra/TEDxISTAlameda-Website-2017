@@ -25,12 +25,12 @@
 		<link href="css/tedxistalameda.css" rel="stylesheet" type='text/css'>
 		<link href="css/team.css" rel="stylesheet" type='text/css'>
         
-       <!-- <link rel="stylesheet" type="text/css" href="css/hover/normalize.css"/>-->
-		<link rel="stylesheet" type="text/css" href="css/hover/component.css" />
-		
+        <link rel="stylesheet" type="text/css" href="css/speakers/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/speakers/hover.css" />
         <!--[if IE]>
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+        <link rel="stylesheet" type="text/css" href="css/speakers/overlay.css" />
 		
 		<staticContent><mimeMap fileExtension=".svg" mimeType="image/svg+xml" /></staticContent>
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
@@ -190,7 +190,6 @@
 				</g>
 			</defs>
 		</svg>
-		
 	</head>
 	
     <body class="home">
@@ -366,7 +365,15 @@
 					</div>					
             	</div>
 			</nav>
-			
+			<div id="speaker_overlay" class="speaker_overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="speaker_overlay-content">
+                <a>About</a>
+                <a>Services</a>
+                <a>Clients</a>
+                <a>Contact</a>
+              </div>
+            </div>
 			<!-- MAIN CONTENT -->
             <div class="list-mask" id="main-content">
 				<!--<div class="bgtext">
@@ -469,21 +476,24 @@
 							</span>
                         </div>
                         <!-- section start -->
-						<div class="item_section_speakers">
+						<div class="item_section_speakers" id="item_section_speakers">
                             <div class="flex_container">
                               <div class="module">
                                     <div class="flex_title">
                                         <h2>Bordalo II</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/Bordalo-II.png" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <div class="container">
+                                                    <section>
+                                                        <button>View</button>
+                                                    </section>
+                                                </div>
+                                                <p>"Não é reciclagem, é uma crítica ao consumismo."</p>
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -494,14 +504,13 @@
                                         <h2>Daniela Ribeiro</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/daniela.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <p>"Um povo que não tem cultura, que não tem identidade, desaparece."</p>
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -512,14 +521,13 @@
                                         <h2>Filipe Jeremias</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/jeremias.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <p>"Nós acreditamos que a prova não prova nada.".</p>
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -530,14 +538,13 @@
                                         <h2>François Pachet</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/pachet.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <p style="padding-top:80%;">"My goal is to create a generation of authoring tools able to boost individual creativity."</p>
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -548,14 +555,13 @@
                                         <h2>João Couvaneiro</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/couvaneiro.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -566,14 +572,13 @@
                                         <h2>Joe Paton</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/joe.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -584,14 +589,13 @@
                                         <h2>Les Crazy Coconuts</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/coconuts.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <!-- <p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -602,14 +606,13 @@
                                         <h2>Mistah Isaac</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/isaac.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -620,14 +623,13 @@
                                         <h2>Susana Lima</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/susana.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button>View</button>
+                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -638,20 +640,18 @@
                                         <h2>Tomás Mello Breyner</h2>
                                     </div>
                                     <div id="flex_child" class="flex_child"> 
-                                        <a href="#" data-path-hover="M 0,218 180,160 180,320 0,320 z">   
+                                        <a data-path-hover="M 0,218 180,160 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/breyner.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                               <!-- <h2>Crystalline</h2>
-                                                <p>Soko radicchio bunya nuts gram dulse.</p>-->
-                                               <!-- <button>View</button>-->
+                                                <button onclick="openNav()">View</button>
+                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
-                                
                             </div>
 						</div>
 						<!-- section end -->
@@ -704,8 +704,7 @@
 							</div>
 						</div>
 						<!-- FOOTER -->
-                    </div>
-					
+                    </div>	
                     <div class="list_item" data-color="lgrey" data-layout="1" data-num="3" data-name="Partners">
                         <div class="list_bg"></div>
 						<div class="bg" style="background: url('../images/photos/partners.jpg') center no-repeat;"></div>
@@ -1223,8 +1222,8 @@
 		<script src="js/doT/doT.min.js"></script>
 		<!-- Moment.js for showing "time ago" -->
 		<script src="js/moment/moment.min.js"></script>
-        
-        <script src="js/hover/snap.svg-min.js"></script>
+        <!-- for speakers hover and overlay-->
+        <script src="js/speakers/snap.svg-min.js"></script>
 
 		<script>
 		jQuery(document).ready(function() {
@@ -1419,5 +1418,8 @@
         <script src="js/tedxistalameda.js"></script>
 		<!-- team.js - required for team page -->
 		<script src="js/team.js"></script>
+        <!-- speakers overlay js-->
+		<script src="js/speakers/overlay.js"></script>
+        
     </body>
 </html>
