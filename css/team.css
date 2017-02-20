@@ -67,11 +67,9 @@
 .description-text {
 	position: fixed;
 	height: 130px!important;
-	width: 100%;
-	left: 0; right: 0;
+	left: 5px; right: 5px; bottom: 5px;
 	margin: 0px auto;
-	padding-top: 10px;
-    bottom: 0;
+	padding-top: 10px!important;
 	background-color: transparent;
 	visibility: hidden;
 	opacity: 0;
@@ -123,6 +121,7 @@
 @media all and (min-height: 900px) {
 	.description-text {
 		height: 200px!important;
+		padding-top: 15px!important;
 	}
 	.description-text .name {
 		margin-top: 0px;
@@ -181,7 +180,7 @@
 		height: 590px;
 	}
 	.description-text {
-		background-color: rgba(255,255,255,0.88);
+		background-color: rgba(252,252,252,0.8);
 		height: 170px!important;
 		padding-top: 0px;
 	}

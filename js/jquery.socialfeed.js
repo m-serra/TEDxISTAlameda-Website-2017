@@ -80,15 +80,15 @@ if (typeof Object.create !== 'function') {
                 return string;
             },
             wrapLinkTemplate: function(string) {
-                return '<a target="_blank" href="' + string + '">' + string + '<\/a>';
+				return '<a target="_blank" href="' + string + '">' + string + '<\/a>';
             },
             wrapGoogleplusTagTemplate: function(string) {
                 return '<a target="_blank" href="https://plus.google.com/s/' + string + '" >' + string + '<\/a>';
             },
-            shorten: function(string) {
+            shorten: function(string, len) {
                 string = $.trim(string);
-                if (string.length > options.length) {
-                    return jQuery.trim(string).substring(0, options.length).split(" ").slice(0, -1).join(" ") + "...";
+                if (string.length > len) {
+                    return jQuery.trim(string).substring(0, len).split(" ").slice(0, -1).join(" ") + "...";
                 } else {
                     return string;
                 }
@@ -108,7 +108,7 @@ if (typeof Object.create !== 'function') {
             this.content.time_ago = data.dt_create.locale(options.date_locale).fromNow();
             this.content.date = data.dt_create.locale(options.date_locale).format(options.date_format);
             this.content.dt_create = this.content.dt_create.valueOf();
-            this.content.text = Utility.wrapLinks(Utility.shorten(data.message + ' ' + data.description), data.social_network);
+            this.content.text = (this.content.attachment === '' || $(this.content.attachment)[0].width < options.media_min_width) ? Utility.shorten(data.message + ' ' + data.description, options.length) : Utility.shorten(data.message + ' ' + data.description, 101);
             this.content.moderation_passed = (options.moderation) ? options.moderation(this.content) : true;
 
             Feed[social_network].posts.push(this);
@@ -293,8 +293,9 @@ if (typeof Object.create !== 'function') {
                                 } else if (element.retweeted_status) {
 									if (element.retweeted_status.entities.media && element.retweeted_status.entities.media.length > 0) {
 										var image_url = element.retweeted_status.entities.media[0].media_url_https;
+										var image_width = element.retweeted_status.entities.media[0].sizes.medium.w
 										if (image_url) {
-											post.attachment = '<img class="attachment" src="' + image_url + '" />';
+											post.attachment = '<img class="attachment" data-width="' + image_width + '" src="' + image_url + '" />';
 										}
 									}
 								}

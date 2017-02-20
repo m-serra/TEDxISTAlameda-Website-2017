@@ -194,7 +194,7 @@
 	
     <body class="home">
         <main style="width: 100%;">
-            <nav class="nav" style="width: 100%; top: 0px;">
+            <nav class="nav">
 				<!-- NAVIGATION X - hides expandable view -->
                 <div class="nav_x">
 					<span></span><span></span>
@@ -223,6 +223,8 @@
            
 				<!-- TEAM & ABOUT - CONTENT -->
 				<div class="overlay">   
+					<!--div class="navbarra n-left"></div>
+					<div class="navbarra b-right"></div-->
                     <div id="team_about" class="new_section">
                     	<a class="new_section_button new_section_button-selected" data-section="team">Team</a>
 						<a class="new_section_button" data-section="about">About</a>
@@ -376,13 +378,6 @@
             </div>
 			<!-- MAIN CONTENT -->
             <div class="list-mask" id="main-content">
-				<!--<div class="bgtext">
-					<span class="redC">F</span><span class="greyC">OLLOW</span>
-					<span class="redC">O</span><span class="greyC">NE</span>
-					<span class="redC">C</span><span class="greyC">OURSE</span>
-					<span class="redC">U</span><span class="greyC">NTIL</span>
-					<span class="redC">S</span><span class="greyC">UCCESSFUL</span>
-				</div>-->
 				<!-- Left arrow -->
                 <div class="arrow-left">
                     <svg class="arrow-left_svg" width="16" viewBox="0 0 14.92 27">
@@ -396,11 +391,17 @@
                     </svg>
                 </div>
 				
+				<div class="barra b-top"></div>
+				<div class="barra b-bottom"></div>
+				<div class="barra b-left"></div>
+				<div class="barra b-right"></div>
+				
                 <div class="list">
-                    <div class="list_item" data-color="lgrey" data-layout="2" data-num="5" data-name="News Feed">
+                    <div class="list_item" data-color="lgrey" data-layout="2" data-num="4" data-name="News Feed">
                         <div class="list_bg"></div>
                         <div class="list_header">
                             <span class="list_title">News Feed</span>
+							<span class="list_subtitle">Read the stories that are most relevant to us.</span>
 							<!-- top photos -->
 							<div class="list_photo" data-image="images/photos/take_one.jpg">
 								<img class="blur" src="images/_placeholder2x.png"/> 
@@ -419,10 +420,6 @@
 						
 						<!-- FOOTER-->
 						<div class="page_footer">
-							<div class="footer_title">
-								<span class="title">Get social with us</span>
-								<span class="title">Subscribe to our newsletters</span>
-							</div>
 							<div class="footer_section">
 								<div class="footer_logos">
 									<a href="https://www.facebook.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 10px;">
@@ -451,15 +448,6 @@
 										</svg>
 									</a>
 								</div>
-								<div class="footer_subscribe">
-									<svg class="mail-footer" height='30' width='30' viewBox="-1 -1 35 35">
-										<use xlink:href="#mail-icon"></use>
-									</svg>
-									<form action="//ulisboa.us12.list-manage.com/subscribe/post?u=e67f6edf5292f19cd1ab50b6d&amp;id=f7c2e189e5" method="post" class="validate" target="_blank" novalidate>
-										<input class="input_text" type="email" name="EMAIL" value="" placeholder="E-mail address" required>
-										<input class="subscribe_button" type="submit" value="Subscribe now">
-									</form>									
-								</div>
 							</div>
 							<div class="copyright">
 								<span>© 2017 TEDxISTAlameda. All rights reserved.</span>
@@ -467,7 +455,7 @@
 						</div>
 						<!-- FOOTER -->
 					</div>
-                    <div class="list_item" data-color="teal" data-layout="2" data-num="4" data-name="Speakers" id="Speakers">
+                    <div class="list_item" data-color="lgrey" data-layout="2" data-num="3" data-name="Speakers" id="Speakers">
                         <div class="list_bg"></div>
                         <div class="list_header">
                             <span class="list_title">Speakers</span>
@@ -657,10 +645,6 @@
 						<!-- section end -->
 						<!-- FOOTER-->
 						<div class="page_footer">
-							<div class="footer_title">
-								<span class="title">Get social with us</span>
-								<span class="title">Subscribe to our newsletters</span>
-							</div>
 							<div class="footer_section">
 								<div class="footer_logos">
 									<a href="https://www.facebook.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 10px;">
@@ -689,25 +673,17 @@
 										</svg>
 									</a>
 								</div>
-								<div class="footer_subscribe">
-									<svg class="mail-footer" height='30' width='30' viewBox="-1 -1 35 35">
-										<use xlink:href="#mail-icon"></use>
-									</svg>
-									<form action="//ulisboa.us12.list-manage.com/subscribe/post?u=e67f6edf5292f19cd1ab50b6d&amp;id=f7c2e189e5" method="post" class="validate" target="_blank" novalidate>
-										<input class="input_text" type="email" name="EMAIL" value="" placeholder="E-mail address" required>
-										<input class="subscribe_button" type="submit" value="Subscribe now">
-									</form>									
-								</div>
 							</div>
 							<div class="copyright">
 								<span>© 2017 TEDxISTAlameda. All rights reserved.</span>
 							</div>
 						</div>
 						<!-- FOOTER -->
-                    </div>	
-                    <div class="list_item" data-color="lgrey" data-layout="1" data-num="3" data-name="Partners">
+                    </div>
+					
+                    <div class="list_item" data-color="lgrey" data-layout="1" data-num="2" data-name="Partners">
                         <div class="list_bg"></div>
-						<div class="bg" style="background: url('../images/photos/partners.jpg') center no-repeat;"></div>
+						<div class="bg"></div>
                         <div class="list_header">
                             <span class="list_title">Partners</span>
 							<span class="list_blurb_partners">We're honored to have the most innovative, community-minded companies backing us. Without them, our mission to share <span style="color:#ff2100;">ideas worth spreading</span> would have never been accomplished.</span>
@@ -725,10 +701,6 @@
 						</div>
 						<!-- FOOTER-->
 						<div class="page_footer">
-							<div class="footer_title">
-								<span class="title">Get social with us</span>
-								<span class="title">Subscribe to our newsletters</span>
-							</div>
 							<div class="footer_section">
 								<div class="footer_logos">
 									<a href="https://www.facebook.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 10px;">
@@ -756,15 +728,6 @@
 											<use xlink:href="#flickr-icon"></use>
 										</svg>
 									</a>
-								</div>
-								<div class="footer_subscribe">
-									<svg class="mail-footer" height='30' width='30' viewBox="-1 -1 35 35">
-										<use xlink:href="#mail-icon"></use>
-									</svg>
-									<form action="//ulisboa.us12.list-manage.com/subscribe/post?u=e67f6edf5292f19cd1ab50b6d&amp;id=f7c2e189e5" method="post" class="validate" target="_blank" novalidate>
-										<input class="input_text" type="email" name="EMAIL" value="" placeholder="E-mail address" required>
-										<input class="subscribe_button" type="submit" value="Subscribe now">
-									</form>									
 								</div>
 							</div>
 							<div class="copyright">
@@ -774,94 +737,11 @@
 						<!-- FOOTER -->
 					</div>
 					
-                    <div class="list_item" data-color="lgrey" data-layout="2" data-num="2" data-name="Contest" id="Contest">
-                        <div class="list_bg"></div>
-						<div class="bg" style="background: url('../images/photos/microphone.jpg') center no-repeat; transform: scaleX(-1);"></div>
-                        <div class="list_header">
-                            <span class="list_title">Contest</span>
-							<span class="list_subtitle">
-								<span>You.</span><span>One Idea.</span><span>One Stage.</span>
-							</span>
-							<span class="list_blurb">We challenge you to take the stage in TEDxISTAlameda's <span style="color:#ff2100;">next edition</span>. <br style="line-height:200%;"><span style="font-weight:600;">Official rules</span>: LINK PT / LINK ENG <br style="line-height:200%;"><span style="font-weight:600;">Vote</span> for the winnners below.</span>
-							<div class="arrow bounce">
-								<svg xmlns="http://www.w3.org/2000/svg" width="452" height="452" viewBox="0 0 451.8 451.8"><path d="M225.9 354.7c-8.1 0-16.2-3.1-22.4-9.3L9.3 151.2c-12.4-12.4-12.4-32.4 0-44.8 12.4-12.4 32.4-12.4 44.7 0l171.9 171.9 171.9-171.9c12.4-12.4 32.4-12.4 44.7 0 12.4 12.4 12.4 32.4 0 44.8L248.3 345.4C242.1 351.6 234 354.7 225.9 354.7z"/></svg>
-							</div>
-                        </div>
-						<div class="item_section_contest">
-							<ul class="countdown">
-							  <li>
-								<span class="days"></span>
-								<p class="timeRefDays"></p>
-							  </li>
-							  <li>
-								<span class="hours"></span>
-								<p class="timeRefHours"></p>
-							  </li>
-							  <li>
-								<span class="minutes"></span>
-								<p class="timeRefMinutes"></p>
-							  </li>
-							  <li>
-								<span class="seconds"></span>
-								<p class="timeRefSeconds"></p>
-							  </li>
-							</ul>
-						</div>
-						<!-- FOOTER-->
-						<div class="page_footer">
-							<div class="footer_title">
-								<span class="title">Get social with us</span>
-								<span class="title">Subscribe to our newsletters</span>
-							</div>
-							<div class="footer_section">
-								<div class="footer_logos">
-									<a href="https://www.facebook.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 10px;">
-										<svg class="facebook" height='30' width='30' viewBox="0 0 35 35">
-											<use xlink:href="#facebook-icon"></use>
-										</svg>
-									</a>
-									<a href="https://twitter.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 0px;">
-										<svg class="twitter" height='30' width='30' viewBox="0 0 35 35">
-											<use xlink:href="#twitter-icon"></use>
-										</svg>
-									</a>
-									<a href="https://www.instagram.com/tedxistalameda/" target="_blank" style="margin: 0px 5px 0px 0px;">
-										<svg class="instagram" height='30' width='30' viewBox="0 0 35 35">
-											<use xlink:href="#instagram-icon"></use>
-										</svg>
-									</a>
-									<a href="https://www.linkedin.com/company/10585070" target="_blank" style="margin: 0px 5px 0px 0px;">
-										<svg class="linkedin" height='30' width='30' viewBox="0 0 35 35">
-											<use xlink:href="#linkedin-icon"></use>
-										</svg>
-									</a>
-									<a href="https://www.flickr.com/photos/tedxistalameda/" target="_blank" style="margin: 0px 10px 0px 0px;">
-										<svg class="flickr" height='30' width='30' viewBox="0 0 35 35">
-											<use xlink:href="#flickr-icon"></use>
-										</svg>
-									</a>
-								</div>
-								<div class="footer_subscribe">
-									<svg class="mail-footer" height='30' width='30' viewBox="-1 -1 35 35">
-										<use xlink:href="#mail-icon"></use>
-									</svg>
-									<form action="//ulisboa.us12.list-manage.com/subscribe/post?u=e67f6edf5292f19cd1ab50b6d&amp;id=f7c2e189e5" method="post" class="validate" target="_blank" novalidate>
-										<input class="input_text" type="email" name="EMAIL" value="" placeholder="E-mail address" required>
-										<input class="subscribe_button" type="submit" value="Subscribe now">
-									</form>									
-								</div>
-							</div>
-							<div class="copyright">
-								<span>© 2017 TEDxISTAlameda. All rights reserved.</span>
-							</div>
-						</div>
-						<!-- FOOTER -->
-					</div>
                     <div class="list_item" data-color="lgrey" data-layout="1" data-num="1" data-name="Past editions">
                         <div class="list_bg"></div>
                         <div class="list_header">
                             <span class="list_title">Past editions</span>
-                            <!--<span class="list_cta">Learn from the past, focus on the future!</span>-->
+							<span class="list_subtitle">Learn from the past, focus on the future.</span>
 							<div class="list_photo" data-image="images/photos/CarlosArturoTorres.jpg">
 								<img class="blur" src="images/_placeholder2x.png"/> 
 							</div>
@@ -1160,10 +1040,6 @@
 						</div>						
 						<!-- FOOTER-->
 						<div class="page_footer">
-							<div class="footer_title">
-								<span class="title">Get social with us</span>
-								<span class="title">Subscribe to our newsletters</span>
-							</div>
 							<div class="footer_section">
 								<div class="footer_logos">
 									<a href="https://www.facebook.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 10px;">
@@ -1191,15 +1067,6 @@
 											<use xlink:href="#flickr-icon"></use>
 										</svg>
 									</a>
-								</div>
-								<div class="footer_subscribe">
-									<svg class="mail-footer" height='30' width='30' viewBox="-1 -1 35 35">
-										<use xlink:href="#mail-icon"></use>
-									</svg>
-									<form action="//ulisboa.us12.list-manage.com/subscribe/post?u=e67f6edf5292f19cd1ab50b6d&amp;id=f7c2e189e5" method="post" class="validate" target="_blank" novalidate>
-										<input class="input_text" type="email" name="EMAIL" value="" placeholder="E-mail address" required>
-										<input class="subscribe_button" type="submit" value="Subscribe now">
-									</form>									
 								</div>
 							</div>
 							<div class="copyright">
@@ -1286,7 +1153,7 @@
 					},
 
 					// GENERAL SETTINGS
-					length: 140,
+					length: 160,
 					show_media: true,
 					//update_period: 3600,
 					date_local: "en",
@@ -1304,14 +1171,10 @@
 								</svg> \
 							</div> \
 						</div> \
-						<div class="blurb-body"> \
-							<p class="social-feed-text"> \
-								<div class="text">{{=it.text}}</div> \
-								<a href="{{=it.link}}" target="_blank">{{=it.attachment}}</a> \
-								<a href="{{=it.link}}" target="_blank" class="read-button {{=it.social_network}}"></a> \
-								<div class="read-button-line {{=it.social_network}}"></div> \
-							</p>\
-						</div> \
+						<a href="{{=it.link}}" target="_blank" class="blurb-body"> \
+							{{=it.attachment}} \
+							<span class="text">{{=it.text}}</span> \
+						</a> \
 					</div>',
 					// Moderation function - if returns false, template will have class hidden <div class="{{=it.social_network}}-icon"></div> \
 					moderation: function(content) {
@@ -1319,15 +1182,39 @@
 					},
 					callback: function() {
 						console.log("finally!")
+						
+						// Needs cleaning
 						if (document.querySelector(".list_item").isOpen)
 							document.querySelector(".list_item").open();
+
+						var list = document.querySelectorAll(".social-feed-element"),
+							item = document.querySelector(".item_section_news"),
+							footer = document.querySelectorAll(".page_footer")[0];
+						
+						for (var i = 0; i < list.length; i++) {
+							if (list[i].querySelector(".attachment") == null) {
+								list[i].querySelector(".text").style.top = "7px";
+								list[i].querySelector(".text").style.display = "flex";
+								list[i].querySelector(".text").style.alignItems = "center";	
+							} else {
+								if ($(list[i].querySelector(".attachment")).attr("data-width") == null || Number($(list[i].querySelector(".attachment")).attr("data-width")) > 300) {
+									list[i].querySelector(".text").style.top = "10px";
+									list[i].querySelector(".text").style.display = "flex";
+									list[i].querySelector(".text").style.alignItems = "flex-start"; 
+								} else {
+									list[i].querySelector(".text").style.top = "7px";
+									list[i].querySelector(".text").style.display = "flex";
+									list[i].querySelector(".text").style.alignItems = "center";										
+								}
+							}
+						}
 					}
 				});	
 			};
 			
 			// Updates social-feed
 			updateFeed();
-			
+
 			// Button update social-feed
 			/*$(".social_feed_button").click(function() {
 				lim += 1;
@@ -1342,10 +1229,7 @@
 					},
 					4000);
 			});*/
-
-			// Countdown funciton
-			jQuery(".countdown").countdown();
-
+			
 			// Prevents scroll when nav is on
 			jQuery('nav').on({
 				'mousewheel DOMMouseScroll': function(e) {
@@ -1354,7 +1238,7 @@
 				 }
 			 })
 		     });
-        
+
             (function($) {
             /**
             * Copyright 2012, Digital Fusion
