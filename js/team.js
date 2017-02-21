@@ -61,6 +61,20 @@ function HeadImage(a) {
     }
 }
 
+function HeadImage_mobile(a) {
+    var b = $(".image-holder div[data-image-num='" + a + "']");
+    this.imageLeft = b.offset().left;
+    this.imageRight = this.imageLeft + b.width();
+    this.imageTop = b.offset().top;
+    this.imageBottom = this.imageTop + b.height();
+    this.setImageDirection = function() {
+        b.removeClass("front click");
+        var d = a * 100 - 8,
+        	c = 600 - 8;
+		b.addClass("front").css("background-position", c + "px " + d + "px")
+    }
+}
+
 function init() {
     mouseX = 0;
     mouseY = 0;
@@ -69,7 +83,7 @@ function init() {
 			delta = Model.viewport.width > 910 ? 0 : -8,
 			d = parseInt(a) * 100 + delta;
 		Model.viewport.width > 910 ? $(this).addClass("click").css("background-position", "600px " + d + "px") : $(this).addClass("click").css("background-position", "592px " + d + "px");
-        window["image_" + b] = new HeadImage(parseInt(a))	
+        Model.viewport.width > 765 ? window["image_" + b] = new HeadImage(parseInt(a)) : window["image_" + b] = new HeadImage_mobile(parseInt(a))	
     })
 }
 
@@ -107,7 +121,7 @@ jQuery("input[type=checkbox]").on('change', function() {
 			w = a.attr("data-website");
         a.removeClass("up upleft left downleft down downright right upright front click");
         var f = c * 100 + delta;
-        Model.viewport.width > 910 ? a.addClass("click").css("background-position", "1000px " + f + "px") : a.addClass("click").css("background-position", "992px " + f + "px");
+        Model.viewport.width > 910 ? a.addClass("click").css("background-position", "600px " + f + "px") : a.addClass("click").css("background-position", "592px " + f + "px");
 		$(".description-text").css('visibility', 'visible');
 		$(".description-text").css('opacity', 1);
         $(".description-text .name").html(b);

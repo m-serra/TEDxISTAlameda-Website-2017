@@ -194,7 +194,7 @@
 		width: 312px;
 		height: 990px;
 		padding-left: 3%;
-		margin-bottom: 180px!important;
+		margin-bottom: 100px!important;
 	}	
 	.head-team {
 		margin: 0 5px;
@@ -202,6 +202,7 @@
 	.description-text {
 		height: 110px!important;
 		padding-top: 7px;
+		left: 0px; right: 0px; bottom: 0px;
 	}
 	.description-text .name {
 		font-size: 20px;
@@ -213,10 +214,5 @@
 		opacity: 1;
 	}
 } 
-@media all and (max-width: 370px) {
-	.row_second{
-		margin-bottom: 100px;
-	}	
-}
 /* ---------------------------------------- */
 
