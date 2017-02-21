@@ -443,8 +443,12 @@ main {
 }
 
 @media all and (max-width:640px){
-   .logo-container {
-	    width: 220px;
+	.nav {
+		height: 75px;
+		margin: 0px;
+	}
+	.logo-container {
+	    width: 200px;
 	}
 }
 
@@ -524,30 +528,23 @@ body label:hover {
 }
 @media all and (max-width: 450px) {
     body input + label {
-        top: 25px;
-		right: 5%;
+        top: 24px;
+		right: 10px;
     }	
     body input + label > svg {
-        width: 20px;
-		height: 20px;
+        width: 22px;
+		height: 22px;
     }
 	body input + label > .caption {
-        width: 20px;
-		top: 21px;
-		font-size: 8px;
+        visibility: hidden;
     }
-}
-@media all and (max-width: 370px) {
-    body input + label {
-		right: 1%;
-    }	
 }
 
 /* Close button from fullscreen / expandable view - svg */
 .nav_x {
     position: absolute;
     top: -43px;
-    left: 30px!important;
+    left: 30px;
     width: 26px;
     height: 26px;
     cursor: pointer;
@@ -576,15 +573,12 @@ body label:hover {
 .nav_x span:last-child {
 	transform: rotate(-45deg);
 }
-@media all and (min-width: 1020px) {
+
+@media all and (max-width: 450px) {
     .nav_x {
-        left: 50%;
-        margin-left: 0px;
-    }
-}
-@media all and (min-width: 1300px) {
-    .nav_x {
-        margin-left: 0px;
+		width: 22px;
+		height: 22px;
+		left: 20px;
     }
 }
 /* -------------------------------- */
@@ -630,7 +624,6 @@ body label:hover {
     left: 0;
 }
 
-
 .arrow-left_svg {
     width: 16px;
     margin: 12px 0 0 12px;
@@ -668,7 +661,7 @@ body label:hover {
 
 /* CONTENT TEAM & ABOUT ----------- */
 body input ~ div {
-  background-color: rgba(252,252,252,0.8); /*#E0E0E0;*/
+  background-color: rgba(252,252,252,0.8);
   position: fixed;
   overflow-y: scroll;
   top: 90px; bottom: 5px; left: 0; right: 0;
@@ -677,7 +670,6 @@ body input ~ div {
   -moz-transition: 0.5s ease-in-out 0.8s;
   -webkit-transition: 0.5s ease-in-out 0.8s;
 }
-
 body input:checked ~ div {
 	height: -moz-calc(100% - 90px);
     height: -webkit-calc(100% - 90px);
@@ -687,6 +679,21 @@ body input:checked ~ div {
     -moz-transition: height 0.5s ease-in-out 0.2s;
     -webkit-transition: height 0.5s ease-in-out 0.2s;
 }
+
+@media all and (max-width: 760px) {
+    body input ~ div {
+        top: 75px;
+		bottom: 0px;
+    }
+	
+	body input:checked ~ div {
+		height: -moz-calc(100% - 75px);
+    	height: -webkit-calc(100% - 75px);
+    	height: -o-calc(100% - 75px);
+    	height: calc(100% - 75px);
+    }
+}
+
 body input ~ div .new_section {
 	font-size: 20px;
     font-weight: 400;
@@ -942,6 +949,12 @@ body input:checked ~ div .footnote {
 	background-color: rgb(252,252,252);
 	border: 5px #000 solid;
 }
+@media all and (max-width: 765px) {
+	.list_item {
+		border: none;
+		outline: 5px #000 solid;
+	}
+}
 
 .list_bg {
     width: 100%;
@@ -1030,7 +1043,7 @@ body input:checked ~ div .footnote {
 	opacity: 0;
 }
 
-@media all and (max-width: 764px) {
+@media all and (max-width: 765px) {
     .list_title {
         font-size: 50px;
 		width: 100%;
@@ -1041,6 +1054,7 @@ body input:checked ~ div .footnote {
 	.list_subtitle {
 		font-size: 18px;
 		margin-left: 12px;
+		line-height: 1.3em;
 	}
 	.list_subtitle span:nth-child(1) {
 		width: 58px;
@@ -1062,7 +1076,7 @@ body input:checked ~ div .footnote {
 		margin-top: 8%;
 	}
 }
-@media all and (min-width: 765px) {
+@media all and (min-width: 766px) {
     .list_title {
         font-size: 70px;
 		width: 90%;

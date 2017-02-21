@@ -3257,7 +3257,7 @@ function AssetLoader() {
 // CREATES AND INITIALIZES NAVIGATION BAR
 ;function Nav() {
     function b(b) {
-        _nav.style.width = Model.viewport.width - 10 + "px"
+        Model.viewport.width > 765 ? _nav.style.width = Model.viewport.width - 10 + "px" : _nav.style.width = Model.viewport.width+ "px"
     }
     var f = {}, n, q, p, c;
     f.showX = function() {
@@ -3265,7 +3265,7 @@ function AssetLoader() {
         document.body.classList.remove("home");
         TweenLite.to(p, .4, {
             delay: .6,
-            top: Model.viewport.width < 450 ? 80 : 21,
+            top: Model.viewport.width < 450 ? 23 : 21,
             ease: Quart.easeOut
         })
 		TweenLite.to(m, .4, {
@@ -3803,19 +3803,27 @@ function AssetLoader() {
 				Q[jj].style.display = "";
 			subtitle_close();
 		}
-		// ADDS BORDER
-		var item = document.querySelectorAll(".list_item")
-		for (var j = 0; j < item.length; j++) {
-			item[j].style.border = "5px solid #000";
+		if (Model.viewport.width > 765) {
+			// ADDS BORDER
+			var item = document.querySelectorAll(".list_item")
+			for (var j = 0; j < item.length; j++) {
+				item[j].style.border = "5px solid #000";
+			}
+			// HIDES BARRA
+			var barras = document.querySelectorAll(".barra")
+			for (var i = 0; i < barras.length; i++) {
+				barras[i].style.visibility = "hidden";
+			}
+			var ov = document.querySelector(".overlay")
+			ov.style.left = 0;
+			ov.style.right = 0;
+		} else {
+			// ADDS OUTLIER
+			var item = document.querySelectorAll(".list_item")
+			for (var j = 0; j < item.length; j++) {
+				item[j].style.outline = "5px solid #000";
+			}			
 		}
-		// HIDES BARRA
-		var barras = document.querySelectorAll(".barra")
-		for (var i = 0; i < barras.length; i++) {
-			barras[i].style.visibility = "hidden";
-		}
-		var ov = document.querySelector(".overlay")
-		ov.style.left = 0;
-		ov.style.right = 0;
 		TweenLite.to(document.querySelector(".nav"), .4, {
 			backgroundColor: "rgba(252,252,252,0)",
 			ease: Quart.easeInOut
@@ -3967,24 +3975,32 @@ function AssetLoader() {
                 document.documentElement.style.backgroundColor = Model.colors[T];
                 oa.style.overflow = "visible";
                 la();
-				// ADDS BARRA
-				var barras = document.querySelectorAll(".barra")
-				for (var i = 0; i < barras.length; i++) {
-					barras[i].style.visibility = "visible";
-				}
-				// HIDES BORDER
-				var item = document.querySelectorAll(".list_item")
-				for (var j = 0; j < item.length; j++) {
-					item[j].style.border = "none";
+				if (Model.viewport.width > 765) {
+					// ADDS BARRA
+					var barras = document.querySelectorAll(".barra")
+					for (var i = 0; i < barras.length; i++) {
+						barras[i].style.visibility = "visible";
+					}
+					// HIDES BORDER
+					var item = document.querySelectorAll(".list_item")
+					for (var j = 0; j < item.length; j++) {
+						item[j].style.border = "none";
+					}
+					var ov = document.querySelector(".overlay")
+					ov.style.left = 5 + "px";
+					ov.style.right = 5 + "px";
+				} else {
+					// ADDS OUTLIER
+					var item = document.querySelectorAll(".list_item")
+					for (var j = 0; j < item.length; j++) {
+						item[j].style.outline = "none";
+					}			
 				}
 				// ADDS TALK VIDEO
                 for (var a = b.querySelectorAll(".talkcontainer"), c = 0; c < a.length; c++) {
                     var e = a[c];
                     e.addEventListener("click", P)
                 }
-				var ov = document.querySelector(".overlay")
-				ov.style.left = 5 + "px";
-				ov.style.right = 5 + "px";
 				// ADDS OPACITY TO NAV
 				TweenLite.to(document.querySelector(".nav"), .4, {
 					backgroundColor: "rgba(252,252,252,0.8)",
