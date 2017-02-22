@@ -100,16 +100,13 @@ function getMousePosition(b) {
 }
 
 jQuery("input[type=checkbox]").on('change', function() {
-	$(init);
-    $(window).load(init);
-    $(window).resize(init);
     $(window).mousemove(getMousePosition);
 	$('[data-toggle="tooltip"]').tooltip({
 		"content": function(){ 
-        	return $(this).attr("data-original-title"); 
+			return $(this).attr("data-original-title"); 
     	}
 	});
-	$(".head-image").on('click touchstart touchmove touchend touchcancel', function() {
+	$(".head-image").on('click touchend', function() {
 		var a = $(this),
 			delta = Model.viewport.width > 910 ? 0 : -8,
 			c = a.attr("data-image-num"),

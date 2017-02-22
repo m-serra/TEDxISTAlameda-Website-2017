@@ -4486,6 +4486,10 @@ function View() {
 	k.setBasePath(Model.IMAGE_PATH);
 	k.load(c, n, f, b)
     window.Main = {}
+	// Intialize team pictures
+	$(init);
+    $(window).load(init);
+    $(window).resize(init);
 })();
 window.onbeforeunload = function() {
     WindowScroll.scroll({
