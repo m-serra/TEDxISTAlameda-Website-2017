@@ -157,15 +157,6 @@ img {
 svg:not(:root) {
   overflow: hidden; }
 
-/*.nav_logo-svg path {
-  fill-opacity: 0;
-  stroke: #000;
-  stroke-width: 3;
-  stroke-dasharray: 870;
-  stroke-dashoffset: 870;
-  animation: draw 10s 1 linear forwards;
-}*/
-
 /* Grouping content
    ========================================================================== */
 /**
@@ -393,19 +384,16 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
-	/*position: fixed;*/
+	overflow: hidden;
 }
 
 body {
     background: #FFF;
-	-webkit-overflow-scrolling: touch;
 }
 
 html {
     overflow-y: scroll;
 }
-
 
 /* Starts here -------------------- */
 main {
@@ -415,12 +403,13 @@ main {
 /* NAVIGATION BAR ----------------- */
 .nav {
     position: fixed;
-    height: 85px;
+    height: 83px;
+	left: 5px; right: 5px;
     padding-top: 9px;
     z-index: 5;
 	visibility: hidden;
 	background-color: transparent;
-	margin: 5px 0 0 5px;
+	margin-top: 5px;
 }
 
 /* TEDxISTAlameda LOGO - svg */
@@ -442,8 +431,9 @@ main {
     margin: 0 auto;
 }
 
-@media all and (max-width:640px){
+@media all and (max-width:765px){
 	.nav {
+		left: 0px; right: 0px;
 		height: 75px;
 		margin: 0px;
 	}
@@ -663,18 +653,18 @@ body label:hover {
 body input ~ div {
   background-color: rgba(252,252,252,0.8);
   position: fixed;
-  overflow-y: scroll;
-  top: 90px; bottom: 5px; left: 0; right: 0;
+  overflow-y: hidden;
+  top: 88px; bottom: 0; left: 0; right: 0;
   height: 0%;
   transition: 0.5s ease-in-out 0.8s;
   -moz-transition: 0.5s ease-in-out 0.8s;
   -webkit-transition: 0.5s ease-in-out 0.8s;
 }
 body input:checked ~ div {
-	height: -moz-calc(100% - 90px);
-    height: -webkit-calc(100% - 90px);
-    height: -o-calc(100% - 90px);
-    height: calc(100% - 90px);
+	height: -moz-calc(100% - 93px);
+    height: -webkit-calc(100% - 93px);
+    height: -o-calc(100% - 93px);
+    height: calc(100% - 93px);
     transition: height 0.5s ease-in-out 0.2s;
     -moz-transition: height 0.5s ease-in-out 0.2s;
     -webkit-transition: height 0.5s ease-in-out 0.2s;
@@ -760,20 +750,19 @@ body input:checked ~ div .content-list{
 	bottom: 0!important;
 	text-align: center;
     top: 50px;
-	margin: 1vh auto 0 auto;
+	margin: 2px auto 0 auto;
 	opacity: 0;
 	color: #FF2100;
 	transition: opacity 0.8s ease-in-out 0.1s;
 	-moz-transition: opacity 0.8s ease-in-out 0.1s;
 	-webkit-transition: opacity 0.8s ease-in-out 0.1s;
 	z-index: -1;
-	overflow: hidden;
 }
 
 .content_selected {
 	opacity: 1;
 	z-index: 1;
-	overflow-y: scroll!important;
+	overflow-y: hidden;
 }
 
 body input ~ div .textbox {
@@ -817,10 +806,10 @@ body input ~ div .footnote {
 	left: 0; margin: 0px auto;
 	bottom: 20px!important;
 	font-size: 12px;
-	font-weight: 400;
+	font-weight: 500;
 	height: 40px;
 	padding-top: 20px;
-	color: #ff2100;
+	color: #000;
 	text-align: center;
 	visibility: hidden;
 	opacity: 0;
@@ -883,6 +872,9 @@ body input:checked ~ div .footnote {
 	}
 	body input ~ div .footnote {
 		position: relative;
+	}
+	.content_selected {
+		overflow-y: scroll;
 	}
 }
 
@@ -1043,7 +1035,7 @@ body input:checked ~ div .footnote {
 	opacity: 0;
 }
 
-@media all and (max-width: 765px) {
+@media all and (min-width: 0px) {
     .list_title {
         font-size: 50px;
 		width: 100%;
@@ -1055,6 +1047,7 @@ body input:checked ~ div .footnote {
 		font-size: 18px;
 		margin-left: 12px;
 		line-height: 1.3em;
+		margin-top: 4%;
 	}
 	.list_subtitle span:nth-child(1) {
 		width: 58px;
@@ -1086,7 +1079,6 @@ body input:checked ~ div .footnote {
 	}
 	.list_subtitle {
 		font-size: 25px;
-		margin-top: 4%;
 		margin-left: 37px;
 	}
 	.list_subtitle span:nth-child(1) {
@@ -1114,10 +1106,11 @@ body input:checked ~ div .footnote {
     .list_title {
         font-size: 80px;
 		width: 80%;
-		margin-top: -110px;
+		margin-top: -105px;
     }
 	.list_subtitle {
 		font-size: 25px;
+		margin-top: 3%;
 		margin-left: 37px;
 	}
 	.list_subtitle span:nth-child(1) {
@@ -1139,13 +1132,14 @@ body input:checked ~ div .footnote {
 		margin-top: 6%;
 	}
 }
-@media all and (min-width: 1200px) {
+@media all and (min-width: 1400px) {
     .list_title {
 		font-size: 100px;
         width: 70%;
 		margin-left: 62px;
     }
 	.list_subtitle {
+		font-size: 30px;
 		margin-left: 67px;
 	}
     #Speakers .list_subtitle span:nth-child(1) {
@@ -1408,7 +1402,7 @@ body input:checked ~ div .footnote {
 	margin: 15px 0 15px 0;
 }
 
-@media all and (max-width: 1500px) {
+@media all and (min-width: 1101px) {
 	.item_section {
 		width: 942px;
 	}
@@ -2050,7 +2044,7 @@ a > svg.flickr:hover {
 	display: block;
 	top: 0px;
 	height: 230px;
-	width: 300px;
+	width: 296px;
 	padding: 0 20px 0 20px;
 }
 
@@ -2159,11 +2153,17 @@ a > svg.flickr:hover {
 	.item_section_news {
 		width: 320px;
 	}
+	.social-feed-element .attachment {
+		width: 294px;
+	}
 }
 
 @media all and (min-width: 670px) {
 	.item_section_news {
 		width: 642px;
+	}
+	.social-feed-element .attachment {
+		width: 296px;
 	}
 }
 
@@ -2396,36 +2396,18 @@ a > svg.flickr:hover {
 	height: 5px;
 	top: 0;
 }
-
 .b-bottom {
 	width: 100%;
 	height: 5px;
 	bottom: 0;
 }
-
 .b-left {
 	width: 5px;
 	height: 100%;
 	left: 0;
 }
-
 .b-right {
 	width: 5px;
 	height: 100%;
 	right: 0;
 }
-
-/*@media all and (max-width: 450px){
-	.b-top {
-		height: 1px;
-	}
-	.b-bottom {
-		height: 1px;
-	}
-	.b-left {
-		width: 1px;
-	}
-	.b-right {
-		width: 1px;
-	}
-}*/

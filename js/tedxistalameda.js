@@ -3253,7 +3253,17 @@ function AssetLoader() {
     ;
     this.activate()
 }
-
+;function KeyMove(b, q) {
+	this.deactivate = function() {
+        b.removeEventListener("keyup", q, !1);
+    }
+    ;
+	this.activate = function() {
+        b.addEventListener("keyup", q, !1);
+    }
+    ;
+    this.activate()
+}
 // CREATES AND INITIALIZES NAVIGATION BAR
 ;function Nav() {
     function b(b) {
@@ -3315,18 +3325,17 @@ function AssetLoader() {
     function b(b) {
         var c = {};
 		1420 <= Model.viewport.width ? (c.multiplier = 1.25,
-        c.width = 840) : 1200 <= Model.viewport.width ? (c.multiplier = 1.12,
-        c.width = 720) : 980 <= Model.viewport.width ? (c.multiplier = 1,
+        c.width = 720) : 1025 <= Model.viewport.width ? (c.multiplier = 1,
         c.width = 600) : 765 <= Model.viewport.width ? (c.multiplier = .8,
         c.width = 480) : 480 <= Model.viewport.width ? (c.multiplier = .7,
-        c.width = 360) : (c.multiplier = .6, c.width = 280);
+        c.width = 360) : (c.multiplier = .6, c.width = 230);
 		
-		1070 <= Model.viewport.height ? c.height = 600 : 
 		880 <= Model.viewport.height ? c.height = 550 : 
-		740 <= Model.viewport.height ? c.height = 500 : 
-		620 <= Model.viewport.height ? c.height = 300 : 
-		500 <= Model.viewport.height ? c.height = 200 :
-        c.height = 150;
+		740 <= Model.viewport.height ? c.height = 450 : 
+		670 <= Model.viewport.height && BrowserDetect.DESKTOP ? c.height = 400 : 
+		530 <= Model.viewport.height ? c.height = 300 :
+		350 <= Model.viewport.height ? c.height = 200 :
+        c.height = 175;
         if (Model.tileDimensions != c && (Model.tileDimensions = c,
         !1 !== b && a))
             for (b = 0; b < a.length; b++) {
@@ -3346,9 +3355,11 @@ function AssetLoader() {
         !0 === c && (E._x = Math.floor(-a[F].offsetLeft + (Model.viewport.width - Model.tileDimensions.width) / 2),
         E._update())
     }
-    function n(a) {
-        37 == a.keyCode ? k() : 39 == a.keyCode && c()
-    }
+	function m(a) {
+		if (27 == a.keyCode) {
+			Controller.updateURL("/");
+		}
+	}
     function q(a) {
         z || (a.preventDefault(),
         N || ("Firefox" == BrowserDetect.BROWSER_NAME ? 3 < a.detail ? (N = !0,
@@ -3411,12 +3422,14 @@ function AssetLoader() {
     function v() { 
         oa.activate();
         aa.activate();
+		eo.activate();
         3 === F ? R.classList.remove("arrow-right-show") : R.classList.add("arrow-right-show");
         0 === F ? K.classList.remove("arrow-left-show") : K.classList.add("arrow-left-show")
     }
     function I() {
         oa.deactivate();
         aa.deactivate();
+		eo.deactivate();
         K.classList.remove("arrow-left-show");
         R.classList.remove("arrow-right-show")
     }
@@ -3506,7 +3519,7 @@ function AssetLoader() {
     E._update();
     (function() {
         window.addEventListener("resize", e);
-        window.addEventListener("keyup", n);
+        window.addEventListener("keydown", m);
         "Firefox" == BrowserDetect.BROWSER_NAME ? window.addEventListener("DOMMouseScroll", q) : window.addEventListener("mousewheel", q);
         oa = new Swipe(document,70,"left",function() {
             !1 === z && (N = !0,
@@ -3517,7 +3530,11 @@ function AssetLoader() {
             !1 === z && (N = !0,
             k())
         }
-        )
+		);
+		eo = new KeyMove(document, function(a){
+			37 == a.keyCode ? k() : 39 == a.keyCode && c()
+		}
+		)
     })();
     return P
 }
