@@ -109,23 +109,23 @@ jQuery("input[type=checkbox]").on('change', function() {
         	return $(this).attr("data-original-title"); 
     	}
 	});
-    $(".head-image").click(function() {
+	$(".head-image").on('click touchstart touchmove touchend touchcancel', function() {
 		var a = $(this),
 			delta = Model.viewport.width > 910 ? 0 : -8,
 			c = a.attr("data-image-num"),
-        	b = a.attr("data-title"),
-        	d = a.attr("data-description"),
+			b = a.attr("data-title"),
+			d = a.attr("data-description"),
 			e = a.attr("data-mail"),
 			g = a.attr("data-facebook"),
 			h = a.attr("data-linkedin"),
 			w = a.attr("data-website");
-        a.removeClass("up upleft left downleft down downright right upright front click");
-        var f = c * 100 + delta;
-        Model.viewport.width > 910 ? a.addClass("click").css("background-position", "600px " + f + "px") : a.addClass("click").css("background-position", "592px " + f + "px");
+		a.removeClass("up upleft left downleft down downright right upright front click");
+		var f = c * 100 + delta;
+		Model.viewport.width > 910 ? a.addClass("click").css("background-position", "600px " + f + "px") : a.addClass("click").css("background-position", "592px " + f + "px");
 		$(".description-text").css('visibility', 'visible');
 		$(".description-text").css('opacity', 1);
-        $(".description-text .name").html(b);
-        $(".description-text .desc").html(d);
+		$(".description-text .name").html(b);
+		$(".description-text .desc").html(d);
 		if (!e || e == "undefined") {
 			$(".description-text .socialmedia a:nth-child(1)").css("display", "none")
 		} else {
@@ -150,10 +150,12 @@ jQuery("input[type=checkbox]").on('change', function() {
 			$(".description-text .socialmedia a:nth-child(4)").css("display", "inline-flex")
 			$(".description-text .socialmedia a:nth-child(4)")[0].href = w;
 		}
-    }); 
+	});
     $(".row_second").mouseenter(function() {
-		$(".description-text").css('opacity', 0);
-		$(".description-text").css('visibility', 'hidden');
+		if (BrowserDetect.DESKTOP) {
+			$(".description-text").css('opacity', 0);
+			$(".description-text").css('visibility', 'hidden');
+		}
     });
     $(".close").click(function() {
 		$(".description-text").css('opacity', 0);
