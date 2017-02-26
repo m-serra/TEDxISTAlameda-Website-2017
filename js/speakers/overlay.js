@@ -1,48 +1,18 @@
-/*(function() {
-	var triggerBttn = document.getElementById( 'trigger-overlay' ),
-		overlay = document.querySelector( 'div.speaker_overlay' ),
-		closeBttn = overlay.querySelector( 'button.overlay-close' );
-		transEndEventNames = {
-			'WebkitTransition': 'webkitTransitionEnd',
-			'MozTransition': 'transitionend',
-			'OTransition': 'oTransitionEnd',
-			'msTransition': 'MSTransitionEnd',
-			'transition': 'transitionend'
-		},
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		support = { transitions : Modernizr.csstransitions };
-
-	function toggleOverlay() {
-		if( classie.has( overlay, 'open' ) ) {
-			classie.remove( overlay, 'open' );
-			classie.add( overlay, 'close' );
-			var onEndTransitionFn = function( ev ) {
-				if( support.transitions ) {
-					if( ev.propertyName !== 'visibility' ) return;
-					this.removeEventListener( transEndEventName, onEndTransitionFn );
-				}
-				classie.remove( overlay, 'close' );
-			};
-			if( support.transitions ) {
-				overlay.addEventListener( transEndEventName, onEndTransitionFn );
-			}
-			else {
-				onEndTransitionFn();
-			}
-		}
-		else if( !classie.has( overlay, 'close' ) ) {
-			classie.add( overlay, 'open' );
-		}
-	}
-
-	triggerBttn.addEventListener( 'click', toggleOverlay );
-	closeBttn.addEventListener( 'click', toggleOverlay );
-})(); */
-
 /* Open */
-function openNav() {
-    document.getElementById("speaker_overlay").style.height = "60%";
+function openNav(button) {
     
+    var overlay = document.getElementById("speaker_overlay");
+    var title = document.getElementById("overlay-title");
+    var id = button.id;
+    
+    document.getElementById("speaker_overlay").style.height = "50%";
+    overlay.style.border = "solid 3px rgba(71, 72, 75, 1)";
+    overlay.style.boxShadow= "-1.2px 1px 5px #888888";
+    title.style.borderBottom = "solid 1px red";
+        
+    document.getElementById(id + "-overlay-text").style.display = "block";
+    document.getElementById(id + "-overlay-title").style.display = "block";
+           
     var allSpeakers = $(".blurred_speaker");
     var allTitles = $(".flex_title");
     var allButtons = $(".item_section_speakers figure button");
@@ -63,11 +33,17 @@ function openNav() {
 }
 
 function closeNav() {
+     
     document.getElementById("speaker_overlay").style.height = "0%";
+    document.getElementById("overlay-title").style.border = "none";
+    document.getElementById("speaker_overlay").style.boxShadow= "";
+    document.getElementById("speaker_overlay").style.border = "";
     
     var allSpeakers = $(".blurred_speaker");
     var allTitles = $(".flex_title");
     var allButtons = $(".item_section_speakers figure button");
+    var allSpeakerTexts = $(".speaker_overlay .text-box");
+    var allSpeakerNames = $(".overlay-title h2");
     
     allSpeakers.each(function(i, el) {
     var el = $(el);
@@ -81,4 +57,14 @@ function closeNav() {
     var el = $(el);
         el.removeClass("blurry_title");
     })
+    
+    for (var i = 0; i < allSpeakerTexts.length; i++ ) {
+        allSpeakerTexts[i].style.display = "none";    
+    }
+    for (var i = 0; i < allSpeakerNames.length; i++ ) {
+        allSpeakerNames[i].style.display = "none";   
+    }
+    
+    
+ 
 }

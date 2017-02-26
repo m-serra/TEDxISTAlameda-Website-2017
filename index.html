@@ -367,15 +367,6 @@
 					</div>					
             	</div>
 			</nav>
-			<div id="speaker_overlay" class="speaker_overlay">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <div class="speaker_overlay-content">
-                <a>About</a>
-                <a>Services</a>
-                <a>Clients</a>
-                <a>Contact</a>
-              </div>
-            </div>
 			<!-- MAIN CONTENT -->
             <div class="list-mask" id="main-content">
 				<!-- Left arrow -->
@@ -476,7 +467,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/Bordalo-II.png" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker1">View</button>
                                                 <h2>Bordalo II</h2>
                                                 <p>"Não é reciclagem, é uma crítica ao consumismo."</p>
                                             </figcaption>
@@ -494,7 +485,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/daniela.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker2">View</button>
                                                 <p>"Um povo que não tem cultura, que não tem identidade, desaparece."</p>
                                             </figcaption>
                                         </figure>
@@ -511,7 +502,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/jeremias.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker3">View</button>
                                                 <p>"Nós acreditamos que a prova não prova nada.".</p>
                                             </figcaption>
                                         </figure>
@@ -528,7 +519,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/pachet.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker4">View</button>
                                                 <p style="padding-top:80%;">"My goal is to create a generation of authoring tools able to boost individual creativity."</p>
                                             </figcaption>
                                         </figure>
@@ -545,7 +536,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/couvaneiro.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker5">View</button>
                                                 <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
@@ -562,7 +553,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/joe.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker6">View</button>
                                                 <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
@@ -579,7 +570,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/coconuts.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker7">View</button>
                                                 <!-- <p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
@@ -596,7 +587,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/isaac.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker8">View</button>
                                                 <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
@@ -613,7 +604,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/susana.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker9">View</button>
                                                 <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
@@ -630,7 +621,7 @@
                                             <img class="blurred_speaker" src="images/photos/speakers/breyner.jpg" />
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button onclick="openNav()">View</button>
+                                                <button type="button" onclick="openNav(this)" id="speaker10">View</button>
                                                 <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
                                             </figcaption>
                                         </figure>
@@ -677,7 +668,6 @@
 						</div>
 						<!-- FOOTER -->
                     </div>
-					
                     <div class="list_item" data-color="lgrey" data-layout="1" data-num="2" data-name="Partners">
                         <div class="list_bg"></div>
 						<div class="bg"></div>
@@ -1073,6 +1063,62 @@
 						<!-- FOOTER -->
 					</div>
                 </div>
+            </div>
+            
+            <!-- speaker overlay -->
+            <div id="speaker_overlay" class="speaker_overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-title" id="overlay-title">
+                    <h2 id="speaker1-overlay-title">Bordalo II</h2>
+                    <h2 id="speaker2-overlay-title">Daniela Ribeiro</h2>
+                    <h2 id="speaker3-overlay-title">Filipe Jeremias</h2>
+                    <h2 id="speaker4-overlay-title">François Pachet</h2>
+                    <h2 id="speaker5-overlay-title">João Couvaneiro</h2>
+                    <h2 id="speaker6-overlay-title">Joe Paton</h2>
+                    <h2 id="speaker7-overlay-title">Les Crazy Coconuts</h2>
+                    <h2 id="speaker8-overlay-title">Mistah Isaac</h2>
+                    <h2 id="speaker9-overlay-title">Susana Lima</h2>
+                    <h2 id="speaker10-overlay-title">Tomás Mello Breyner</h2>
+                </div>
+                <div class="speaker_overlay-content">
+                  <div class="text-box" id="speaker1-overlay-text">
+                      <p>Pertencente à nossa sociedade consumista e nada contente com isso, Bordalo II tira proveito do "lixo": desenvolve ideias à escala da sua originalidade usando material de "fim de vida".</p> 
+                      <p>São capazes de já ter passado por algumas das suas obras em Lisboa - estejam atentos: http://globalstreetart.com/bordalo-ii</p>
+                  </div>
+                  <div class="text-box" id="speaker2-overlay-text">
+                      <p>Artista angolana, Daniela RIbeiro mistura arte e tecnologia das quais resultam coisas brutais!</p> 
+                      <p>Teve em Maio de 2016 uma exposição em Londres, onde usou materiais tecnológicos reciclados na demonstração do seu medo pela AI (http://www.bbc.com/news/world-africa-36420741?SThisFB)</p>
+                  </div>
+                  <div class="text-box" id="speaker3-overlay-text">
+                      <p>Integra a equipa da MEL - Movimento Educação Livre - cuja missão é promover, desenvolver e fortalecer novas possibilidades e paradigmas de educação, de modo a fomentar a Educação Livre em Portugal. Muito focados na intervenção dos pais e família no ensino dos filhos.</p>
+                  </div>
+                  <div class="text-box" id="speaker4-overlay-text">
+                      <p>Diretor da SONY Computer Science Laboratory em Paris. Envolvido numa série de projetos que unem a AI à música (é isso mesmo, criar/ajudar na criação de música usando inteligência artificial). O seu objetivo atual é criar uma nova geração de ferramentas capazes de fazer um boost à criatividade individual.</p>
+                  </div>
+                  <div class="text-box" id="speaker5-overlay-text">
+                      <p>Primeiro professor português nomeado para o prémio Global Teacher Prize, está a trabalhar no projeto school in a box em Moçambique, uma comunidade digital que promove o uso da tecnologia para melhorar o ambiente dentro da sala de aula. Desenvolveram um tablet feito especialmente para sítios sem acesso à eletricidade.</p>
+                  </div>
+                  <div class="text-box" id="speaker6-overlay-text">
+                      <p>Oriundo de New Jersey, este neurocientista da Fundação Champalimaud estuda a perceção que o cérebro tem do tempo e a sua relevância na aprendizagem, através do uso de técnicas comportamentais, eletrofisiológicas, computacionais e moleculares.</p>
+                  </div>
+                  <div class="text-box" id="speaker7-overlay-text">
+                      <p>Se vos soa estranho, estão achar estranho ver o nome de cartaz do nosso primeiro momento cultural! "São tão originais quanto surpreendentes e com o ritmo marcado pelos sapatos de Adriana Jaulino, Gil Jerónimo e Tiago Domingues completam um conceito que junta o sapateado e as novas tendências da canção pop numa união mais que perfeita."</p>
+                      <p>Vejam! Oiçam! http://omnichordrecords.com/pt/artistas-2/les-crazy-coconuts-8/</p>
+                  </div>
+                  <div class="text-box" id="speaker8-overlay-text">
+                      <p>Cantor, compositor e DJ angolano, chegou a Portugal aos 11 anos e começou a espalhar a sua arte com influência de Miles Davis e Bob Marley. Tocou e cantou com um leque lusitano variadíssimo, desde Gabriel o Pensador a Capicua e Anselmo Ralph. Fez palco por toda Lisboa: "Mr. Isaac é guitarra, voz e movimento de Lisboa."</p>
+                      <p>Ah...e é beatboxer!</p>
+                      <p>Aqui fica um link de um concerto bem pertinho, na Casa Independente: https://www.youtube.com/watch?v=eiMWbMAI1gk</p>
+                  </div>
+                  <div class="text-box" id="speaker9-overlay-text">
+                      <p>Principal Investigator na Champalimaud, trabalha atualmente em Neuroethology: "The main goal of our laboratory is to gain mechanistic insights into the neuronal processes underlying fundamental behaviors in females: the choice of a suitable mate and how to initiate and terminate sexual behavior.”</p>
+                      <p>Foi inclusivamente referida por um professor de Yale com quem trabalhou numa TED talk (como todo o seu sotaque aportuguês - minuto 7:18)</p>
+                      <p>https://www.ted.com/talks/gero_miesenboeck#t-427443</p>
+                  </div>
+                  <div class="text-box" id="speaker10-overlay-text">
+                      <p>Fundador do projecto O Pequeno Buda, cujo objetivo é que a meditação passe a fazer parte do dia a dia nas escolas. Português da época de 80, foi viver para Nova Iorque onde se dedicou por completo ao estudo e à pratica de Yoga. Desde então tem viajado pelo mundo em busca de conhecimento sobre a arte de viver.</p>
+                  </div>   
+              </div>
             </div>
 		</main>
 		

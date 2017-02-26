@@ -3355,11 +3355,25 @@ function AssetLoader() {
         !0 === c && (E._x = Math.floor(-a[F].offsetLeft + (Model.viewport.width - Model.tileDimensions.width) / 2),
         E._update())
     }
+    
+    
+    
 	function m(a) {
 		if (27 == a.keyCode) {
-			Controller.updateURL("/");
-		}
-	}
+            var overlay_height = document.getElementById("speaker_overlay").style.height;
+            if(overlay_height == 0){
+                Controller.updateURL("/");
+                console.log("updateURL");
+            }
+            else{
+                closeNav();
+                console.log("closeNav");
+            }
+        }
+        else if(8 == a.keyCode){
+            closeNav();
+        }       
+    }
     function q(a) {
         z || (a.preventDefault(),
         N || ("Firefox" == BrowserDetect.BROWSER_NAME ? 3 < a.detail ? (N = !0,
@@ -3517,7 +3531,15 @@ function AssetLoader() {
     f();
     E._x = Model.viewport.width;
     E._update();
+    
     (function() {
+        var delay = (function(){
+            var timer = 0;
+            return function(callback, ms){
+                clearTimeout (timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
         window.addEventListener("resize", e);
         window.addEventListener("keydown", m);
         "Firefox" == BrowserDetect.BROWSER_NAME ? window.addEventListener("DOMMouseScroll", q) : window.addEventListener("mousewheel", q);
