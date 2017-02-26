@@ -3363,15 +3363,13 @@ function AssetLoader() {
             var overlay_height = document.getElementById("speaker_overlay").style.height;
             if(overlay_height == 0){
                 Controller.updateURL("/");
-                console.log("updateURL");
             }
             else{
-                closeNav();
-                console.log("closeNav");
+                closeOverlay();
             }
         }
         else if(8 == a.keyCode){
-            closeNav();
+            closeOverlay();
         }       
     }
     function q(a) {
@@ -3473,6 +3471,7 @@ function AssetLoader() {
     }
     ;
     P.update = function(b) {
+        closeOverlay(); //added do close overlay if X is pressed
         z && "" === b ? (z = !1,
         a[F].close(function() {
             a[F].style.zIndex = "";
@@ -3655,24 +3654,8 @@ function AssetLoader() {
             var win = $(window);
             var allMods = $(".module");
             var allSpeakers = $(".blurred_speaker");
-                /*
-            allMods.each(function(i, el) {
-                var el = $(el);
-                if (el.visible(true)) {
-                    el.addClass("already-visible"); 
-
-                }
-            });*/
-
+        
             win.scroll(function(event) {
-               /* allMods.each(function(i, el) {
-                var el = $(el);
-                    if (el.visible(true)) {
-                        el.addClass("come-in");    
-                    }
-
-                });*/
-                
                 allSpeakers.each(function(i, el) {
                 var el = $(el);
                     if (el.visible(true)) {
@@ -4214,7 +4197,7 @@ function AssetLoader() {
             }
     }
     function p() {
-        c.close()
+        c.close();
     }
     var c = new CreateDiv, k, y, w, e = [];
     c.close = function() {

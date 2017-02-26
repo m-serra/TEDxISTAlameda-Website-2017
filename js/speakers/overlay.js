@@ -1,5 +1,5 @@
 /* Open */
-function openNav(button) {
+function openOverlay(button) {
     
     var overlay = document.getElementById("speaker_overlay");
     var title = document.getElementById("overlay-title");
@@ -32,7 +32,7 @@ function openNav(button) {
     
 }
 
-function closeNav() {
+function closeOverlay() {
      
     document.getElementById("speaker_overlay").style.height = "0%";
     document.getElementById("overlay-title").style.border = "none";

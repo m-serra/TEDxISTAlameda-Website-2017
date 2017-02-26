@@ -564,6 +564,12 @@ body label:hover {
 	transform: rotate(-45deg);
 }
 
+.speaker_overlay .nav_x{
+    top: 5%;
+    left: 92%;
+    
+}
+
 @media all and (max-width: 450px) {
     .nav_x {
 		width: 22px;
