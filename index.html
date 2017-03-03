@@ -31,6 +31,8 @@
   		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
         <link rel="stylesheet" type="text/css" href="css/speakers/overlay.css" />
+        <!-- FontAwesome-->
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 		
 		<staticContent><mimeMap fileExtension=".svg" mimeType="image/svg+xml" /></staticContent>
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
@@ -446,183 +448,149 @@
 						</div>
 						<!-- FOOTER -->
 					</div>
-                    <div class="list_item" data-color="lgrey" data-layout="2" data-num="3" data-name="Speakers" id="Speakers">
+                    <div class="list_item" data-color="lgrey" data-layout="3" data-num="3" data-name="Speakers" id="Speakers">
                         <div class="list_bg"></div>
                         <div class="list_header">
                             <span class="list_title">Speakers</span>
                             <span class="list_subtitle" style="top:45%">
 								<span>Ready.</span><span>Set.</span><span>Focus.</span>
 							</span>
+                            <div class="list_photo" data-image="images/photos/CarlosArturoTorres.jpg">
+								<img class="blur" src="images/_placeholder2x.png"/> 
+							</div>
                         </div>
                         <!-- section start -->
 						<div class="item_section_speakers" id="item_section_speakers">
-                            <div class="flex_container">
+                            <div class="flex_container" id="flex_container">
                               <div class="module">
-                                    <!--<div class="flex_title">
-                                        <h2>Bordalo II</h2>
-                                    </div> -->
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,140 180,198 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker1"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
-                                            <img class="blurred_speaker" src="images/photos/speakers/Bordalo-II.png" />
+                                            <img class="blurred_speaker" src="images/photos/speakers/Bordalo-II.png"/>
                                             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker1">View</button>
                                                 <h2>Bordalo II</h2>
-                                                <p>"Não é reciclagem, é uma crítica ao consumismo."</p>
+                                                <p><i class="fa fa-quote-left" aria-hidden="true" style="left: 0%;"></i>Não é reciclagem, é uma crítica ao consumismo.<i class="fa fa-quote-right" aria-hidden="true" style="left: 4%;"></i></p>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                               </div>
-                              <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Daniela Ribeiro</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                              <div class="module"> 
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker2"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/daniela.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker2">View</button>
-                                                <p>"Um povo que não tem cultura, que não tem identidade, desaparece."</p>
+                                                <h2>Daniela Ribeiro</h2>
+                                                <p><i class="fa fa-quote-left" aria-hidden="true" style="left: 0%;"></i>Um povo que não tem cultura, que não tem identidade, desaparece.<i class="fa fa-quote-right" aria-hidden="true" style="left: 4%;"></i></p>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Filipe Jeremias</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker3"> 
+                                        <a data-path-hover="M 0,180 240,198 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/jeremias.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker3">View</button>
-                                                <p>"Nós acreditamos que a prova não prova nada.".</p>
+                                                <h2>Filipe Jeremias</h2>
+                                                <p><i class="fa fa-quote-left" aria-hidden="true" style="left:0%;"></i>Nós acreditamos que a prova não prova nada. <i class="fa fa-quote-right" aria-hidden="true" style="left: 3%;"></i></p>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                <div class="module">
-                                    <div class="flex_title">
-                                        <h2>François Pachet</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker4"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">  
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/pachet.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker4">View</button>
-                                                <p style="padding-top:80%;">"My goal is to create a generation of authoring tools able to boost individual creativity."</p>
+                                                <h2>François Pachet</h2>
+                                                <p><i class="fa fa-quote-left" aria-hidden="true" style="left: 0%;"></i> My goal is to create a generation of authoring tools able to boost individual creativity.<i class="fa fa-quote-right" aria-hidden="true" style="left: 3%;"></i></p>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                <div class="module">
-                                    <div class="flex_title">
-                                        <h2>João Couvaneiro</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker5"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/couvaneiro.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker5">View</button>
-                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
+                                                <h2>João Couvaneiro</h2>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                               <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Joe Paton</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker6"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/joe.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker6">View</button>
-                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
+                                                <h2>Joe Paton</h2>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Les Crazy Coconuts</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker7"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/coconuts.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker7">View</button>
-                                                <!-- <p>Soko radicchio bunya nuts gram dulse.</p>-->
+                                                <h2>Les Crazy Coconuts</h2>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Mistah Isaac</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker8"> 
+                                        <a data-path-hover="M 0,140 180,198 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/isaac.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker8">View</button>
-                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
+                                                <h2>Mistah Isaac</h2>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Susana Lima</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker9"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/susana.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker9">View</button>
-                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
+                                                <h2>Susana Lima</h2>
                                             </figcaption>
                                         </figure>
                                         </a>
                                     </div>
                                 </div>
                                <div class="module">
-                                    <div class="flex_title">
-                                        <h2>Tomás Mello Breyner</h2>
-                                    </div>
-                                    <div id="flex_child" class="flex_child"> 
-                                        <a data-path-hover="M 0,160 180,218 180,320 0,320 z">   
+                                    <div class="flex_child" onclick="openOverlay(this);" id="speaker10"> 
+                                        <a data-path-hover="M 0,180 180,240 180,320 0,320 z">   
                                         <figure>
                                             <img class="blurred_speaker" src="images/photos/speakers/breyner.jpg" />
-                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,310 L 180,310 L 180,320 L0,320 z"/></svg>
+                                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="m 0,280 L 180,280 L 180,320 L0,320 z"/></svg>
                                             <figcaption>
-                                                <button type="button" onclick="openOverlay(this)" id="speaker10">View</button>
-                                                <!--<p>Soko radicchio bunya nuts gram dulse.</p>-->
+                                                <h2>Tomás Mello Breyner</h2>
                                             </figcaption>
                                         </figure>
                                         </a>
@@ -632,7 +600,7 @@
 						</div>
 						<!-- section end -->
 						<!-- FOOTER-->
-						<div class="page_footer">
+						<div class="page_footer" id="speakers_footer">
 							<div class="footer_section">
 								<div class="footer_logos">
 									<a href="https://www.facebook.com/tedxistalameda" target="_blank" style="margin: 0px 5px 0px 10px;">
@@ -1322,7 +1290,7 @@
 					var speed = 250,
 						easing = mina.easeinout;
 
-					[].slice.call ( document.querySelectorAll( '#flex_child > a' ) ).forEach( function( el ) {
+					[].slice.call ( document.querySelectorAll( '.flex_child > a' ) ).forEach( function( el ) {
 						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
 							pathConfig = {
 								from : path.attr( 'd' ),

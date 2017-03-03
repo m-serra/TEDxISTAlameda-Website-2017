@@ -3886,11 +3886,16 @@ function AssetLoader() {
 		// SPEAKERS
 		} else if (rs) {
             var d = 0, h = Model.viewport.height, a = h, c =Rs[0], e=0;
+            var rows = Model.viewport.width > 1890 ? 2 : Model.viewport.width > 1512 ? 3 : Model.viewport.width > 1135 ? 4 : Model.viewport.width > 756 ? 5: 10;
+            var hfooter = jQuery('#speakers_footer').height();
+            console.log(rows);
+            console.log("width:" + Model.viewport.width);
 			c.style.top = h + "px";
             c.style.display = "block";
             c.style.border = "1px solid transparent"; 
-            c.style.height = "1600px";
-            a += 1600;
+            c.style.height = hfooter + 340*rows + "px"; 
+            a += hfooter + 340*rows;
+            
 		// PARTNERS
 		} else if (rp) {
 			// Item-section-intro
@@ -4410,7 +4415,22 @@ function AssetLoader() {
             scrollX: 50,
             scrollY: 80,
             scrollRotation: -5
+        }],
+        "layout-3": [{
+            x: 290,
+            y: 140,
+            rotation: -4,
+            focusX: 330,
+            focusY: 100,
+            hoverX: 280,
+            hoverY: 110,
+            headerX: 330,
+            headerY: 90,
+            scrollX: -50,
+            scrollY: 80,
+            scrollRotation: 0
         }]
+        
     };
     f.init = function() {
         BrowserDetect.DESKTOP ? (window.addEventListener("resize", b),

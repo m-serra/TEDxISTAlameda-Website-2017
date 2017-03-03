@@ -1237,12 +1237,6 @@ body input:checked ~ div .footnote {
 	height: 100px; /* Dummy value */
 	margin: 0px auto 0px auto;
 	overflow: hidden;
-    
-    background: red; /* For browsers that do not support gradients */        
-    background: -webkit-linear-gradient(90deg, rgb(227,227,227), rgb(243,243,243)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(90deg, red, yellow); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(90deg, red, yellow); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(90deg, rgb(240,240,240), rgb(248,248,248)); /* Standard syntax (must be last) */
 } 
 
 .item_section_contest {

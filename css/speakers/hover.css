@@ -19,6 +19,7 @@
     opacity: 0.7;
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
+    
 }
 
 .item_section_speakers figcaption {
@@ -32,11 +33,9 @@
 }
 
 .item_section_speakers figcaption h2 {
-    /*font-size: 24px;*/
     font-weight: 500;
     font: Roboto;
-    color: white/*rgba(220,220,220,1)*/;
-   /* text-shadow: -0.7px 0 0.2px rgb(71,72,75), 0 0.7px 0.2px rgb(71,72,75), 0.7px 0 0.2px rgb(71,72,75), 0 -0.7px 0.2px rgb(71,72,75);*/
+    color: white;
     padding: 75.6% 0 0 0;
 	margin: 0;
 	text-transform: uppercase;
@@ -50,11 +49,24 @@
 	padding-top:3%;
 	color: white;
 	font-weight: 500;
-    font-size: 16px;
-    text-align: right;
+    font-size: 14px;
+    text-align: center;
     opacity: 0;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
+}
+
+.item_section_speakers figcaption p i{
+    position: relative;
+    padding: 0;
+    z-index: 20;
+    opacity: 0;
+    color: white;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(250%) translateX(-50%); /*translateX(-50%); */
+	transform: translateY(250%) translateX(-50%);/*translateX(-50%);*/
+    
 }
 
 .item_section_speakers figcaption h2,
@@ -63,31 +75,7 @@
 	transform: translateY(50px);
 }
 
-.item_section_speakers figure button {
-	position: absolute;
-    padding: 4px 20px;
-    top: 64%;
-    left: 50%;
-    
-    background-color: rgba(224,224,224,0.8);
-    border: 1px solid #292929;
-	
-    text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: 500;
-    color: #292929;
-    z-index: 20;
-    
-    opacity: 0;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-	transition: opacity 0.3s, transform 0.3s;
-    
-	-webkit-transform: translateY(250%) translateX(-50%); /*scale(0.25);*/
-	transform: translateY(250%) translateX(-50%);/* scale(0.25);*/
-}
-
 .item_section_speakers figcaption,
-/*.item_section_speakers figcaption h2,*/ /*uncomment se quiser esconder o nome quando não há hover*/
 .item_section_speakers figcaption p,
 .item_section_speakers figure button {
 	-webkit-backface-visibility: hidden;
@@ -111,34 +99,35 @@
 /* Hover effects */
 .item_section_speakers a:hover figure img {
 	opacity: 1;
+    cursor: pointer;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 .item_section_speakers a:hover figcaption h2{
+    cursor: pointer;
     -webkit-transform: translateY(2%);
 	transform: translateY(2%);
 }
 
 .item_section_speakers a:hover figcaption p {
+    cursor: pointer;
 	-webkit-transform: translateY(0);
 	transform: translateY(0);
 }
 
 .item_section_speakers a:hover figcaption p {
+    cursor: pointer;
 	opacity: 1;
 }
 
-/* Individual styles */
-
-.item_section_speakers a:hover figure button{ 
+.item_section_speakers a:hover figure p i{ 
 	opacity: 1;
+    cursor: pointer;
 	-webkit-transform: translateY(-10%) translateX(-50%); /*scale(1)*/
 	transform: translateY(-10%) translateX(-50%);/* scale(1);*/
 }
 
-.item_section_speakers figure button:hover{ 
-	background-color: rgba(224,224,224,1);
-    border: solid 2.3px;
-}
 
 
 
