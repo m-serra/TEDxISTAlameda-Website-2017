@@ -5,7 +5,6 @@ function openOverlay(button) {
     var title = document.getElementById("overlay-title");
     var id = button.id;
     
-    console.log(id);
     
     overlay.style.height = "50%";
    // overlay.style.width = "60%";

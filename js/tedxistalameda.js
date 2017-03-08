@@ -3888,8 +3888,6 @@ function AssetLoader() {
             var d = 0, h = Model.viewport.height, a = h, c =Rs[0], e=0;
             var rows = Model.viewport.width > 1890 ? 2 : Model.viewport.width > 1512 ? 3 : Model.viewport.width > 1135 ? 4 : Model.viewport.width > 756 ? 5: 10;
             var hfooter = jQuery('#speakers_footer').height();
-            console.log(rows);
-            console.log("width:" + Model.viewport.width);
 			c.style.top = h + "px";
             c.style.display = "block";
             c.style.border = "1px solid transparent"; 
@@ -3976,14 +3974,17 @@ function AssetLoader() {
                 onUpdate: function() {
                     this.target._update()
 					this.target.querySelector("img").classList.remove("blur");
+                    document.querySelector("#polaroid1").classList.add("blur");
+                    document.querySelector("#polaroid2").classList.add("blur"); //zero efficiency but...
                 }
             });
+            
         k();
 		if (rn || rp || rpe) {
 			subtitle_open()
 		}
         if (rs) { 
-			Speakers_open(); 
+			Speakers_open();
 		}
         z.style.cursor = "";
         z.isOpen = !0;
@@ -4417,20 +4418,45 @@ function AssetLoader() {
             scrollRotation: -5
         }],
         "layout-3": [{
-            x: 290,
+            x: 650,
             y: 140,
-            rotation: -4,
-            focusX: 330,
-            focusY: 100,
+            rotation: 15,
+            focusX: 350,
+            focusY: 90,
             hoverX: 280,
-            hoverY: 110,
-            headerX: 330,
-            headerY: 90,
+            hoverY: 80,
+            headerX: 400,
+            headerY: 80,
             scrollX: -50,
             scrollY: 80,
             scrollRotation: 0
-        }]
-        
+        }, {
+            x: 650,
+            y: 140,
+            rotation: -15,
+            focusX: 350,
+            focusY: 90,
+            hoverX: 290,
+            hoverY: 50,
+            headerX: 400,
+            headerY: 50,
+            scrollX: -50,
+            scrollY: 80,
+            scrollRotation: 0
+        }, {
+            x: 650,
+            y: 140,
+            rotation: -5,
+            focusX: 350,
+            focusY: 90,
+            hoverX: 280,
+            hoverY: 70,
+            headerX: 400,
+            headerY: 20,
+            scrollX: -50,
+            scrollY: 80,
+            scrollRotation: 0
+        }]  
     };
     f.init = function() {
         BrowserDetect.DESKTOP ? (window.addEventListener("resize", b),
